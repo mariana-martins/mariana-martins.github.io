@@ -2,17 +2,10 @@
   "name": "mariana-martins-github-io",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.1"
-  },
-  "overrides": {
-    "bootstrap-sass": {
-      "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
-      ]
-    }
+    "modernizr": "~2.8.1",
+    "handlebars": "^4.0.5",
+    "font-awesome": "^4.7.0",
+    "bootstrap": "3.3.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
