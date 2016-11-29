@@ -8,6 +8,7 @@ $lightColor: #ffffff;
 $info-background: #18bc9c;
 $dark-color:#2c3e50;
 $title: 'Righteous', cursive;
+$text: 'Josefin Sans', sans-serif;
 
 @media screen and (max-width: 549px) {
   .navbar-text, .btn-collapsed {
@@ -18,12 +19,18 @@ $title: 'Righteous', cursive;
   }
   .img-header {
     margin-top: 40%;
-    max-height: 130px;
+    max-height: 180px;
   }
   header {
-    h3 {
+    h2 {
       margin-bottom: 14%;
     }
+  }
+  .contacts-title {
+    padding-top: 5%;
+  }
+  .contacts-icon {
+    margin-bottom: 30px;
   }
 }
 
@@ -42,9 +49,15 @@ $title: 'Righteous', cursive;
     max-height: 180px;
   }
   header {
-    h3 {
+    h2 {
       padding-bottom: 5%;
     }
+  }
+  .contacts-title {
+    padding-top: 5%;
+  }
+  .contacts-icon {
+    margin-bottom: 30px;
   }
 }
 
@@ -63,9 +76,15 @@ $title: 'Righteous', cursive;
     max-height: 180px;
   }
   header {
-    h3 {
+    h2 {
       padding-bottom: 7%;
     }
+  }
+  .contacts-title {
+    padding-top: 5%;
+  }
+  .contacts-icon {
+    margin-bottom: 30px;
   }
 }
 
@@ -75,9 +94,15 @@ $title: 'Righteous', cursive;
     margin-top: 17%;
   }
   header{
-    h3 {
-      padding-bottom: 4%;
+    h2 {
+      padding-bottom: 5%;
     }
+  }
+  .contacts-title {
+    padding-top: 10%;
+  }
+  .contacts-icon, .contacts-text {
+    margin-bottom: 12%;
   }
 }
 
@@ -121,5 +146,42 @@ $title: 'Righteous', cursive;
 
 .header-title {
   color: $lightColor;
-  font-family: 'Righteous', cursive;
+  font-family: $title;
+}
+
+.info-background {
+  background-color: $info-background;
+}
+
+.contacts-title {
+  color: $dark-color;
+  font-family: $title;
+  text-transform: uppercase;
+}
+
+.contacts-text {
+  color: $lightColor;
+  font-family: $text;
+  font-size: 1.4em;
+}
+
+#email:hover, #email:focus {
+  background-color: $dark-color;
+  color: $lightColor;
+}
+
+.contacts-icon {
+  color: $lightColor;
+}
+
+.contacts-icon:hover, .contacts-icon:focus {
+  color: $dark-color;
+}
+
+footer {
+  color: $lightColor;
+  font-family: $text;
+  p {
+    padding-top: 15px;
+  }
 }
