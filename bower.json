@@ -5,7 +5,8 @@
     "modernizr": "~2.8.1",
     "handlebars": "^4.0.5",
     "font-awesome": "^4.7.0",
-    "bootstrap": "3.3.4"
+    "bootstrap": "3.3.4",
+    "components-font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
