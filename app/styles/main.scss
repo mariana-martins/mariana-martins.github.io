@@ -32,6 +32,13 @@ $text: 'Josefin Sans', sans-serif;
   .contacts-icon {
     margin-bottom: 30px;
   }
+  .education-title {
+    padding-top: 2%;
+    padding-left: 5%;
+  }
+  .course-title, .course-description {
+    padding-left: 5%;
+  }
 }
 
 @media screen and (min-width: 550px) and (max-width: 600px) {
@@ -58,6 +65,13 @@ $text: 'Josefin Sans', sans-serif;
   }
   .contacts-icon {
     margin-bottom: 30px;
+  }
+  .education-title {
+    padding-top: 2%;
+    padding-left: 4%;
+  }
+  .course-title, .course-description {
+    padding-left: 4%;
   }
 }
 
@@ -86,6 +100,13 @@ $text: 'Josefin Sans', sans-serif;
   .contacts-icon {
     margin-bottom: 30px;
   }
+  .education-title {
+    padding-top: 2%;
+    padding-left: 3%;
+  }
+  .course-title, .course-description {
+    padding-left: 3%;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -103,6 +124,9 @@ $text: 'Josefin Sans', sans-serif;
   }
   .contacts-icon, .contacts-text {
     margin-bottom: 12%;
+  }
+  .education-title {
+    padding-top: 2%;
   }
 }
 
@@ -153,7 +177,12 @@ $text: 'Josefin Sans', sans-serif;
   background-color: $info-background;
 }
 
-.contacts-title {
+.course-title, .course-description {
+  color: $dark-color;
+  font-family: $text;
+}
+
+.contacts-title, .education-title  {
   color: $dark-color;
   font-family: $title;
   text-transform: uppercase;
@@ -172,6 +201,7 @@ $text: 'Josefin Sans', sans-serif;
 
 .contacts-icon {
   color: $lightColor;
+  font-size: 2.5em;
 }
 
 .contacts-icon:hover, .contacts-icon:focus {
