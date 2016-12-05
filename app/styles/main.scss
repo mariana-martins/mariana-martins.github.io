@@ -182,10 +182,24 @@ $text: 'Josefin Sans', sans-serif;
   font-family: $text;
 }
 
-.contacts-title, .education-title  {
+.contacts-title, .education-title, .online-courses-title {
   color: $dark-color;
   font-family: $title;
   text-transform: uppercase;
+}
+
+.link-course {
+  color: $dark-color;
+}
+
+.online-course {
+  border: solid 0.8px $dark-color;
+  font-family: $text;
+  color: $dark-color;
+  p {
+    margin-bottom: 0;
+  }
+  margin-bottom: 3%;
 }
 
 .contacts-text {
