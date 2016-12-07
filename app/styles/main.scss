@@ -7,8 +7,9 @@ $icon-font-path: '../fonts/';
 $lightColor: #ffffff;
 $info-background: #18bc9c;
 $dark-color:#2c3e50;
-$title: 'Righteous', cursive;
-$text: 'Josefin Sans', sans-serif;
+$title-font: 'Righteous', cursive;
+$text-font: 'Josefin Sans', sans-serif;
+$text-size: 1.2em;
 
 @media screen and (max-width: 549px) {
   .navbar-text, .btn-collapsed {
@@ -38,6 +39,16 @@ $text: 'Josefin Sans', sans-serif;
   }
   .course-title, .course-description {
     padding-left: 5%;
+  }
+  .online-course {
+    max-width: 62%;
+    padding: 10px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 55px;
   }
 }
 
@@ -73,9 +84,22 @@ $text: 'Josefin Sans', sans-serif;
   .course-title, .course-description {
     padding-left: 4%;
   }
+  .online-course {
+    max-width: 45%;
+    padding: 10px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 62px;
+  }
+  .alura {
+    height: 55px;
+  }
 }
 
-@media screen and (min-width: 600px) and (max-width: 768px) {
+@media screen and (min-width: 600px) and (max-width: 767px) {
   .navbar-text {
     margin-top: 130px;
   }
@@ -107,9 +131,22 @@ $text: 'Josefin Sans', sans-serif;
   .course-title, .course-description {
     padding-left: 3%;
   }
+  .online-course {
+    max-width: 45%;
+    padding: 15px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 62px;
+  }
+  .alura {
+    height: 55px;
+  }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) and (max-width: 1199px){
   .img-header{
     max-height: 230px;
     margin-top: 17%;
@@ -128,11 +165,62 @@ $text: 'Josefin Sans', sans-serif;
   .education-title {
     padding-top: 2%;
   }
+  .online-course {
+    max-width: 19%;
+    margin-left: 5%;
+    padding: 15px;
+    height: 210px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 62px;
+  }
+  .alura {
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .img-header{
+    max-height: 230px;
+    margin-top: 17%;
+  }
+  header{
+    h2 {
+      padding-bottom: 5%;
+    }
+  }
+  .contacts-title {
+    padding-top: 10%;
+  }
+  .contacts-icon, .contacts-text {
+    margin-bottom: 12%;
+  }
+  .education-title {
+    padding-top: 2%;
+  }
+  .online-course {
+    max-width: 15%;
+    margin-left: 8%;
+    padding: 15px;
+    height: 185px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 62px;
+  }
+  .alura {
+    height: 50px;
+  }
 }
 
 .navbar {
   background-color:$info-background;
-  font-family: $title;
+  font-family: $title-font;
   height: 120px;
 }
 
@@ -170,7 +258,7 @@ $text: 'Josefin Sans', sans-serif;
 
 .header-title {
   color: $lightColor;
-  font-family: $title;
+  font-family: $title-font;
 }
 
 .info-background {
@@ -179,13 +267,15 @@ $text: 'Josefin Sans', sans-serif;
 
 .course-title, .course-description {
   color: $dark-color;
-  font-family: $text;
+  font-family: $text-font;
+  font-size: $text-size;
 }
 
 .contacts-title, .education-title, .online-courses-title {
   color: $dark-color;
-  font-family: $title;
+  font-family: $title-font;
   text-transform: uppercase;
+  padding-bottom: 15px;
 }
 
 .link-course {
@@ -194,17 +284,28 @@ $text: 'Josefin Sans', sans-serif;
 
 .online-course {
   border: solid 0.8px $dark-color;
-  font-family: $text;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  font-family: $text-font;
   color: $dark-color;
+  font-size: $text-size;
+  vertical-align: middle;
   p {
     margin-bottom: 0;
   }
   margin-bottom: 3%;
 }
 
+.online-course:hover, .online-course:focus{
+  -webkit-box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
+  -moz-box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
+  box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
+}
+
 .contacts-text {
   color: $lightColor;
-  font-family: $text;
+  font-family: $text-font;
   font-size: 1.4em;
 }
 
@@ -224,7 +325,7 @@ $text: 'Josefin Sans', sans-serif;
 
 footer {
   color: $lightColor;
-  font-family: $text;
+  font-family: $text-font;
   p {
     padding-top: 15px;
   }
