@@ -44,7 +44,7 @@ $text-size: 1.2em;
     padding: 10px;
   }
   .img-courses, .alura {
-    padding: 10px;
+    padding: 10px, ;
   }
   .img-courses {
     height: 55px;
@@ -167,6 +167,10 @@ $text-size: 1.2em;
     padding: 15px;
     height: 210px;
   }
+  .online-course:hover, .online-course:focus {
+    font-size: 1.3em;
+    height: 230px;
+  }
   .img-courses, .alura {
     padding: 10px;
   }
@@ -202,8 +206,12 @@ $text-size: 1.2em;
     padding: 15px;
     height: 185px;
   }
+  .online-course:hover, .online-course:focus {
+    font-size: 1.4em;
+    height: 220px;
+  }
   .img-courses, .alura {
-    padding: 10px;
+    padding: 0 10px 10px 10px;
   }
   .img-courses {
     height: 62px;
@@ -288,7 +296,7 @@ $text-size: 1.2em;
   margin-bottom: 3%;
 }
 
-.online-course:hover, .online-course:focus{
+.online-course:hover, .online-course:focus {
   -webkit-box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
   -moz-box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
   box-shadow: 10px 10px 26px 0px rgba(28,27,28,0.62);
