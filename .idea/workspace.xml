@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c032890-5126-4931-b416-778309b6ceea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/girl.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images/icone.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/apple-touch-icon.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/favicon.ico" afterPath="$PROJECT_DIR$/app/favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
     </list>
     <ignored path="mariana-martins.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,21 +28,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="429" column="12" lean-forward="false" selection-start-line="429" selection-start-column="12" selection-end-line="429" selection-end-column="101" />
+            <state relative-caret-position="120">
+              <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="182" column="18" lean-forward="false" selection-start-line="182" selection-start-column="18" selection-end-line="182" selection-end-column="18" />
+            <state relative-caret-position="2565">
+              <caret line="171" column="14" lean-forward="false" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -85,8 +84,8 @@
         <option value="$PROJECT_DIR$/app/images/icone.svg" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/bower.json" />
-        <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/index.html" />
       </list>
     </option>
   </component>
@@ -300,12 +299,12 @@
       <workItem from="1479793683004" duration="14690000" />
       <workItem from="1480810656997" duration="4000" />
       <workItem from="1480975950931" duration="266000" />
-      <workItem from="1480976507178" duration="13068000" />
+      <workItem from="1480976507178" duration="14395000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42364000" />
+    <option name="totallyTimeSpent" value="43691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="707" extended-state="6" />
@@ -596,18 +595,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
+    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="429" column="12" lean-forward="false" selection-start-line="429" selection-start-column="12" selection-end-line="429" selection-end-column="101" />
+        <state relative-caret-position="2565">
+          <caret line="171" column="14" lean-forward="false" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
+    <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="182" column="18" lean-forward="false" selection-start-line="182" selection-start-column="18" selection-end-line="182" selection-end-column="18" />
+        <state relative-caret-position="120">
+          <caret line="8" column="41" lean-forward="false" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
           <folding />
         </state>
       </provider>
