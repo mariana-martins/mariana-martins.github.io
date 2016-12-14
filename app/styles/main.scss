@@ -53,6 +53,10 @@ $text-size: 1.2em;
     margin-left: 15px;
     max-width: 125px;
   }
+  .project-subtitle {
+    padding-bottom: 15%;
+    padding-top: 5%;
+  }
 }
 
 @media screen and (min-width: 550px) and (max-width: 600px) {
@@ -102,6 +106,10 @@ $text-size: 1.2em;
   .about-img {
     margin-left: 15px;
     max-width: 135px;
+  }
+  .project-subtitle {
+    padding-bottom: 10%;
+    padding-top: 3%;
   }
 }
 
@@ -153,6 +161,10 @@ $text-size: 1.2em;
     margin-left: 15px;
     max-width: 145px;
   }
+  .project-subtitle {
+    padding-bottom: 10%;
+    padding-top: 3%;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px){
@@ -196,6 +208,13 @@ $text-size: 1.2em;
     margin-left: 25px;
     max-width: 155px;
   }
+  .project-subtitle {
+    padding-bottom: 10%;
+    padding-top: 3%;
+  }
+  .projects {
+    padding-bottom: 2%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -237,6 +256,10 @@ $text-size: 1.2em;
   }
   .about-img {
     margin-left: 25px;
+  }
+  .project-subtitle {
+    padding-bottom: 12%;
+    padding-top: 3%;
   }
 }
 
@@ -304,6 +327,12 @@ $text-size: 1.2em;
   font-family: $title-font;
   text-transform: uppercase;
   padding-bottom: 15px;
+}
+
+.project-subtitle {
+  color: $lightColor;
+  font-family: $text-font;
+  font-size: $text-size;
 }
 
 .course-title, .course-description {
