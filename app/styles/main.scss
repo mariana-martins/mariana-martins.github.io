@@ -32,7 +32,7 @@ $text-size: 1.2em;
   .contacts-icon {
     margin-bottom: 30px;
   }
-  .education-title, .about-title {
+  .education-title, .about-title, .projects-title {
     padding-top: 2%;
     padding-left: 5%;
   }
@@ -79,7 +79,7 @@ $text-size: 1.2em;
   .contacts-icon {
     margin-bottom: 30px;
   }
-  .education-title, .about-title {
+  .education-title, .about-title, .projects-title {
     padding-top: 2%;
     padding-left: 4%;
   }
@@ -129,7 +129,7 @@ $text-size: 1.2em;
   .contacts-icon {
     margin-bottom: 30px;
   }
-  .education-title, .about-title {
+  .education-title, .about-title, .projects-title {
     padding-top: 2%;
     padding-left: 3%;
   }
@@ -157,11 +157,11 @@ $text-size: 1.2em;
 
 @media screen and (min-width: 768px) and (max-width: 1199px){
   .img-header{
-    margin-top: 15%;
+    margin-top: 20%;
   }
   header{
     h2 {
-      padding-bottom: 5%;
+      padding-bottom: 10%;
     }
   }
   .contacts-title {
@@ -170,7 +170,7 @@ $text-size: 1.2em;
   .contacts-icon, .contacts-text {
     margin-bottom: 12%;
   }
-  .education-title, .about-title {
+  .education-title, .about-title, .projects-title {
     padding-top: 2%;
   }
   .online-course {
@@ -200,11 +200,11 @@ $text-size: 1.2em;
 
 @media screen and (min-width: 1200px) {
   .img-header{
-    margin-top: 15%;
+    margin-top: 20%;
   }
   header{
     h2 {
-      padding-bottom: 5%;
+      padding-bottom: 10%;
     }
   }
   .contacts-title {
@@ -213,7 +213,7 @@ $text-size: 1.2em;
   .contacts-icon, .contacts-text {
     margin-bottom: 12%;
   }
-  .education-title, .about-title {
+  .education-title, .about-title, .projects-title {
     padding-top: 2%;
   }
   .online-course {
@@ -285,7 +285,7 @@ $text-size: 1.2em;
 
 .about-text {
   font-family: $text-font;
-  font-size: $text-size;
+  font-size: 1.3em;
   color: $dark-color;
 }
 
@@ -293,6 +293,17 @@ $text-size: 1.2em;
   float: right;
   -webkit-shape-outside: circle();
   shape-outside: circle();
+}
+
+#projects {
+  margin-top: 4%;
+}
+
+.projects-title {
+  color: $lightColor;
+  font-family: $title-font;
+  text-transform: uppercase;
+  padding-bottom: 15px;
 }
 
 .course-title, .course-description {
