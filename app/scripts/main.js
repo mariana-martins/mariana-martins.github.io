@@ -6,3 +6,17 @@ function loadTemplate(htmlSelector, templateId, data) {
   var html     = template(data);
   $(htmlSelector).html(html);
 }
+
+// TODO: Needs Improvements
+$('#resume').on('click',function () {
+  $('#resume-modal').on('shown.bs.modal');
+});
+
+$('#animal').on('click',function () {
+  $('#animal-modal').on('shown.bs.modal');
+});
+
+$('#store').on('click',function () {
+  $('#lojinha-modal').on('shown.bs.modal');
+});
+
