@@ -322,6 +322,9 @@ $text-size: 1.2em;
   margin-top: 4%;
 }
 
+.img-project:hover, .img-project:focus {
+  opacity: 0.8;
+}
 .projects-title {
   color: $lightColor;
   font-family: $title-font;
@@ -333,6 +336,41 @@ $text-size: 1.2em;
   color: $lightColor;
   font-family: $text-font;
   font-size: $text-size;
+}
+
+.project-text {
+  font-family: $text-font;
+  font-size: $text-size;
+  color: $dark-color;
+}
+
+.modal-title {
+  font-family: $title-font;
+  color: $dark-color;
+  font-size:2em;
+  padding-bottom: 10px;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+button {
+  background-color: $dark-color;
+  color: $lightColor;
+  border: solid 1px $dark-color;
+  font-family: $title-font;
+}
+
+.btn:hover, .btn:focus {
+  color: $lightColor;
+  opacity: 0.7;
+}
+
+.btn-project {
+  background-color: $info-background;
+  color: $lightColor;
+  font-family: $title-font;
 }
 
 .course-title, .course-description {
