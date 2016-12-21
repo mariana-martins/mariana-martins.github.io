@@ -382,6 +382,11 @@ button {
   color: $dark-color;
 }
 
+.link-course:hover, .link-course:focus {
+  text-decoration: none;
+  color: #e85511;
+}
+
 .online-course {
   border: solid 0.8px $dark-color;
   -webkit-border-radius: 6px;
