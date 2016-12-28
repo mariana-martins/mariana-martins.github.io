@@ -187,10 +187,13 @@ $text-size: 1.2em;
     padding-top: 3%;
   }
 }
-//TODO: Tá com erro apartir daqui!
-@media screen and (min-width: 768px) and (max-width: 1199px){
+
+@media screen and (min-width: 768px) and (max-width: 999px){
   body {
     padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+  }
+  .navbar-container {
+    width: 616px;
   }
   .navbar-fixed-top .navbar-brand {
     padding: 15px 0;
@@ -240,9 +243,76 @@ $text-size: 1.2em;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) and (max-width: 1199px) {
+  body {
+    padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+  }
+  .navbar-container {
+    width: 1010px;
+  }
+  .navbar-fixed-top .navbar-brand {
+    padding: 15px 0;
+  }
+  nav {
+    padding: 0 0 20px 0;
+    img {
+      padding: 0 0 10px 0;
+    }
+  }
+  .brand-title {
+    margin-top: 30px;
+  }
+  .navbar-right {
+    margin-top: 40px;
+  }
   .img-header{
     margin-top: 20%;
+  }
+  header{
+    h2 {
+      padding-bottom: 10%;
+    }
+  }
+  .contacts-title {
+    padding-top: 10%;
+  }
+  .contacts-icon, .contacts-text {
+    margin-bottom: 12%;
+  }
+  .education-title, .about-title, .projects-title {
+    padding-top: 2%;
+  }
+  .online-course {
+    max-width: 19%;
+    margin-left: 5%;
+    padding: 15px;
+    height: 210px;
+  }
+  .img-courses, .alura {
+    padding: 10px;
+  }
+  .img-courses {
+    height: 62px;
+  }
+  .alura {
+    height: 55px;
+  }
+  .about-img {
+    margin-left: 25px;
+    max-width: 155px;
+  }
+  .project-subtitle {
+    padding-bottom: 10%;
+    padding-top: 3%;
+  }
+  .projects {
+    padding-bottom: 2%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .img-header{
+    margin-top: 15%;
   }
   header{
     h2 {
@@ -299,7 +369,20 @@ nav {
   a {
     color: $lightColor;
     font-family: $title-font;
+    &:hover {
+      color: $lightColor;
+      text-decoration: none;
+    }
+    &:focus {
+      color: $lightColor;
+      text-decoration: none;
+    }
   }
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: $info-background;
+  color: $dark-color;
 }
 
 .img-nav {
