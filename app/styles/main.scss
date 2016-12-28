@@ -48,6 +48,13 @@ $text-size: 1.2em;
   .course-title, .course-description, .online-courses-title {
     padding-left: 5%;
   }
+  .course-title {
+    font-size: 1.4em;
+  }
+  .course-description {
+    margin-bottom: 0;
+    font-size: 1.4em;
+  }
   .online-course {
     max-width: 62%;
     padding: 10px;
@@ -104,6 +111,14 @@ $text-size: 1.2em;
   }
   .course-title, .course-description, .online-courses-title {
     padding-left: 4%;
+  }
+  .course-title {
+    text-transform: uppercase;
+    font-size: $text-size;
+  }
+  .course-description {
+    margin-bottom: 0;
+    font-size: $text-size;
   }
   .online-course {
     max-width: 45%;
@@ -165,6 +180,14 @@ $text-size: 1.2em;
   .course-title, .course-description, .online-courses-title {
     padding-left: 3%;
   }
+  .course-title {
+    text-transform: uppercase;
+    font-size: $text-size;
+  }
+  .course-description {
+    margin-bottom: 0;
+    font-size: $text-size;
+  }
   .online-course {
     max-width: 45%;
     padding: 15px;
@@ -213,13 +236,23 @@ $text-size: 1.2em;
     margin-bottom: 12%;
   }
   .education-title, .about-title, .projects-title {
-    padding-top: 2%;
+    padding-top: 5%;
+  }
+  .course-title {
+    text-transform: uppercase;
+    font-size: $text-size;
+  }
+  .course-description {
+    font-size: $text-size;
   }
   .online-course {
     max-width: 19%;
     margin-left: 5%;
     padding: 15px;
     height: 210px;
+  }
+  .online-courses-title {
+    margin-top: 4%;
   }
   .img-courses, .alura {
     padding: 10px;
@@ -282,11 +315,21 @@ $text-size: 1.2em;
   .education-title, .about-title, .projects-title {
     padding-top: 2%;
   }
+  .course-title {
+    text-transform: uppercase;
+    font-size: $text-size;
+  }
+  .course-description {
+    font-size: $text-size;
+  }
   .online-course {
     max-width: 19%;
     margin-left: 5%;
     padding: 15px;
     height: 210px;
+  }
+  .online-courses-title {
+    margin-top: 2%;
   }
   .img-courses, .alura {
     padding: 10px;
@@ -328,11 +371,21 @@ $text-size: 1.2em;
   .education-title, .about-title, .projects-title {
     padding-top: 2%;
   }
+  .course-title {
+    text-transform: uppercase;
+    font-size: $text-size;
+  }
+  .course-description {
+    font-size: $text-size;
+  }
   .online-course {
     max-width: 15%;
     margin-left: 8%;
     padding: 15px;
     height: 185px;
+  }
+  .online-courses-title {
+    margin-top: 2%;
   }
   .img-courses, .alura {
     padding: 0 10px 10px 10px;
@@ -482,7 +535,11 @@ button {
 .course-title, .course-description {
   color: $dark-color;
   font-family: $text-font;
-  font-size: $text-size;
+}
+
+.course-location {
+  padding-bottom: 0;
+
 }
 
 .contacts-title, .education-title, .online-courses-title, .about-title {
