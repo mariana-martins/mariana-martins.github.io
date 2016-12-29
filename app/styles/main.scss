@@ -5,7 +5,7 @@ $icon-font-path: '../fonts/';
 // endbower
 
 $lightColor: #ffffff;
-$info-background: #18bc9c;
+$info-background: #fde74c;
 $dark-color:#2c3e50;
 $title-font: 'Righteous', cursive;
 $text-font: 'Josefin Sans', sans-serif;
@@ -420,14 +420,14 @@ body {
 nav {
   background-color: $info-background;
   a {
-    color: $lightColor;
+    color: $dark-color;
     font-family: $title-font;
     &:hover {
-      color: $lightColor;
+      color: $dark-color;
       text-decoration: none;
     }
     &:focus {
-      color: $lightColor;
+      color: $dark-color;
       text-decoration: none;
     }
   }
@@ -436,6 +436,7 @@ nav {
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: $info-background;
   color: $dark-color;
+  opacity: 0.8;
 }
 
 .img-nav {
@@ -523,11 +524,11 @@ button {
 
 .btn:hover, .btn:focus {
   color: $lightColor;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .btn-project {
-  background-color: $info-background;
+  background-color: #e85511;
   color: $lightColor;
   font-family: $title-font;
 }
@@ -580,7 +581,7 @@ button {
 }
 
 .contacts-text {
-  color: $lightColor;
+  color: $dark-color;
   font-family: $text-font;
   font-size: 1.4em;
 }
@@ -590,12 +591,12 @@ button {
 }
 
 .contacts-icon {
-  color: $lightColor;
+  color: $dark-color;
   font-size: 2.5em;
 }
 
 .contacts-icon:hover, .contacts-icon:focus {
-  color: $dark-color;
+  opacity: 0.5;
 }
 
 footer {
