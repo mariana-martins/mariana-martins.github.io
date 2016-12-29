@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c032890-5126-4931-b416-778309b6ceea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/mini-mari.svg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Documentation/Portfolio-Mockup.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation/Home.jpg" afterPath="$PROJECT_DIR$/Documentation/Home.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Documentation/Portfolio-Mockup.rp" afterPath="$PROJECT_DIR$/Documentation/Portfolio-Mockup.rp" />
     </list>
     <ignored path="mariana-martins.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="8370">
+              <caret line="558" column="9" lean-forward="false" selection-start-line="558" selection-start-column="9" selection-end-line="558" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -312,12 +311,12 @@
       <workItem from="1481747958292" duration="29000" />
       <workItem from="1481748082612" duration="14605000" />
       <workItem from="1482441452239" duration="2919000" />
-      <workItem from="1482878705322" duration="12647000" />
+      <workItem from="1482878705322" duration="13037000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80060000" />
+    <option name="totallyTimeSpent" value="80450000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -770,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="8370">
+          <caret line="558" column="9" lean-forward="false" selection-start-line="558" selection-start-column="9" selection-end-line="558" selection-end-column="16" />
           <folding />
         </state>
       </provider>
