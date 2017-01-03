@@ -5,6 +5,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const ghPages = require('gulp-gh-pages');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -161,9 +162,21 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
+gulp.task('gh-deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages({branch: 'master'}));
+});
+
 gulp.task('default', () => {
   return new Promise(resolve => {
     dev = false;
     runSequence(['clean', 'wiredep'], 'build', resolve);
+  });
+});
+
+gulp.task('deploy', () => {
+  return new Promise(resolve => {
+    dev = false;
+    runSequence('default', 'gh-deploy', resolve);
   });
 });
