@@ -1,7 +1,7 @@
 console.log('\'Allo \'Allo!');
 
 function loadTemplate(htmlSelector, templateId, data) {
-  var source   = $("#" + templateId).html();
+  var source   = $('#' + templateId).html();
   var template = Handlebars.compile(source);
   var html     = template(data);
   $(htmlSelector).html(html);
@@ -26,6 +26,6 @@ $('#store').on('click',function () {
 // * It doesn't change HTML and CSS code;
 // * It doesn't current usability tags;
 // TODO: Verify this solution after updating Bootstrap
-window.addEventListener("hashchange", function () {
+window.addEventListener('hashchange', function () {
   scrollBy(0, -100);
 });
