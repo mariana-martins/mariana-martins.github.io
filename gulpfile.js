@@ -6,6 +6,7 @@ const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const ghPages = require('gulp-gh-pages');
+const flatten = require('gulp-flatten');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -69,11 +70,18 @@ gulp.task('images', () => {
     .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
-    .concat('app/fonts/**/*'))
+gulp.task('app-fonts', () => {
+  return gulp.src('app/fonts/**/*')
     .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
 });
+
+gulp.task('bower-fonts', () => {
+  return gulp.src('./bower_components/**/*.{eot,svg,ttf,woff,woff2}')
+    .pipe(flatten())
+    .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
+});
+
+gulp.task('fonts', ['app-fonts', 'bower-fonts']);
 
 gulp.task('extras', () => {
   return gulp.src([
