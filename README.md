@@ -3,7 +3,7 @@ Mariana's Portfolio
 
 This is my personal website, my portfolio. It contains my some relevant projects, my contacts, my resume and a short session about me.
 
-![Porfolio Home](/Documentation/home.jpg)
+![Porfolio Home](../Documentation/home.jpg)
 Format: ![Portfolio Home](url)
 
 
