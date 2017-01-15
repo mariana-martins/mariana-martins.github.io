@@ -6,9 +6,13 @@ This is my personal website, my portfolio. It contains my some relevant projects
 
 ## How to run
 
-* Open your browser;
+* Download or clone the file.
 
-* Then, open the index.html;
+* Open your terminal;
+
+* Then go to the project folder through the terminal.
+
+* And write `gulp serve`.
  
 * Done, Mariana's Portfolio will load! 
 
