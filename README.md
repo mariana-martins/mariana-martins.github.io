@@ -13,6 +13,6 @@ This is my personal website, my portfolio. It contains my some relevant projects
 
 * And write `gulp serve`.
  
-* Done, Mariana's Portfolio will load! 
+* Done, Mariana's Portfolio will load! :smile:
 
 
