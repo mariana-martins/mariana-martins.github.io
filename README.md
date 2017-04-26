@@ -9,6 +9,6 @@ This is my personal website, my portfolio. It contains my some relevant projects
 
 * Then, open the index.html located in dist folder.
  
-* Done, Mariana's Portfolio will load! 
+* Done, Mariana's Portfolio will load! :smile:
 
 
