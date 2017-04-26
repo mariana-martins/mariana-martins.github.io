@@ -7,11 +7,7 @@ This is my personal website, my portfolio. It contains my some relevant projects
 
 * Download or clone the file.
 
-* Open your terminal;
-
-* Then go to the project folder through the terminal.
-
-* And write `gulp serve`.
+* Then, open the index.html located in dist folder.
  
 * Done, Mariana's Portfolio will load! 
 
