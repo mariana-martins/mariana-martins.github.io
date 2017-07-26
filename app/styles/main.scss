@@ -5,3 +5,30 @@
 /* ==========================================================================
    Base styles
    ========================================================================== */
+ $color-title: #ffffff;
+ $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+
+.container_header{
+  background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(170deg, #1e88e5, #88ffff); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(170deg, #1e88e5, #88ffff); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
+  color: $color-title;
+  font-family: $font-title;
+}
+.navbar {
+  background-color: transparent;
+  padding-top: 2%;
+}
+
+.nav-link {
+  color: $color-title;
+
+}
+
+.header {
+  padding-bottom: 20%;
+  padding-top: 20%;
+}
+
