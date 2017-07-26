@@ -19,7 +19,7 @@ module.exports = {
                 '.'
             ]
         },
-        "minifyCss": {
+        "cleanCss": {
             "compatibility": "*"
         },
         "minifyHtml": {
@@ -117,7 +117,7 @@ module.exports = {
             "src": src + "/styles" + ".scss",
             "dest": src + "/styles",
             "wiredepStream":{
-                
+
                 "ignorePath": /^(\.\.\/)+/
             }
         },

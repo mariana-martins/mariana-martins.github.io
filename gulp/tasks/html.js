@@ -16,7 +16,7 @@ gulp.task('html', ['styles'], function() {
             searchPath: config.useref.searchPath
         }))
         .pipe($.if('*.js', $.uglify()))
-        .pipe($.if('*.css', $.minifyCss(config.minifyCss)))
+        .pipe($.if('*.css', $.cleanCss(config.cleanCss)))
         .pipe($.if('*.html', $.minifyHtml(config.minifyHtml)))
         .pipe(gulp.dest(config.dest));
 });
