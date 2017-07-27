@@ -61,4 +61,10 @@
   color: #ffffff;
 }
 
+.card {
+  font-family: $font-body;
+  a {
+    color: $section-title;
+  }
+}
 
