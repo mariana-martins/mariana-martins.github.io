@@ -5,8 +5,14 @@
 /* ==========================================================================
    Base styles
    ========================================================================== */
+
+ //Sass Variables
  $color-title: #ffffff;
  $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+ $section-title: #C2185B;
+ $font-body: "Lucida Console", Monaco, monospace;
+ $margin-section: 12%;
+
 
 
 .container_header{
@@ -19,7 +25,6 @@
 }
 .navbar {
   background-color: transparent;
-  padding-top: 2%;
 }
 
 .nav-link {
@@ -30,5 +35,24 @@
 .header {
   padding-bottom: 20%;
   padding-top: 20%;
+}
+
+.navbar-collapse {
+  text-align: center;
+}
+
+
+.about {
+  margin-top: $margin-section;
+  margin-bottom: $margin-section;
+  p {
+    font-family: $font-body;
+  }
+}
+
+.about_title {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  color: $section-title;
+  margin-bottom: 6%;
 }
 
