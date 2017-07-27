@@ -68,3 +68,32 @@
   }
 }
 
+.contact_subtitle {
+  color: $section-title;
+  font-family: $font-title;
+  margin-bottom: 6%;
+}
+
+.fa-facebook-official, .fa-github, .fa-linkedin {
+  background-color: #f7f7f9;
+  margin-left: 30%;
+  padding: 15%;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+}
+
+.contacts {
+  a {
+    font-size: 2rem;
+    color: #5f5f5f;
+    :hover {
+      color: $section-title;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      box-sizing: border-box;
+    }
+  }
+
+}
