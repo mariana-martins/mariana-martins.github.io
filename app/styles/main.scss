@@ -95,5 +95,13 @@
       box-sizing: border-box;
     }
   }
+}
 
+.footer {
+  padding: 3% 3% 0.75% 3%;
+  background-color: #5f5f5f;
+  font-family: $font-title;
+  a, p {
+    color: $color-title;
+  }
 }
