@@ -1,5 +1,5 @@
  //bower:scss
-@import "bower_components/bootstrap/scss/bootstrap.scss";
+//@import "bower_components/bootstrap/scss/bootstrap.scss";
  //endbower
 
 /* ==========================================================================
@@ -103,5 +103,13 @@
   font-family: $font-title;
   a, p {
     color: $color-title;
+  }
+  a {
+    font-size: 1.3rem;
+  }
+  li {
+    margin-left: 5vh;
+    margin-right: 5vh;
+    margin-bottom: 2vh;
   }
 }
