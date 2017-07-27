@@ -42,7 +42,7 @@
 }
 
 
-.about {
+.about, .education, .projects, .questions, .contacts {
   margin-top: $margin-section;
   margin-bottom: $margin-section;
   p {
@@ -50,9 +50,15 @@
   }
 }
 
-.about_title {
+.section_title {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   color: $section-title;
   margin-bottom: 6%;
 }
+
+.btn {
+  background-color: $section-title;
+  color: #ffffff;
+}
+
 
