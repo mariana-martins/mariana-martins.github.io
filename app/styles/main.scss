@@ -6,15 +6,14 @@
    Base styles
    ========================================================================== */
 
- //Sass Variables
+ // Sass Variables
  $color-title: #ffffff;
  $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
  $section-title: #C2185B;
  $font-body: "Lucida Console", Monaco, monospace;
  $margin-section: 12%;
 
-
-
+ // Navbar + header background and fonts
 .container_header{
   background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(170deg, #1e88e5, #88ffff); /* For Opera 11.1 to 12.0 */
@@ -23,25 +22,27 @@
   color: $color-title;
   font-family: $font-title;
 }
+
+ // Navbar
 .navbar {
   background-color: transparent;
 }
-
 .nav-link {
   color: $color-title;
-
 }
 
+// Header
 .header {
   padding-bottom: 20%;
   padding-top: 20%;
 }
 
+// Config to Navbar icons collapsed
 .navbar-collapse {
   text-align: center;
 }
 
-
+// Margin and paragraph of sections
 .about, .education, .projects, .questions, .contacts {
   margin-top: $margin-section;
   margin-bottom: $margin-section;
@@ -50,53 +51,110 @@
   }
 }
 
+// Title of sections
 .section_title {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   color: $section-title;
   margin-bottom: 6%;
 }
 
+// Education section
 .btn {
   background-color: $section-title;
   color: #ffffff;
 }
 
-.card {
+// Questions section
+.card { // collapse card
   font-family: $font-body;
   a {
     color: $section-title;
   }
 }
 
+// Contact section
 .contact_subtitle {
   color: $section-title;
   font-family: $font-title;
   margin-bottom: 6%;
 }
 
-.fa-facebook-official, .fa-github, .fa-linkedin {
-  background-color: #f7f7f9;
-  margin-left: 30%;
-  padding: 15%;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 0px solid #000000;
-  box-sizing: border-box;
-}
+// Social icon config  --> https://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/
+ .contact_icon {
+   display: inline-block;
+   font-size: 0px;
+   cursor: pointer;
+   margin: 15px 5px;
+   width: 90px;
+   height: 90px;
+   border-radius: 50%;
+   text-align: center;
+   position: relative;
+   z-index: 1;
+   color: #fff;
 
-.contacts {
-  a {
-    font-size: 2rem;
-    color: #5f5f5f;
-    :hover {
-      color: $section-title;
-      border: 1px solid rgba(0, 0, 0, 0.125);
-      box-sizing: border-box;
-    }
-  }
-}
+ }
 
+ .contact_icon:after {
+   pointer-events: none;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   content: '';
+   -webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+   box-sizing: content-box;
+ }
+
+ .contact_icon:before {
+   speak: none;
+   font-size: 48px;
+   line-height: 90px;
+   font-style: normal;
+   font-weight: normal;
+   font-variant: normal;
+   text-transform: none;
+   display: block;
+   -webkit-font-smoothing: antialiased;
+ }
+
+ .contact_icon{
+   background-color: $section-title;
+   -webkit-transition: background 0.2s, color 0.2s;
+   -moz-transition: background 0.2s, color 0.2s;
+   transition: background 0.2s, color 0.2s;
+ }
+
+ .contact_icon:after {
+   top: -7px;
+   left: -7px;
+   padding: 7px;
+   box-shadow: 0 0 0 4px $section-title;
+   -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+   -webkit-transform: scale(.8);
+   -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+   -moz-transform: scale(.8);
+   -ms-transform: scale(.8);
+   transition: transform 0.2s, opacity 0.2s;
+   transform: scale(.8);
+   opacity: 0;
+ }
+
+ .contact_icon:hover {
+   background: $section-title;
+   color: #ffffff;
+ }
+
+ .contact_icon:hover:after {
+   -webkit-transform: scale(1);
+   -moz-transform: scale(1);
+   -ms-transform: scale(1);
+   transform: scale(1);
+   opacity: 1;
+ }
+
+// Footer
 .footer {
   padding: 3% 3% 0.75% 3%;
   background-color: #5f5f5f;
