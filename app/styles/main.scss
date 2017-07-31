@@ -61,8 +61,10 @@
 // Education section
 .btn {
   background-color: $section-title;
+  border: solid 2px #ffffff;
   color: #ffffff;
 }
+
 
 // Questions section
 .card { // collapse card
@@ -170,4 +172,9 @@
     margin-right: 5vh;
     margin-bottom: 2vh;
   }
+}
+
+.invisible_link {
+  position: absolute;
+  text-indent:-9999px;
 }
