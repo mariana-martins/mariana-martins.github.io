@@ -37,6 +37,14 @@
   padding-top: 20%;
 }
 
+.header_btn {
+  background-color: $section-title;
+  margin: 0.5%;
+  color: #ffffff;
+}
+
+
+
 // Config to Navbar icons collapsed
 .navbar-collapse {
   text-align: center;
@@ -107,7 +115,7 @@
 
 
 // Education section
-.btn {
+.education_btn{
   background-color: $section-title;
   border: solid 2px #ffffff;
   color: #ffffff;
