@@ -9,7 +9,7 @@
  // Sass Variables
  $color-title: #ffffff;
  $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
- $section-title: #C2185B;
+ $section-title: #9a174d;
  $font-body: "Lucida Console", Monaco, monospace;
  $margin-section: 12%;
 
@@ -107,17 +107,22 @@
  }
 
 
-
-
-
-
-
 // Education section
-.education_btn{
-  background-color: $section-title;
-  border: solid 2px #ffffff;
-  color: #ffffff;
-}
+ .education_btn {
+   cursor: pointer;
+   color: #fff;
+   background-color: $section-title;
+   box-shadow: 0 0 0 0 rgba(91, 11, 39,0);
+   -webkit-transition: box-shadow 0.2s;
+   -moz-transition: box-shadow 0.2s;
+   transition: box-shadow 0.2s;
+ }
+
+ .education_btn:hover {
+   box-shadow: 0 0 0 3px rgba(91, 11, 39, 1);
+   color: #ffffff;
+   font-weight: bold;
+ }
 
 
 // Questions section
