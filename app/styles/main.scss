@@ -37,13 +37,77 @@
   padding-top: 20%;
 }
 
-.header_btn {
-  background-color: $section-title;
-  margin: 0.5%;
-  color: #ffffff;
-}
+ .btn_linkedin {
+   cursor: pointer;
+   overflow: hidden;
+   outline: none;
+   position: relative;
+   letter-spacing: 0.1em;
+   font-weight: 400;
+   text-transform: uppercase;
+   font-size: 1.3em;
+   margin-top: 5vh;
+ }
 
-// Config to Navbar icons collapsed
+ .header_btn.btn-bg button {
+   width: 8.5em;
+   height: 2.7em;
+   color: #ffffff;
+   background: transparent;
+   border: 3px solid #ffffff;
+   border-radius: 5px;
+   -webkit-transition: border 0.5s ease-out;
+   transition: border 0.5s ease-out;
+   transition-delay: 0.8s;
+ }
+
+ .header_btn.btn-bg  button span {
+   position: absolute;
+   z-index: 2;
+   left: 15px;
+   top: 10px;
+ }
+ .header_btn.btn-bg  button::before,
+ .header_btn.btn-bg  button::after {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+   content: '';
+   border-radius: 50%;
+   display: block;
+   width: 18em;
+   height: 18em;
+   left: -5em;
+   -webkit-transition: box-shadow 0.5s ease-out;
+   transition: box-shadow 0.5s ease-out;
+   transition-delay: 0.75s;
+   -webkit-transition-delay: 0.75s;
+   z-index: 1;
+ }
+ .header_btn.btn-bg  button::after {
+   transition-delay: 0.25s;
+   -webkit-transition-delay: 0.25s;
+ }
+ .header_btn.btn-bg  button:hover {
+   color: #fff;
+   border-color: rgba(91, 11, 39, 1);
+   -webkit-transition: border 0.2s ease;
+   transition: border 0.2s ease;
+ }
+
+ // Color animation efect
+ .header_btn.btn-bg  button:hover::before {
+   box-shadow: inset 0 0 0 11em $section-title;
+   transition-delay: 0.05s;
+ }
+ .header_btn.btn-bg  button:hover::after {
+   box-shadow: inset 0 0 0 11em rgba(91, 11, 39, 1);
+   transition-delay: 0.5s;
+ }
+
+ // Config to Navbar icons collapsed
 .navbar-collapse {
   text-align: center;
 }
@@ -124,6 +188,13 @@
    font-weight: bold;
  }
 
+ .education {
+   .col-md-9 a {
+     color: rgb(95,95,95);
+     font-family: $font-body;
+     font-weight: bold;
+   }
+ }
 
 // Questions section
 .card { // collapse card
