@@ -11,7 +11,19 @@
  $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
  $section-title: #9a174d;
  $font-body: "Lucida Console", Monaco, monospace;
- $margin-section: 12%;
+ $margin-section: 16%;
+
+ @media(min-width:767px) {
+    .navbar {
+     -webkit-transition: background .5s ease-in-out,height .5s ease-in-out;
+     -moz-transition: background .5s ease-in-out,height .5s ease-in-out;
+     transition: background .5s ease-in-out,height .5s ease-in-out;
+   }
+
+   .top-nav-collapse {
+     height: 10vh;
+   }
+ }
 
  // Navbar + header background and fonts
 .container_header{
@@ -27,6 +39,7 @@
 .navbar {
   background-color: transparent;
 }
+
 .nav-link {
   color: $color-title;
 }
