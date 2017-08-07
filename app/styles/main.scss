@@ -13,6 +13,8 @@ $section-title: #9a174d;
 $font-body: "Lucida Console", Monaco, monospace;
 $margin-section: 10%;
 
+
+// Related to navbar animation
 @media(min-width: 767px) {
   .navbar {
     -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
@@ -25,6 +27,26 @@ $margin-section: 10%;
   }
 }
 
+
+// Centralize contact info itens and change it size.
+@media screen and (max-width: 1080px) {
+  .contacts {
+    p {
+      font-size: 3vh;
+      display: flex;
+      justify-content: center;
+    }
+    p .fa-map-marker, p .fa-envelope-o {
+      font-size: 5vh;
+    }
+  }
+
+  .contact_subtitle {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 // Navbar + header background and fonts
 .container_header {
   background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
@@ -33,6 +55,7 @@ $margin-section: 10%;
   background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
   color: $color-title;
   font-family: $font-title;
+  padding-top: 80px ;
 }
 
 // Navbar
@@ -205,7 +228,7 @@ $margin-section: 10%;
 
 p {
   .fa-map-marker, .fa-envelope-o {
-    font-size: 2.5em;
+    font-size: 3vh;
     margin-right: 3%;
     color: #5f5f5f;
   }
