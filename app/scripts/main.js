@@ -9,6 +9,7 @@ $(function() {
 
 /* Navbar change color during the scroll */
 
+/*
 $(window).scroll(function() {
   var carlinhos = $('#navbar-site');
   if ($('.navbar').offset().top > 50) {
@@ -20,3 +21,7 @@ $(window).scroll(function() {
     carlinhos.removeClass('active');
   }
 });
+*/
+
+// Call to Github api using Github calendar
+GitHubCalendar(".calendar", "mariana-martins");
