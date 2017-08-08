@@ -23,3 +23,5 @@ $(window).scroll(function() {
 });
 */
 
+// Call to Github api using Github calendar
+GitHubCalendar(".calendar", "mariana-martins");
