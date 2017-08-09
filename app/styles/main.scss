@@ -26,8 +26,11 @@ $margin-section: 10%;
   .top-nav-collapse {
     height: 10vh;
   }
+
+
 }
 
+// Hide middle name
 @media screen and (max-width: 350px) {
   .navbar-brand {
     span {
@@ -36,6 +39,12 @@ $margin-section: 10%;
   }
 }
 
+// Hide my github contributions
+@media screen and (max-width: 950px){
+  #github, .nav-link-contributions {
+    display:none;
+  }
+}
 
 
 // Centralize contact info itens and change it size.
@@ -235,7 +244,130 @@ $margin-section: 10%;
 
 // Github contributions
 
+.calendar {
+  width: 750px;
+  font-family: $font-body;
+  border: 1px solid #DDDDDD;
+  border-radius: 3px;
+  min-height: 243px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 6vh;
+  h2 {
+    font-size: 1rem;
+  }
+}
 
+.calendar-graph text.wday,
+.calendar-graph text.month {
+  font-size: 0.7rem;
+  fill: rgb(95, 95, 95);
+}
+
+.contrib-legend {
+  text-align: right;
+  padding: 0 14px 10px 0;
+  display: inline-block;
+  float: right;
+}
+
+.contrib-legend .legend {
+  display: inline-block;
+  list-style: none;
+  margin: 0 5px;
+  position: relative;
+  bottom: -1px;
+  padding: 0;
+}
+
+.contrib-legend .legend li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.text-small {
+  font-size: 12px;
+  color: rgb(95, 95, 95);
+}
+
+.calendar-graph {
+  padding: 5px 0 0;
+  height: 126px;
+  text-align: center;
+}
+
+.contrib-column {
+  padding: 15px 0;
+  text-align: center;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  font-size: 11px;
+}
+
+.contrib-column-first {
+  border-left: 0;
+}
+
+.table-column {
+  display: table-cell;
+  width: 1%;
+  padding-right: 10px;
+  padding-left: 10px;
+  vertical-align: top;
+}
+
+.contrib-number {
+  font-weight: 300;
+  line-height: 1.3em;
+  font-size: 24px;
+  display: block;
+  color: #333;
+}
+
+.calendar img.spinner {
+  width: 70px;
+  margin-top: 50px;
+  min-height: 70px;
+}
+
+.monospace {
+  text-align: center;
+  color: #000;
+  font-family: monospace;
+}
+
+.monospace a {
+  color: $section-title;
+  text-decoration: none;
+}
+
+.contrib-footer {
+  font-size: 11px;
+  padding: 0 10px 12px;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  height: 26px;
+}
+
+.left.text-muted {
+  float: left;
+  margin-left: 9px;
+  color: rgb(95, 95, 95);
+}
+.left.text-muted a {
+  color: $section-title;
+  text-decoration: none;
+}
+.left.text-muted a:hover,
+.monospace a:hover {
+  text-decoration: underline;
+}
+
+h2.f4.text-normal.mb-3 {
+  display: none;
+}
 
 // Contact section
 .contact_subtitle {
