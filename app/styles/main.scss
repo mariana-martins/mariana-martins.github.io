@@ -26,12 +26,10 @@ $margin-section: 10%;
   .top-nav-collapse {
     height: 10vh;
   }
-
-
 }
 
 // Hide middle name
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 450px) {
   .navbar-brand {
     span {
       display: none;
@@ -56,7 +54,7 @@ $margin-section: 10%;
       justify-content: center;
     }
     p .fa-map-marker, p .fa-envelope-o {
-      font-size: 1 rem;
+      font-size: 1rem;
     }
   }
 
@@ -74,11 +72,11 @@ $margin-section: 10%;
   background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
   color: $color-title;
   font-family: $font-title;
-  padding-top: 80px ;
+  padding-top: 5vh ;
 }
 
 // Navbar
-.navbar {
+.navbar-custom {
   background-color: transparent;
   a:hover, a:focus {
     color: $color-title;
@@ -86,7 +84,15 @@ $margin-section: 10%;
 }
 
 .nav-link {
-  color: $color-title;
+  color: #ffffff;
+}
+
+/* Set a different color on navbar-toggler-icon (hamburger icon) */
+.navbar-toggler-icon {
+  border:solid 1px #fff;
+  padding: 20px;
+  border-radius: 8%;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .active {
@@ -95,9 +101,10 @@ $margin-section: 10%;
   transition: border 0.2s ease;
 }
 
-/*.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}*/
+/* Config to Navbar icons collapsed */
+.navbar-collapse {
+  text-align: center;
+}
 
 // Header
 .header {
@@ -179,10 +186,6 @@ $margin-section: 10%;
   transition-delay: 0.5s;
 }
 
-// Config to Navbar icons collapsed
-.navbar-collapse {
-  text-align: center;
-}
 
 // Margin and paragraph of sections
 .about, .education, .projects, .questions, .github, .contacts {

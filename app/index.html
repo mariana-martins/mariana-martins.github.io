@@ -1,5 +1,5 @@
 <!doctype html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <title>Mariana Martins Menezes Portfolio</title>
@@ -53,8 +53,8 @@
 <a href="#header" title="Go to header" class="invisible_link">Go to header</a>
 <!-- container -->
 
-  <!-- navbar -->
-<div class="container">
+<!-- navbar -->
+<!--<div class="container">
   <nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -87,13 +87,17 @@
       </ul>
     </div>
   </nav>
-</div>
-    <!--<nav id="navbar-site" class="navbar navbar-toggleable-md fixed-top bg-faded">
-      <div class="container">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+</div>-->
+
+<div class="container_header">
+  <nav id="navbar-site" class="navbar navbar-toggleable-md navbar-custom bg-faded">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
         <span class="navbar-toggler-icon icon-bar"></span>
       </button>
-      <h1 class="navbar-brand">Mariana Martins Menezes</h1>
+      <h1 class="navbar-brand">Mariana <span>Martins</span> Menezes</h1>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">
@@ -113,27 +117,33 @@
             <a class="nav-link" href="#questions">Some questions</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link nav-link-contributions" href="#github">My contributions</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#contact">Contact me</a>
           </li>
         </ul>
       </div>
-      </div>
-    </nav>
--->
-<!-- endnavbar -->
-<div class="container-fluid container_header">
-  <!-- header -->
-  <header id="header" class="header">
-    <h1 class="header_title text-center">Mariana Martins Menezes</h1>
-    <h2 class="header_subtitle text-center">Front-End Developer</h2>
-    <div class="d-flex justify-content-center">
-      <div class="header_btn btn-bg">
-        <button href="#" class="btn_linkedin" role="button"><span>Let's talk!</span></button>
-      </div>
     </div>
-  </header>
-  <!-- endheader -->
-</div><!-- endcontainer-fluid -->
+  </nav>
+  <!-- endnavbar -->
+
+  <!-- container-fluid-->
+  <div class="container-fluid">
+    <!-- header -->
+    <header id="header" class="header">
+      <h1 class="header_title text-center">Mariana Martins Menezes</h1>
+      <h2 class="header_subtitle text-center">Front-End Developer</h2>
+      <div class="d-flex justify-content-center">
+        <div class="header_btn btn-bg">
+          <button href="#" class="btn_linkedin" role="button"><span>Let's talk!</span></button>
+        </div>
+      </div>
+    </header>
+    <!-- endheader -->
+  </div><!-- endcontainer-fluid -->
+</div><!-- endcontainer_header -->
+
 
 <!-- container -->
 <div class="container">
@@ -370,6 +380,50 @@
   </div>
   <!-- EndGitHub -->
 
+  <!-- My interests-->
+  <div class="section_padding" id="interests">
+    <section class="interests ">
+      <h3 class="section_title text-center display-4">My Interests</h3>
+      <div class="row ">
+        <!-- Music -->
+        <div class="col-sm-12 col-md-4">
+          <h4 class="text-center mb-4">I <i class="fa fa-heart" aria-hidden="true"></i>
+            music!</h4>
+          <div class="embed-responsive embed-responsive-1by1">
+            <iframe class="embed-responsive-item" src="https://embed.spotify.com/?uri=spotify%3Auser%3A12142251874%3Aplaylist%3A39lB85cOcGLSVoPEVbL734" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+          </div>
+        </div>
+        <!-- Books -->
+        <div class="col-sm-12 col-md-4">
+          <h4 class="text-center mb-4">I <i class="fa fa-heart" aria-hidden="true"></i>
+            books!</h4>
+        </div>
+        <!-- Articles -->
+        <div class="col-sm-12 col-md-4">
+          <h4 class="text-center mb-4">I <i class="fa fa-heart" aria-hidden="true"></i>
+            write!</h4>
+          <ul class="list-unstyled text-center">
+            <li>
+              <a href="#">
+                Article
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Article
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Article
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Endinterests-->
   <!-- contact -->
   <section id="contact" class="contacts">
     <h3 class="section_title text-center display-4">Contact</h3>
