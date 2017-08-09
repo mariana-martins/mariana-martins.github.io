@@ -203,6 +203,11 @@ $margin-section: 10%;
   margin-bottom: 6%;
 }
 
+// About section
+.about {
+  margin-bottom: 15vh;
+}
+
 // Projects section
 .project_img {
   margin-bottom: 5vh;
@@ -391,6 +396,10 @@ h2.f4.text-normal.mb-3 {
 }
 
 // Contact section
+.contacts {
+  margin-bottom: 10vh;
+}
+
 .contact_subtitle {
   color: $section-title;
   font-family: $font-title;

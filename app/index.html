@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-reboot.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-grid.css">
+
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
   <!-- endbower -->
@@ -234,8 +235,8 @@
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
-            <div class="col-sm-6 col-md-4">
-              <a href="#" class="text-center">
+            <div class="col-sm-6 col-md-4" onclick="openModal()">
+              <a href="#myModal" data-toggle="modal" class="text-center" onclick="openModal()">
                 <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
@@ -245,6 +246,9 @@
       </section>
     </div>
     <!-- endprojects -->
+
+
+
   </div><!-- endContainer -->
 </div><!-- endContainer-fluid -->
 
@@ -501,6 +505,27 @@
   </ul>
   <p class="text-center">©2017. Developed by Mariana Martins Menezes. All rights reserved</p>
 </footer>
+
+<!-- Project Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- endfooter -->
 
 <!-- build:js scripts/vendor.js -->

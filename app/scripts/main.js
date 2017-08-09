@@ -2,7 +2,8 @@
 $(function() {
 
   $('#container').sliphover({
-    backgroundColorAttr: 'data-background'
+    backgroundColorAttr: 'data-background',
+    target: 'img'
   });
 
 });
@@ -26,3 +27,7 @@ $(window).scroll(function() {
 // Call to Github api using Github calendar
 GitHubCalendar(".calendar", "mariana-martins");
 
+// Open project modal
+function openModal(e) {
+  $('#myModal').modal('show');
+}
