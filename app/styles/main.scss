@@ -51,12 +51,12 @@ $margin-section: 10%;
 @media screen and (max-width: 1080px) {
   .contacts {
     p {
-      font-size: 3vh;
+      font-size: 1rem;
       display: flex;
       justify-content: center;
     }
     p .fa-map-marker, p .fa-envelope-o {
-      font-size: 5vh;
+      font-size: 1 rem;
     }
   }
 
