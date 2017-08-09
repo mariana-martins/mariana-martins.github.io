@@ -13,8 +13,6 @@ $section-title: #9a174d;
 $font-body: "Lucida Console", Monaco, monospace;
 $margin-section: 10%;
 
-
-
 // Related to navbar animation
 @media(min-width: 767px) {
   .navbar {
@@ -38,12 +36,11 @@ $margin-section: 10%;
 }
 
 // Hide my github contributions
-@media screen and (max-width: 950px){
+@media screen and (max-width: 950px) {
   #github, .nav-link-contributions {
-    display:none;
+    display: none;
   }
 }
-
 
 // Centralize contact info itens and change it size.
 @media screen and (max-width: 1080px) {
@@ -72,7 +69,7 @@ $margin-section: 10%;
   background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
   color: $color-title;
   font-family: $font-title;
-  padding-top: 5vh ;
+  padding-top: 5vh;
 }
 
 // Navbar
@@ -89,7 +86,7 @@ $margin-section: 10%;
 
 /* Set a different color on navbar-toggler-icon (hamburger icon) */
 .navbar-toggler-icon {
-  border:solid 1px #fff;
+  border: solid 1px #fff;
   padding: 20px;
   border-radius: 8%;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -186,11 +183,10 @@ $margin-section: 10%;
   transition-delay: 0.5s;
 }
 
-
 // Margin and paragraph of sections
-.about, .education, .projects, .questions, .github, .contacts {
+.about, .education, .projects, .questions, .github, .interests, .contacts {
   margin-top: $margin-section;
-    p {
+  p {
     font-family: $font-body;
   }
 }
@@ -210,6 +206,16 @@ $margin-section: 10%;
 // Projects section
 .project_img {
   margin-bottom: 5vh;
+}
+
+.projects {
+  padding-bottom: 20vh;
+}
+
+
+// Background grey
+.container_emphasis {
+  background-color: #DDDDDD;
 }
 
 // Education section
@@ -359,10 +365,12 @@ $margin-section: 10%;
   margin-left: 9px;
   color: rgb(95, 95, 95);
 }
+
 .left.text-muted a {
   color: $section-title;
   text-decoration: none;
 }
+
 .left.text-muted a:hover,
 .monospace a:hover {
   text-decoration: underline;
@@ -370,6 +378,16 @@ $margin-section: 10%;
 
 h2.f4.text-normal.mb-3 {
   display: none;
+}
+
+// My interests section
+
+.interests_subtitle {
+  color: #5f5f5f;
+  font-family: $font-body;
+  i {
+    color: $section-title;
+  }
 }
 
 // Contact section
@@ -387,7 +405,7 @@ p {
   }
 }
 
-// Social icon (contact_icon) config  --> https://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/
+/* Social icon (contact_icon) config  --> https://tympanus.net/codrops/2013/05/30/simple-icon-hover-effects/ */
 .contact_icon {
   display: inline-block;
   font-size: 0px;
