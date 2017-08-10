@@ -103,25 +103,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#header">Home</a>
+            <a class="nav-link" href="#header" title="Home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Me</a>
+            <a class="nav-link" href="#about" title="About Me">About Me</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#projects">My Projects</a>
+            <a class="nav-link" href="#projects" title="My Projects">My Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#education">Education</a>
+            <a class="nav-link" href="#education" title="Education">Education</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#questions">Some questions</a>
+            <a class="nav-link" href="#questions" title="Some questions">Some questions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-contributions" href="#github">My contributions</a>
+            <a class="nav-link nav-link-contributions" href="#github" title="My contributions">My contributions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact me</a>
+            <a class="nav-link" href="#interests" title="My Interests">My Interests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact" title="Contact me">Contact me</a>
           </li>
         </ul>
       </div>
@@ -137,7 +140,7 @@
       <h2 class="header_subtitle text-center">Front-End Developer</h2>
       <div class="d-flex justify-content-center">
         <div class="header_btn btn-bg">
-          <button href="#" class="btn_linkedin" role="button"><span>Let's talk!</span></button>
+          <button href="#" title="Mariana's LinkedIn profile" class="btn_linkedin" role="button"><span>Let's talk!</span></button>
         </div>
       </div>
     </header>
@@ -295,8 +298,8 @@
 
         </div>
         <div class="col-md-3 d-flex flex-column">
-          <a class="btn education_btn" href="#" role="button">My CV</a>
-          <a class="btn education_btn mt-3" href="#" role="button">My Github</a>
+          <a class="btn education_btn" href="#" title="Mariana's CV" role="button">My CV</a>
+          <a class="btn education_btn mt-3" href="#" title="Mariana's Github profile" role="button">My Github</a>
         </div>
       </div>
     </section>
@@ -459,17 +462,17 @@
         <h4 class="text-center contact_subtitle">Follow Me</h4>
         <ul class="list-inline d-flex justify-content-center">
           <li class="list-inline-item">
-            <a href="">
+            <a href="#" title="Mariana facebook profile">
               <i class="fa fa-facebook-official contact_icon" aria-hidden="true"></i>
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="#">
+            <a href="#" title="Mariana Github profile">
               <i class="fa fa-github contact_icon" aria-hidden="true"></i>
             </a>
           </li>
           <li class="list-inline-item">
-            <a href="#">
+            <a href="#" title="Mariana LinkedIn profile">
               <i class="fa fa-linkedin contact_icon" aria-hidden="true"></i>
             </a>
           </li>
@@ -485,22 +488,28 @@
   <a href="#header" title="Back to header" class="invisible_link">Back to header</a>
   <ul class="list-inline d-flex justify-content-center flex-wrap">
     <li class="list-inline-item">
-      <a href="" class="text-center">Home</a>
+      <a href="#home" class="text-center" title="Home">Home</a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="text-center">About Me</a>
+      <a href="#about" class="text-center" title="About Me">About Me</a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="text-center">My Projects</a>
+      <a href="#projects" class="text-center" title="My Projects">My Projects</a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="text-center">Education</a>
+      <a href="#education" class="text-center" title="Education">Education</a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="text-center">Some questions</a>
+      <a href="#questions" class="text-center" title="Some questions">Some questions</a>
+    </li>
+    <li class="nav-item">
+      <a class="text-center" href="#github" title="My contributions">My contributions</a>
+    </li>
+    <li class="nav-item">
+      <a class="text-center" href="#interests" title="My Interests">My Interests</a>
     </li>
     <li class="list-inline-item">
-      <a href="#" class="text-center">Contact</a>
+      <a href="#contact" class="text-center" title="Contact">Contact</a>
     </li>
   </ul>
   <p class="text-center">©2017. Developed by Mariana Martins Menezes. All rights reserved</p>
@@ -511,17 +520,22 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Project title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300" alt="image project">
+        <ul class="list-inline d-flex justify-content-around flex-wrap">
+          <li class="list-inline-item"><span class="badge badge-default">HTML</span></li>
+          <li class="list-inline-item"><span class="badge badge-default">CSS</span></li>
+          <li class="list-inline-item"><span class="badge badge-default">Javascript</span></li>
+          <li class="list-inline-item"><span class="badge badge-default">Bootstrap</span></li>
+          <li class="list-inline-item"><span class="badge badge-default">Font-Awesome</span></li>
+        </ul>
+        <a href="#" title="project link" class="modal_link">Project Link</a>
+        <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget leo cursus, placerat nisl at, finibus ligula. Fusce blandit tempor magna, quis ultricies ex auctor non. Aliquam erat volutpat. Proin hendrerit ac tortor non suscipit. Integer egestas eros erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec sem consequat est ornare sagittis. Sed quis massa sed nibh imperdiet tempus in vel orci. Etiam aliquam turpis sed porttitor blandit. Vestibulum vestibulum orci augue, quis mollis nisi mattis rutrum. Cras at dapibus libero, sit amet bibendum nisi. Morbi convallis eu est euismod laoreet. Nam elementum. </p>
       </div>
     </div>
   </div>

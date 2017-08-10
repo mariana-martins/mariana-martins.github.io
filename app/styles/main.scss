@@ -217,6 +217,11 @@ $margin-section: 10%;
   padding-bottom: 20vh;
 }
 
+/* Modal project*/
+
+.modal_link, .modal-title, .modal .badge, .modal_description {
+  font-family: $font-body;
+}
 
 // Background grey
 .container_emphasis {
