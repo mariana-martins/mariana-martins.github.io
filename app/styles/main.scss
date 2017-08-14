@@ -135,7 +135,6 @@ $margin-section: 10%;
   }
 }
 
-
 // Margin and paragraph of sections
 .about, .education, .projects, .questions, .github, .interests, .contacts {
   margin-top: $margin-section;
@@ -188,6 +187,49 @@ $margin-section: 10%;
     font-family: $font-body;
     font-weight: bold;
   }
+  button {
+    font-weight: bold;
+  }
+  p {
+    margin-left: 23px;
+    margin-right:23px;
+  }
+}
+
+/* Add brackets in education links during the transition (https://tympanus.net/Development/CreativeLinkEffects/) */
+.education_link_effect a::before,
+.education_link_effect a::after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.education_link_effect a::before {
+  margin-right: 15px;
+  content: '[';
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.education_link_effect a::after {
+  margin-left: 15px;
+  content: ']';
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+
+.education_link_effect a:hover::before,
+.education_link_effect a:hover::after,
+.education_link_effect a:focus::before,
+.education_link_effect a:focus::after {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
 }
 
 // Questions section
