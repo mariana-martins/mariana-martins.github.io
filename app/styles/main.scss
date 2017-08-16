@@ -39,11 +39,27 @@ $margin-section: 10%;
     -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
     transition: background .5s ease-in-out, height .5s ease-in-out;
   }
-
   .top-nav-collapse {
     height: 10vh;
   }
+  // Show big title and hide small title
+  .header_small {
+    display: none;
+  }
+  .header_large {
+    display: block;
+  }
 
+}
+
+@media screen and (max-width: 768px) {
+  // Show small title and hide big title
+  .header_large {
+    display: none;
+  }
+  .header_small {
+    display: block;
+  }
 }
 
 // Hide my github contributions
@@ -71,6 +87,7 @@ $margin-section: 10%;
     justify-content: center;
   }
 }
+
 
 // Button general config
 
@@ -134,17 +151,6 @@ $margin-section: 10%;
     flex-wrap: wrap;
   }
 }
-
-
-
-.demo-2 .large-header {
-  background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(170deg, #1e88e5, #88ffff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(170deg, #1e88e5, #88ffff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
-  background-position: center bottom;
-}
-
 
 /* Header title animation (https://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/)*/
 
