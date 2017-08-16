@@ -33,8 +33,14 @@
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-grid.css">
 
-
+  <!-- hover.css -->
   <link rel="stylesheet" href="styles/hover.css" media="all">
+  <!-- hover.css -->
+
+  <!-- animations.css -->
+  <link rel="stylesheet" href="styles/animations.css">
+  <!-- endanimations.css -->
+
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
   <!-- endbower -->
@@ -91,6 +97,7 @@
     </div>
   </nav>
 </div>-->
+
 
 <div class="container_header">
   <nav id="navbar-site" class="navbar navbar-toggleable-md navbar-custom bg-faded">
@@ -151,21 +158,20 @@
           </a>
         </div>
       </div>
-    </header>
-    <!-- endheader -->
+    </header><!--endheader -->
   </div><!-- endcontainer-fluid -->
 </div><!-- endcontainer_header -->
 
 
 <!-- container -->
-<div class="container" >
+<div class="container">
   <!-- about me -->
   <div class="section_padding" id="about">
     <section class="about">
       <h3 class="section_title text-center display-4">About Me</h3>
-      <div class="row">
+      <div class="row animatedParent animateOnce" data-sequence='800'>
         <div class="col-md-6">
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris magna,
+          <p class="text-justify animated fadeInLeft" data-id='1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris magna,
             sodales
             nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
             Nullam
@@ -182,7 +188,7 @@
           </p>
         </div>
         <div class="col-md-6">
-          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris magna,
+          <p class="text-justify animated fadeInRight" data-id='2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse mauris magna,
             sodales
             nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
             Nullam
@@ -259,7 +265,6 @@
     <!-- endprojects -->
 
 
-
   </div><!-- endContainer -->
 </div><!-- endContainer-fluid -->
 
@@ -270,8 +275,9 @@
     <section class="education">
       <h3 class="section_title text-center display-4">Education</h3>
       <div class="row align-items-center text-justify">
-        <div class="col-md-9 education_link_effect">
+        <div class="col-md-9 education_link_effect animatedParent animateOnce" data-sequence='500'>
           <!-- Udacity Course -->
+          <div class="animated fadeInDownShort" data-id='1'>
           <a href="#">School course name</a>
           <p class="education_courseTitle">Course Title</p>
           <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
@@ -280,9 +286,11 @@
             keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
           <!--<p class="m-0">Location</p>-->
           <p class="mb-10">Date</p>
+          </div>
           <!-- endUdacity -->
 
           <!-- Coursera course -->
+          <div class="animated fadeInDownShort" data-id='2'>
           <a href="#">School course name</a>
           <p class="education_courseTitle">Course Title</p>
           <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
@@ -291,9 +299,11 @@
             keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
           <!--<p class="m-0">Location</p>-->
           <p class="mb-10">Date</p>
+          </div>
           <!-- endCoursera -->
 
           <!-- History Bachelor -->
+          <div class="animated fadeInDownShort" data-id='3'>
           <a href="#">School course name</a>
           <p class="education_courseTitle">Course Title</p>
           <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
@@ -302,12 +312,16 @@
             keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
           <!--<p class="m-0">Location</p>-->
           <p class="mb-10">Date</p>
+          </div>
           <!-- endHistory -->
 
         </div>
-        <div class="col-md-3 d-flex flex-column">
-          <button href="#" title="Mariana Resume" role="button" class="btn button hvr-buzz p-3 mx-auto">My Resume</button>
-          <button href="#" title="Mariana Github profile" role="button" class="btn button hvr-pulse-grow mt-3 p-4 mx-auto">My Github</button>
+        <div class="col-md-3 d-flex flex-column animatedParent animateOnce" data-sequence='500'>
+          <button href="#" title="Mariana Resume" role="button" data-id="1" class="btn button hvr-buzz p-3 mx-auto animated fadeInUpShort">My Resume
+          </button>
+          <button href="#" title="Mariana Github profile" role="button" data-id="2"
+                  class="btn button hvr-pulse-grow mt-3 p-4 mx-auto animated fadeInUpShort">My Github
+          </button>
         </div>
       </div>
     </section>
@@ -392,8 +406,8 @@
   <!-- endquestions -->
 
   <!-- GitHub contributions -->
-  <div class="section_padding" id="github">
-    <section class="github">
+  <div class="section_padding animatedParent animateOnce" id="github" data-appear-top-offset='-700'>
+    <section class="github animated pulse">
       <h3 class="section_title text-center display-4">My Contributions</h3>
       <!-- Import Github contributions from github-calendar api-->
       <div class="calendar">
@@ -417,8 +431,8 @@
           </h4>
           <div class="embed-responsive embed-responsive-1by1">
             <iframe class="embed-responsive-item"
-              src="https://embed.spotify.com/?uri=spotify%3Auser%3A12142251874%3Aplaylist%3A6TFvsNkCObTUujriP5Lk8i"
-              width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+                    src="https://embed.spotify.com/?uri=spotify%3Auser%3A12142251874%3Aplaylist%3A6TFvsNkCObTUujriP5Lk8i"
+                    width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
           </div>
         </div>
         <!-- Books -->
@@ -427,9 +441,7 @@
             <i class="fa fa-book" aria-hidden="true"></i>
             !
           </h4>
-          <div class="row">
 
-          </div>
         </div>
         <!-- Articles -->
         <div class="col-sm-12 col-md-4">
@@ -474,18 +486,18 @@
       </div>
       <div class="col-md-6">
         <h4 class="text-center contact_subtitle">Follow Me</h4>
-        <ul class="list-inline d-flex justify-content-center">
-          <li class="list-inline-item">
+        <ul class="list-inline d-flex justify-content-center animatedParent animateOnce">
+          <li class="list-inline-item animated tada">
             <a href="#" title="Mariana facebook profile">
               <i class="fa fa-facebook-official contact_icon" aria-hidden="true"></i>
             </a>
           </li>
-          <li class="list-inline-item">
+          <li class="list-inline-item animated tada">
             <a href="#" title="Mariana Github profile">
               <i class="fa fa-github contact_icon" aria-hidden="true"></i>
             </a>
           </li>
-          <li class="list-inline-item">
+          <li class="list-inline-item animated tada">
             <a href="#" title="Mariana LinkedIn profile">
               <i class="fa fa-linkedin contact_icon" aria-hidden="true"></i>
             </a>
@@ -540,7 +552,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300" alt="image project">
+        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300"
+             alt="image project">
         <ul class="list-inline d-flex justify-content-around flex-wrap">
           <li class="list-inline-item"><span class="badge badge-default">HTML</span></li>
           <li class="list-inline-item"><span class="badge badge-default">CSS</span></li>
@@ -549,7 +562,13 @@
           <li class="list-inline-item"><span class="badge badge-default">Font-Awesome</span></li>
         </ul>
         <a href="#" title="project link" class="modal_link">Project Link</a>
-        <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget leo cursus, placerat nisl at, finibus ligula. Fusce blandit tempor magna, quis ultricies ex auctor non. Aliquam erat volutpat. Proin hendrerit ac tortor non suscipit. Integer egestas eros erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec sem consequat est ornare sagittis. Sed quis massa sed nibh imperdiet tempus in vel orci. Etiam aliquam turpis sed porttitor blandit. Vestibulum vestibulum orci augue, quis mollis nisi mattis rutrum. Cras at dapibus libero, sit amet bibendum nisi. Morbi convallis eu est euismod laoreet. Nam elementum. </p>
+        <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Phasellus eget leo cursus, placerat nisl at, finibus ligula. Fusce blandit tempor magna, quis ultricies
+          ex auctor non. Aliquam erat volutpat. Proin hendrerit ac tortor non suscipit. Integer egestas eros erat. Class
+          aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec sem
+          consequat est ornare sagittis. Sed quis massa sed nibh imperdiet tempus in vel orci. Etiam aliquam turpis sed
+          porttitor blandit. Vestibulum vestibulum orci augue, quis mollis nisi mattis rutrum. Cras at dapibus libero,
+          sit amet bibendum nisi. Morbi convallis eu est euismod laoreet. Nam elementum. </p>
       </div>
     </div>
   </div>
@@ -576,6 +595,10 @@
 <!-- build:js scripts/jquery.sliphover.min.js -->
 <script src="scripts/jquery.sliphover.min.js"></script>
 <!-- endbuild -->
+
+<!-- css3-animate-it.js -->
+<script src="scripts/css3-animate-it.js"></script>
+<!-- endcss3-animate-it.js -->
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>

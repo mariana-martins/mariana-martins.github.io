@@ -31,4 +31,3 @@ GitHubCalendar(".calendar", "mariana-martins");
 function openModal(e) {
   $('#myModal').modal('show');
 }
-
