@@ -135,6 +135,73 @@ $margin-section: 10%;
   }
 }
 
+/* Header title animation (https://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/)*/
+
+.link {
+  outline: none;
+  text-decoration: none;
+  position: relative;
+  font-size: 8em;
+  line-height: 1;
+  color: rgb(95, 95, 95);
+  display: inline-block;
+}
+
+.link--takiri {
+  font-family: $font-title;
+  font-weight: 700;
+  font-size: 7em;
+  padding: 0 10px 20px;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+.link--takiri:hover {
+  color: #1e1a1b;
+}
+
+.link--takiri::before {
+  content: '';
+  position: absolute;
+  height: 36px;
+  width: 120%;
+  top: 50%;
+  margin-top: -18px;
+  left: -10%;
+  z-index: -1;
+  background: #F9F9F9;
+  -webkit-transform: rotate3d(0,0,1,45deg) scale3d(0,1,1);
+  transform: rotate3d(0,0,1,45deg) scale3d(0,1,1);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+
+.link--takiri:hover::before {
+  -webkit-transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);
+  transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);
+}
+
+.link--takiri span {
+  font-size: 20%;
+  font-weight: 400;
+  position: absolute;
+  right: 15px;
+  color: $section-title;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transform: translate3d(-10px,-10px,0);
+  transform: translate3d(-10px,-10px,0);
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.link--takiri:hover span {
+  opacity: 1;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+
 // Margin and paragraph of sections
 .about, .education, .projects, .questions, .github, .interests, .contacts {
   margin-top: $margin-section;
