@@ -23,6 +23,7 @@ $margin-section: 10%;
   }
 }
 
+
 // Hide middle name
 @media screen and (max-width: 450px) {
   .navbar-brand {
@@ -64,7 +65,7 @@ $margin-section: 10%;
 
 // Hide my github contributions
 @media screen and (max-width: 950px) {
-  #github, .nav-link-contributions {
+  #github, .github-contributions {
     display: none;
   }
 }
@@ -97,6 +98,7 @@ $margin-section: 10%;
   text-decoration: none;
   color: white;
   font-family: $font-title;
+  cursor: pointer;
 }
 
 // Navbar + header background and fonts
@@ -171,6 +173,7 @@ $margin-section: 10%;
   padding: 0 10px 20px;
   -webkit-transition: color 0.5s;
   transition: color 0.5s;
+  z-index: 1;
 }
 
 .link--takiri:hover {
