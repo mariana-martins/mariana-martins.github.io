@@ -30,3 +30,7 @@ function openModal(e) {
   $('#myModal').modal('show');
 }
 
+$('.nav-link').on('click', function() {
+  $('#navbarSupportedContent').collapse('hide');
+});
+
