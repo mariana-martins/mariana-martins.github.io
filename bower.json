@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.6"
+    "bootstrap": "v4.0.0-beta"
   },
   "devDependencies": {
     "jasmine-core": "jasmine#^2.6.4"
