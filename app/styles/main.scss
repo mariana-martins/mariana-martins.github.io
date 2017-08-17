@@ -13,6 +13,11 @@ $section-title: #9a174d;
 $font-body: "Lucida Console", Monaco, monospace;
 $margin-section: 10%;
 
+body {
+  min-height: 75rem;
+}
+
+
 // Adjust header buttons
 @media screen and (max-width: 300px) {
   .header {
@@ -35,11 +40,11 @@ $margin-section: 10%;
 
 // Related to navbar animation
 @media(min-width: 767px) {
-  .navbar {
-    -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
-    transition: background .5s ease-in-out, height .5s ease-in-out;
-  }
+  //.navbar {
+  //  -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
+  //  -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
+  //  transition: background .5s ease-in-out, height .5s ease-in-out;
+  //}
   .top-nav-collapse {
     height: 10vh;
   }
@@ -63,12 +68,6 @@ $margin-section: 10%;
   }
 }
 
-// Hide my github contributions
-@media screen and (max-width: 950px) {
-  #github, .github-contributions {
-    display: none;
-  }
-}
 
 // Centralize contact info itens and change it size.
 @media screen and (max-width: 1080px) {
@@ -82,10 +81,29 @@ $margin-section: 10%;
       font-size: 1rem;
     }
   }
-
   .contact_subtitle {
     display: flex;
     justify-content: center;
+  }
+}
+
+// Change navbar color for transparent
+@media screen and (min-width: 992px) {
+  .navbar{
+    background-color: transparent;
+    padding-top: 10vh;
+  }
+
+}
+
+@media screen and (max-width: 991px) {
+  // Change navbar color
+  .navbar {
+    background-color: $section-title;
+  }
+  // Hide my github contributions
+  #github, .github-contributions {
+    display: none;
   }
 }
 
@@ -112,15 +130,15 @@ $margin-section: 10%;
   padding-top: 5vh;
 }
 
+
 // Navbar
-.navbar-custom {
-  background-color: transparent;
-  a:hover, a:focus {
+.navbar-custom{
+    a:hover, a:focus {
     color: $color-title;
   }
 }
 
-.nav-link {
+.nav-link, .navbar-brand {
   color: #ffffff;
 }
 
