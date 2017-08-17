@@ -39,14 +39,17 @@ body {
 }
 
 // Related to navbar animation
+
 @media(min-width: 767px) {
-  //.navbar {
-  //  -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
-  //  -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
-  //  transition: background .5s ease-in-out, height .5s ease-in-out;
-  //}
+  .navbar {
+    -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
+    transition: background .5s ease-in-out, height .5s ease-in-out;
+    height: 20vh;
+  }
+
   .top-nav-collapse {
-    height: 10vh;
+    height: 12vh;
   }
   // Show big title and hide small title
   .header_small {
@@ -55,7 +58,10 @@ body {
   .header_large {
     display: block;
   }
-
+  .header {
+    padding-top: 40vh;
+    padding-bottom: 30vh;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -65,6 +71,10 @@ body {
   }
   .header_small {
     display: block;
+  }
+  .header {
+    padding-top: 20vh;
+    padding-bottom: 15vh;
   }
 }
 
@@ -91,15 +101,22 @@ body {
 @media screen and (min-width: 992px) {
   .navbar{
     background-color: transparent;
-    padding-top: 10vh;
   }
 
+  .top-page .navbar {
+    background-color: $section-title;
+    opacity: 0.75;
+  }
 }
 
 @media screen and (max-width: 991px) {
   // Change navbar color
   .navbar {
     background-color: $section-title;
+  }
+
+  .top-page .navbar {
+    opacity: 0.75;
   }
   // Hide my github contributions
   #github, .github-contributions {
@@ -163,8 +180,6 @@ body {
 
 // Header
 .header {
-  padding-bottom: 20%;
-  padding-top: 20%;
   .button {
     margin-top: 1.3rem;
     margin-right: 1rem;
@@ -180,7 +195,7 @@ body {
   position: relative;
   font-size: 8em;
   line-height: 1;
-  color: rgb(95, 95, 95);
+  color: #FFFFFF;
   display: inline-block;
 }
 
