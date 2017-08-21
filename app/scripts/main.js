@@ -30,7 +30,10 @@ function openModal(e) {
   $('#myModal').modal('show');
 }
 
+// Hide nav-link after it is clicked
 $('.nav-link').on('click', function() {
   $('#navbarSupportedContent').collapse('hide');
 });
 
+// Activates scrollspy
+$('body').scrollspy({ target: '#navbar-site' });
