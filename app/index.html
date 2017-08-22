@@ -190,19 +190,19 @@
           <div class="row">
             <div class="col-sm-6 col-md-4 ">
               <a href="#" class="text-center">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
               <a href="#" class="text-center">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
               <a href="#" class="text-center">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
@@ -210,19 +210,19 @@
           <div class="row">
             <div class="col-sm-6 col-md-4 ">
               <a href="#" class="text-center">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
             <div class="col-sm-6 col-md-4">
               <a href="#" class="text-center">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
             <div class="col-sm-6 col-md-4" onclick="openModal()">
               <a href="#myModal" data-toggle="modal" class="text-center" onclick="openModal()">
-                <img class="project_img img-fluid mx-auto d-block" title="Lauch demo modal"
+                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
                      data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
               </a>
             </div>
@@ -242,8 +242,8 @@
   <div class="section_padding" id="education">
     <section class="education">
       <h3 class="section_title text-center display-4">Education</h3>
-      <div class="row align-items-center text-justify">
-        <div class="col-md-9 education_link_effect animatedParent animateOnce" data-sequence='500'>
+      <div>
+        <div class="education_link_effect animatedParent animateOnce" data-sequence='500'>
           <!-- Udacity Course -->
           <div class="animated fadeInDownShort" data-id='1'>
             <a href="#">School course name</a>
@@ -280,13 +280,11 @@
           </div>
           <!-- endHistory -->
 
-        </div>
-        <div class="col-md-3 d-flex flex-column">
-          <button href="#" title="Mariana Resume" role="button" data-id="1" class="btn button hvr-buzz p-3 mx-auto">My
+          <button href="#" title="Mariana Resume" role="button" data-id="1" class="mx-auto d-block btn button hvr-buzz p-3 mx-auto">My
             Resume
           </button>
           <button href="#" title="Mariana Github profile" role="button" data-id="2"
-                  class="btn button hvr-pulse-grow mt-3 p-4 mx-auto">My Github
+                  class="mx-auto d-block btn button hvr-pulse-grow mt-3 p-4 mx-auto">My Github
           </button>
         </div>
       </div>
@@ -396,13 +394,29 @@
                     width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
           </div>
         </div>
+
         <!-- Books -->
         <div class="col-sm-12 col-md-4 animated fadeInUp delay-1000" data-id="2">
           <h4 class="text-center mb-4 interests_subtitle">I love
             <i class="fa fa-book" aria-hidden="true"></i>
             !
           </h4>
-
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <img class="img-fluid mb-3" src="http://loremflickr.com/150/170?random=1">
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <img class="img-fluid mb-3" src="http://loremflickr.com/150/170?random=2">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <img class="img-fluid" src="http://loremflickr.com/150/170?random=3">
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <img class="img-fluid" src="http://loremflickr.com/150/170?random=4">
+            </div>
+          </div>
         </div>
         <!-- Articles -->
         <div class="col-sm-12 col-md-4 animated fadeInRight" data-id="3">
@@ -433,7 +447,7 @@
   </div>
   <!-- Endinterests-->
 </div> <!-- endContainer -->
-  <!-- contact__background -->
+  <!-- container_emphasis -->
 <div class="container-fluid container_emphasis">
   <!-- Container -->
   <div class="container">
@@ -443,10 +457,10 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <h4 class="contact_subtitle">Contact Info</h4>
-        <p class="d-flex align-items-center"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        <p class="d-flex align-items-center flex-wrap"><i class="fa fa-map-marker" aria-hidden="true"></i>
           Christchurch, New Zealand
         </p>
-        <p class="d-flex align-items-center flex-wrap "><i class="fa fa-envelope-o credo" aria-hidden="true"></i>
+        <p class="d-flex align-items-center flex-wrap "><i class="fa fa-envelope-o" aria-hidden="true"></i>
           marianamartinsmenezes@gmail.com
         </p>
       </div>
@@ -474,36 +488,36 @@
   </section>
   <!-- endcontact -->
   </div> <!-- endContainer -->
-</div><!-- endContact__background-->
-</main> <!-- endmain -->
+</div><!-- endcontainer_emphasis -->
+</main><!-- endmain -->
 
 <!-- footer content-->
 <footer class="container-fluid footer">
   <a href="#header" title="Back to header" class="invisible_link">Back to header</a>
-  <ul class="list-inline d-flex justify-content-center flex-wrap">
-    <li class="list-inline-item">
-      <a href="#home" class="text-center" title="Home">Home</a>
+  <ul class="list-inline d-flex justify-content-center flex-wrap ">
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#home" class="text-center" title="Home" data-hover="Home">Home</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#about" class="text-center" title="About Me">About Me</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#about" class="text-center" title="About Me" data-hover="About Me">About Me</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#projects" class="text-center" title="Projects">Projects</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#projects" class="text-center" title="Projects" data-hover="Projects">Projects</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#education" class="text-center" title="Education">Education</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#education" class="text-center" title="Education" data-hover="Education">Education</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#questions" class="text-center" title="Questions">Questions</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#questions" class="text-center" title="Questions" data-hover="Questions">Questions</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#github" class="text-center github-contributions" title="Github contributions">Contributions</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#github" class="text-center github-contributions" title="Github contributions" data-hover="Contributions">Contributions</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#interests" class="text-center" title="Interests">Interests</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#interests" class="text-center" title="Interests" data-hover="Interests">Interests</a>
     </li>
-    <li class="list-inline-item">
-      <a href="#contact" class="text-center" title="Contact me">Contact me</a>
+    <li class="list-inline-item footer_linkEffect">
+      <a href="#contact" class="text-center" title="Contact me" data-hover="Contact me">Contact me</a>
     </li>
   </ul>
   <p class="text-center">©2017. Developed by Mariana Martins Menezes. All rights reserved</p>
@@ -524,11 +538,11 @@
         <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300"
              alt="image project">
         <ul class="list-inline d-flex justify-content-around flex-wrap">
-          <li class="list-inline-item"><span class="badge badge-default">HTML</span></li>
-          <li class="list-inline-item"><span class="badge badge-default">CSS</span></li>
-          <li class="list-inline-item"><span class="badge badge-default">Javascript</span></li>
-          <li class="list-inline-item"><span class="badge badge-default">Bootstrap</span></li>
-          <li class="list-inline-item"><span class="badge badge-default">Font-Awesome</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">HTML</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">CSS</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Javascript</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Bootstrap</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Font-Awesome</span></li>
         </ul>
         <a href="#" title="project link" class="modal_link">Project Link</a>
         <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing

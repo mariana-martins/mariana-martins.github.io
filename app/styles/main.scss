@@ -82,6 +82,7 @@ $margin-section: 10%;
       font-size: 1rem;
       display: flex;
       justify-content: center;
+      text-align: center;
     }
     p .fa-map-marker, p .fa-envelope-o {
       font-size: 1rem;
@@ -298,7 +299,7 @@ $margin-section: 10%;
 
 // Education section
 .education {
-  .col-md-9 a {
+  .education_link_effect a {
     color: rgb(95, 95, 95);
     font-family: $font-body;
     font-weight: bold;
@@ -307,8 +308,8 @@ $margin-section: 10%;
     font-weight: bold;
   }
   p {
-    margin-left: 23px;
-    margin-right:23px;
+    margin-left: 25px;
+    margin-right:25px;
   }
 }
 
@@ -595,9 +596,8 @@ p {
   padding: 3% 3% 0.75% 3%;
   background-color: #5f5f5f;
   font-family: $font-title;
-  a, p {
-    color: $color-title;
-  }
+
+
   a {
     font-size: 1.1rem;
   }
@@ -614,4 +614,30 @@ p {
 .invisible_link {
   position: absolute;
   text-indent: -9999px;
+}
+
+/* Add animation in footer links ((https://tympanus.net/Development/CreativeLinkEffects/) */
+
+.footer_linkEffect a {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 700;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+.footer_linkEffect a::before {
+  color: #fff;
+  content: attr(data-hover);
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.footer_linkEffect a:hover::before,
+.footer_linkEffect a:focus::before {
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+  opacity: 0;
 }
