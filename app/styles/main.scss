@@ -302,13 +302,22 @@ $margin-section: 10%;
     font-family: $font-body;
     font-weight: bold;
   }
-  button {
-    font-weight: bold;
-  }
   p {
     margin-left: 25px;
     margin-right: 25px;
   }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+
+.education_icon {
+  height: 70px;
+}
+
+.education_btnTitle {
+  color: black;
 }
 
 /* Add brackets in education links during the transition (https://tympanus.net/Development/CreativeLinkEffects/) */
@@ -358,7 +367,7 @@ $margin-section: 10%;
 
 .question {
   position: relative;
-  background: $section-title;
+  background: rgb(95, 95, 95);
   border-radius: .4em;
 }
 
@@ -370,7 +379,7 @@ $margin-section: 10%;
   width: 0;
   height: 0;
   border: 0.563em solid transparent;
-  border-top-color: $section-title;
+  border-top-color: rgb(95, 95, 95);
   border-bottom: 0;
   margin-left: -0.562em;
   margin-bottom: -0.562em;
@@ -378,7 +387,7 @@ $margin-section: 10%;
 
 .answer {
   position: relative;
-  background: $section-title;
+  background: rgba(95, 95, 95, 0.75);
   border-radius: .4em;
   span {
     color: #FFFFFF;
@@ -393,7 +402,7 @@ $margin-section: 10%;
   width: 0;
   height: 0;
   border: 0.563em solid transparent;
-  border-bottom-color: $section-title;
+  border-bottom-color: rgba(95, 95, 95, 0.75);
   border-top: 0;
   margin-left: -0.562em;
   margin-top: -0.562em;
