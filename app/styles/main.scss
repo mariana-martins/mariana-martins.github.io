@@ -13,7 +13,6 @@ $section-title: #9a174d;
 $font-body: "Lucida Console", Monaco, monospace;
 $margin-section: 10%;
 
-
 // Adjust header buttons
 @media screen and (max-width: 300px) {
   .header {
@@ -23,7 +22,6 @@ $margin-section: 10%;
     }
   }
 }
-
 
 // Hide middle name
 @media screen and (max-width: 450px) {
@@ -74,7 +72,6 @@ $margin-section: 10%;
   }
 }
 
-
 // Centralize contact info itens and change it size.
 @media screen and (max-width: 1080px) {
   .contacts {
@@ -96,7 +93,7 @@ $margin-section: 10%;
 
 // Change navbar color for transparent
 @media screen and (min-width: 992px) {
-  .navbar{
+  .navbar {
     background-color: transparent;
   }
 
@@ -121,7 +118,6 @@ $margin-section: 10%;
   }
 }
 
-
 // Button general config
 
 .button {
@@ -144,16 +140,19 @@ $margin-section: 10%;
   padding-top: 5vh;
 }
 
-
 // Navbar
-.navbar-custom{
-    a:hover, a:focus {
+.navbar-custom {
+  a:hover, a:focus {
     color: $color-title;
   }
 }
 
 .nav-link, .navbar-brand {
   color: #ffffff;
+}
+
+.navbar-brand {
+  font-weight: bold;
 }
 
 /* Set a different color on navbar-toggler-icon (hamburger icon) */
@@ -220,15 +219,15 @@ $margin-section: 10%;
   left: -10%;
   z-index: -1;
   background: #F9F9F9;
-  -webkit-transform: rotate3d(0,0,1,45deg) scale3d(0,1,1);
-  transform: rotate3d(0,0,1,45deg) scale3d(0,1,1);
+  -webkit-transform: rotate3d(0, 0, 1, 45deg) scale3d(0, 1, 1);
+  transform: rotate3d(0, 0, 1, 45deg) scale3d(0, 1, 1);
   -webkit-transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
 }
 
 .link--takiri:hover::before {
-  -webkit-transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);
-  transform: rotate3d(0,0,1,45deg) scale3d(1,1,1);
+  -webkit-transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
+  transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
 }
 
 .link--takiri span {
@@ -239,18 +238,17 @@ $margin-section: 10%;
   color: $section-title;
   bottom: 0;
   opacity: 0;
-  -webkit-transform: translate3d(-10px,-10px,0);
-  transform: translate3d(-10px,-10px,0);
+  -webkit-transform: translate3d(-10px, -10px, 0);
+  transform: translate3d(-10px, -10px, 0);
   -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
   transition: transform 0.5s, opacity 0.5s;
 }
 
 .link--takiri:hover span {
   opacity: 1;
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
-
 
 // Margin and paragraph of sections
 .about, .education, .projects, .questions, .github, .interests, .contacts {
@@ -309,7 +307,7 @@ $margin-section: 10%;
   }
   p {
     margin-left: 25px;
-    margin-right:25px;
+    margin-right: 25px;
   }
 }
 
@@ -350,12 +348,57 @@ $margin-section: 10%;
 }
 
 // Questions section
-.card { // collapse card
-  font-family: $font-body;
+
+/* Speech bubble */
+.questions {
   a {
-    color: $section-title;
+    color: #FFFFFF;
   }
 }
+
+.question {
+  position: relative;
+  background: $section-title;
+  border-radius: .4em;
+}
+
+.question:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.563em solid transparent;
+  border-top-color: $section-title;
+  border-bottom: 0;
+  margin-left: -0.562em;
+  margin-bottom: -0.562em;
+}
+
+.answer {
+  position: relative;
+  background: $section-title;
+  border-radius: .4em;
+  span {
+    color: #FFFFFF;
+  }
+}
+
+.answer:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.563em solid transparent;
+  border-bottom-color: $section-title;
+  border-top: 0;
+  margin-left: -0.562em;
+  margin-top: -0.562em;
+}
+
 
 // Github contributions
 
@@ -597,7 +640,6 @@ p {
   background-color: #5f5f5f;
   font-family: $font-title;
 
-
   a {
     font-size: 1.1rem;
   }
@@ -641,3 +683,5 @@ p {
   transform: scale(0.9);
   opacity: 0;
 }
+
+

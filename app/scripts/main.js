@@ -37,3 +37,8 @@ $('.nav-link').on('click', function() {
 
 // Activates scrollspy
 $('body').scrollspy({ target: '#navbar-site' });
+
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
