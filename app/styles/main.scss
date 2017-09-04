@@ -101,8 +101,17 @@ $margin-section: 10%;
     background-color: $section-title;
     opacity: 0.75;
   }
+}
+
+@media screen and (min-width: 1080px) {
   .book_title {
     display: none;
+  }
+  .img_author {
+    margin-top: 5vh;
+  }
+  .img_author__hover:hover, .img_author__hover:focus{
+    opacity: 0.50;
   }
 }
 
