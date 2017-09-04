@@ -39,6 +39,7 @@ $('.nav-link').on('click', function() {
 $('body').scrollspy({ target: '#navbar-site' });
 
 
+
 $(function () {
-  $('[data-toggle="popover"]').popover()
-})
+  $('[data-toggle="tooltip"]').tooltip()
+});

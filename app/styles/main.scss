@@ -101,6 +101,9 @@ $margin-section: 10%;
     background-color: $section-title;
     opacity: 0.75;
   }
+  .book_title {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -546,6 +549,12 @@ h2.f4.text-normal.mb-3 {
   i {
     color: $section-title;
   }
+}
+
+.book_title {
+  font-size: 0.8rem;
+  font-family: $font-body;
+  margin-top: 2%;
 }
 
 // Contact section
