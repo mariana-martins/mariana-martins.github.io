@@ -26,14 +26,17 @@
         content="This is my personal website, my portfolio. It contains my some relevant projects, my contacts, my resume and a short session about me.">
   <meta name="">
   <!-- endtwitter -->
+  <!-- manifest.json -->
   <link rel="manifest" href="manifest.json">
+  <!-- endmanifest.json -->
 
   <link rel="icon" href="favicon.svg">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+  <!-- Import Bootstrap v4.0.0-beta -->
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-reboot.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-grid.css">
+  <!-- endBootstrap -->
 
   <!-- hover.css -->
   <link rel="stylesheet" href="styles/hover.css" media="all">
@@ -51,28 +54,30 @@
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
-
   <!-- font awesome -->
   <link rel="stylesheet" href="styles/font-awesome.min.css">
   <!-- endfont -->
 </head>
+<!-- body -->
 <body id="home" data-target="#navbar-site" data-spy="scroll" data-offset="100">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
-<a href="#header" title="Go to header" class="invisible_link">Go to header</a>
-<!-- container -->
 
+<!-- Add an "invisible" path to go to Header section -->
+<a href="#header" title="Go to header" class="invisible_link">Go to header</a>
+
+<!-- Navbar -->
 <nav id="navbar-site" class="navbar navbar-expand-lg navbar-custom fixed-top">
-  <div class="container">
+  <div class="container"><!--container -->
     <span class="h1 navbar-brand mb-0">Mariana <span id="Martins">Martins</span> Menezes</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems"
+            aria-controls="NavbarItems" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!--  Navbar Collapse -->
+    <div class="collapse navbar-collapse" id="navbarItems">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="#header" title="Home">Home</a>
@@ -99,22 +104,27 @@
           <a class="nav-link" href="#contact">Contact</a>
         </li>
       </ul>
+    </div><!-- endcollapse -->
+  </div><!--endcontainer -->
+</nav><!-- endNavbar -->
 
-    </div>
-  </div>
-</nav>
+<!-- container_header -->
 <div class="container_header">
   <!-- container-fluid-->
   <div class="container-fluid">
     <!-- Header content -->
     <header id="header" class="header">
+      <!-- Title in a large screen -->
       <div class="text-center header_large">
-        <a class="link link--takiri" href="#">Mariana <span> Front-End Developer</span></a>
+        <a class="link large_title" href="#">Mariana <span> Front-End Developer</span></a>
       </div>
+      <!-- endlargeTitle -->
+      <!-- Title in a small screen -->
       <div class="header_small">
         <h1 class="text-center">Mariana Martins Menezes</h1>
         <h2 class="text-center">Front-End Developer</h2>
       </div>
+      <!-- endsmallTitle -->
       <div class="d-flex justify-content-center">
         <div class="d-flex justify-content-center flex-wrap" style="z-index: 1">
           <a href="#about" title="Go to About Me">
@@ -131,370 +141,400 @@
 
 <!-- Main content -->
 <main>
-<!-- container -->
-<div class="container">
-  <!-- about me -->
-  <div class="section_padding" id="about">
-    <section class="about">
-      <h3 class="section_title text-center display-4">About Me</h3>
-      <div class="row animatedParent animateOnce" data-sequence='800'>
-        <div class="col-md-6">
-          <p class="text-justify animated fadeInLeft" data-id='1'>Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse mauris magna,
-            sodales
-            nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
-            Nullam
-            fermentum risus ac sapien sollicitudin malesuada. Praesent dignissim ultrices dolor a interdum. Sed enim
-            neque,
-            pellentesque at venenatis ac, sagittis quis sapien. Sed sollicitudin odio ut nisl malesuada, vel efficitur
-            eros
-            vulputate. Suspendisse risus nunc, euismod sit amet lobortis vel, cursus non massa. Morbi cursus accumsan
-            egestas. Nam pellentesque turpis pellentesque metus accumsan, vitae mollis mi ultricies. Donec commodo,
-            justo
-            egestas pretium venenatis, ligula nulla venenatis sapien, quis cursus tortor justo vel quam. Morbi interdum,
-            nisi vel pharetra commodo, nisi ex accumsan elit, in posuere dui quam sed orci. Mauris tincidunt neque vitae
-            malesuada luctus. Aenean tempus molestie ultricies. Donec tincidunt dapibus neque quis imperdiet.
-          </p>
-        </div>
-        <div class="col-md-6">
-          <p class="text-justify animated fadeInRight" data-id='2'>Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse mauris magna,
-            sodales
-            nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
-            Nullam
-            fermentum risus ac sapien sollicitudin malesuada. Praesent dignissim ultrices dolor a interdum. Sed enim
-            neque,
-            pellentesque at venenatis ac, sagittis quis sapien. Sed sollicitudin odio ut nisl malesuada, vel efficitur
-            eros
-            vulputate. Suspendisse risus nunc, euismod sit amet lobortis vel, cursus non massa. Morbi cursus accumsan
-            egestas. Nam pellentesque turpis pellentesque metus accumsan, vitae mollis mi ultricies. Donec commodo,
-            justo
-            egestas pretium venenatis, ligula nulla venenatis sapien, quis cursus tortor justo vel quam. Morbi interdum,
-            nisi vel pharetra commodo, nisi ex accumsan elit, in posuere dui quam sed orci. Mauris tincidunt neque vitae
-            malesuada luctus. Aenean tempus molestie ultricies. Donec tincidunt dapibus neque quis imperdiet.
-          </p>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- endabout -->
-</div>
-
-<!-- endContainer-fluid -->
-<div class="container-fluid container_emphasis">
   <!-- container -->
   <div class="container">
-    <!-- projects -->
-    <div class="section_padding" id="projects">
-      <section class="projects">
-        <h3 class="section_title text-center display-4">My Projects</h3>
-        <div id="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-4 ">
-              <a href="#" class="text-center">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <a href="#" class="text-center">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <a href="#" class="text-center">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
+    <!-- .section_padding -->
+    <div class="section_padding" id="about">
+      <!-- about me -->
+      <section class="about">
+        <h3 class="section_title text-center display-4">About Me</h3>
+        <!-- .row -->
+        <div class="row animatedParent animateOnce" data-sequence='800'>
+          <!-- TODO: Review columns -->
+          <div class="col-md-6">
+            <p class="text-justify animated fadeInLeft" data-id='1'>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Suspendisse mauris magna,
+              sodales
+              nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
+              Nullam
+              fermentum risus ac sapien sollicitudin malesuada. Praesent dignissim ultrices dolor a interdum. Sed enim
+              neque,
+              pellentesque at venenatis ac, sagittis quis sapien. Sed sollicitudin odio ut nisl malesuada, vel efficitur
+              eros
+              vulputate. Suspendisse risus nunc, euismod sit amet lobortis vel, cursus non massa. Morbi cursus accumsan
+              egestas. Nam pellentesque turpis pellentesque metus accumsan, vitae mollis mi ultricies. Donec commodo,
+              justo
+              egestas pretium venenatis, ligula nulla venenatis sapien, quis cursus tortor justo vel quam. Morbi
+              interdum,
+              nisi vel pharetra commodo, nisi ex accumsan elit, in posuere dui quam sed orci. Mauris tincidunt neque
+              vitae
+              malesuada luctus. Aenean tempus molestie ultricies. Donec tincidunt dapibus neque quis imperdiet.
+            </p>
           </div>
-          <div class="row">
-            <div class="col-sm-6 col-md-4 ">
-              <a href="#" class="text-center">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-4">
-              <a href="#" class="text-center">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
-            <div class="col-sm-6 col-md-4" onclick="openModal()">
-              <a href="#myModal" data-toggle="modal" class="text-center" onclick="openModal()">
-                <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
-                     data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300">
-              </a>
-            </div>
+          <div class="col-md-6">
+            <p class="text-justify animated fadeInRight" data-id='2'>Lorem ipsum dolor sit amet, consectetur adipiscing
+              elit. Suspendisse mauris magna,
+              sodales
+              nec dolor nec, semper rhoncus urna. Sed hendrerit leo eu orci vestibulum, eu tincidunt mauris pharetra.
+              Nullam
+              fermentum risus ac sapien sollicitudin malesuada. Praesent dignissim ultrices dolor a interdum. Sed enim
+              neque,
+              pellentesque at venenatis ac, sagittis quis sapien. Sed sollicitudin odio ut nisl malesuada, vel efficitur
+              eros
+              vulputate. Suspendisse risus nunc, euismod sit amet lobortis vel, cursus non massa. Morbi cursus accumsan
+              egestas. Nam pellentesque turpis pellentesque metus accumsan, vitae mollis mi ultricies. Donec commodo,
+              justo
+              egestas pretium venenatis, ligula nulla venenatis sapien, quis cursus tortor justo vel quam. Morbi
+              interdum,
+              nisi vel pharetra commodo, nisi ex accumsan elit, in posuere dui quam sed orci. Mauris tincidunt neque
+              vitae
+              malesuada luctus. Aenean tempus molestie ultricies. Donec tincidunt dapibus neque quis imperdiet.
+            </p>
           </div>
-        </div>
-      </section>
-    </div>
-    <!-- endprojects -->
-
-
+        </div><!-- end.row -->
+      </section><!-- endabout -->
+    </div><!-- end.section_padding -->
   </div><!-- endContainer -->
-</div><!-- endContainer-fluid -->
 
-<!-- Container -->
-<div class="container">
-  <!-- education -->
-  <div class="section_padding" id="education">
-    <section class="education">
-      <h3 class="section_title text-center display-4">Education</h3>
-      <div>
-        <div class="education_link_effect animatedParent animateOnce" data-sequence='500'>
-          <!-- Udacity Course -->
-          <div class="animated fadeInDownShort" data-id='1'>
-            <a href="#">School course name</a>
-            <p class="education_courseTitle">Course Title</p>
-            <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-              ad
-              squid. Nihil anim
-              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-            <p class="mb-10">Date</p>
-          </div>
-          <!-- endUdacity -->
+  <!-- Container-fluid -->
+  <div class="container-fluid container_emphasis">
+    <!-- container -->
+    <div class="container">
+      <!-- .section_padding -->
+      <div class="section_padding" id="projects">
+        <!-- projects -->
+        <section class="projects">
+          <h3 class="section_title text-center display-4">My Projects</h3>
+          <!-- #container -->
+          <div id="container">
+            <!-- .row -->
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <a href="#" class="text-center">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <a href="#" class="text-center">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <a href="#" class="text-center">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+            </div><!-- end .row -->
+            <!-- .row -->
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <a href="#" class="text-center">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4">
+                <a href="#" class="text-center">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-4" onclick="openModal()">
+                <a href="#myModal" data-toggle="modal" class="text-center" onclick="openModal()">
+                  <img class="project_img img-fluid rounded mx-auto d-block" title="Lauch demo modal"
+                       data-background="rgba(154,23,77,0.65)" src="http://via.placeholder.com/300x300"
+                       alt="Project image">
+                </a>
+              </div>
+            </div><!-- end .row -->
+          </div><!-- end#container -->
+        </section><!-- endprojects -->
+      </div><!-- end.section_padding -->
+    </div><!-- endContainer -->
+  </div><!-- endContainer-fluid -->
 
-          <!-- Coursera course -->
-          <div class="animated fadeInDownShort" data-id='2'>
-            <a href="#">School course name</a>
-            <p class="education_courseTitle">Course Title</p>
-            <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-              ad
-              squid. Nihil anim
-              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-            <p class="mb-10">Date</p>
-          </div>
-          <!-- endCoursera -->
-
-          <!-- History Bachelor -->
-          <div class="animated fadeInDownShort" data-id='3'>
-            <a href="#">School course name</a>
-            <p class="education_courseTitle">Course Title</p>
-            <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
-              ad
-              squid. Nihil anim
-              keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-            <p class="mb-10">Date</p>
-          </div>
-          <!-- endHistory -->
-        </div>
-        <div class="d-flex justify-content-center animatedParent animateOnce">
-          <a href="#" class="animated bounceInDown">
-            <div class="hvr-float">
-              <img class="mx-auto d-block education_icon" src="img/github.svg" alt="">
-              <p class="text-center education_btnTitle">My Github</p>
-            </div>
-          </a>
-          <a href="#" class="animated bounceInDown">
-            <div class="hvr-float">
-              <img class="mx-auto d-block education_icon" src="img/curriculum.svg" alt="">
-              <p class="text-center education_btnTitle">My Resume</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- endeducation -->
-
-  <!-- questions -->
-  <div class="section_padding" id="questions">
-    <section class="questions text-justify animatedParent animateOnce" data-appear-top-offset='-400'>
-      <h3 class="section_title text-center display-4">Some questions about me</h3>
-      <div class="row animated bounceInLeft">
-        <div class="col-sm-6 col-md-3">
-          <a href="#answer1" data-toggle="collapse">
-            <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
-              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-            </div>
-            <img src="img/pink-girl.svg" alt="">
-          </a>
-          <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer1">
-            <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <a href="#answer2" data-toggle="collapse">
-            <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
-              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-            </div>
-            <img src="img/green-girl.svg" alt="">
-          </a>
-          <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer2">
-            <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <a href="#answer3" data-toggle="collapse">
-            <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
-              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-            </div>
-            <img src="img/blue-girl.svg" alt="">
-          </a>
-          <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer3">
-            <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
-          <a href="#answer4" data-toggle="collapse">
-            <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
-              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-            </div>
-            <img src="img/violet-girl.svg" alt="">
-          </a>
-          <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer4">
-            <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- endquestions -->
-
-  <!-- GitHub contributions -->
-  <div class="section_padding animatedParent animateOnce" id="github" data-appear-top-offset='-700'>
-    <section class="github animated pulse">
-      <h3 class="section_title text-center display-4">My Contributions</h3>
-      <!-- Import Github contributions from github-calendar api-->
-      <div class="calendar">
-        <!-- Loading stuff -->
-        Loading the data just for you.
-      </div>
-    </section>
-  </div>
-  <!-- EndGitHub -->
-
-  <!-- My interests-->
-  <div class="section_padding" id="interests">
-    <section class="interests ">
-      <h3 class="section_title text-center display-4">My Interests</h3>
-      <div class="row animatedParent animateOnce" data-sequence='500'>
-        <!-- Music -->
-        <div class="col-sm-12 col-md-4 animated fadeInLeft" data-id="1">
-          <h4 class="text-center mb-4 interests_subtitle">I love
-            <img src="img/music.svg" alt="to listen music" style="height: 24px">
-            !
-          </h4>
-          <div class="embed-responsive embed-responsive-1by1">
-            <iframe title="Go to Spotify Playlist" class="embed-responsive-item"
-                    src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&theme=white"
-                    frameborder="0" allowtransparency="true" rel="nofollow"></iframe>
-          </div>
-        </div>
-
-        <!-- Books -->
-        <div class="col-sm-12 col-md-4 animated fadeInUp delay-1000" data-id="2">
-          <h4 class="text-center mb-4 interests_subtitle">I love
-            <img src="img/read.svg" alt="to read" style="height: 24px">
-            !
-          </h4>
-          <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-burke-min.jpg" alt="Peter Burke" data-toggle="tooltip" data-placement="top" title="What is Cultural History?">
-              <p class="book_title text-center">What is Cultural History?</p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-krug-min.jpg" alt="Steve Krug" data-toggle="tooltip" data-placement="top" title="Don't Make Me Think">
-              <p class="book_title text-center">Don't Make Me Think</p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-orwell-min.jpg" alt="George Orwell" data-toggle="tooltip" data-placement="top" title="Animal Farm">
-              <p class="book_title text-center">Animal Farm</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid mx-auto d-block img_author img_author__hover" src="img/cv-tolkien-min.jpg" alt="J. R. R. Tolkien" data-toggle="tooltip" data-placement="top" title="Lord of the Rings">
-              <p class="book_title text-center">Lord of the Rings</p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid  mx-auto d-block img_author img_author__hover" src="img/cv-chartier-min.jpg" alt="Roger Chartier" data-toggle="tooltip" data-placement="top" title="Cultural History: Between Practices and Representations">
-              <p class="book_title text-center">Cultural History</p>
-            </div>
-            <div class="col-sm-4 col-md-4 col-lg-4">
-              <img class="img-fluid mx-auto d-block img_author img_author__hover" src="img/cv-quesenbery-min.jpg" alt="Whitney Quesenbery" data-toggle="tooltip" data-placement="top" title="A Web for Everyone: Designing Accessible User Experiences">
-              <p class="book_title text-center">A Web for Everyone</p>
-            </div>
-          </div>
-        </div>
-        <!-- Articles -->
-        <div class="col-sm-12 col-md-4 animated fadeInRight" data-id="3">
-          <h4 class="text-center mb-4 interests_subtitle">I love
-            <img src="img/write.svg" alt="to write" style="height: 24px">
-            !
-          </h4>
-          <ul class="list-unstyled text-center">
-            <li>
-              <a href="#">
-                Article
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Article
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Article
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-  <!-- Endinterests-->
-</div> <!-- endContainer -->
-  <!-- container_emphasis -->
-<div class="container-fluid container_emphasis">
   <!-- Container -->
   <div class="container">
-  <!-- contact -->
-  <section id="contact" class="contacts">
-    <h3 class="section_title text-center display-4">Contact</h3>
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <h4 class="contact_subtitle">Contact Info</h4>
-        <p class="d-flex align-items-center flex-wrap"><i class="fa fa-map-marker" aria-hidden="true"></i>
-          Christchurch, New Zealand
-        </p>
-        <p class="d-flex align-items-center flex-wrap "><i class="fa fa-envelope-o" aria-hidden="true"></i>
-          marianamartinsmenezes@gmail.com
-        </p>
-      </div>
-      <div class="col-md-6">
-        <h4 class="text-center contact_subtitle">Follow Me</h4>
-        <ul class="list-inline d-flex justify-content-center animatedParent animateOnce">
-          <li class="list-inline-item animated tada">
-            <a href="#" title="Mariana facebook profile">
-              <i class="fa fa-facebook-official contact_icon" aria-hidden="true"></i>
+    <!-- .section_padding -->
+    <div class="section_padding" id="education">
+      <!-- education -->
+      <section class="education">
+        <h3 class="section_title text-center display-4">Education</h3>
+        <div>
+          <!-- .education_link_effect -->
+          <div class="education_link_effect animatedParent animateOnce" data-sequence='500'>
+            <!-- Udacity Course -->
+            <div class="animated fadeInDownShort" data-id='1'>
+              <!--School name -->
+              <a href="#" title="Udacity website">School course name</a>
+              <!-- course title -->
+              <p class="education_courseTitle">Course Title</p>
+              <!-- course description -->
+              <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                richardson
+                ad
+                squid. Nihil anim
+                keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              <!-- date of conclusion -->
+              <p>Date</p>
+            </div><!-- endUdacity -->
+
+            <!-- Coursera course -->
+            <div class="animated fadeInDownShort" data-id='2'>
+              <!--School name -->
+              <a href="#" title="Coursera website">School course name</a>
+              <!-- course title -->
+              <p class="education_courseTitle">Course Title</p>
+              <!-- course description -->
+              <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                richardson
+                ad
+                squid. Nihil anim
+                keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              <!-- date of conclusion -->
+              <p>Date</p>
+            </div><!-- endCoursera -->
+
+            <!-- History Bachelor -->
+            <div class="animated fadeInDownShort" data-id='3'>
+              <!--School name -->
+              <a href="#" title="Uff website">School course name</a>
+              <!-- course title -->
+              <p class="education_courseTitle">Course Title</p>
+              <!-- course description -->
+              <p>Course description: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                richardson
+                ad
+                squid. Nihil anim
+                keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+              <!-- date of conclusion -->
+              <p>Date</p>
+            </div><!-- endHistory -->
+          </div><!-- end .education_link_effect -->
+          <!-- education buttons -->
+          <div class="d-flex justify-content-center animatedParent animateOnce">
+            <a href="#" class="animated bounceInDown" title="Mariana's Github profile">
+              <div class="hvr-float">
+                <img class="mx-auto d-block education_icon" src="img/github.svg" alt="">
+                <p class="text-center education_btnTitle">My Github</p>
+              </div>
             </a>
-          </li>
-          <li class="list-inline-item animated tada">
-            <a href="#" title="Mariana Github profile">
-              <i class="fa fa-github contact_icon" aria-hidden="true"></i>
+            <a href="#" class="animated bounceInDown" title="Mariana's CV">
+              <div class="hvr-float">
+                <img class="mx-auto d-block education_icon" src="img/curriculum.svg" alt="">
+                <p class="text-center education_btnTitle">My Resume</p>
+              </div>
             </a>
-          </li>
-          <li class="list-inline-item animated tada">
-            <a href="#" title="Mariana LinkedIn profile">
-              <i class="fa fa-linkedin contact_icon" aria-hidden="true"></i>
+          </div><!-- endbuttons -->
+        </div>
+      </section><!-- endeducation -->
+    </div><!-- end.section_padding -->
+
+    <!-- .section_padding -->
+    <div class="section_padding" id="questions">
+      <!-- questions -->
+      <section class="questions text-justify animatedParent animateOnce" data-appear-top-offset='-400'>
+        <h3 class="section_title text-center display-4">Some questions about me</h3>
+        <!-- .row -->
+        <div class="row animated bounceInLeft">
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <a href="#answer1" data-toggle="collapse" aria-controls="answer1" aria-label="show the answer">
+              <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
+                <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+              </div>
+              <img src="img/pink-girl.svg" alt="">
             </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!-- endcontact -->
+            <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer1">
+              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <a href="#answer2" data-toggle="collapse" aria-controls="answer2" aria-label="show the answer">
+              <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
+                <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+              </div>
+              <img src="img/green-girl.svg" alt="">
+            </a>
+            <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer2">
+              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <a href="#answer3" data-toggle="collapse" aria-controls="answer3" aria-label="show the answer">
+              <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
+                <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+              </div>
+              <img src="img/blue-girl.svg" alt="">
+            </a>
+            <div class="answer mt-4 mb-3 text-center p-2 collapse" id="answer3">
+              <span class="text-center p-3">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</span>
+            </div>
+          </div>
+        </div><!-- end.row -->
+      </section><!-- endquestions -->
+    </div><!-- end.section_padding -->
+
+    <!-- .section_padding -->
+    <div class="section_padding animatedParent animateOnce" id="github" data-appear-top-offset='-700'>
+      <!-- GitHub contributions -->
+      <section class="github animated pulse">
+        <h3 class="section_title text-center display-4">My Contributions</h3>
+        <!-- Import Github contributions from github-calendar api-->
+        <div class="calendar">
+          <!-- Loading stuff -->
+          Loading the data just for you.
+        </div>
+      </section><!-- EndGitHub -->
+    </div><!-- end.section_padding -->
+
+    <!-- .section_padding -->
+    <div class="section_padding" id="interests">
+      <!-- My interests-->
+      <section class="interests ">
+        <h3 class="section_title text-center display-4">My Interests</h3>
+        <!-- row -->
+        <div class="row animatedParent animateOnce" data-sequence='500'>
+          <!-- Music -->
+          <div class="col-sm-12 col-md-4 animated fadeInLeft" data-id="1">
+            <h4 class="text-center mb-4 interests_subtitle">I love
+              <img src="img/music.svg" alt="to listen music" style="height: 24px">
+              !
+            </h4>
+            <div class="embed-responsive embed-responsive-1by1">
+              <!-- Import playlist from Spotify, unsing a Spotify widget-->
+              <iframe title="Go to Spotify Playlist" class="embed-responsive-item"
+                      src="https://open.spotify.com/embed?uri=spotify:user:erebore:playlist:788MOXyTfcUb1tdw4oC7KJ&theme=white"
+                      frameborder="0" allowtransparency="true" rel="nofollow"></iframe>
+            </div>
+          </div><!-- endMusic -->
+
+          <!-- Books -->
+          <div class="col-sm-12 col-md-4 animated fadeInUp delay-1000" data-id="2">
+            <h4 class="text-center mb-4 interests_subtitle">I love
+              <img src="img/read.svg" alt="to read" style="height: 24px">
+              !
+            </h4>
+            <!-- .row -->
+            <div class="row">
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-burke-min.jpg" alt="Peter Burke"
+                     data-toggle="tooltip" data-placement="top" title="What is Cultural History?">
+                <p class="book_title text-center">What is Cultural History?</p>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-krug-min.jpg" alt="Steve Krug"
+                     data-toggle="tooltip" data-placement="top" title="Don't Make Me Think">
+                <p class="book_title text-center">Don't Make Me Think</p>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid mx-auto d-block img_author__hover" src="img/cv-orwell-min.jpg" alt="George Orwell"
+                     data-toggle="tooltip" data-placement="top" title="Animal Farm">
+                <p class="book_title text-center">Animal Farm</p>
+              </div>
+            </div><!-- end.row -->
+            <!-- .row -->
+            <div class="row">
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid mx-auto d-block img_author img_author__hover" src="img/cv-tolkien-min.jpg"
+                     alt="J. R. R. Tolkien" data-toggle="tooltip" data-placement="top" title="Lord of the Rings">
+                <p class="book_title text-center">Lord of the Rings</p>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid  mx-auto d-block img_author img_author__hover" src="img/cv-chartier-min.jpg"
+                     alt="Roger Chartier" data-toggle="tooltip" data-placement="top"
+                     title="Cultural History: Between Practices and Representations">
+                <p class="book_title text-center">Cultural History</p>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid mx-auto d-block img_author img_author__hover" src="img/cv-quesenbery-min.jpg"
+                     alt="Whitney Quesenbery" data-toggle="tooltip" data-placement="top"
+                     title="A Web for Everyone: Designing Accessible User Experiences">
+                <p class="book_title text-center">A Web for Everyone</p>
+              </div>
+            </div><!-- end.row -->
+          </div><!-- endBooks -->
+          <!-- Articles -->
+          <div class="col-sm-12 col-md-4 animated fadeInRight" data-id="3">
+            <h4 class="text-center mb-4 interests_subtitle">I love
+              <img src="img/write.svg" alt="to write" style="height: 24px">
+              !
+            </h4>
+            <ul class="list-unstyled text-center">
+              <li>
+                <a href="#">
+                  Article
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Article
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Article
+                </a>
+              </li>
+            </ul>
+          </div><!-- endArticles -->
+        </div><!-- end.row -->
+      </section><!-- Endinterests-->
+    </div><!-- end.section_padding -->
   </div> <!-- endContainer -->
-</div><!-- endcontainer_emphasis -->
+
+  <!-- .container_emphasis -->
+  <div class="container-fluid container_emphasis">
+    <!-- Container -->
+    <div class="container">
+      <!-- contact -->
+      <section id="contact" class="contacts">
+        <h3 class="section_title text-center display-4">Contact</h3>
+        <!-- .row -->
+        <div class="row align-items-center">
+          <div class="col-md-6 col-lg-6">
+            <h4 class="contact_subtitle">Contact Info</h4>
+            <p class="d-flex align-items-center flex-wrap"><i class="fa fa-map-marker" aria-hidden="true"></i>
+              Christchurch, New Zealand
+            </p>
+            <p class="d-flex align-items-center flex-wrap "><i class="fa fa-envelope-o" aria-hidden="true"></i>
+              marianamartinsmenezes@gmail.com
+            </p>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h4 class="text-center contact_subtitle">Follow Me</h4>
+            <ul class="list-inline d-flex justify-content-center animatedParent animateOnce">
+              <li class="list-inline-item animated tada">
+                <a href="#" title="Mariana's facebook profile">
+                  <i class="fa fa-facebook-official contact_icon" aria-hidden="true" aria-label="Go to Mariana's Facebook profile"></i>
+                </a>
+              </li>
+              <li class="list-inline-item animated tada">
+                <a href="#" title="Mariana's Github profile">
+                  <i class="fa fa-github contact_icon" aria-hidden="true" aria-label="Go to Mariana's Github profile"></i>
+                </a>
+              </li>
+              <li class="list-inline-item animated tada">
+                <a href="#" title="Mariana's LinkedIn profile">
+                  <i class="fa fa-linkedin contact_icon" aria-hidden="true" aria-label="Go to Mariana's LinkedIn profile"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div><!-- .row -->
+      </section><!-- endcontact -->
+    </div> <!-- endContainer -->
+  </div><!-- end.container_emphasis -->
 </main><!-- endmain -->
 
-<!-- footer content-->
+<!-- footer -->
 <footer class="container-fluid footer">
   <a href="#header" title="Back to header" class="invisible_link">Back to header</a>
   <ul class="list-inline d-flex justify-content-center flex-wrap ">
@@ -514,7 +554,8 @@
       <a href="#questions" class="text-center" title="Questions" data-hover="Questions">Questions</a>
     </li>
     <li class="list-inline-item footer_linkEffect">
-      <a href="#github" class="text-center github-contributions" title="Github contributions" data-hover="Contributions">Contributions</a>
+      <a href="#github" class="text-center github-contributions" title="Github contributions"
+         data-hover="Contributions">Contributions</a>
     </li>
     <li class="list-inline-item footer_linkEffect">
       <a href="#interests" class="text-center" title="Interests" data-hover="Interests">Interests</a>
@@ -524,8 +565,7 @@
     </li>
   </ul>
   <p class="text-center">©2017. Developed by Mariana Martins Menezes. All rights reserved</p>
-</footer>
-<!-- endfooter -->
+</footer><!-- endfooter -->
 
 <!-- Project Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

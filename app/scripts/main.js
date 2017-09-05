@@ -32,14 +32,14 @@ function openModal(e) {
 
 // Hide nav-link after it is clicked
 $('.nav-link').on('click', function() {
-  $('#navbarSupportedContent').collapse('hide');
+  $('#navbarItems').collapse('hide');
 });
 
 // Activates scrollspy
 $('body').scrollspy({ target: '#navbar-site' });
 
 
-
+// Activate tooltips in Books section
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });

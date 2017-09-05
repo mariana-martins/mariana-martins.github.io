@@ -207,7 +207,7 @@ $margin-section: 10%;
   display: inline-block;
 }
 
-.link--takiri {
+.large_title {
   font-family: $font-title;
   font-weight: 700;
   font-size: 7em;
@@ -217,11 +217,11 @@ $margin-section: 10%;
   z-index: 1;
 }
 
-.link--takiri:hover {
+.large_title:hover {
   color: #1e1a1b;
 }
 
-.link--takiri::before {
+.large_title::before {
   content: '';
   position: absolute;
   height: 36px;
@@ -237,12 +237,12 @@ $margin-section: 10%;
   transition: transform 0.5s;
 }
 
-.link--takiri:hover::before {
+.large_title:hover::before {
   -webkit-transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
   transform: rotate3d(0, 0, 1, 45deg) scale3d(1, 1, 1);
 }
 
-.link--takiri span {
+.large_title span {
   font-size: 20%;
   font-weight: 400;
   position: absolute;
@@ -256,7 +256,7 @@ $margin-section: 10%;
   transition: transform 0.5s, opacity 0.5s;
 }
 
-.link--takiri:hover span {
+.large_title:hover span {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
@@ -265,7 +265,7 @@ $margin-section: 10%;
 // Margin and paragraph of sections
 .about, .education, .projects, .questions, .github, .interests, .contacts {
   margin-top: $margin-section;
-  p {
+  p, time {
     font-family: $font-body;
   }
 }
@@ -314,7 +314,7 @@ $margin-section: 10%;
     font-family: $font-body;
     font-weight: bold;
   }
-  p {
+  p, time {
     margin-left: 25px;
     margin-right: 25px;
   }
