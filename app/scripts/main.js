@@ -1,14 +1,12 @@
-/* Config project image hover */
+/* Config hover in images project */
 $(function() {
-
   $('#container').sliphover({
     backgroundColorAttr: 'data-background',
     target: 'img'
   });
-
 });
 
-/* Navbar change color during the scroll */
+/* Change color of Navbar, during the scroll */
 
 $(window).scroll(function() {
   var navbar = $('#navbar-site');
@@ -22,7 +20,7 @@ $(window).scroll(function() {
   }
 });
 
-// Call to Github api using Github calendar
+// Call to Github Api using Github calendar
 GitHubCalendar(".calendar", "mariana-martins");
 
 // Open project modal
