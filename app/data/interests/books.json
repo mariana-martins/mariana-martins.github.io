@@ -1,0 +1,32 @@
+[
+  {
+    "authorName" : "Peter Burke",
+    "bookName" : "What is Cultural History?",
+    "coverUrl" : "img/cv-burke-min.jpg"
+  },
+  {
+    "authorName" : "Steve Krug",
+    "bookName" : "Don't Make Me Think",
+    "coverUrl" : "img/cv-krug-min.jpg"
+  },
+  {
+    "authorName" : "George Orwell",
+    "bookName" : "Animal Farm",
+    "coverUrl" : "img/cv-orwell-min.jpg"
+  },
+  {
+    "authorName" : "J. R. R. Tolkien",
+    "bookName" : "Lord of the Rings",
+    "coverUrl" : "img/cv-tolkien-min.jpg"
+  },
+  {
+    "authorName" : "Roger Chartier",
+    "bookName" : "Cultural History: Between Practices and Representations",
+    "coverUrl" : "img/cv-chartier-min.jpg"
+  },
+  {
+    "authorName" : "Whitney Quesenbery",
+    "bookName" : "A Web for Everyone: Designing Accessible User Experiences",
+    "coverUrl" : "img/cv-quesenbery-min.jpg"
+  }
+]

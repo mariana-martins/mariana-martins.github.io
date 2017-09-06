@@ -1,0 +1,20 @@
+{
+  "aboutMe" : "frase1\nfrase2",
+  "location" : "Christchurch, New Zealand",
+  "email" : "marianamartinsmenezes@gmail.com",
+  "cvUrl" : " ",
+  "socialMedia" : [
+    {
+      "name" : "Mariana's Facebook profile",
+      "url" : "https://www.facebook.com/x2003k"
+    },
+    {
+      "name" : "Mariana's Github profile",
+      "url" : "https://github.com/mariana-martins"
+    },
+    {
+      "name" : "Mariana's LinkedIn profile",
+      "url" : "www.linkedin.com/in/marianamenezes"
+    }
+  ]
+}

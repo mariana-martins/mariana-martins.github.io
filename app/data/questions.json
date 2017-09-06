@@ -1,0 +1,14 @@
+[
+  {
+    "question" : "​What is the book that most influenced you in IT career? ",
+    "answer" : "​The book that most influenced me was 'Web for Everyone'. I've always found the subject of accessibility very interesting, but this book opened my eyes about how disabled users use websites. Most people when they talk about accessibility refer to blind and deaf people, but they omit other disabilities as dyslexia and color blindness. So this book helped me to understand how different types of disabilities influence the way of coding a website. As a result, it also showed me better ways to create websites and layouts. Before reading the book, I studied to be a front-end developer but focused on coding and frameworks. After reading the book, I realized that UX and accessibility are some of the most relevant subjects to a great website."
+  },
+  {
+    "question" : "​Which is a language, a framework or a library that you would like to be a specialist in the future?",
+    "answer" : "​I think it would be JavaScript. Although I’m studying and improving about this language, I am far from being an expert on the subject. However, I believe this language is one of the most important for the profession I chose. JavaScript is the most applied language in the world and anyone who wants to be a good front-end developer needs to know this language very well. I think after I learn Javascript it will be easier to interact with most relevant frameworks, as AngularJS."
+  },
+  {
+    "question" : "​What is your favorite language, framework or library ?",
+    "answer" : "​I really like Bootstrap. It helps to create websites faster. Bootstrap components allow to create basic layout websites in minutes. Also, grid system is required in any good website, so using Bootstrap's grid system makes the developer's life much easier. I think the main advantage of Bootstrap is that it's grid system works very well and is simpler to use. It is a framework that focuses on the responsiveness of the application. Therefore, it is simple to have a responsive application using Bootstrap. Another important point is: it's documentation is objective and easy to use. The Bootstrap users are a big community, thus it is easier to find solutions for problems by consulting other people. In my opinion, the main disadvantage of Bootstrap is that if intesive customization is in need you'll probably waste a lot of time as the framework structure is too complex to be changed easily. "
+  }
+]

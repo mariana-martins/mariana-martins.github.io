@@ -1,0 +1,23 @@
+[
+  {
+    "schoolName" : "Udacity",
+    "schoolUrl" : "https://www.udacity.com/",
+    "courseName" : "Front-End Web Developer Nano-Degree, Information Technology",
+    "courseDescription" : "​During the nano-degree I learned some skills needed to become a Front-End Web Developer. I've developed projects using HTML5, CSS3 and the Bootstrap framework to create projects like this portfolio. I've learned and used Javascript and jQuery to dynamically fill out a curriculum project. In addition, I developed projects such as the arcade game in JavaScript and mapping applications using the Knockout framework. The course also covered Task Runners (Grulp and Grunt), Git and testing frameworks (Jasmine).",
+    "date" : "2016-2017"
+  },
+  {
+    "schoolName" : "Coursera",
+    "schoolUrl" : "https://www.coursera.org/",
+    "courseName" : "Responsive Website Development and Design Specialization",
+    "courseDescription" : "​During the specialization I used the following languages: HTML, CSS and Javascript to develop responsive websites using the Meteor.js framework. At the end of the course, I developed a web application using the concepts of responsive web design and Single Page Application.",
+    "date" : "2015-2016"
+  },
+  {
+    "schoolName" : "Universidade Federal Fluminense (UFF)",
+    "schoolUrl" : "http://www.uff.br/",
+    "courseName" : "Bachelor in History",
+    "courseDescription" : "​I researched about Contemporary Brazilian History, specifically the presidential elections of 1950, which is the subject of my thesis. I worked as tutor for History of Brazil II (Imperial Brazil) and History of Brazil III (Contemporary Brazil). Also, I had a scientific scholarship, which resulted in a chapter of a book.",
+    "date" : "2009-2014"
+  }
+]
