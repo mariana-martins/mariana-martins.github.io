@@ -7,11 +7,13 @@
    ========================================================================== */
 
 // Sass Variables
-$color-title: #ffffff;
+$light-color: #ffffff;
 $font-title: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-$section-title: #9a174d;
+$dark-color: #5f5f5f;
+$main-color: #9a174d;
 $font-body: "Lucida Console", Monaco, monospace;
 $margin-section: 10%;
+$header-background: 170deg, #1e88e5, #88ffff;
 
 // Adjust header buttons
 @media screen and (max-width: 300px) {
@@ -98,7 +100,7 @@ $margin-section: 10%;
   }
 
   .top-page .navbar {
-    background-color: $section-title;
+    background-color: $main-color;
     opacity: 0.75;
   }
 }
@@ -118,7 +120,7 @@ $margin-section: 10%;
 @media screen and (max-width: 991px) {
   // Change navbar color
   .navbar {
-    background-color: $section-title;
+    background-color: $main-color;
   }
 
   .top-page .navbar {
@@ -134,20 +136,20 @@ $margin-section: 10%;
 
 .button {
   display: inline-block;
-  background-color: $section-title;
+  background-color: $main-color;
   text-decoration: none;
-  color: white;
+  color: $light-color;
   font-family: $font-title;
   cursor: pointer;
 }
 
 // Navbar + header background and fonts
 .container_header {
-  background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(170deg, #1e88e5, #88ffff); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(170deg, #1e88e5, #88ffff); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(170deg, #1e88e5, #88ffff); /* Standard syntax */
-  color: $color-title;
+  background: -webkit-linear-gradient($backgroundColor); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($backgroundColor); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($backgroundColor); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($backgroundColor); /* Standard syntax */
+  color: $light-color;
   font-family: $font-title;
   padding-top: 5vh;
 }
@@ -155,12 +157,12 @@ $margin-section: 10%;
 // Navbar
 .navbar-custom {
   a:hover, a:focus {
-    color: $color-title;
+    color: $light-color;
   }
 }
 
 .nav-link, .navbar-brand {
-  color: #ffffff;
+  color: $light-color;
 }
 
 .navbar-brand {
@@ -169,14 +171,14 @@ $margin-section: 10%;
 
 /* Set a different color on navbar-toggler-icon (hamburger icon) */
 .navbar-toggler-icon {
-  border: solid 1px #fff;
+  border: solid 1px $light-color;
   padding: 20px;
   border-radius: 8%;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .active {
-  border-bottom: solid 3px #ffffff;
+  border-bottom: solid 3px $light-color;
   -webkit-transition: border 0.5s;
   transition: border 0.2s ease;
 }
@@ -203,7 +205,7 @@ $margin-section: 10%;
   position: relative;
   font-size: 8em;
   line-height: 1;
-  color: #FFFFFF;
+  color: $light-color;
   display: inline-block;
 }
 
@@ -247,7 +249,7 @@ $margin-section: 10%;
   font-weight: 400;
   position: absolute;
   right: 15px;
-  color: $section-title;
+  color: $main-color;
   bottom: 0;
   opacity: 0;
   -webkit-transform: translate3d(-10px, -10px, 0);
@@ -278,7 +280,7 @@ $margin-section: 10%;
 // Title of sections
 .section_title {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  color: $section-title;
+  color: $main-color;
   margin-bottom: 6%;
 }
 
@@ -310,7 +312,7 @@ $margin-section: 10%;
 // Education section
 .education {
   .education_link_effect a {
-    color: rgb(95, 95, 95);
+    color: $dark-color;
     font-family: $font-body;
     font-weight: bold;
   }
@@ -373,13 +375,13 @@ $margin-section: 10%;
 /* Speech bubble */
 .questions {
   a {
-    color: #FFFFFF;
+    color: $light-color;
   }
 }
 
 .question {
   position: relative;
-  background: rgb(95, 95, 95);
+  background: $dark-color;
   border-radius: .4em;
 }
 
@@ -391,7 +393,7 @@ $margin-section: 10%;
   width: 0;
   height: 0;
   border: 0.563em solid transparent;
-  border-top-color: rgb(95, 95, 95);
+  border-top-color: $dark-color;
   border-bottom: 0;
   margin-left: -0.562em;
   margin-bottom: -0.562em;
@@ -402,7 +404,7 @@ $margin-section: 10%;
   background: rgba(95, 95, 95, 0.75);
   border-radius: .4em;
   span {
-    color: #FFFFFF;
+    color: $light-color;
   }
 }
 
@@ -440,7 +442,7 @@ $margin-section: 10%;
 .calendar-graph text.wday,
 .calendar-graph text.month {
   font-size: 0.7rem;
-  fill: rgb(95, 95, 95);
+  fill: $dark-color;
 }
 
 .contrib-legend {
@@ -467,7 +469,7 @@ $margin-section: 10%;
 
 .text-small {
   font-size: 12px;
-  color: rgb(95, 95, 95);
+  color: $dark-color;
 }
 
 .calendar-graph {
@@ -517,7 +519,7 @@ $margin-section: 10%;
 }
 
 .monospace a {
-  color: $section-title;
+  color: $main-color;
   text-decoration: none;
 }
 
@@ -533,11 +535,11 @@ $margin-section: 10%;
 .left.text-muted {
   float: left;
   margin-left: 9px;
-  color: rgb(95, 95, 95);
+  color: $dark-color;
 }
 
 .left.text-muted a {
-  color: $section-title;
+  color: $main-color;
   text-decoration: none;
 }
 
@@ -553,10 +555,10 @@ h2.f4.text-normal.mb-3 {
 // My interests section
 
 .interests_subtitle {
-  color: #5f5f5f;
+  color: $dark-color;
   font-family: $font-body;
   i {
-    color: $section-title;
+    color: $main-color;
   }
 }
 
@@ -573,7 +575,7 @@ h2.f4.text-normal.mb-3 {
 }
 
 .contact_subtitle {
-  color: $section-title;
+  color: $main-color;
   font-family: $font-title;
   margin-bottom: 6%;
 }
@@ -582,7 +584,7 @@ p {
   .fa-map-marker, .fa-envelope-o {
     font-size: 3vh;
     margin-right: 3%;
-    color: #5f5f5f;
+    color: $dark-color;
   }
 }
 
@@ -598,7 +600,7 @@ p {
   text-align: center;
   position: relative;
   z-index: 1;
-  color: #fff;
+  color: $light-color;
 
 }
 
@@ -627,7 +629,7 @@ p {
 }
 
 .contact_icon {
-  background-color: $section-title;
+  background-color: $main-color;
   -webkit-transition: background 0.2s, color 0.2s;
   -moz-transition: background 0.2s, color 0.2s;
   transition: background 0.2s, color 0.2s;
@@ -637,7 +639,7 @@ p {
   top: -7px;
   left: -7px;
   padding: 7px;
-  box-shadow: 0 0 0 4px $section-title;
+  box-shadow: 0 0 0 4px $main-color;
   -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
   -webkit-transform: scale(.8);
   -moz-transition: -moz-transform 0.2s, opacity 0.2s;
@@ -649,8 +651,8 @@ p {
 }
 
 .contact_icon:hover {
-  background: $section-title;
-  color: #ffffff;
+  background: $main-color;
+  color: $light-color;
 }
 
 .contact_icon:hover:after {
@@ -694,7 +696,7 @@ p {
 }
 
 .footer_linkEffect a::before {
-  color: #fff;
+  color: $light-color;
   content: attr(data-hover);
   position: absolute;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
