@@ -2,26 +2,18 @@
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./styles/main.scss');
 
-// js dependencies
-require('bootstrap');
-require('./scripts/jquery.sliphover.min');
-require('./scripts/css3-animate-it');
-require('./scripts/main');
-
 // images
-require.context(
-    './img', // context folder
-    true, // include subdirectories
-    /.(svg|jpg)/ // RegExp
-)('./' + expr);
+(function() {
+  var imgContext = require.context('./img/', true, /\.(svg|jpg)$/);
+  imgContext.keys().forEach(imgContext);
+})();
 require('./favicon.svg');
 
 // meta data
 require('./manifest.json');
 
 // templates
-var introComponent = require('./templates/intro');
-var contactComponent = require('./templates/contact');
+var aboutComponent = require('./templates/about');
 
 // data
 var profileData = require('./data/profile.json');
@@ -34,7 +26,7 @@ var loadTemplate = function(sectionId, data, component) {
 };
 
 // logic
-//loadTemplate('sec_intro', profileData, introComponent);
+loadTemplate('about', profileData, aboutComponent);
 // loadTemplate('sec_contact', {}, contactComponent);
 
 module.exports = {
@@ -43,3 +35,9 @@ module.exports = {
         $('#myModal').modal('show');
     }
 };
+
+// js dependencies
+require('bootstrap');
+require('./scripts/jquery.sliphover.min');
+require('./scripts/css3-animate-it');
+require('./scripts/main');

@@ -1,0 +1,15 @@
+$ var parts = input.aboutMe.split('\n');
+
+<!-- about me -->
+<section class="about">
+  <h3 class="section_title text-center display-4">About Me</h3>
+  <!-- .row -->
+  <div class="row animatedParent animateOnce" data-sequence='800'>
+    <div class="col-md-6">
+      <p class="text-justify animated fadeInLeft" data-id='1'>${parts[0]}</p>
+    </div>
+    <div class="col-md-6">
+      <p class="text-justify animated fadeInRight" data-id='2'>${parts[1]}</p>
+    </div>
+  </div><!-- end.row -->
+</section><!-- endabout -->

@@ -35,25 +35,21 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              query: {
-                name: 'img/[name].[ext]'
-              }
+            query: {
+              name: 'img/[name].[ext]'
             }
           },
           {
             loader: 'image-webpack-loader',
-            options: {
-              query: {
-                mozjpeg: {
-                  progressive: true,
-                },
-                gifsicle: {
-                  interlaced: true,
-                },
-                optipng: {
-                  optimizationLevel: 7,
-                }
+            query: {
+              mozjpeg: {
+                progressive: true,
+              },
+              gifsicle: {
+                interlaced: true,
+              },
+              optipng: {
+                optimizationLevel: 7,
               }
             }
           }]
