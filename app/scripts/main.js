@@ -7,7 +7,6 @@ $(function() {
 });
 
 /* Change color of Navbar, during the scroll */
-
 $(window).scroll(function() {
   var navbar = $('#navbar-site');
   if ($('.navbar').offset().top > 50) {
@@ -21,12 +20,8 @@ $(window).scroll(function() {
 });
 
 // Call to Github Api using Github calendar
+var GitHubCalendar = require('github-calendar');
 GitHubCalendar(".calendar", "mariana-martins");
-
-// Open project modal
-function openModal(e) {
-  $('#myModal').modal('show');
-}
 
 // Hide nav-link after it is clicked
 $('.nav-link').on('click', function() {
