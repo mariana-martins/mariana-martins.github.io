@@ -18,6 +18,7 @@ var projectsComponent = require('./templates/projects');
 var educationComponent = require('./templates/education');
 var questionsComponent = require('./templates/questions');
 var interestsComponent = require('./templates/interests');
+var contactComponent = require('./templates/contact.marko');
 
 // data
 var profileData = require('./data/profile.json');
@@ -43,6 +44,7 @@ loadTemplate('projects', projectsData, projectsComponent);
 loadTemplate('education', {"education": educationData, "profile": profileData}, educationComponent);
 loadTemplate('questions', questionsData, questionsComponent);
 loadTemplate('interests', interestsData, interestsComponent);
+loadTemplate('contact', profileData, contactComponent);
 
 // js dependencies
 require('bootstrap');
