@@ -10,10 +10,14 @@ require('./scripts/main');
 
 // images
 require.context(
-    "./img", // context folder
+    './img', // context folder
     true, // include subdirectories
     /.(svg|jpg)/ // RegExp
-)("./" + expr + "")
+)('./' + expr);
+require('./favicon.svg');
+
+// meta data
+require('./manifest.json');
 
 // templates
 var introComponent = require('./templates/intro');
