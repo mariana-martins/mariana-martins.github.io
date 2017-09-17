@@ -56,13 +56,10 @@
 <!-- endmodal-->
 
 static {
-
   $('#projectModal').on('shown.bs.modal', function (event) {
-
     var element = $(event.relatedTarget);
     var position = element.data('pos');
     var modal = $(this);
     modal.find('.modal-title').text('New message to ' + position);
-
   });
 }

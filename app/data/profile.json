@@ -6,15 +6,18 @@
   "socialMedia": [
     {
       "name": "Mariana's Facebook profile",
-      "url": "https://www.facebook.com/x2003k"
+      "url": "https://www.facebook.com/x2003k",
+      "type" : "facebook"
     },
     {
       "name": "Mariana's Github profile",
-      "url": "https://github.com/mariana-martins"
+      "url": "https://github.com/mariana-martins",
+      "type" : "github"
     },
     {
       "name": "Mariana's LinkedIn profile",
-      "url": "www.linkedin.com/in/marianamenezes"
+      "url": "www.linkedin.com/in/marianamenezes",
+      "type" : "linkedin"
     }
   ]
 }

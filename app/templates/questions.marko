@@ -1,0 +1,22 @@
+$ var images = ["img/pink-girl.svg", "img/green-girl.svg", "img/blue-girl.svg"];
+
+<section class="questions text-justify animatedParent animateOnce" data-appear-top-offset='-400'>
+  <h3 class="section_title text-center display-4">Some questions about me</h3>
+  <!-- .row -->
+  <div class="row animated bounceInLeft">
+    <div class="col-sm-12 col-md-4 col-lg-4" for(item in input | status-var=loop)>
+      $ var pos = loop.getIndex();
+      $ var itemId = "answer" + pos;
+      $ var imageUrl = images[pos % images.length];
+      <a href="#${itemId}" data-toggle="collapse" aria-controls="${itemId}" aria-label="show the answer">
+        <div class="question mt-4 mb-3 d-flex justify-content-center hvr-shadow">
+          <span class="text-center p-3">${item.question}</span>
+        </div>
+        <img class="mx-auto d-block question_image" src="${imageUrl}" alt="">
+      </a>
+      <div class="answer mt-4 mb-3 text-center p-2 collapse" id="${itemId}">
+        <span class="text-center p-3">${item.answer}</span>
+      </div>
+    </div>
+  </div><!-- end.row -->
+</section>
