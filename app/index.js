@@ -14,9 +14,12 @@ require('./manifest.json');
 
 // templates
 var aboutComponent = require('./templates/about');
+var projectsComponent = require('./templates/projects');
 
 // data
 var profileData = require('./data/profile.json');
+var projectsData = require('./data/projects.json');
+
 
 // functions
 var loadTemplate = function(sectionId, data, component) {
@@ -27,14 +30,8 @@ var loadTemplate = function(sectionId, data, component) {
 
 // logic
 loadTemplate('about', profileData, aboutComponent);
-// loadTemplate('sec_contact', {}, contactComponent);
+loadTemplate('projects', projectsData, projectsComponent);
 
-module.exports = {
-    openModal: function (e) {
-        // Open project modal
-        $('#myModal').modal('show');
-    }
-};
 
 // js dependencies
 require('bootstrap');

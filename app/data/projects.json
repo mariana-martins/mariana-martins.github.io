@@ -5,16 +5,10 @@
     "description" : "​Wrote comprehensive unit tests, using Jasmine testing framework, for an RSS Feed Reader application that uses Google's RSS API.",
     "date" : "​April, 2017",
     "tags" : ["Jasmine", "JavaScript", "HTML5", "CSS3"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/feedreader-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/feedreader-lg-min.jpg"
+    "images": {
+        "small": "img/feedreader-sm-min.jpg",
+        "large": "img/feedreader-lg-min.jpg"
       }
-    ]
   },
   {
     "name" : "​Neighborhood Map",
@@ -22,16 +16,10 @@
     "description" : "​Developed a single-page application that loads a list of restaurants from Christchurch, NZ, on a map. Used Zomato API to get the restaurant list with its rating and Google Maps API to visualize them on a map as markers. Developed using the best practices in Object Oriented Javascript. The project is constructed in MVVM patterns, using Knockout. It also supports filtering the restaurants by names.",
     "date" : "​April, 2017",
     "tags" : ["Bootstrap3", "Google Maps Api","Knockout", "HTML5", "CSS3", "JavaScript"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/neighborhoodMap-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/neighborhoodMap-lg-min.jpg"
-      }
-    ]
+    "images": {
+      "small": "img/neighborhoodMap-sm-min.jpg",
+      "large": "img/neighborhoodMap-lg-min.jp"
+    }
   },
   {
     "name" : "​Classic Arcade Game",
@@ -39,16 +27,10 @@
     "description" : "​Developed using the best practices in Object Oriented JavaScript. This project was an HTML5 Canvas powered video game. It was one of the most difficult projects at this time, because it involved HTML5 Canvas. Also, the idea of create a game discouraged me a bit. The main challenge was to organize my toughts and set up a strategy for how to tackle the problem. I knew the concepts and the instructions, but it was difficult to put these two things together and start programming. The project was focused on object orientation, which made things even more complicated. In the end, it was essential to reaffirm important Javascript concepts like object orientation, Prototype and PseudoClasses.",
     "date" : "​Jan, 2017",
     "tags" : ["Javascript", "Object Oriented", "HTML5 Canvas"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/arcadeGame-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/arcadeGame-lg-min.jpg"
-      }
-    ]
+    "images": {
+      "small": "img/arcadeGame-sm-min.jpg",
+      "large": "img/arcadeGame-lg-min.jpg"
+    }
   },
   {
     "name" : "​Website Optimization",
@@ -56,16 +38,10 @@
     "description" : "​Optimized an inefficient web application's JavaScript, CSS and assets delivery, ensuring it runs at 60fps and achieves a PageSpeed score of at least 90. This project wasn’t the hardest but required some time to finish. I need to isolate the problematic areas first and create a plan for their optimization. This project used Ngrok, which made the PageSpeed performance tests inconsistent. Thus, Iearned ways to optimize a site that I had never thought of: inserting css inline and not importing fonts from Google Fonts. The project was important to increase my knowledge in Gulp, since it was essential for the optimization.",
     "date" : "​Feb, 2017",
     "tags" : ["Web optimization", "Gulp", "PageSpeed", "HTML5", "CSS3", "Javascript"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/websiteOptimization-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/webOptimization-lg-min.jpg"
-      }
-    ]
+    "images": {
+      "small": "img/websiteOptimization-sm-min.jpg",
+      "large": "img/webOptimization-lg-min.jpg"
+    }
   },
   {
     "name" : "​Front-End Resume",
@@ -73,16 +49,10 @@
     "description" : "​Developed an interactive resume application, using jQuery, that reads all data from a JSON file and then dynamically modifies the DOM to display the information. Like the Portfolio Site project, this project was also very impersonal, because I had to follow a template given by Udacity. The main focus of this project was the use of JSON objects.It felt like a review of loop concepts and conditionals.",
     "date" : "​Oct, 2016 ",
     "tags" : ["HTML5", "CSS3", "Javascript", "jQuery"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/frontendResume-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/frontendResume-lg-min.jpg"
-      }
-    ]
+    "images": {
+      "small": "img/frontendResume-sm-min.jpg",
+      "large": "img/frontendResume-lg-min.jpg"
+    }
   },
   {
     "name" : "​Lojinha",
@@ -90,15 +60,9 @@
     "description" : "​I coded a website for my garage sale,  because I had to sell my belongings in Brazil to move to New Zealand. I designed and implemented a responsive Single Page Application to announce all available items. I used technologies: HTML5, CSS3, JavaScript, Bootstrap, jQuery, Meteor.js and MongoDB.",
     "date" : "​May, 2016",
     "tags" : ["Meteor.js", "jQuery", "MongoDB", "Bootstrap 3"],
-    "images": [
-      {
-        "size": "small",
-        "url": "img/lojinha-sm-min.jpg"
-      },
-      {
-        "size": "large",
-        "url": "img/lojinha-lg-min.jpg"
-      }
-    ]
+    "images": {
+      "small": "img/lojinha-sm-min.jpg",
+      "large": "img/lojinha-lg-min.jpg"
+    }
   }
 ]

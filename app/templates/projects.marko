@@ -1,0 +1,68 @@
+
+
+<section class="projects">
+  <h3 class="section_title text-center display-4">My Projects</h3>
+  <!-- #container -->
+  <div id="container">
+
+    <!-- .row -->
+    <div class="row" for(i from 0 to (input.length-1)/3)>
+      <div class="col-sm-6 col-md-4 col-lg-4" for(j from 0 to 2)>
+        $ var pos = i*3+j;
+        $ var project = input[pos];
+        <a href="#projectModal" class="text-center" data-pos="${pos}" data-toggle="modal">
+          <img class="project_img img-fluid rounded mx-auto d-block" title="${project.name}"
+               data-background="rgba(154,23,77,0.65)" src="${project.images.small}"
+               alt="${project.name}">
+        </a>
+      </div>
+    </div><!-- end .row -->
+  </div><!-- end#container -->
+</section>
+
+
+<!-- Project Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300"
+             alt="image project">
+        <ul class="list-inline d-flex justify-content-around flex-wrap">
+          <li class="list-inline-item"><span class="badge badge-secondary">HTML</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">CSS</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Javascript</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Bootstrap</span></li>
+          <li class="list-inline-item"><span class="badge badge-secondary">Font-Awesome</span></li>
+        </ul>
+        <a href="#" title="project link" class="modal_link">Project Link</a>
+        <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Phasellus eget leo cursus, placerat nisl at, finibus ligula. Fusce blandit tempor magna, quis ultricies
+          ex auctor non. Aliquam erat volutpat. Proin hendrerit ac tortor non suscipit. Integer egestas eros erat. Class
+          aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec sem
+          consequat est ornare sagittis. Sed quis massa sed nibh imperdiet tempus in vel orci. Etiam aliquam turpis sed
+          porttitor blandit. Vestibulum vestibulum orci augue, quis mollis nisi mattis rutrum. Cras at dapibus libero,
+          sit amet bibendum nisi. Morbi convallis eu est euismod laoreet. Nam elementum. </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- endmodal-->
+
+static {
+
+  $('#projectModal').on('shown.bs.modal', function (event) {
+
+    var element = $(event.relatedTarget);
+    var position = element.data('pos');
+    var modal = $(this);
+    modal.find('.modal-title').text('New message to ' + position);
+
+  });
+}
