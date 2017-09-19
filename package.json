@@ -6,9 +6,14 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --progress --watch",
-    "start": "webpack-dev-server --open --config webpack.dev.js"
+    "start": "webpack-dev-server --open --config webpack.dev.js --host 0.0.0.0"
   },
-  "keywords": ["Mariana Martins Menezes", "Portfolio", "Front-End Development", "Web development"],
+  "keywords": [
+    "Mariana Martins Menezes",
+    "Portfolio",
+    "Front-End Development",
+    "Web development"
+  ],
   "author": "Mariana Martins Menezes",
   "license": "ISC",
   "devDependencies": {
@@ -34,5 +39,7 @@
     "webpack-dev-server": "^2.8.2",
     "webpack-merge": "^4.1.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "google-fonts-webpack-plugin": "^0.4.2"
+  }
 }

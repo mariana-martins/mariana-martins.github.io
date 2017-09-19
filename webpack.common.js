@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const GoogleFontsPlugin = require("google-fonts-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -61,6 +61,13 @@ module.exports = {
     new ExtractTextPlugin('bundle.css', {allChunks: true}),
     new HtmlWebpackPlugin({
       template: 'app/index.html'
+    }),
+    new GoogleFontsPlugin({
+      fonts: [
+        { family: "Montserrat Alternates" },
+        { family: "Inconsolata" },
+        { family: "Montaga" }
+      ]
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
