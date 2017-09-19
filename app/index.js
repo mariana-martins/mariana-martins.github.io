@@ -7,7 +7,7 @@ require('./styles/main.scss');
   var imgContext = require.context('./img/', true, /\.(svg|jpg)$/);
   imgContext.keys().forEach(imgContext);
 })();
-require('./favicon.svg');
+/*require('./favicon.svg');*/
 
 // meta data
 require('./manifest.json');
