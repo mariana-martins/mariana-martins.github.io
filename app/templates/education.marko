@@ -3,8 +3,8 @@
   <h3 class="section_title text-center display-4">Education</h3>
   <div>
     <!-- .education_link_effect -->
-    <div class="education_link_effect animatedParent animateOnce" data-sequence='500'>
-      <div class="animated fadeInDownShort" for(edu in input.education | status-var=loop) data-id='${loop.getIndex() + 1}'>
+    <div class="education_link_effect">
+      <div for(edu in input.education | status-var=loop)>
         <!--School name -->
         <a href="schoolUrl" rel="noopener" title="${edu.schoolName} website">${edu.schoolName}</a>
         <!-- course title -->
