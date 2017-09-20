@@ -9,14 +9,18 @@
         $ var pos = i*3+j;
         $ var project = input[pos];
         <a href="#projectModal" class="text-center" data-pos="${pos}" data-toggle="modal">
-          <img class="project_img img-fluid rounded mx-auto d-block" title="${project.name}"
-               data-background="rgba(154,23,77,0.65)" src="${project.images.small}"
-               alt="${project.name}">
+          <div class="card mb-5">
+            <img class="card-img rounded" src="${project.images.small}" alt="${project.name}">
+            <div class="card-img-overlay  d-flex align-items-center justify-content-center">
+              <h4 class="card-title">${project.name}</h4>
+            </div>
+          </div>
         </a>
       </div>
     </div><!-- end .row -->
   </div><!-- end#container -->
 </section><!-- endProjects -->
+
 
 
 <!-- Project Modal -->

@@ -48,6 +48,5 @@ loadTemplate('contact', profileData, contactComponent);
 
 // js dependencies
 require('bootstrap');
-require('./scripts/jquery.sliphover.min');
 require('./scripts/css3-animate-it');
 require('./scripts/main');

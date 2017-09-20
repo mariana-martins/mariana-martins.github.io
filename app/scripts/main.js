@@ -1,11 +1,3 @@
-/* Config hover in images project */
-// $(function() {
-//   $('#container').sliphover({
-//     backgroundColorAttr: 'data-background',
-//     target: 'img'
-//   });
-// });
-
 /* Change color of Navbar, during the scroll */
 $(window).scroll(function() {
   var navbar = $('#navbar-site');
