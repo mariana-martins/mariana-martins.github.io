@@ -85,13 +85,13 @@ $margin-section: 10%;
 @media screen and (max-width: 1080px) {
   .contacts {
     p {
-      font-size: 3.5vh;
+      font-size: 1.2rem;
       display: flex;
       justify-content: center;
       text-align: center;
     }
     p .fa-map-marker, p .fa-envelope-o {
-      font-size: 3.5vh;
+      font-size: 1.5rem;
     }
   }
   .contact_subtitle {
@@ -355,7 +355,6 @@ $margin-section: 10%;
     margin-left: 26px;
     margin-right: 26px;
     font-size: 1.3rem;
-    text-align: justify;
   }
   a:hover {
     text-decoration: none;
