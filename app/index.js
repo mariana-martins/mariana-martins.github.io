@@ -50,3 +50,5 @@ loadTemplate('contact', profileData, contactComponent);
 require('bootstrap');
 require('./scripts/css3-animate-it');
 require('./scripts/main');
+
+

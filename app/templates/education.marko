@@ -6,7 +6,7 @@
     <div class="education_link_effect animatedParent animateOnce" data-sequence='500'>
       <div class="animated fadeInDownShort" for(edu in input.education | status-var=loop) data-id='${loop.getIndex() + 1}'>
         <!--School name -->
-        <a href="schoolUrl" rel="nofollow" target="_blank" title="${edu.schoolName} website">${edu.schoolName}</a>
+        <a href="schoolUrl" rel="noopener" title="${edu.schoolName} website">${edu.schoolName}</a>
         <!-- course title -->
         <p class="education_courseTitle">${edu.courseName}</p>
         <!-- course description -->
@@ -20,13 +20,13 @@
       $ var github = input.profile.socialMedia.find(function(el){
         return el.type === 'github';
       });
-      <a href="${github.url}" rel="nofollow" target="_blank" class="animated bounceInDown" title="Mariana's Github profile">
+      <a href="${github.url}" rel="noopener" class="animated bounceInDown" title="Mariana's Github profile">
         <div class="hvr-float">
           <img class="mx-auto d-block education_icon" src="img/github.svg" alt="Mariana's Github profile">
           <p class="text-center education_btnTitle">My Github</p>
         </div>
       </a>
-      <a href="${input.profile.cvUrl}" rel="nofollow" target="_blank" class="animated bounceInDown" title="Mariana's CV">
+      <a href="${input.profile.cvUrl}" rel="noopener" class="animated bounceInDown" title="Mariana's CV">
         <div class="hvr-float">
           <img class="mx-auto d-block education_icon" src="img/curriculum.svg" alt="Mariana's CV">
           <p class="text-center education_btnTitle">My Resume</p>
