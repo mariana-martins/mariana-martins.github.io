@@ -101,6 +101,11 @@ $margin-section: 10%;
   .question_image{
     max-height: 45vh;
   }
+  .authors{
+    img {
+      max-width: 50px;
+    }
+  }
 }
 
 // Change navbar color for transparent
