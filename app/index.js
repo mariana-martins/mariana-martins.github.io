@@ -27,7 +27,8 @@ var educationData = require('./data/education.json');
 var questionsData = require('./data/questions.json');
 var interestsData = {
   articles: require('./data/interests/articles.json'),
-  books: require('./data/interests/books.json')
+  books: require('./data/interests/books.json'),
+  music: require('./data/interests/music.json')
 };
 
 

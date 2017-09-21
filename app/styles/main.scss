@@ -601,6 +601,45 @@ h2.f4.text-normal.mb-3 {
 
 // My interests section
 
+.play {
+  max-width: 25px;
+  padding-right: 4px;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+
+.music_list {
+  border-radius: 7px 7px 7px 7px;
+  -moz-border-radius: 7px 7px 7px 7px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border: 7px solid #edeaed;
+  max-height: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 15px;
+}
+
+.music_title {
+  color: #000000;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.music_title:hover, .music_title:focus {
+  text-decoration: underline;
+  text-decoration-color: black;
+  color: #000000;
+}
+
 .interests_subtitle {
   color: $dark-color;
   font-family: $font-body;
@@ -615,11 +654,6 @@ h2.f4.text-normal.mb-3 {
   margin-top: 2%;
 }
 
-iframe {
-  .theme-white .extra {
-    border-color: transparent;
-  }
-}
 
 // Contact section
 .contacts {
