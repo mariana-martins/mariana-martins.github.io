@@ -23,7 +23,6 @@ $('.nav-link').on('click', function() {
 // Activates scrollspy
 $('body').scrollspy({ target: '#navbar-site' });
 
-
 // Activate tooltips in Books section
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()

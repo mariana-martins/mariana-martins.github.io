@@ -27,11 +27,7 @@ $margin-section: 10%;
 
 // Hide middle name
 @media screen and (max-width: 450px) {
-  .navbar-brand {
-    span {
-      display: none;
-    }
-  }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -44,16 +40,15 @@ $margin-section: 10%;
 // Related to navbar animation
 
 @media(min-width: 767px) {
-  .navbar {
+  /*.navbar {
     -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
     -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
     transition: background .5s ease-in-out, height .5s ease-in-out;
     height: 20vh;
   }
-
   .top-nav-collapse {
     height: 12vh;
-  }
+  }*/
   // Show big title and hide small title
   .header_small {
     display: none;
@@ -106,6 +101,11 @@ $margin-section: 10%;
       max-width: 50px;
     }
   }
+  .navbar-brand {
+    span {
+      display: none;
+    }
+  }
 }
 
 // Change navbar color for transparent
@@ -119,6 +119,7 @@ $margin-section: 10%;
     opacity: 0.75;
   }
 }
+
 
 @media screen and (min-width: 1080px) {
   .book_title {
@@ -163,6 +164,7 @@ $margin-section: 10%;
 
 // Navbar + header background and fonts
 .container_header {
+  background: #1e88e5;
   background: -webkit-linear-gradient(170deg, #1e88e5, #88ffff); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(170deg, #1e88e5, #88ffff); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(170deg, #1e88e5, #88ffff); /* For Firefox 3.6 to 15 */
@@ -611,6 +613,12 @@ h2.f4.text-normal.mb-3 {
   font-size: 1.1rem;
   font-family: $font-body;
   margin-top: 2%;
+}
+
+iframe {
+  .theme-white .extra {
+    border-color: transparent;
+  }
 }
 
 // Contact section
