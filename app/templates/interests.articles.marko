@@ -2,10 +2,12 @@
   <img src="img/write.svg" alt="to write" style="height: 24px">
   !
 </h4>
-<ul class="list-unstyled text-center">
+<ul class="list-unstyled px-5">
   <li for(article in input)>
-    <a href="${article.url}" rel="noopener" title="$article.name">
-      ${article.name}
+    <a href="${article.url}" rel="noopener" title="$article.name" class="article_title">
+      <p>
+        <img src="img/medium.svg" class="medium" alt="">${article.name}
+      </p>
     </a>
   </li>
 </ul>

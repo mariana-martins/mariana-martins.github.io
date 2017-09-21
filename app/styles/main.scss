@@ -601,11 +601,12 @@ h2.f4.text-normal.mb-3 {
 
 // My interests section
 
-.play {
+.play, .medium {
   max-width: 25px;
-  padding-right: 4px;
+  padding-right: 5px;
 }
 
+/* Add scrollbar in iphones and ipads*/
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 7px;
@@ -615,7 +616,6 @@ h2.f4.text-normal.mb-3 {
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
-
 
 .music_list {
   border-radius: 7px 7px 7px 7px;
@@ -628,17 +628,20 @@ h2.f4.text-normal.mb-3 {
   padding: 15px;
 }
 
-.music_title {
+.music_title, .article_title {
   color: #000000;
   font-size: 1rem;
   text-decoration: none;
 }
 
-.music_title:hover, .music_title:focus {
+.music_title:hover, .music_title:focus,
+.article_title:hover, .article_title:focus {
   text-decoration: underline;
   text-decoration-color: black;
   color: #000000;
 }
+
+
 
 .interests_subtitle {
   color: $dark-color;
