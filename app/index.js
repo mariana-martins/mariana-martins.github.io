@@ -3,6 +3,9 @@ require('normalize.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./styles/main.scss');
 
+require('jquery');
+require('bootstrap');
+
 // images
 (function() {
   var imgContext = require.context('./img/', true, /\.(svg|jpg)$/);
@@ -49,7 +52,6 @@ loadTemplate('interests', interestsData, interestsComponent);
 loadTemplate('contact', profileData, contactComponent);
 
 // js dependencies
-require('bootstrap');
 require('./scripts/css3-animate-it');
 require('./scripts/main');
 

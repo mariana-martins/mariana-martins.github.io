@@ -1,3 +1,26 @@
+class {
+
+  openModal(project, event, el) {
+    var modal = jQuery('#projectModal');
+    modal.find('.modal-title').text('Project: ' + project.name);
+    modal.find('img').attr('src', project.images.large);
+    modal.find('img').attr('alt', project.name + ' screenshot');
+    modal.find('.modal_link').attr('href', project.url);
+    modal.find('.modal_description').text(project.description);
+
+    var tagsEl = modal.find('.list-inline');
+    project.tags.forEach(function(tagName) {
+      var newTag = '<li class="list-inline-item"><span class="badge badge-secondary">' + tagName + '</span></li>';
+      tagsEl.append(newTag);
+    });
+
+    modal.modal('show');
+  }
+
+}
+
+<div><!-- MarkoJS bug - requires a root div to work properly -->
+
 <!-- projects section -->
 <section class="projects">
   <h3 class="section_title text-center display-4">My Projects</h3>
@@ -8,7 +31,7 @@
       <div class="col-sm-6 col-md-4 col-lg-4" for(j from 0 to 2)>
         $ var pos = i*3+j;
         $ var project = input[pos];
-        <a href="#projectModal" class="text-center" data-pos="${pos}" data-toggle="modal">
+        <a class="text-center" on-click('openModal', project)>
           <div class="card mb-5">
             <img class="card-img rounded" src="${project.images.small}" alt="${project.name}">
             <div class="card-img-overlay  d-flex align-items-center justify-content-center">
@@ -38,26 +61,14 @@
       <!-- modal body -->
       <div class="modal-body">
         <!-- project image -->
-        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="http://via.placeholder.com/400x300"
-             alt="image project">
+        <img class="img-fluid img-thumbnail mx-auto d-block mb-3" src="" alt="">
         <!-- tags -->
         <ul class="list-inline d-flex justify-content-around flex-wrap">
-          <li class="list-inline-item"><span class="badge badge-secondary">HTML</span></li>
-          <li class="list-inline-item"><span class="badge badge-secondary">CSS</span></li>
-          <li class="list-inline-item"><span class="badge badge-secondary">Javascript</span></li>
-          <li class="list-inline-item"><span class="badge badge-secondary">Bootstrap</span></li>
-          <li class="list-inline-item"><span class="badge badge-secondary">Font-Awesome</span></li>
         </ul>
         <!-- project link -->
-        <a href="#" title="project link" class="modal_link" rel="noopener">Project Link</a>
+        <a href="#" title="Go to source code" class="modal_link" rel="noopener">Go to source code</a>
         <!-- project description -->
-        <p class="modal_description text-justify">Project Description Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Phasellus eget leo cursus, placerat nisl at, finibus ligula. Fusce blandit tempor magna, quis ultricies
-          ex auctor non. Aliquam erat volutpat. Proin hendrerit ac tortor non suscipit. Integer egestas eros erat. Class
-          aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur nec sem
-          consequat est ornare sagittis. Sed quis massa sed nibh imperdiet tempus in vel orci. Etiam aliquam turpis sed
-          porttitor blandit. Vestibulum vestibulum orci augue, quis mollis nisi mattis rutrum. Cras at dapibus libero,
-          sit amet bibendum nisi. Morbi convallis eu est euismod laoreet. Nam elementum. </p>
+        <p class="modal_description text-justify"></p>
       </div><!-- endModa Body -->
       <!-- modal-footer -->
       <div class="modal-footer">
@@ -67,11 +78,4 @@
   </div><!-- endModal-dialog -->
 </div><!-- endmodal-->
 
-static {
-  $('#projectModal').on('shown.bs.modal', function (event) {
-    var element = $(event.relatedTarget);
-    var position = element.data('pos');
-    var modal = $(this);
-    modal.find('.modal-title').text('New message to ' + position);
-  });
-}
+</div><!-- MarkoJS bug - requires a root div to work properly -->
