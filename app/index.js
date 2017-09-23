@@ -1,4 +1,5 @@
 // styles
+require('normalize.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./styles/main.scss');
 
