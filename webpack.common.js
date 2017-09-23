@@ -63,6 +63,17 @@ module.exports = {
               }
             }
           }]
+      },
+      {
+        test: /\.pdf$/,
+        use: [
+          {
+            loader: 'file-loader',
+            query: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
