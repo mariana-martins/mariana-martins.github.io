@@ -3,20 +3,20 @@ require('normalize.css');
 require('bootstrap/dist/css/bootstrap.min.css');
 require('./styles/main.scss');
 
-require('jquery');
-require('bootstrap');
-
 // images
 (function() {
   var imgContext = require.context('./img/', true, /\.(svg|jpg)$/);
   imgContext.keys().forEach(imgContext);
 })();
-/*require('./favicon.svg');*/
 
 // meta data
 require('./manifest.json');
 
-// templates
+// js dependencies - required before using templates
+require('jquery');
+require('bootstrap');
+
+// template referencies
 var aboutComponent = require('./templates/about');
 var projectsComponent = require('./templates/projects');
 var educationComponent = require('./templates/education');
@@ -35,15 +35,13 @@ var interestsData = {
   music: require('./data/interests/music.json')
 };
 
-
-// functions
+// load templates
 var loadTemplate = function(sectionId, data, component) {
     var section = document.getElementById(sectionId);
     component.renderSync(data)
         .replaceChildrenOf(section);
 };
 
-// logic
 loadTemplate('about', profileData, aboutComponent);
 loadTemplate('projects', projectsData, projectsComponent);
 loadTemplate('education', {"education": educationData, "profile": profileData}, educationComponent);
@@ -51,8 +49,9 @@ loadTemplate('questions', questionsData, questionsComponent);
 loadTemplate('interests', interestsData, interestsComponent);
 loadTemplate('contact', profileData, contactComponent);
 
-// js dependencies
+// js dependencies - after using templates
 require('./scripts/css3-animate-it');
-require('./scripts/main');
+require('./scripts/navbar');
+require('./scripts/github-calendar');
 
 
