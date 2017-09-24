@@ -317,15 +317,13 @@ $margin-section: 10%;
 
 // Images with overlay
 .card-img-overlay {
-  background-color: rgba(95, 95, 95, 0.5);
+  background-color: rgba(154, 23, 77, 0.3);
   border-radius: 0.25rem;
 }
 
 .card-img-overlay:hover, .card-img-overlay:focus {
-  background-color: rgba(95, 95, 95, 0.9);
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.8s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.8s;
-  transition: transform 0.3s, opacity 0.8s;
+  background-color: rgba(154, 23, 77, 0.9);
+
 }
 
 .card-title {
@@ -340,6 +338,23 @@ $margin-section: 10%;
 }
 
 /* Modal project*/
+.btn {
+  font-family: $font-body;
+}
+
+.btn-custom, .badge-custom{
+  background-color: $main-color;
+  color: $light-color;
+}
+
+.btn-custom:hover,.btn-custom:focus {
+  opacity: 0.5;
+  color: $light-color;
+}
+
+.modal-title {
+  font-weight: bold;
+}
 
 .modal_link, .modal-title, .modal .badge, .modal_description {
   font-family: $font-body;

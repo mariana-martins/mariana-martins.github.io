@@ -5,12 +5,13 @@ class {
     modal.find('.modal-title').text('Project: ' + project.name);
     modal.find('img').attr('src', project.images.large);
     modal.find('img').attr('alt', project.name + ' screenshot');
-    modal.find('.modal_link').attr('href', project.url);
+    modal.find('.btn-custom').attr('href', project.url);
     modal.find('.modal_description').text(project.description);
 
     var tagsEl = modal.find('.list-inline');
+    tagsEl.empty();
     project.tags.forEach(function(tagName) {
-      var newTag = '<li class="list-inline-item"><span class="badge badge-secondary">' + tagName + '</span></li>';
+      var newTag = '<li class="list-inline-item"><span class="badge badge-custom">' + tagName + '</span></li>';
       tagsEl.append(newTag);
     });
 
@@ -65,13 +66,15 @@ class {
         <!-- tags -->
         <ul class="list-inline d-flex justify-content-around flex-wrap">
         </ul>
-        <!-- project link -->
-        <a href="#" title="Go to source code" class="modal_link" rel="noopener">Go to source code</a>
         <!-- project description -->
         <p class="modal_description text-justify"></p>
       </div><!-- endModa Body -->
       <!-- modal-footer -->
       <div class="modal-footer">
+        <!-- project link -->
+        <a class="btn btn-custom" href="#" title="Go to source code" role="button" rel="noopener">
+          Go to source code
+        </a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div><!-- endmodal-footer -->
     </div><!-- endModal Content -->
