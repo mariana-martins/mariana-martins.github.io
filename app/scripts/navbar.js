@@ -39,4 +39,4 @@
 
   // Activates scrollspy
   $('body').scrollspy({ target: '#navbar-site' });
-}());
+})();
