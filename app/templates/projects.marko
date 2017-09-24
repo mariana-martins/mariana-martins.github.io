@@ -1,6 +1,11 @@
 class {
 
   openModal(project, event, el) {
+    // I added 'onclick="void(0)"' when using openModal function.
+    // It's a bug on how Safari/iOS handles click.
+    // I used one of the available workarounds.
+    // It may be fixed on MarkoJS in the future.
+    // More details on https://github.com/marko-js/marko/issues/221
     var modal = jQuery('#projectModal');
     modal.find('.modal-title').text('Project: ' + project.name);
     modal.find('img').attr('src', project.images.large);
@@ -32,7 +37,7 @@ class {
       <div class="col-sm-6 col-md-4 col-lg-4" for(j from 0 to 2)>
         $ var pos = i*3+j;
         $ var project = input[pos];
-        <a class="text-center" on-click('openModal', project)>
+        <a class="text-center" on-click('openModal', project) onclick="void(0)">
           <div class="card mb-5">
             <img class="card-img rounded" src="${project.images.small}" alt="${project.name}">
             <div class="card-img-overlay  d-flex align-items-center justify-content-center">
