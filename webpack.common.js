@@ -48,21 +48,8 @@ module.exports = {
             query: {
               name: 'img/[name].[ext]'
             }
-          },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              mozjpeg: {
-                progressive: true,
-              },
-              gifsicle: {
-                interlaced: true,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              }
-            }
-          }]
+          }
+        ]
       },
       {
         test: /\.pdf$/,
