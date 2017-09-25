@@ -7,7 +7,7 @@ import './../CV.pdf';
     <div class="education_link_effect">
       <div for(edu in input.education | status-var=loop)>
         <!--School name -->
-        <a href="schoolUrl" rel="noopener" title="${edu.schoolName} website">${edu.schoolName}</a>
+        <a href="${edu.schoolUrl}" rel="noopener" title="${edu.schoolName} website">${edu.schoolName}</a>
         <!-- course title -->
         <p class="education_courseTitle">${edu.courseName}</p>
         <!-- course description -->

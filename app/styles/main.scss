@@ -25,30 +25,11 @@ $margin-section: 10%;
   }
 }
 
-// Hide middle name
-@media screen and (max-width: 450px) {
-
-}
-
-@media screen and (max-width: 575px) {
-  .about {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-}
-
 // Related to navbar animation
 
 @media(min-width: 767px) {
-  /*.navbar {
-    -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
-    transition: background .5s ease-in-out, height .5s ease-in-out;
-    height: 20vh;
-  }
-  .top-nav-collapse {
-    height: 12vh;
-  }*/
+
+
   // Show big title and hide small title
   .header_small {
     display: none;
@@ -101,6 +82,7 @@ $margin-section: 10%;
       max-width: 50px;
     }
   }
+  // Hide middle name
   .navbar-brand {
     span {
       display: none;
@@ -117,6 +99,16 @@ $margin-section: 10%;
   .top-page .navbar {
     background-color: $main-color;
     opacity: 0.75;
+  }
+
+  .navbar {
+    -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
+    transition: background .5s ease-in-out, height .5s ease-in-out;
+    height: 20vh;
+  }
+  .top-nav-collapse {
+    height: 12vh;
   }
 }
 
