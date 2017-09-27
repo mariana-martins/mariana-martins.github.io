@@ -105,7 +105,7 @@ $margin-section: 10%;
     -webkit-transition: background .5s ease-in-out, height .5s ease-in-out;
     -moz-transition: background .5s ease-in-out, height .5s ease-in-out;
     transition: background .5s ease-in-out, height .5s ease-in-out;
-    height: 20vh;
+    height: 200px;
   }
   .top-nav-collapse {
     height: 12vh;
@@ -113,7 +113,7 @@ $margin-section: 10%;
 }
 
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1081px) {
   .book_title {
     display: none;
   }
