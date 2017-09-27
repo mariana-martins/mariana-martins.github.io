@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "watch": "webpack --progress --watch",
-    "start": "webpack-dev-server --open --config webpack.dev.js --host 0.0.0.0"
+    "start": "webpack-dev-server --open --config webpack.dev.js --host 0.0.0.0",
+    "deploy": "npm run build && gh-pages --branch master --dist dist --message \"Update `date`\" --tag v2.`date +%s` "
   },
   "keywords": [
     "Mariana Martins Menezes",
@@ -22,6 +23,7 @@
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "gh-pages": "^1.0.0",
     "github-calendar": "^1.1.13",
     "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.4.2",
