@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const GoogleFontsPlugin = require("google-fonts-webpack-plugin");
@@ -66,6 +67,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([
+      { from: 'app/googlea2a2b3302a7c7b35.html' },
+    ]),
     new ExtractTextPlugin('bundle.css', {allChunks: true}),
     new HtmlWebpackPlugin({
       template: 'app/index.html'
