@@ -69,6 +69,7 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([
       { from: 'app/googlea2a2b3302a7c7b35.html' },
+      { from: 'app/manifest.json' },
     ]),
     new ExtractTextPlugin('bundle.css', {allChunks: true}),
     new HtmlWebpackPlugin({

@@ -9,9 +9,6 @@ require('./styles/main.scss');
   imgContext.keys().forEach(imgContext);
 })();
 
-// meta data
-require('./manifest.json');
-
 // js dependencies - required before using templates
 require('jquery');
 require('bootstrap');
