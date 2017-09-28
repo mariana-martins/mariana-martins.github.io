@@ -1,7 +1,7 @@
 Mariana Menezes Portfolio
 =========================
 
-![Project screenshot](app/img/Portfolio-min.jpg)
+![Project screenshot](app/img/portfolio-min.jpg)
 
 ## Introduction
 This is my personal website. 
