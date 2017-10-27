@@ -27,8 +27,6 @@
   <meta name="twitter:title" content="Mariana Martins Menezes Portfolio" />
   <meta name="twitter:description"
         content="This is my personal website, my portfolio. It contains my some relevant projects, my contacts, my resume and a short session about me." />
-  <meta name="twitter:image" content="img/portfolio-twitter-min.jpg" />
-  <meta name="twitter:image:alt" content="Mariana's Porfolio image" />
   <!-- endtwitter -->
   <!-- manifest.json -->
   <link rel="manifest" href="manifest.json">
@@ -47,7 +45,7 @@
 <a href="#header" title="Go to header" class="invisible_link">Go to header</a>
 
 <!-- Navbar -->
-<nav id="navbar-site" class="navbar navbar-expand-lg navbar-custom fixed-top">
+<nav id="navbar-site" class="navbar navbar-expand-lg navbar-custom fixed-top" role="navigation role="menuitem" ">
   <div class="container"><!--container -->
     <span class="h1 navbar-brand mb-0">Mariana <span id="Martins">Martins</span> Menezes</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarItems"
@@ -58,28 +56,28 @@
     <div class="collapse navbar-collapse" id="navbarItems">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#header" title="Home">Home</a>
+          <a class="nav-link" href="#header" title="Home" role="menuitem">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about" title="About Me">About Me</a>
+          <a class="nav-link" href="#about" title="About Me" role="menuitem">About Me</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#projects" title="Projects">Projects</a>
+          <a class="nav-link" href="#projects" title="Projects" role="menuitem">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#education" title="Education">Education</a>
+          <a class="nav-link" href="#education" title="Education" role="menuitem">Education</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#questions" title="Questions">Questions</a>
+          <a class="nav-link" href="#questions" title="Questions" role="menuitem">Questions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link github-contributions" href="#github" title="Github contributions">Activity</a>
+          <a class="nav-link github-contributions" href="#github" title="Github contributions" role="menuitem">Activity</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#interests">Interests</a>
+          <a class="nav-link" href="#interests" role="menuitem">Interests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#contact" role="menuitem">Contact</a>
         </li>
       </ul>
     </div><!-- endcollapse -->
@@ -91,7 +89,7 @@
   <!-- container-fluid-->
   <div class="container-fluid">
     <!-- Header content -->
-    <header id="header" class="header">
+    <header id="header" class="header" role="banner">
       <!-- Title in a large screen -->
       <div class="text-center header_large">
         <a class="link large_title" href="#">Mariana <span> Front-End Developer</span></a>
@@ -118,7 +116,7 @@
 </div><!-- endcontainer_header -->
 
 <!-- Main content -->
-<main>
+<main role="main">
   <!-- container -->
   <div class="container">
     <!-- .section_padding -->
@@ -176,7 +174,7 @@
 </main><!-- endmain -->
 
 <!-- footer -->
-<footer class="container-fluid footer">
+<footer class="container-fluid footer" role="contentinfo">
   <a href="#header" title="Back to header" class="invisible_link">Back to header</a>
   <ul class="list-inline d-flex justify-content-center flex-wrap ">
     <li class="list-inline-item footer_linkEffect">
