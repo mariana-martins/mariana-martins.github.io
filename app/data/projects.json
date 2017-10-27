@@ -13,7 +13,7 @@
   {
     "name" : "​Neighborhood Map",
     "url" : "https://github.com/mariana-martins/Udacity-neighborhood-map",
-    "description" : "​Developed a single-page application that loads a list of restaurants from Christchurch, NZ, on a map. Used Zomato API to get the restaurant list with its rating and Google Maps API to visualize them on a map as markers. Developed using the best practices in Object Oriented Javascript. The project is constructed in MVVM patterns, using Knockout. It also supports filtering the restaurants by names.",
+    "description" : "​Developed a single-page application that loads a list of restaurants located in Christchurch(NZ), on a map. Used Zomato API to get the restaurant list with its rating and Google Maps API to visualize them on a map as markers. Developed using the best practices in Object Oriented Javascript. The project is constructed in MVVM patterns, using Knockout. It alsosupports filtering the restaurants by names.",
     "date" : "​April, 2017",
     "tags" : ["Bootstrap3", "Google Maps Api","Knockout", "HTML5", "CSS3", "JavaScript"],
     "images": {
@@ -35,7 +35,7 @@
   {
     "name" : "​Website Optimization",
     "url" : "https://github.com/mariana-martins/my-frontend-nanodegree-mobile-portfolio",
-    "description" : "​Optimized an inefficient web application's JavaScript, CSS and assets delivery, ensuring it runs at 60fps and achieves a PageSpeed score of at least 90. This project wasn’t the hardest but required some time to finish. I need to isolate the problematic areas first and create a plan for their optimization. This project used Ngrok, which made the PageSpeed performance tests inconsistent. Thus, Iearned ways to optimize a site that I had never thought of: inserting css inline and not importing fonts from Google Fonts. The project was important to increase my knowledge in Gulp, since it was essential for the optimization.",
+    "description" : "​Optimized an inefficient web application's JavaScript, CSS and assets delivery, ensuring it runs at 60fps and achieves a PageSpeed score of at least 90. Despite being not very complex this project still required some time to finish. I needed to isolate  the  problematic  are as  first  and  create  a  plan  for  their  optimization.  This  project  used  Ngrok,  which  made  the PageSpeed performance tests inconsistent. Thus, I learned ways to optimize a site that I had never thought of: inserting CSS inline and not importing fonts from Google Fonts. The project was important to increase my knowledge in Gulp, since it was essential for the optimization.",
     "date" : "​Feb, 2017",
     "tags" : ["Web optimization", "Gulp", "PageSpeed", "HTML5", "CSS3", "Javascript"],
     "images": {
@@ -46,7 +46,7 @@
   {
     "name" : "​Front-End Resume",
     "url" : "https://github.com/mariana-martins/frontend-resume",
-    "description" : "​Developed an interactive resume application, using jQuery, that reads all data from a JSON file and then dynamically modifies the DOM to display the information. Like the Portfolio Site project, this project was also very impersonal, because I had to follow a template given by Udacity. The main focus of this project was the use of JSON objects.It felt like a review of loop concepts and conditionals.",
+    "description" : "​Developed  an  interactive  resume  application,  using  jQuery that  reads  all  data  from  a  JSON  file  and  then  dynamically modifies the DOM to display the information. Like the Portfolio Site project, this project was also very impersonal, because I had to follow a template given by Udacity. The main focus of this project was the use of JSON objects. It felt like a reviewof loop concepts and conditionals.",
     "date" : "​Oct, 2016 ",
     "tags" : ["HTML5", "CSS3", "Javascript", "jQuery"],
     "images": {
