@@ -19,22 +19,22 @@ const Footer = (props) => (
             </dl>
             <ul className="icons">
                 <li>
-                    <a href="https://www.linkedin.com/in/marianamenezes/" className="icon fa-linkedin alt">
+                    <a href="https://www.linkedin.com/in/marianamenezes/" className="icon fab fa-linkedin-in alt">
                         <span className="label">LinkedIn</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.facebook.com/x2003k" className="icon fa-facebook alt">
+                    <a href="https://www.facebook.com/x2003k" className="icon fab fa-facebook-f alt">
                         <span className="label">Facebook</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/marianamartinsmenezes/" className="icon fa-instagram alt">
+                    <a href="https://www.instagram.com/marianamartinsmenezes/" className="icon fab fa-instagram alt">
                         <span className="label">Instagram</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://github.com/mariana-martins" className="icon fa-github alt">
+                    <a href="https://github.com/mariana-martins" className="icon fab fa-github alt">
                         <span className="label">GitHub</span>
                     </a>
                 </li>

@@ -70,7 +70,7 @@ class Index extends React.Component {
             </header>
             <ul className="features">
               <li>
-                <span className="icon major style1 fas fa-chart-bar" />
+                <span className="icon major style1 fas fa-store" />
                 <h3>Kathmandu Holdings Website</h3>
                 <p>
                   Sed lorem amet ipsum dolor et amet nullam consequat a feugiat
@@ -123,15 +123,15 @@ class Index extends React.Component {
                 <strong>CSS3</strong> 2015
               </li>
               <li className="style3">
-                <span className="icon fa fa-terminal" />
+                <span className="icon fab fa-js-square" />
                 <strong>Javascript</strong> 2015
               </li>
               <li className="style4">
-                <span className="icon fa fa-laptop" />
+                <span className="icon fab fa-react" />
                 <strong>React</strong> 2017
               </li>
               <li className="style5">
-                <span className="icon fa fa-gem" />
+                <span className="icon fas fa-user-astronaut" />
                 <strong>Gatsby</strong> 2019
               </li>
             </ul>
