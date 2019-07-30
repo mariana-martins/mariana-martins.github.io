@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 import HeaderGeneric from '../components/HeaderGeneric'
@@ -70,6 +71,13 @@ class Projects extends React.Component {
               mi eget adipiscing nulla. Non vestibulum ac interdum condimentum
               semper commodo massa arcu.
             </p>
+            <ul className="actions">
+              <li>
+                <Link to="/" className="button">
+                  Back
+                </Link>
+              </li>
+            </ul>
           </section>
         </div>
       </Layout>
