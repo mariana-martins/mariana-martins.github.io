@@ -70,7 +70,7 @@ class Index extends React.Component {
             </header>
             <ul className="features">
               <li>
-                <span className="icon major style1 fa-bar-chart" />
+                <span className="icon major style1 fas fa-chart-bar" />
                 <h3>Kathmandu Holdings Website</h3>
                 <p>
                   Sed lorem amet ipsum dolor et amet nullam consequat a feugiat
@@ -78,7 +78,7 @@ class Index extends React.Component {
                 </p>
               </li>
               <li>
-                <span className="icon major style3 fa-paw" />
+                <span className="icon major style3 fa fa-paw" />
                 <h3>Husky Rescue Org. Website</h3>
                 <p>
                   Sed lorem amet ipsum dolor et amet nullam consequat a feugiat
@@ -86,7 +86,7 @@ class Index extends React.Component {
                 </p>
               </li>
               <li>
-                <span className="icon major style5 fa-map-signs" />
+                <span className="icon major style5 fa fa-map-signs" />
                 <h3>Neighborhood Map App</h3>
                 <p>
                   Sed lorem amet ipsum dolor et amet nullam consequat a feugiat
@@ -115,23 +115,23 @@ class Index extends React.Component {
             </header>
             <ul className="statistics">
               <li className="style1">
-                <span className="icon fa-html5" />
+                <span className="icon fab fa-html5" />
                 <strong>HTML5</strong> 2015
               </li>
               <li className="style2">
-                <span className="icon fa-css3" />
+                <span className="icon fab fa-css3" />
                 <strong>CSS3</strong> 2015
               </li>
               <li className="style3">
-                <span className="icon fa-terminal" />
+                <span className="icon fa fa-terminal" />
                 <strong>Javascript</strong> 2015
               </li>
               <li className="style4">
-                <span className="icon fa-laptop" />
+                <span className="icon fa fa-laptop" />
                 <strong>React</strong> 2017
               </li>
               <li className="style5">
-                <span className="icon fa-diamond" />
+                <span className="icon fa fa-gem" />
                 <strong>Gatsby</strong> 2019
               </li>
             </ul>

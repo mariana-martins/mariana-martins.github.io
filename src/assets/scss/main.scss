@@ -2,7 +2,10 @@
 @import 'libs/functions';
 @import 'libs/mixins';
 @import 'libs/skel';
-@import '../css/font-awesome.min.css';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/solid.min.css';
+@import '../../../node_modules/@fortawesome/fontawesome-free/css/brands.min.css';
+
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
 
 /*
