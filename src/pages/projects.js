@@ -13,63 +13,21 @@ class Projects extends React.Component {
         <Helmet title="Relevant Projects" />
         <header id="header">
           <h1>Relevant Projects</h1>
-          <p>This is the most important projects to me!</p>
+          <p>This is  a selection of some important projects on my career</p>
         </header>
         <div id="main">
           <section id="content" className="main">
-            <span className="image main">
-              <img src={pic04} alt="" />
-            </span>
-            <h2>Kathmandu Holdings Website</h2>
+            <h2><i class="fas fa-hashtag"></i> Neighborhood Map App</h2>
             <p>
-              Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus
-              nunc placerat. Tempus adipiscing turpis non blandit accumsan eget
-              lacinia nunc integer interdum amet aliquam ut orci non col ut ut
-              praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac
-              commodo faucibus faucibus. Curae ante vestibulum ante. Blandit.
-              Ante accumsan nisi eu placerat gravida placerat adipiscing in
-              risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit
-              aliquet aliquet lobortis. Ultricies blandit lobortis praesent
-              turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep.
-              Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio
-              vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis
-              in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan
-              mi eget adipiscing nulla. Non vestibulum ac interdum condimentum
-              semper commodo massa arcu.
+              I d eveloped a single-page application that loads a list of restaurants located in Christchurch (NZ), on a map. Used Zomato API to get the restaurant list with its rating and Google Maps API to visualize them on a map as markers. Developed using the best practices in Object Oriented Javascript. The project is constructed in MVVM patterns, using Knockout. It also supports filtering the restaurants by names.
             </p>
-            <h2>Husky Rescue Organization Website</h2>
+            <h2><i class="fas fa-hashtag"></i> Husky Rescue Organization Website</h2>
             <p>
-              Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus
-              nunc placerat. Tempus adipiscing turpis non blandit accumsan eget
-              lacinia nunc integer interdum amet aliquam ut orci non col ut ut
-              praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac
-              commodo faucibus faucibus. Curae ante vestibulum ante. Blandit.
-              Ante accumsan nisi eu placerat gravida placerat adipiscing in
-              risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit
-              aliquet aliquet lobortis. Ultricies blandit lobortis praesent
-              turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep.
-              Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio
-              vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis
-              in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan
-              mi eget adipiscing nulla. Non vestibulum ac interdum condimentum
-              semper commodo massa arcu.
+              I developed a new website for Husky Rescue Organization.  It was a responsive Single Page Application using React, Bootstrap 4 and Sass. I used Adobe Photoshop to create a layout for the new website.
             </p>
-            <h2>Neighborhood Map App</h2>
+            <h2><i class="fas fa-hashtag"></i> Projects at Kathmandu</h2>
             <p>
-              Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus
-              nunc placerat. Tempus adipiscing turpis non blandit accumsan eget
-              lacinia nunc integer interdum amet aliquam ut orci non col ut ut
-              praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac
-              commodo faucibus faucibus. Curae ante vestibulum ante. Blandit.
-              Ante accumsan nisi eu placerat gravida placerat adipiscing in
-              risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit
-              aliquet aliquet lobortis. Ultricies blandit lobortis praesent
-              turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep.
-              Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio
-              vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis
-              in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan
-              mi eget adipiscing nulla. Non vestibulum ac interdum condimentum
-              semper commodo massa arcu.
+              I'm currently working in internal projects using React, Gatsby.js,Cypress and Netlify at Kathmandu. The main project is the Kathmandu Ecommerce website which use Magento 2.2.9, Knockout.js and Less. I am also working to keep third party scripts organised using Google Tag Manager, where I always improve my abilities with Vanilla Javascript.
             </p>
             <ul className="actions">
               <li>
