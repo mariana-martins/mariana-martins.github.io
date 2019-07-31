@@ -105,7 +105,7 @@ class Index extends React.Component {
                 <p>
                   As a member of the Web Development team, my main role is to code highly efficient and scalable software to maintain, extend and enhance Kathmandu’s eCommerce website. I am currently working with HTML5, CSS3, Javascript and Magento 2. I’m also responsible for code review and development of tags on Google Tag Manager. One of my recent achievements is a website prototype, that is planned to released after finalising more features. Its main technologies are React, GraphQL, Gatsby.js, and Netlify CMS.
                 </p>
-                <h3><b><i class="fas fa-hashtag"></i> Chingu Cohorts Project as Frontend Developer</b></h3>
+                <h3><b><i class="fas fa-hashtag"></i> Chingu Cohorts Journey as Frontend Developer</b></h3>
                 <h4>December/2017 - January/2018</h4>
                 <p>
                   My main role was Frontend developer but also acted as Project Manager. As a Frontend Developer, I designed and implemented the Husky Rescue webpage. Its design was created using Adobe Photoshop. It was developed using React, Bootstrap 4, SASS and Webpack.
