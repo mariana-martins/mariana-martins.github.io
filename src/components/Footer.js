@@ -40,7 +40,7 @@ const Footer = (props) => (
                 </li>
             </ul>
         </section>
-        <p className="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        <p className="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a> & Implementation: <a href="https://github.com/mariana-martins">Mariana Martins Menezes</a></p>
     </footer>
 )
 
