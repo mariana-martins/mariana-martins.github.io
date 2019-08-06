@@ -27,7 +27,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm run build && gh-pages --branch master --dist publics --message \"Update `date`\" --tag v3.`date +%s` "
+    "deploy": "npm run build && gh-pages --branch master --dist public --message \"Update `date`\" --tag v3.`date +%s` "
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.10.0",
