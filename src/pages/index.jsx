@@ -162,27 +162,27 @@ class Index extends React.Component {
             </header>
             <ul className="statistics">
               <li className="style1">
-                <span className="icon fab fa-html5" />
+                <span className="icon fab fa-html5" role="img" />
                 <strong>HTML5</strong>
                 &nbsp;2015
               </li>
               <li className="style2">
-                <span className="icon fab fa-css3" />
+                <span className="icon fab fa-css3" role="img" />
                 <strong>CSS3</strong>
                 &nbsp;2015
               </li>
               <li className="style3">
-                <span className="icon fab fa-js-square" />
+                <span className="icon fab fa-js-square" role="img" />
                 <strong>Javascript</strong>
                 &nbsp;2015
               </li>
               <li className="style4">
-                <span className="icon fab fa-react" />
+                <span className="icon fab fa-react" role="img" />
                 <strong>React</strong>
                 &nbsp;2017
               </li>
               <li className="style5">
-                <span className="icon fas fa-user-astronaut" />
+                <span className="icon fas fa-user-astronaut" role="img" />
                 <strong>Gatsby</strong>
                 &nbsp;2019
               </li>

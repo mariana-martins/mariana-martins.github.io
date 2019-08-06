@@ -35,7 +35,9 @@ function Footer() {
               href="https://www.linkedin.com/in/marianamenezes/"
               className="icon fab fa-linkedin-in alt"
             >
-              <span className="label">LinkedIn</span>
+              <span className="label" aria-labelledby="LinkedIn" role="img">
+                LinkedIn
+              </span>
             </a>
           </li>
           <li>
@@ -43,7 +45,9 @@ function Footer() {
               href="https://www.facebook.com/x2003k"
               className="icon fab fa-facebook-f alt"
             >
-              <span className="label">Facebook</span>
+              <span className="label" aria-labelledby="Facebook" role="img">
+                Facebook
+              </span>
             </a>
           </li>
           <li>
@@ -51,7 +55,9 @@ function Footer() {
               href="https://www.instagram.com/marianamartinsmenezes/"
               className="icon fab fa-instagram alt"
             >
-              <span className="label">Instagram</span>
+              <span className="label" aria-labelledby="Instagram" role="img">
+                Instagram
+              </span>
             </a>
           </li>
           <li>
@@ -59,7 +65,9 @@ function Footer() {
               href="https://github.com/mariana-martins"
               className="icon fab fa-github alt"
             >
-              <span className="label">GitHub</span>
+              <span className="label" aria-labelledby="Github" role="img">
+                GitHub
+              </span>
             </a>
           </li>
         </ul>
