@@ -1,13 +1,38 @@
-# gatsby-starter-stellar
+Mariana Menezes Portfolio
+=========================
 
-**This starter has been updated for Gatsby.js V2.**
+![Project screenshot](src/assets/images/site.png)
 
-Gatsby.js V2 starter based on the Stellar site template, designed by HTML5 UP.
+## Introduction
+This is my personal website. It was made using [Gatsby Starter Stellar](https://github.com/codebushi/gatsby-starter-stellar)
 
-## Installation
+## Installing and running
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-<br>
-`gatsby new gatsby-starter-stellar https://github.com/codebushi/gatsby-starter-stellar`
+You are going to need Node.js previous installed in your PC. Before running, you need to install all dependencies using the
+following command line:
 
-Run `gatsby develop` in the terminal to start the dev site.
+```
+npm install
+```
+
+Then, you can run this project using the following command line:
+
+```
+gatsby develop
+```
+
+It will start a webserver at port `8000`, which reloads automatically
+if there're changes on the source code.
+
+If you want to generate all files to deploy on production, use the
+following command line:
+
+```
+npm run build
+```
+
+It will generate the whole application on `public` folder.  `index.html`
+is the main html file.
+
+Currently, this application runs in production through
+_Github Pages_.
