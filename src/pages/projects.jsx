@@ -26,7 +26,7 @@ function Projects() {
             to get the restaurant list with its rating and Google Maps API to
             visualize them on a map as markers. Developed using the best
             practices in Object Oriented Javascript. The project is constructed
-            in MVVM patterns, using Knockout. It also supports filtering the
+            in MVVM patterns, using Knockout. It also supports filtering
             restaurants by names.
           </p>
           <h2>
@@ -47,12 +47,13 @@ function Projects() {
             </a>
           </h2>
           <p>
-            I&apos;m currently working in internal projects using React,
-            Gatsby.js,Cypress and Netlify at Kathmandu. The main project is the
-            Kathmandu Ecommerce website which use Magento 2.2.9, Knockout.js and
-            Less. I am also working to keep third party scripts organized using
-            Google Tag Manager, where I always improve my abilities with Vanilla
-            Javascript.
+            I worked on internal projects using React, Gatsby.js, Cypress and
+            Netlify at Kathmandu. The main project is the Kathmandu Ecommerce
+            website which uses Magento 2.2.9, Knockout.js and Less. My main task
+            in this project is to fix some bugs related to the frontend and
+            develop small functionalities for the website. I am also working to
+            keep third party scripts organized using Google Tag Manager, where I
+            always improve my abilities with Vanilla Javascript.
           </p>
           <ul className="actions">
             <li>

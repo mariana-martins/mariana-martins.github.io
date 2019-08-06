@@ -47,16 +47,16 @@ class Index extends React.Component {
                 </header>
                 <p>
                   Hi! My name is Mariana. I live in a nice city, called
-                  Christchurch! I&apos;m a big fan of Lord of the Rings! What
-                  other reason is there to live in New Zealand? I&apos;m joking,
-                  this country is really beautiful and I love living here. My
-                  hobbies include reading adventure and dystopian books,
-                  building something using Lego, watching some NFL game and
-                  listening to music. I can&apos;t live without music. Devotion
-                  and responsibility are some characteristics of my personality.
-                  I believe in an easily accessible Web for everybody and in the
-                  future I would like to be part of the creation of an inclusive
-                  web using my Front-end knowledge.
+                  Christchurch! I am a big fan of Lord of the Rings! What other
+                  reason is there to live in New Zealand? I am joking, this
+                  country is really beautiful and I love living here. My hobbies
+                  include reading adventure and dystopian books, building
+                  something using Lego, watching some NFL game and listening to
+                  music. I cannot live without music. Devotion and
+                  responsibility are some characteristics of my personality. I
+                  believe in an easily accessible Web for everybody and in the
+                  future, I would like to be part of the creation of an
+                  inclusive web using my Front-end knowledge.
                 </p>
               </div>
               <span className="image">
@@ -93,9 +93,9 @@ class Index extends React.Component {
                 <span className="icon major style5 fab fa-magento" />
                 <h3>Projects at Kathmandu</h3>
                 <p>
-                  I&apos;m currently working in internal projects using React,
+                  I am currently working in internal projects using React,
                   Gatsby.js and Netlify at Kathmandu. The main project is the
-                  Kathmandu Ecommerce website which use Magento 2.2.9,
+                  Kathmandu Ecommerce website which uses Magento 2.2.9,
                   Knockout.js and Less.
                 </p>
               </li>
@@ -127,8 +127,8 @@ class Index extends React.Component {
                   code highly efficient and scalable software to maintain,
                   extend and enhance Kathmandu&apos;s eCommerce website. I am
                   currently working with HTML5, CSS3, Javascript and Magento 2.
-                  I&apos;m also responsible for code review and development of
-                  tags on Google Tag Manager. One of my recent achievements is a
+                  I am also responsible for code review and development of tags
+                  on Google Tag Manager. One of my recent achievements is a
                   website prototype, that is planned to released after
                   finalizing more features. Its main technologies are React,
                   GraphQL, Gatsby.js, and Netlify CMS.
@@ -188,20 +188,20 @@ class Index extends React.Component {
               </li>
             </ul>
             <p className="content">
-              I&apos;ve studied History at the Fluminense Federal University, in
+              I have studied History at the Fluminense Federal University, in
               Rio. However, during my bachelor, I realized that the impact of my
-              work in society didn&apos;t satisfy me. So, I decided to try
-              something completely different and I have no regrets about it.
-              After finishing my bachelor degree, I started studying basics Web
+              work in society did not satisfy me. So, I decided to try something
+              completely different and I have no regrets about it. After
+              finishing my bachelor degree, I started studying basics Web
               development subjects. Then, I discovered that my passion for
               Frontend development could be my profession in the future.
               Although I still enjoy reading about History, currently I am in
               love with the frontend development. In 2019, I started my studies
-              about React when I participated in Chingu Cohorts journey.
-              I&apos;m currently learning Gatsby while developing some internal
-              projects for Kathmandu. I&apos;ve also developed skills to use
-              Sass, Bootstrap 3 &amp; 4, GraphQL and Webpack. My current
-              interests are UX and accessibility.
+              about React when I participated in Chingu Cohorts journey. I am
+              currently learning Gatsby while developing some internal projects
+              for Kathmandu. I have also developed skills to use Sass, Bootstrap
+              3 and 4, GraphQL and Webpack. My current interests are UX and
+              accessibility.
             </p>
           </section>
         </div>
