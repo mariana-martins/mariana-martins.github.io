@@ -71,13 +71,13 @@ class Index extends React.Component {
             </header>
             <ul className="features">
               <li>
-                <span className="icon major style1 fa fa-map-signs" />
-                <h3>Neighborhood Map App</h3>
+                <span className="icon major style1 fas fa-address-book" />
+                <h3>Contact App</h3>
                 <p>
-                  I developed a SPA that loads a list of restaurants located in
-                  Christchurch on a map. I used Zomato API to get the restaurant
-                  list and Google Maps API to visualize them on a map as
-                  markers.
+                  Developed a single-page application that is a Contact List.
+                  Main features are to add a new contact on the list, favorite a
+                  contact, display the contact list and update the contact
+                  information.
                 </p>
               </li>
               <li>
@@ -93,10 +93,9 @@ class Index extends React.Component {
                 <span className="icon major style5 fab fa-magento" />
                 <h3>Projects at Kathmandu</h3>
                 <p>
-                  I am currently working in internal projects using React,
-                  Gatsby.js and Netlify at Kathmandu. The main project is the
-                  Kathmandu Ecommerce website which uses Magento 2.2.9,
-                  Knockout.js and Less.
+                  I am currently working in internal projects at Kathmandu. The
+                  main project is the Kathmandu Ecommerce website which uses
+                  Magento 2.3, Knockout.js and Less.
                 </p>
               </li>
             </ul>
@@ -145,7 +144,8 @@ class Index extends React.Component {
                   Manager. As a Frontend Developer, I designed and implemented
                   the Husky Rescue webpage. Its design was created using Adobe
                   Photoshop. It was developed using React, Bootstrap 4, SASS and
-                  Webpack.
+                  Webpack. On this project, I worked remotely with a mixed level
+                  team using tools like Slack, Trello and Github.
                 </p>
               </div>
             </header>

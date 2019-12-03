@@ -15,19 +15,19 @@ function Projects() {
       <div id="main">
         <section id="content" className="main">
           <h2>
-            <a href="https://github.com/mariana-martins/Udacity-neighborhood-map">
+            <a href="https://github.com/mariana-martins/contact-app">
               <i className="fas fa-hashtag" />
-              &nbsp;Neighborhood Map App
+              &nbsp;Contact Map App
             </a>
           </h2>
           <p>
-            I developed a single-page application that loads a list of
-            restaurants located in Christchurch (NZ), on a map. Used Zomato API
-            to get the restaurant list with its rating and Google Maps API to
-            visualize them on a map as markers. Developed using the best
-            practices in Object Oriented Javascript. The project is constructed
-            in MVVM patterns, using Knockout. It also supports filtering
-            restaurants by names.
+            I developed a single-page application that is a Contact List. Main
+            features are to add a new contact on the list, favorite a contact,
+            display the contact list and update the contact information. The
+            data is saved on the browser localStorage. I used React, Material UI
+            and Jest to implement this project and Netlify to host. To see the
+            project, click
+            <a href="https://mariana-contact-app.netlify.com">here</a>.
           </p>
           <h2>
             <a href="https://github.com/mariana-martins/bears-33">
