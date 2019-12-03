@@ -117,7 +117,7 @@ class Index extends React.Component {
                 <h3>
                   <b>
                     <i className="fas fa-hashtag" />
-                    &nbsp; Kathmandu as Junior Frontend Developer
+                    &nbsp; Kathmandu as Frontend Developer
                   </b>
                 </h3>
                 <h4>October/2018 - On going</h4>
