@@ -2,6 +2,8 @@
   "name": "mariana-portfolio",
   "author": "Mariana Martins Menezes & Hunter Chang",
   "dependencies": {
+    "@iconify/icons-cib": "^1.0.2",
+    "@iconify/react": "^1.1.3",
     "eslint-config-react-app": "^4.0.1",
     "gatsby": "^2.20.36",
     "gatsby-plugin-manifest": "^2.3.7",
