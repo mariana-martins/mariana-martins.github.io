@@ -3,6 +3,15 @@ import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Waypoint } from 'react-waypoint'
 
+import { Icon } from '@iconify/react'
+import Html5Icon from '@iconify/icons-cib/html5-shield'
+import Css3Icon from '@iconify/icons-cib/css3'
+import JsIcon from '@iconify/icons-cib/javascript'
+import ReactIcon from '@iconify/icons-cib/react'
+import ReduxIcon from '@iconify/icons-cib/redux'
+import GatsbyIcon from '@iconify/icons-cib/gatsby'
+import TypescriptIcon from '@iconify/icons-cib/typescript'
+
 import Layout from '../components/layout'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
@@ -177,29 +186,44 @@ class Index extends React.Component {
             </header>
             <ul className="statistics">
               <li className="style1">
-                <span className="icon fab fa-html5" role="img" />
-                <strong>HTML5</strong>
-                &nbsp;2015
+                <div className="statistics-row">
+                  <div className="row-item">
+                    <Icon icon={Html5Icon} className="icon" />
+                    <strong>HTML5</strong>
+                  </div>
+                  <div className="row-item">
+                    <Icon icon={Css3Icon} className="icon" />
+                    <strong>CSS3</strong>
+                  </div>
+                  <div className="row-item">
+                    <Icon icon={JsIcon} className="icon" />
+                    <strong>Javascript</strong>
+                  </div>
+                </div>
+                <div>&nbsp;2015</div>
               </li>
               <li className="style2">
-                <span className="icon fab fa-css3" role="img" />
-                <strong>CSS3</strong>
-                &nbsp;2015
-              </li>
-              <li className="style3">
-                <span className="icon fab fa-js-square" role="img" />
-                <strong>Javascript</strong>
-                &nbsp;2015
-              </li>
-              <li className="style4">
-                <span className="icon fab fa-react" role="img" />
+                <Icon icon={ReactIcon} className="icon" />
                 <strong>React</strong>
                 &nbsp;2017
               </li>
-              <li className="style5">
-                <span className="icon fas fa-user-astronaut" role="img" />
+              <li className="style3">
+                <Icon icon={GatsbyIcon} className="icon" />
                 <strong>Gatsby</strong>
                 &nbsp;2019
+              </li>
+              <li className="style4">
+                <div className="statistics-row">
+                  <div className="row-item">
+                    <Icon icon={ReduxIcon} className="icon" />
+                    <strong>Redux</strong>
+                  </div>
+                  <div className="row-item">
+                    <Icon icon={TypescriptIcon} className="icon" />
+                    <strong>Typescript</strong>
+                  </div>
+                </div>
+                <div>&nbsp;2020</div>
               </li>
             </ul>
             <p className="content">
@@ -210,13 +234,15 @@ class Index extends React.Component {
               finishing my bachelor degree, I started studying basics Web
               development subjects. Then, I discovered that my passion for
               Frontend development could be my profession in the future.
-              Although I still enjoy reading about History, currently I am in
-              love with the frontend development. In 2019, I started my studies
-              about React when I participated in Chingu Cohorts journey. I am
-              currently learning Gatsby while developing some internal projects
-              for Kathmandu. I have also developed skills to use Sass, Bootstrap
-              3 and 4, GraphQL and Webpack. My current interests are UX and
-              accessibility.
+              Although I still enjoy reading about History, I am in love with
+              the frontend development. In 2019, I started my studies about
+              React when I participated in Chingu Cohorts journey. I learned
+              Gatsby while developing some internal projects for Kathmandu. I
+              have also developed skills to use Sass, Bootstrap 3 and 4, GraphQL
+              and Material UI. In 2020, I decided to do a Nano Degree in React
+              to improve my skills. On that degree I also learned about Redux.
+              It was really handy, because I am using React, Redux and
+              Typescript on my current job position.
             </p>
           </section>
         </div>
