@@ -117,10 +117,25 @@ class Index extends React.Component {
                 <h3>
                   <b>
                     <i className="fas fa-hashtag" />
+                    &nbsp; Phocas as Software Developer
+                  </b>
+                </h3>
+                <h4>March/2020 - On going</h4>
+                <p>
+                  I’m working with a modern Frontend stack consisting of React,
+                  Redux and Material UI. My main focus is on developing new
+                  features to Phocas’ BI solution. As part of my
+                  responsibilities, I’m following Scrum rules and interacting
+                  with remote teams, including designers and other Frontend
+                  developers.
+                </p>
+                <h3>
+                  <b>
+                    <i className="fas fa-hashtag" />
                     &nbsp; Kathmandu as Frontend Developer
                   </b>
                 </h3>
-                <h4>October/2018 - On going</h4>
+                <h4>October/2018 - March/2020</h4>
                 <p>
                   As a member of the Web Development team, my main role is to
                   code highly efficient and scalable software to maintain,
