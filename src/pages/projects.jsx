@@ -15,7 +15,7 @@ function Projects() {
       <div id="main">
         <section id="content" className="main">
           <h2>
-            <a href="https://github.com/mariana-martins/contact-app">
+            <a href="https://github.com/mariana-martins/reactnd-project-myreads">
               <i className="fas fa-hashtag" />
               &nbsp;Would You Rather?
             </a>
@@ -29,13 +29,9 @@ function Projects() {
             questions and verify his/her score on the Leaderboard page. It shows
             how many questions users answered and how many questions users
             created. It was developed using React, Redux and Material UI.
-            <a href="https://github.com/mariana-martins/reactnd-project-myreads">
-              here
-            </a>
-            .
           </p>
           <h2>
-            <a href="https://github.com/mariana-martins/contact-app">
+            <a href="https://github.com/mariana-martins/reactnd-project-myreads">
               <i className="fas fa-hashtag" />
               &nbsp;MyReads Project
             </a>
@@ -50,10 +46,6 @@ function Projects() {
             limited search feature. An user could search a pre-determined term
             on that search and books related to that query have to display on
             the page.
-            <a href="https://github.com/mariana-martins/reactnd-project-myreads">
-              here
-            </a>
-            .
           </p>
           <h2>
             <a href="https://github.com/mariana-martins/contact-app">
@@ -68,7 +60,7 @@ function Projects() {
             data is saved on the browser localStorage. I used React, Material UI
             and Jest to implement this project and Netlify to host. To see the
             project, click
-            <a href="https://mariana-contact-app.netlify.com">here</a>.
+            <a href="https://mariana-contact-app.netlify.com"> here</a>.
           </p>
           <h2>
             <a href="https://github.com/mariana-martins/bears-33">
