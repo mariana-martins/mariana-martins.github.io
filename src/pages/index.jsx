@@ -99,12 +99,13 @@ class Index extends React.Component {
                 </p>
               </li>
               <li>
-                <span className="icon major style5 fab fa-magento" />
-                <h3>Projects at Kathmandu</h3>
+                <span className="icon major style5 fas fa-question" />
+                <h3>Would You Rather?</h3>
                 <p>
-                  I am currently working in internal projects at Kathmandu. The
-                  main project is the Kathmandu Ecommerce website which uses
-                  Magento 2.3, Knockout.js and Less.
+                  The goal here is to implement an App to lets a user play the
+                  Would You Rather? game. A question is displayed and a user
+                  needs answer it. It was developed using React, Redux and
+                  Material UI.
                 </p>
               </li>
             </ul>
