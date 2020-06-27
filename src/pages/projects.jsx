@@ -15,6 +15,20 @@ function Projects() {
       <div id="main">
         <section id="content" className="main">
           <h2>
+            <a href="https://www.figma.com/file/zgAeSVq5WUdzmsARUlWERS/Brazillian_Taste?node-id=0%3A1">
+              <i className="fas fa-hashtag" />
+              &nbsp;Brazillian Taste
+            </a>
+          </h2>
+          <p>
+            This is a mandatory project to complete UI/UX Design Specialization
+            by CALARTS on Coursera. The objective for this project was to build
+            a restaurant website where you would be able to do some orders
+            choosing dishes for a party kit. Based on the design concepts
+            explained in the specialization, I developed the concept using Figma
+            tools and Font Awesome.
+          </p>
+          <h2>
             <a href="https://github.com/mariana-martins/reactnd-project-myreads">
               <i className="fas fa-hashtag" />
               &nbsp;Would You Rather?
