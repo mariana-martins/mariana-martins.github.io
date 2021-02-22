@@ -127,22 +127,41 @@ class Index extends React.Component {
                 <h3>
                   <b>
                     <i className="fas fa-hashtag" />
-                    &nbsp; Phocas as Software Developer
+                    &nbsp; Phocas as Software Developer (Frontend Dev)
                   </b>
                 </h3>
-                <h4>March/2020 - On going</h4>
+                <h4>February/2021 - ongoing</h4>
                 <p>
-                  I’m working with a modern Frontend stack consisting of React,
-                  Redux and Material UI. My main focus is on developing new
-                  features to Phocas’ BI solution. As part of my
-                  responsibilities, I’m following Scrum rules and interacting
-                  with remote teams, including designers and other Frontend
-                  developers.
+                  Working on redesign the User Interface/User Experience of one
+                  of their solutions using jQuery, React, Typescript, Redux,
+                  Sass and Bootstrap. Defining and implementing the layout for
+                  the project in collaboration with Phocas designers and product
+                  managers are part of my duties. I am helping the design team
+                  to create a Design Systems using Figma and Storybook. My
+                  duties are documenting, drawing components and implement it on
+                  Storybook to create this guideline. I am following Scrum rules
+                  and working in a remote team, being the only team member in
+                  New Zealand.
                 </p>
                 <h3>
                   <b>
                     <i className="fas fa-hashtag" />
-                    &nbsp; Kathmandu as Frontend Developer
+                    &nbsp; Phocas as Junior Software Developer (Frontend Dev)
+                  </b>
+                </h3>
+                <h4>March/2020 - January/2021</h4>
+                <p>
+                  I participated in the development of a new product using
+                  React, Redux, Mobx, Typescript, Material UI and Jest. Also, my
+                  responsibilities were to define and implement the layout for
+                  the project in collaboration with Phocas designers. We
+                  followed Scrumban rules and interacted with remote teams,
+                  including designers and other developers.
+                </p>
+                <h3>
+                  <b>
+                    <i className="fas fa-hashtag" />
+                    &nbsp; Kathmandu as Junior Frontend Developer
                   </b>
                 </h3>
                 <h4>October/2018 - March/2020</h4>

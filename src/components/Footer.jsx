@@ -21,7 +21,7 @@ function Footer() {
         <h2>Follow Me</h2>
         <dl className="alt">
           <dt>Address</dt>
-          <dd>St. Albans - Christchurch - New Zealand</dd>
+          <dd>Bryndwr - Christchurch - New Zealand</dd>
           <dt>Email</dt>
           <dd>
             <a href="mailto:marianamartinsmenezes@gmail.com">
@@ -37,26 +37,6 @@ function Footer() {
             >
               <span className="label" aria-labelledby="LinkedIn" role="img">
                 LinkedIn
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/x2003k"
-              className="icon fab fa-facebook-f alt"
-            >
-              <span className="label" aria-labelledby="Facebook" role="img">
-                Facebook
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/marianamartinsmenezes/"
-              className="icon fab fa-instagram alt"
-            >
-              <span className="label" aria-labelledby="Instagram" role="img">
-                Instagram
               </span>
             </a>
           </li>
