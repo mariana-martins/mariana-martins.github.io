@@ -132,16 +132,12 @@ class Index extends React.Component {
                 </h3>
                 <h4>February/2021 - ongoing</h4>
                 <p>
-                  Working on redesign the User Interface/User Experience of one
-                  of their solutions using jQuery, React, Typescript, Redux,
-                  Sass and Bootstrap. Defining and implementing the layout for
-                  the project in collaboration with Phocas designers and product
-                  managers are part of my duties. I am helping the design team
-                  to create a Design Systems using Figma and Storybook. My
-                  duties are documenting, drawing components and implement it on
-                  Storybook to create this guideline. I am following Scrum rules
-                  and working in a remote team, being the only team member in
-                  New Zealand.
+                  Working on web development using jQuery, React, Typescript,
+                  Redux, Sass, Enzyme, and Bootstrap. I am designing the new
+                  grid layout for the main finance product in collaboration with
+                  the design team. I am also involved in creating a Design
+                  System using Figma and Storybook. I am following Scrum rules
+                  and working in a remote team across NZ, AUS, and the UK.
                 </p>
                 <h3>
                   <b>
@@ -151,10 +147,10 @@ class Index extends React.Component {
                 </h3>
                 <h4>March/2020 - January/2021</h4>
                 <p>
-                  I participated in the development of a new product using
-                  React, Redux, Mobx, Typescript, Material UI and Jest. Also, my
-                  responsibilities were to define and implement the layout for
-                  the project in collaboration with Phocas designers. We
+                  Worked on web development using React, Redux, Mobx,
+                  Typescript, Material UI, Jest and React Testing Library. Also,
+                  my responsibilities were to define and implement the layout
+                  for the project in collaboration with Phocas designers. We
                   followed Scrumban rules and interacted with remote teams,
                   including designers and other developers.
                 </p>
@@ -166,15 +162,12 @@ class Index extends React.Component {
                 </h3>
                 <h4>October/2018 - March/2020</h4>
                 <p>
-                  As a member of the Web Development team, my main role is to
+                  As a member of the Web Development team, my main role was to
                   code highly efficient and scalable software to maintain,
-                  extend and enhance Kathmandu&apos;s eCommerce website. I am
-                  currently working with HTML5, CSS3, Javascript and Magento 2.
-                  I am also responsible for code review and development of tags
-                  on Google Tag Manager. One of my recent achievements is a
-                  website prototype, that is planned to released after
-                  finalizing more features. Its main technologies are React,
-                  GraphQL, Gatsby.js, and Netlify CMS.
+                  extend and enhance Kathmandu&apos;s eCommerce website. I
+                  worked on web development using HTML5, CSS3, Javascript,
+                  jQuery, Figma and Magento 2. I was also responsible for
+                  development code review of tags on Google Tag Manager.
                 </p>
                 <h3>
                   <b>
