@@ -127,10 +127,29 @@ class Index extends React.Component {
                 <h3>
                   <b>
                     <i className="fas fa-hashtag" />
+                    &nbsp; Remote as Frontend Engineer
+                  </b>
+                </h3>
+                <h4>July/2021 - ongoing </h4>
+                <p>
+                  Working on the Onboarding team, focused on providing the best
+                  experience for new users on Remote. Our team is fully async
+                  and distributed across the world. A few highlights I
+                  contributed are: the rework of how Remote prices its
+                  customers, ensuring the process aligns with different
+                  countries&apos; legislation, and refactoring code for better
+                  code practices and components reusability. I also support our
+                  design system, which is widely used on our systems. The Tech
+                  stack is React, React Query, Jest, React Testing Library, and
+                  Styled Components.
+                </p>
+                <h3>
+                  <b>
+                    <i className="fas fa-hashtag" />
                     &nbsp; Phocas as Software Developer (Frontend Dev)
                   </b>
                 </h3>
-                <h4>February/2021 - ongoing</h4>
+                <h4>February/2021 - June/2021</h4>
                 <p>
                   Working on web development using jQuery, React, Typescript,
                   Redux, Sass, Enzyme, and Bootstrap. I am designing the new
