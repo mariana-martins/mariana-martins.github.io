@@ -1,0 +1,18 @@
+# Format code with Prettier
+echo "🎨 Running Prettier to format code..."
+npm run format
+
+# Add formatted files to staging area
+git add .
+
+# Run ESLint to check for errors
+echo "🔍 Running ESLint to check for errors..."
+npm run lint
+
+# If ESLint fails, the commit will be blocked
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint found errors. Please fix them before committing."
+  exit 1
+fi
+
+echo "✅ All checks passed! Proceeding with commit..."
