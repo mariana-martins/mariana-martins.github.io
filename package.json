@@ -19,7 +19,9 @@
     "type-check": "tsc --noEmit",
     "build:check": "npm run type-check && npm run lint && npm run test:ci",
     "component": "new-component",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "npm run build && gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
