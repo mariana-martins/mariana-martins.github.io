@@ -10,38 +10,37 @@ export default {
         body: ["var(--font-body)"],
       },
       colors: {
-        // Background Colors
-        "background-top": "hsl(var(--background-top))",
-        "background-bottom": "hsl(var(--background-bottom))",
-        background: "hsl(var(--background))",
+        // Blues & Teals
+        "light-blue": "hsl(var(--light-blue) / <alpha-value>)",
+        blue: "hsl(var(--blue) / <alpha-value>)",
+        "steel-blue": "hsl(var(--steel-blue) / <alpha-value>)",
+        "dark-blue": "hsl(var(--dark-blue) / <alpha-value>)",
+        "dark-teal": "hsl(var(--dark-teal) / <alpha-value>)",
+        indigo: "hsl(var(--indigo) / <alpha-value>)",
 
-        // Text Colors
-        foreground: "hsl(var(--foreground))",
-        "foreground-secondary": "hsl(var(--foreground-secondary))",
+        // Pinks & Roses
+        "light-rose": "hsl(var(--light-rose) / <alpha-value>)",
+        "light-pink": "hsl(var(--light-pink) / <alpha-value>)",
+        rose: "hsl(var(--rose) / <alpha-value>)",
+        "dark-pink": "hsl(var(--dark-pink) / <alpha-value>)",
 
-        // Card Colors
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        // Purples
+        "light-purple": "hsl(var(--light-purple) / <alpha-value>)",
+        "dark-purple": "hsl(var(--dark-purple) / <alpha-value>)",
 
-        // Accent Colors
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
+        // Yellows & Warm Tones
+        seashell: "hsl(var(--seashell) / <alpha-value>)",
+        orange: "hsl(var(--orange) / <alpha-value>)",
+        "light-yellow": "hsl(var(--light-yellow) / <alpha-value>)",
+        peach: "hsl(var(--peach) / <alpha-value>)",
+        yellow: "hsl(var(--yellow) / <alpha-value>)",
 
-        // Border Colors
-        border: "hsl(var(--border))",
-        ring: "hsl(var(--ring))",
+        // Greens
+        green: "hsl(var(--green) / <alpha-value>)",
 
-        // Skill Badge Colors
-        "badge-html-css": "hsl(var(--badge-html-css))",
-        "badge-js-ts": "hsl(var(--badge-js-ts))",
-        "badge-react": "hsl(var(--badge-react))",
-        "badge-tailwind": "hsl(var(--badge-tailwind))",
-        "badge-git": "hsl(var(--badge-git))",
-        "badge-testing": "hsl(var(--badge-testing))",
+        // Greys & Neutrals
+        grey: "hsl(var(--grey) / <alpha-value>)",
+        "dark-grey": "hsl(var(--dark-grey) / <alpha-value>)",
       },
     },
   },
