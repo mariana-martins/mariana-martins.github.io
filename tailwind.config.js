@@ -10,37 +10,57 @@ export default {
         body: ["var(--font-body)"],
       },
       colors: {
-        // Blues & Teals
-        "light-blue": "hsl(var(--light-blue) / <alpha-value>)",
-        blue: "hsl(var(--blue) / <alpha-value>)",
-        "steel-blue": "hsl(var(--steel-blue) / <alpha-value>)",
-        "dark-blue": "hsl(var(--dark-blue) / <alpha-value>)",
-        "dark-teal": "hsl(var(--dark-teal) / <alpha-value>)",
-        indigo: "hsl(var(--indigo) / <alpha-value>)",
+        // Blue Scale
+        blue: {
+          50: "hsl(var(--blue-50) / <alpha-value>)",
+          100: "hsl(var(--blue-100) / <alpha-value>)",
+          300: "hsl(var(--blue-300) / <alpha-value>)",
+          500: "hsl(var(--blue-500) / <alpha-value>)",
+          700: "hsl(var(--blue-700) / <alpha-value>)",
+          900: "hsl(var(--blue-900) / <alpha-value>)",
+        },
 
-        // Pinks & Roses
-        "light-rose": "hsl(var(--light-rose) / <alpha-value>)",
-        "light-pink": "hsl(var(--light-pink) / <alpha-value>)",
-        rose: "hsl(var(--rose) / <alpha-value>)",
-        "dark-pink": "hsl(var(--dark-pink) / <alpha-value>)",
+        // Indigo Scale
+        indigo: {
+          700: "hsl(var(--indigo-700) / <alpha-value>)",
+          800: "hsl(var(--indigo-800) / <alpha-value>)",
+          900: "hsl(var(--indigo-900) / <alpha-value>)",
+        },
 
-        // Purples
-        "light-purple": "hsl(var(--light-purple) / <alpha-value>)",
-        "dark-purple": "hsl(var(--dark-purple) / <alpha-value>)",
+        // Pink Scale
+        pink: {
+          100: "hsl(var(--pink-100) / <alpha-value>)",
+          300: "hsl(var(--pink-300) / <alpha-value>)",
+          700: "hsl(var(--pink-700) / <alpha-value>)",
+        },
 
-        // Yellows & Warm Tones
-        seashell: "hsl(var(--seashell) / <alpha-value>)",
-        orange: "hsl(var(--orange) / <alpha-value>)",
-        "light-yellow": "hsl(var(--light-yellow) / <alpha-value>)",
-        peach: "hsl(var(--peach) / <alpha-value>)",
-        yellow: "hsl(var(--yellow) / <alpha-value>)",
+        // Purple Scale
+        purple: {
+          200: "hsl(var(--purple-200) / <alpha-value>)",
+          600: "hsl(var(--purple-600) / <alpha-value>)",
+        },
 
-        // Greens
+        // Warm Tones Scale
+        warm: {
+          50: "hsl(var(--warm-50) / <alpha-value>)",
+          100: "hsl(var(--warm-100) / <alpha-value>)",
+          200: "hsl(var(--warm-200) / <alpha-value>)",
+          300: "hsl(var(--warm-300) / <alpha-value>)",
+          500: "hsl(var(--warm-500) / <alpha-value>)",
+        },
+
+        // Green
         green: "hsl(var(--green) / <alpha-value>)",
 
-        // Greys & Neutrals
+        // Grey
         grey: "hsl(var(--grey) / <alpha-value>)",
-        "dark-grey": "hsl(var(--dark-grey) / <alpha-value>)",
+
+        // Utility Colors
+        text: "hsl(var(--text-color) / <alpha-value>)",
+        heading: "hsl(var(--heading-color) / <alpha-value>)",
+      },
+      backgroundImage: {
+        "gradient-main": "var(--background-gradient)",
       },
     },
   },
