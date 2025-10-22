@@ -1,6 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 import App from "./App";
 
@@ -13,60 +12,81 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders count button", () => {
+  it("renders subtitle", () => {
     render(<App />);
 
-    expect(
-      screen.getByRole("button", { name: /count is 0/i }),
-    ).toBeInTheDocument();
-  });
-
-  it("increments count when button is clicked", async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    const button = screen.getByRole("button", { name: /count is 0/i });
-
-    await user.click(button);
-
-    expect(
-      screen.getByRole("button", { name: /count is 1/i }),
-    ).toBeInTheDocument();
-  });
-
-  it("increments count multiple times", async () => {
-    const user = userEvent.setup();
-    render(<App />);
-
-    const button = screen.getByRole("button", { name: /count is 0/i });
-
-    await user.click(button);
-    await user.click(button);
-    await user.click(button);
-
-    expect(
-      screen.getByRole("button", { name: /count is 3/i }),
-    ).toBeInTheDocument();
-  });
-
-  it("has proper styling classes", () => {
-    render(<App />);
-
-    const button = screen.getByRole("button");
-    expect(button).toHaveClass(
-      "bg-primary",
-      "text-primary-foreground",
-      "px-4",
-      "py-2",
-      "rounded-md",
-    );
+    expect(screen.getByText("Frontend Engineer")).toBeInTheDocument();
   });
 
   it("has proper heading structure", () => {
     render(<App />);
 
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading).toHaveTextContent("Welcome to Mariana Martins Portfolio");
-    expect(heading).toHaveClass("text-4xl", "font-bold", "text-center", "mb-8");
+    const mainHeading = screen.getByRole("heading", { level: 1 });
+    expect(mainHeading).toHaveTextContent(
+      "Welcome to Mariana Martins Portfolio",
+    );
+    expect(mainHeading).toHaveClass(
+      "text-4xl",
+      "font-bold",
+      "font-heading",
+      "tracking-[0.25rem]",
+      "text-heading",
+    );
+  });
+
+  it("has proper subheading structure", () => {
+    render(<App />);
+
+    const subHeading = screen.getByRole("heading", { level: 2 });
+    expect(subHeading).toHaveTextContent("Frontend Engineer");
+  });
+
+  it("renders all portfolio sections", () => {
+    render(<App />);
+
+    expect(screen.getByText("About Me")).toBeInTheDocument();
+    expect(screen.getByText("Experience")).toBeInTheDocument();
+    expect(screen.getByText("Projects")).toBeInTheDocument();
+    expect(screen.getByText("Fun Facts")).toBeInTheDocument();
+    expect(screen.getByText("Contact Info")).toBeInTheDocument();
+    expect(screen.getByText("Skills")).toBeInTheDocument();
+  });
+
+  it("renders footer", () => {
+    render(<App />);
+
+    expect(screen.getByText("Footer")).toBeInTheDocument();
+  });
+
+  it("has proper layout structure", () => {
+    render(<App />);
+
+    const mainContainer = screen.getByRole("heading", {
+      level: 1,
+    }).parentElement?.parentElement;
+
+    expect(mainContainer).toHaveClass(
+      "min-h-screen",
+      "grid",
+      "grid-cols-2",
+      "grid-rows-3",
+      "gap-4",
+    );
+  });
+
+  it("renders header with proper structure", () => {
+    render(<App />);
+
+    const header = screen.getByRole("banner");
+    expect(header).toHaveClass("col-span-2");
+    expect(header).toContainElement(screen.getByRole("heading", { level: 1 }));
+    expect(header).toContainElement(screen.getByRole("heading", { level: 2 }));
+  });
+
+  it("renders main content area", () => {
+    render(<App />);
+
+    const main = screen.getByRole("main");
+    expect(main).toHaveClass("col-span-2");
   });
 });

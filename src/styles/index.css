@@ -1,125 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  /* Font Families */
+  --font-family-heading: "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Custom Colors - Blue Scale */
+  --color-blue-50: hsl(205 36% 87%);
+  --color-blue-100: hsl(224 33% 26%);
+
+  /* Custom Colors - Indigo Scale */
+  --color-indigo-50: hsl(227 20% 26%);
+  --color-indigo-100: hsl(224 33% 26%);
+  --color-indigo-200: hsl(224 16% 32%);
+
+  /* Custom Colors - Pink Scale */
+  --color-pink: hsl(356 75% 78%);
+
+  /* Custom Colors - Warm Tones */
+  --color-warm-50: hsl(32 100% 97%);
+  --color-warm-100: hsl(19 100% 96%);
+  --color-warm-200: hsl(3 95% 92%);
+  --color-warm-300: hsl(35 100% 88%);
+
+  /* Custom Colors - Green */
+  --color-green: hsl(168 37% 85%);
+
+  /* Utility Colors */
+  --color-text: var(--color-indigo-50);
+}
+
+/* ============================================
+   CUSTOM CSS VARIABLES & UTILITIES
+   ============================================ */
 @layer base {
   :root {
-    /* ============================================
-        COLOR PALETTE
-       ============================================ */
-
-    /* Blue */
-    --blue-50: 205 36% 87%;
-    --blue-100: 195 56% 79%;
-    --blue-300: 195 34% 34%;
-    --blue-500: 214 19% 35%;
-    --blue-700: 214 17% 39%;
-    --blue-900: 224 33% 26%;
-
-    /* Indigo */
-    --indigo-700: 227 20% 26%;
-    --indigo-800: 224 33% 26%;
-    --indigo-900: 224 16% 32%;
-
-    /* Pinks */
-    --pink-100: 352 100% 86%;
-    --pink-300: 356 75% 78%;
-    --pink-700: 336 27% 48%;
-
-    /* Purple */
-    --purple-200: 300 47% 75%;
-    --purple-600: 300 21% 45%;
-
-    /* Warm Tones */
-    --warm-50: 32 100% 97%;
-    --warm-100: 19 100% 96%;
-    --warm-200: 3 95% 92%;
-    --warm-300: 60 100% 94%;
-    --warm-500: 35 100% 88%;
-
-    /* Green */
-    --green: 168 37% 85%;
-
-    /* Grey */
-    --grey: 218 14% 21%; /* #2D323C */
-
     /* Background Gradients */
     --background-gradient:
       radial-gradient(
         circle at 30% 20%,
-        hsl(var(--blue-100) / 0.8) 0%,
+        hsl(195 56% 79% / 0.8) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 70% 40%,
-        hsl(var(--pink-100) / 0.6) 0%,
+        hsl(352 100% 86% / 0.6) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 20% 80%,
-        hsl(var(--warm-300) / 0.7) 0%,
+        hsl(60 100% 94% / 0.7) 0%,
         transparent 50%
       ),
       radial-gradient(
         circle at 80% 80%,
-        hsl(var(--purple-200) / 0.6) 0%,
+        hsl(300 47% 75% / 0.6) 0%,
         transparent 50%
       ),
       linear-gradient(
         135deg,
-        hsl(var(--blue-100) / 0.3) 0%,
-        hsl(var(--pink-100) / 0.4) 25%,
-        hsl(var(--pink-100) / 0.5) 50%,
-        hsl(var(--warm-300) / 0.4) 75%,
-        hsl(var(--purple-200) / 0.5) 100%
+        hsl(195 56% 79% / 0.3) 0%,
+        hsl(352 100% 86% / 0.4) 25%,
+        hsl(352 100% 86% / 0.5) 50%,
+        hsl(60 100% 94% / 0.4) 75%,
+        hsl(300 47% 75% / 0.5) 100%
       );
+  }
 
-    /* ============================================
-        FONTS
-       ============================================ */
-    --font-heading: "Fredoka", ui-sans-serif, system-ui, sans-serif;
-    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-
-    /* ============================================
-        UTILITY
-       ============================================ */
-    --text-color: var(--indigo-800);
-    --heading-color: var(--indigo-800);
-
-    /* ============================================
-        DARK MODE
-       ============================================ */
-    @media (prefers-color-scheme: dark) {
-      /* Background Gradients */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Background Gradients - Dark Mode */
       --background-gradient:
         radial-gradient(
           circle at 25% 15%,
-          hsl(var(--blue-500) / 0.4) 0%,
+          hsl(214 19% 35% / 0.4) 0%,
           transparent 45%
         ),
         radial-gradient(
           circle at 75% 30%,
-          hsl(var(--purple-600) / 0.35) 0%,
+          hsl(300 21% 45% / 0.35) 0%,
           transparent 50%
         ),
         radial-gradient(
           circle at 15% 70%,
-          hsl(var(--blue-300) / 0.38) 0%,
+          hsl(195 34% 34% / 0.38) 0%,
           transparent 48%
         ),
         radial-gradient(
           circle at 85% 80%,
-          hsl(var(--pink-700) / 0.32) 0%,
+          hsl(336 27% 48% / 0.32) 0%,
           transparent 45%
         ),
         radial-gradient(
           circle at 50% 50%,
-          hsl(var(--grey) / 0.5) 0%,
+          hsl(218 14% 21% / 0.5) 0%,
           transparent 60%
         ),
         radial-gradient(
           circle at 10% 40%,
-          hsl(var(--blue-700) / 0.42) 0%,
+          hsl(214 17% 39% / 0.42) 0%,
           transparent 40%
         ),
         linear-gradient(
@@ -131,26 +110,25 @@
           rgba(22, 26, 36, 0.98) 100%
         );
 
-      --text-color: var(--warm-50);
-      --heading-color: var(--warm-50);
+      --color-text: var(--color-warm-50);
     }
   }
-}
 
-@layer base {
-  body {
+  html {
     background: var(--background-gradient);
-    color: hsl(var(--text-color));
-    font-family: var(--font-body);
+    color: var(--color-text);
   }
-  h1,
+
   h2,
   h3,
   h4,
   h5,
-  h6 {
-    letter-spacing: 0.25rem;
-    color: hsl(var(--heading-color));
-    font-family: var(--font-heading);
+  h6,
+  body {
+    font-family: var(--font-family-body);
+  }
+
+  h1 {
+    font-family: var(--font-family-heading);
   }
 }
