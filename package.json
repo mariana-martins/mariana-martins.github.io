@@ -38,9 +38,6 @@
   ],
   "author": "Mariana Martins",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mariana-martins/mariana-martins.github.io/issues"
-  },
   "homepage": "https://mariana-martins.github.io",
   "engines": {
     "node": ">=18.0.0",
