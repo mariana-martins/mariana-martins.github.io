@@ -19,6 +19,8 @@ export default [
         ecmaFeatures: {
           jsx: true,
         },
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname + "/..",
       },
       globals: {
         document: "readonly",
@@ -44,15 +46,23 @@ export default [
         { allowConstantExport: true },
       ],
 
-      // TypeScript rules
+      // TypeScript rules - Strict typing enforcement
       "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/explicit-function-return-type": "off",
-      "@typescript-eslint/explicit-module-boundary-types": "off",
-      "@typescript-eslint/no-non-null-assertion": "warn",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/explicit-function-return-type": [
+        "error",
+        {
+          allowExpressions: true,
+          allowTypedFunctionExpressions: true,
+          allowHigherOrderFunctions: true,
+          allowDirectConstAssertionInArrowFunctions: true,
+        },
+      ],
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-non-null-assertion": "error",
       "@typescript-eslint/no-var-requires": "error",
-      "@typescript-eslint/ban-ts-comment": "warn",
-      "@typescript-eslint/no-empty-function": "warn",
+      "@typescript-eslint/ban-ts-comment": "error",
+      "@typescript-eslint/no-empty-function": "error",
       "@typescript-eslint/no-inferrable-types": "off",
       "@typescript-eslint/no-namespace": "error",
       "@typescript-eslint/no-this-alias": "error",
@@ -60,6 +70,26 @@ export default [
       "@typescript-eslint/prefer-namespace-keyword": "error",
       "@typescript-eslint/triple-slash-reference": "error",
       "@typescript-eslint/unified-signatures": "error",
+      "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+      "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { prefer: "type-imports" },
+      ],
+      "@typescript-eslint/no-unnecessary-type-assertion": "error",
+      "@typescript-eslint/prefer-optional-chain": "error",
+      "@typescript-eslint/prefer-nullish-coalescing": "error",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/no-misused-promises": "error",
+      "@typescript-eslint/strict-boolean-expressions": [
+        "error",
+        {
+          allowString: false,
+          allowNumber: false,
+          allowNullableObject: false,
+        },
+      ],
 
       // General rules
       "no-console": "warn",
@@ -69,6 +99,7 @@ export default [
       "prefer-const": "error",
       "prefer-arrow-callback": "error",
       "prefer-template": "error",
+      "comma-dangle": ["error", "always-multiline"],
       eqeqeq: ["error", "always"],
       curly: ["error", "all"],
       "no-eval": "error",
@@ -127,12 +158,18 @@ export default [
     },
   },
   {
-    files: ["*.config.{js,ts}", "vite.config.ts"],
+    files: [
+      "*.config.{js,ts}",
+      "vite.config.ts",
+      "babel.config.js",
+      "jest.config.js",
+    ],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
+        project: null,
       },
       globals: {
         __dirname: "readonly",
@@ -147,8 +184,25 @@ export default [
       "@typescript-eslint": typescript,
     },
     rules: {
+      // Disable all type-aware rules for config files
       "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-unnecessary-type-assertion": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/await-thenable": "off",
+      "@typescript-eslint/no-misused-promises": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/prefer-optional-chain": "off",
       "no-console": "off",
+    },
+  },
+  {
+    files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}", "**/setupTests.ts"],
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
   {
