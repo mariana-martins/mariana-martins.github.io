@@ -7,7 +7,8 @@
 
   /* Custom Colors - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
-  --color-blue-100: hsl(224 33% 26%);
+  --color-blue-100: hsl(200 57% 84%);
+  --color-blue-200: hsl(223 33% 26%);
 
   /* Custom Colors - Indigo Scale */
   --color-indigo-50: hsl(227 20% 26%);
@@ -18,16 +19,18 @@
   --color-pink: hsl(356 75% 78%);
 
   /* Custom Colors - Warm Tones */
-  --color-warm-50: hsl(32 100% 97%);
+  --color-warm-50: hsl(47 64% 96%);
   --color-warm-100: hsl(19 100% 96%);
   --color-warm-200: hsl(3 95% 92%);
-  --color-warm-300: hsl(35 100% 88%);
+  --color-warm-300: hsl(37 100% 94%);
+  --color-warm-400: hsl(35 100% 88%);
 
   /* Custom Colors - Green */
   --color-green: hsl(168 37% 85%);
 
-  /* Utility Colors */
-  --color-text: var(--color-indigo-50);
+  /* Text Colors */
+  --color-text-primary: var(--color-blue-200);
+  --color-text-primary-dark: var(--color-warm-50);
 }
 
 /* ============================================
@@ -109,14 +112,11 @@
           rgba(28, 32, 42, 0.97) 75%,
           rgba(22, 26, 36, 0.98) 100%
         );
-
-      --color-text: var(--color-warm-50);
     }
   }
 
   html {
     background: var(--background-gradient);
-    color: var(--color-text);
   }
 
   h2,

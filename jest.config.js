@@ -7,8 +7,9 @@ export default {
 
   // Module name mapping for path aliases
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.(jpg|jpeg|png|gif|svg|webp)$": "<rootDir>/src/__mocks__/fileMock.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
 
   // File extensions to consider

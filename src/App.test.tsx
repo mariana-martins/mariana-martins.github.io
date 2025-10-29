@@ -7,9 +7,7 @@ describe("App", () => {
   it("renders welcome message", () => {
     render(<App />);
 
-    expect(
-      screen.getByText("Welcome to Mariana Martins Portfolio"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Mariana Martins Menezes")).toBeInTheDocument();
   });
 
   it("renders subtitle", () => {
@@ -22,15 +20,14 @@ describe("App", () => {
     render(<App />);
 
     const mainHeading = screen.getByRole("heading", { level: 1 });
-    expect(mainHeading).toHaveTextContent(
-      "Welcome to Mariana Martins Portfolio",
-    );
+    expect(mainHeading).toHaveTextContent("Mariana Martins Menezes");
     expect(mainHeading).toHaveClass(
       "text-4xl",
       "font-bold",
       "font-heading",
       "tracking-[0.25rem]",
       "text-heading",
+      "uppercase",
     );
   });
 
@@ -63,7 +60,7 @@ describe("App", () => {
 
     const mainContainer = screen.getByRole("heading", {
       level: 1,
-    }).parentElement?.parentElement;
+    }).parentElement?.parentElement?.parentElement?.parentElement;
 
     expect(mainContainer).toHaveClass(
       "min-h-screen",
@@ -71,6 +68,8 @@ describe("App", () => {
       "grid-cols-2",
       "grid-rows-3",
       "gap-4",
+      "px-16",
+      "justify-items-center",
     );
   });
 

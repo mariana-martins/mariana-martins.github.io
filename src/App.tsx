@@ -5,7 +5,7 @@ import "./styles/index.css";
 
 function App(): React.JSX.Element {
   return (
-    <div className="min-h-screen grid grid-cols-2 grid-rows-3 gap-4 px-16">
+    <div className="min-h-screen grid grid-cols-2 grid-rows-3 gap-4 px-16 justify-items-center">
       <Header />
       <main className="col-span-2">
         <div className="grid grid-cols-2 grid-rows-3 gap-4">
