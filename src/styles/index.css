@@ -68,6 +68,7 @@
         hsl(60 100% 94% / 0.4) 75%,
         hsl(300 47% 75% / 0.5) 100%
       );
+    --divider-color: var(--color-pink);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -112,6 +113,7 @@
           rgba(28, 32, 42, 0.97) 75%,
           rgba(22, 26, 36, 0.98) 100%
         );
+      --divider-color: var(--color-blue-100);
     }
   }
 
@@ -130,5 +132,33 @@
 
   h1 {
     font-family: var(--font-family-heading);
+  }
+}
+
+/* Custom Dashed Border Utilities */
+@layer utilities {
+  .border-b-dashed-custom {
+    --dash-length: 8px;
+    --dash-gap: 6px;
+    --dash-color: var(--divider-color);
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .border-b-dashed-custom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--dash-color) 0,
+      var(--dash-color) var(--dash-length),
+      transparent var(--dash-length),
+      transparent calc(var(--dash-length) + var(--dash-gap))
+    );
+    opacity: 0.6;
   }
 }
