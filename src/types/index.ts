@@ -32,3 +32,19 @@ export interface ContactForm {
   subject: string;
   message: string;
 }
+
+export interface Contact {
+  name: string;
+  email: string;
+  linkedIn: string;
+  github: string;
+  address: string;
+}
+
+export interface PortfolioData {
+  introduction: string;
+  projects: Project[];
+  experience: Experience[];
+  skills: Skill[];
+  contact: Contact;
+}
