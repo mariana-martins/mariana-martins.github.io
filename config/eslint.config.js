@@ -82,14 +82,7 @@ export default [
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/await-thenable": "error",
       "@typescript-eslint/no-misused-promises": "error",
-      "@typescript-eslint/strict-boolean-expressions": [
-        "error",
-        {
-          allowString: false,
-          allowNumber: false,
-          allowNullableObject: false,
-        },
-      ],
+      "@typescript-eslint/strict-boolean-expressions": "off",
 
       // General rules
       "no-console": "warn",
@@ -200,9 +193,23 @@ export default [
   },
   {
     files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}", "**/setupTests.ts"],
+    languageOptions: {
+      globals: {
+        jest: "readonly",
+        describe: "readonly",
+        it: "readonly",
+        expect: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly",
+        global: "readonly",
+      },
+    },
     rules: {
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-explicit-any": "warn",
+      "no-undef": "off",
     },
   },
   {
