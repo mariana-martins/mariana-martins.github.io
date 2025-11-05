@@ -1,0 +1,29 @@
+import * as React from "react";
+
+import { formatDate } from "@/lib/utils";
+
+import { data } from "../../data";
+
+function Experience(): React.JSX.Element {
+  return (
+    <section className="col-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom border-b-dashed-custom h-full">
+      <h3 className="text-2xl mb-2">Experience</h3>
+      <div className="flex flex-col gap-4 pb-3">
+        {data.experience.map((experience) => (
+          <div key={experience.id}>
+            <h4 className="text-lg font-bold mb-1">
+              {experience.position} at {experience.company}
+            </h4>
+            <p className="text-md font-semibold mb-1">
+              {formatDate(experience.startDate)} -{" "}
+              {experience.endDate ? formatDate(experience.endDate) : "Present"}
+            </p>
+            <p className="text-sm/6">{experience.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export default Experience;

@@ -43,7 +43,7 @@ export const data: PortfolioData = {
       company: "Remote",
       position: "Frontend Engineer",
       startDate: "2021-07",
-      endDate: undefined, // ongoing
+      endDate: "2024-04", // ongoing
       description:
         "Working on the Onboarding team, focused on providing the best experience for new users on Remote. Our team is fully async and distributed across the world. A few highlights I contributed are: the rework of how Remote prices its customers, ensuring the process aligns with different countries' legislation, and refactoring code for better code practices and components reusability. I also support our design system, which is widely used on our systems.",
       technologies: [
