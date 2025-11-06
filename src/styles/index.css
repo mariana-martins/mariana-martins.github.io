@@ -166,14 +166,14 @@
     --dash-gap: 6px;
     --dash-color: var(--divider-color);
     position: relative;
-    padding-right: 3rem;
+    padding-right: 2rem;
   }
 
   .border-r-dashed-custom::before {
     content: "";
     position: absolute;
     top: 0;
-    bottom: calc(0.25rem * 8);
+    bottom: calc(0.25rem * 6);
     right: 0;
     width: 3px;
     background: repeating-linear-gradient(
