@@ -141,14 +141,19 @@
     --dash-length: 8px;
     --dash-gap: 6px;
     --dash-color: var(--divider-color);
+    --dash-left: 0;
     position: relative;
+  }
+
+  .border-b-dashed-custom-left-24 {
+    --dash-left: calc(0.25rem * 6); /* 24px */
   }
 
   .border-b-dashed-custom::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: var(--dash-left);
     right: 0;
     height: 3px;
     background: repeating-linear-gradient(

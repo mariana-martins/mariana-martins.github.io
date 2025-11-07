@@ -249,6 +249,6 @@ export const data: PortfolioData = {
     email: "marianamartinsmenezes@gmail.com",
     linkedIn: "https://www.linkedin.com/in/marianamenezes/",
     github: "https://github.com/mariana-martins", // TODO: Verify GitHub URL
-    address: "Melbourne - Australia",
+    address: "Melbourne, Australia",
   },
 };

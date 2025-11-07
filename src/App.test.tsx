@@ -7,7 +7,9 @@ describe("App", () => {
   it("renders title and subtitle", () => {
     render(<App />);
 
-    expect(screen.getByText("Mariana Martins Menezes")).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Mariana Martins Menezes" }),
+    ).toBeInTheDocument();
     expect(screen.getByText("Frontend Engineer")).toBeInTheDocument();
   });
 
