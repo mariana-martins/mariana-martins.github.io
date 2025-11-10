@@ -160,17 +160,17 @@ export const data: PortfolioData = {
     },
     {
       name: "Gatsby",
-      level: "intermediate",
+      level: "beginner",
       category: "frontend",
     },
     {
       name: "Sass",
-      level: "advanced",
+      level: "intermediate",
       category: "frontend",
     },
     {
       name: "Bootstrap",
-      level: "advanced",
+      level: "intermediate",
       category: "frontend",
     },
     {
@@ -185,7 +185,7 @@ export const data: PortfolioData = {
     },
     {
       name: "jQuery",
-      level: "advanced",
+      level: "intermediate",
       category: "frontend",
     },
     {
@@ -200,37 +200,37 @@ export const data: PortfolioData = {
     },
     {
       name: "GraphQL",
-      level: "intermediate",
+      level: "beginner",
       category: "frontend",
     },
     {
       name: "Jest",
-      level: "advanced",
+      level: "intermediate",
       category: "tools",
     },
     {
       name: "React Testing Library",
-      level: "advanced",
+      level: "intermediate",
       category: "tools",
     },
     {
       name: "Enzyme",
-      level: "intermediate",
+      level: "beginner",
       category: "tools",
     },
     {
       name: "Webpack",
-      level: "intermediate",
+      level: "beginner",
       category: "tools",
     },
     {
       name: "Figma",
-      level: "advanced",
+      level: "intermediate",
       category: "design",
     },
     {
       name: "Adobe Photoshop",
-      level: "intermediate",
+      level: "beginner",
       category: "design",
     },
     {
@@ -240,7 +240,7 @@ export const data: PortfolioData = {
     },
     {
       name: "Magento 2",
-      level: "intermediate",
+      level: "beginner",
       category: "frontend",
     },
   ],
