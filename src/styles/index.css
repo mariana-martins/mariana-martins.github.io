@@ -21,12 +21,15 @@
   /* Custom Colors - Warm Tones */
   --color-warm-50: hsl(47 64% 96%);
   --color-warm-100: hsl(19 100% 96%);
-  --color-warm-200: hsl(3 95% 92%);
+  --color-warm-200: hsl(6 100% 92%);
   --color-warm-300: hsl(37 100% 94%);
   --color-warm-400: hsl(35 100% 88%);
 
   /* Custom Colors - Green */
   --color-green: hsl(168 37% 85%);
+
+  /* Custom Colors - Purple */
+  --color-purple: hsl(325 34% 87%);
 
   /* Text Colors */
   --color-text-primary: var(--color-blue-200);
@@ -135,59 +138,129 @@
   }
 }
 
-/* Custom Dashed Border Utilities */
+/* ============================================
+   CUSTOM DASHED BORDER UTILITIES
+   ============================================ */
 @layer utilities {
-  .border-b-dashed-custom {
-    --dash-length: 8px;
-    --dash-gap: 6px;
-    --dash-color: var(--divider-color);
-    --dash-left: 0;
+  :root {
+    --dashed-border-segment-length: 8px;
+    --dashed-border-gap-length: 6px;
+    --dashed-border-opacity: 0.6;
+    --dashed-border-width: 3px;
+    --dashed-border-spacing: 2rem;
+  }
+
+  [class*="border-"]:is(
+    .border-b-dashed-custom,
+    .border-r-dashed-custom,
+    .border-t-dashed-custom
+  ) {
+    --dashed-border-color: var(--divider-color);
     position: relative;
   }
 
-  .border-b-dashed-custom-left-24 {
-    --dash-left: calc(0.25rem * 6); /* 24px */
+  .border-b-dashed-custom {
+    --dashed-border-bottom-left-offset: 0;
   }
 
   .border-b-dashed-custom::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: var(--dash-left);
+    left: var(--dashed-border-bottom-left-offset);
     right: 0;
-    height: 3px;
+    height: var(--dashed-border-width);
     background: repeating-linear-gradient(
       to right,
-      var(--dash-color) 0,
-      var(--dash-color) var(--dash-length),
-      transparent var(--dash-length),
-      transparent calc(var(--dash-length) + var(--dash-gap))
+      var(--dashed-border-color) 0,
+      var(--dashed-border-color) var(--dashed-border-segment-length),
+      transparent var(--dashed-border-segment-length),
+      transparent
+        calc(
+          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
+        )
     );
-    opacity: 0.6;
+    opacity: var(--dashed-border-opacity);
   }
 
   .border-r-dashed-custom {
-    --dash-length: 8px;
-    --dash-gap: 6px;
-    --dash-color: var(--divider-color);
-    position: relative;
-    padding-right: 2rem;
+    padding-right: var(--dashed-border-spacing);
   }
 
   .border-r-dashed-custom::before {
     content: "";
     position: absolute;
     top: 0;
-    bottom: calc(0.25rem * 6);
+    bottom: 0;
     right: 0;
-    width: 3px;
+    width: var(--dashed-border-width);
     background: repeating-linear-gradient(
       to bottom,
-      var(--dash-color) 0,
-      var(--dash-color) var(--dash-length),
-      transparent var(--dash-length),
-      transparent calc(var(--dash-length) + var(--dash-gap))
+      var(--dashed-border-color) 0,
+      var(--dashed-border-color) var(--dashed-border-segment-length),
+      transparent var(--dashed-border-segment-length),
+      transparent
+        calc(
+          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
+        )
     );
-    opacity: 0.6;
+    opacity: var(--dashed-border-opacity);
+  }
+
+  .border-t-dashed-custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--dashed-border-width);
+    background: repeating-linear-gradient(
+      to right,
+      var(--dashed-border-color) 0,
+      var(--dashed-border-color) var(--dashed-border-segment-length),
+      transparent var(--dashed-border-segment-length),
+      transparent
+        calc(
+          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
+        )
+    );
+    opacity: var(--dashed-border-opacity);
+  }
+
+  .border-t-dashed-custom.border-r-dashed-custom::before {
+    left: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background:
+      repeating-linear-gradient(
+        to right,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      );
+    background-position:
+      top left,
+      top right;
+    background-size:
+      100% var(--dashed-border-width),
+      var(--dashed-border-width) 100%;
+    background-repeat: no-repeat;
   }
 }

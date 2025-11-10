@@ -52,7 +52,7 @@ function Skills(): React.JSX.Element {
 
   return (
     <section
-      className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom border-b-dashed-custom-left-24 h-fit flex flex-col items-center px-6"
+      className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom h-fit flex flex-col items-center px-6"
       aria-labelledby="skills-heading"
     >
       <h3 id="skills-heading" className="text-2xl mt-8 text-center">

@@ -4,7 +4,7 @@ import aboutMeImage from "@/assets/avatar.png";
 
 function ProfileImage(): React.JSX.Element {
   return (
-    <figure className="col-2 text-text-primary dark:text-text-primary-dark  border-b-dashed-custom h-fit p-8">
+    <figure className="col-2 text-text-primary dark:text-text-primary-dark h-fit mx-8">
       <img
         src={aboutMeImage}
         alt="Me and my dog, Margot"
