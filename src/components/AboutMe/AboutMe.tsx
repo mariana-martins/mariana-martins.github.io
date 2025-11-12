@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { data } from "../../data";
+import { data } from "@/data";
 
 function AboutMe(): React.JSX.Element {
   const { introduction } = data;

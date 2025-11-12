@@ -10,6 +10,11 @@ export default {
     "\\.(jpg|jpeg|png|gif|svg|webp)$": "<rootDir>/src/__mocks__/fileMock.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@types/(.*)$": "<rootDir>/src/types/$1",
+    "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+    "^@assets/(.*)$": "<rootDir>/src/assets/$1",
   },
 
   // File extensions to consider

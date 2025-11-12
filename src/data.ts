@@ -1,6 +1,6 @@
 // Portfolio data template
 // Update this file with your actual portfolio information
-import type { PortfolioData } from "./types";
+import type { PortfolioData } from "@types";
 
 export const data: PortfolioData = {
   introduction:

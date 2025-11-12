@@ -1,10 +1,9 @@
+import Experience from "@components/Experience/Experience";
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 
-import Experience from "./Experience";
-
 // Mock the data module
-jest.mock("../../data", () => ({
+jest.mock("@/data", () => ({
   data: {
     experience: [
       {

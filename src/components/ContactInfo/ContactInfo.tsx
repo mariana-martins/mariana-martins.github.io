@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { AtSign, GitFork, Mail, MapPin } from "lucide-react";
 
-import { data } from "../../data";
+import { data } from "@/data";
 
 function ContactInfo(): React.JSX.Element {
   return (

@@ -1,8 +1,7 @@
 import * as React from "react";
 
+import { data } from "@/data";
 import { formatDate } from "@/lib/utils";
-
-import { data } from "../../data";
 
 function Experience(): React.JSX.Element {
   return (

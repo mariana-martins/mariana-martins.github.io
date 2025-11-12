@@ -1,12 +1,12 @@
 import React from "react";
 
-import AboutMe from "./components/AboutMe";
-import ContactInfo from "./components/ContactInfo";
-import Experience from "./components/Experience";
-import Header from "./components/Header";
-import ProfileImage from "./components/ProfileImage/ProfileImage";
-import Skills from "./components/Skills/Skills";
-import "./styles/index.css";
+import AboutMe from "@components/AboutMe";
+import ContactInfo from "@components/ContactInfo";
+import Experience from "@components/Experience";
+import Header from "@components/Header";
+import ProfileImage from "@components/ProfileImage/ProfileImage";
+import Skills from "@components/Skills/Skills";
+import "@styles/index.css";
 
 function App(): React.JSX.Element {
   return (

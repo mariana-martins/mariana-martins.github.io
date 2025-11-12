@@ -8,6 +8,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@components": path.resolve(__dirname, "./src/components"),
+      "@lib": path.resolve(__dirname, "./src/lib"),
+      "@types": path.resolve(__dirname, "./src/types"),
+      "@styles": path.resolve(__dirname, "./src/styles"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
   base: "/mariana-martins.github.io/",

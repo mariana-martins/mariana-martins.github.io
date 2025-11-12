@@ -1,5 +1,5 @@
 /* global describe, it, expect */
-import { data } from "./data";
+import { data } from "@/data";
 
 describe("data object", () => {
   describe("1. Top-level structure", () => {
