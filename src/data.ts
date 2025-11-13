@@ -1,6 +1,6 @@
 // Portfolio data template
 // Update this file with your actual portfolio information
-import type { PortfolioData } from "@types";
+import type { PortfolioData } from "@/types";
 
 export const data: PortfolioData = {
   introduction:
@@ -242,6 +242,28 @@ export const data: PortfolioData = {
       name: "Magento 2",
       level: "beginner",
       category: "frontend",
+    },
+  ],
+  funFacts: [
+    {
+      id: "fun-fact-1",
+      fact: "🪻 I'm a big fan of the TV show The Office.",
+    },
+    {
+      id: "fun-fact-2",
+      fact: "🎮 I'm a big fan of the TV show The Office.",
+    },
+    {
+      id: "fun-fact-3",
+      fact: "🇧🇷 I'm a big fan of the TV show The Office.",
+    },
+    {
+      id: "fun-fact-4",
+      fact: "🍕 I'm a big fan of the TV show The Office.",
+    },
+    {
+      id: "fun-fact-5",
+      fact: "🎵 I'm a big fan of the TV show The Office.",
     },
   ],
   contact: {

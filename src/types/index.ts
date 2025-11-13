@@ -41,10 +41,16 @@ export interface Contact {
   address: string;
 }
 
+export interface FunFact {
+  id: string;
+  fact: string;
+}
+
 export interface PortfolioData {
   introduction: string;
   projects: Project[];
   experience: Experience[];
   skills: Skill[];
   contact: Contact;
+  funFacts: FunFact[];
 }

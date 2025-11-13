@@ -15,6 +15,7 @@ describe("data object", () => {
       expect(data).toHaveProperty("experience");
       expect(data).toHaveProperty("skills");
       expect(data).toHaveProperty("contact");
+      expect(data).toHaveProperty("funFacts");
     });
 
     it("should have all required top-level keys and no extra keys", () => {
@@ -24,6 +25,7 @@ describe("data object", () => {
         "experience",
         "skills",
         "contact",
+        "funFacts",
       ];
       const actualKeys = Object.keys(data);
 
@@ -258,13 +260,7 @@ describe("data object", () => {
     });
 
     it("should have valid skill categories", () => {
-      const validCategories = [
-        "frontend",
-        "backend",
-        "tools",
-        "design",
-        "database",
-      ];
+      const validCategories = ["frontend", "backend", "tools", "design"];
 
       data.skills.forEach((skill) => {
         expect(validCategories).toContain(skill.category);
@@ -329,6 +325,40 @@ describe("data object", () => {
     it("should have valid GitHub URL format", () => {
       expect(data.contact.github).toMatch(/^https?:\/\//);
       expect(data.contact.github).toContain("github.com");
+    });
+  });
+
+  describe("6. FunFacts array structure", () => {
+    it("should have funFacts as an array", () => {
+      expect(Array.isArray(data.funFacts)).toBe(true);
+    });
+
+    it("should have at least one fun fact", () => {
+      expect(data.funFacts.length).toBeGreaterThan(0);
+    });
+
+    it("should have expected structure for each fun fact", () => {
+      data.funFacts.forEach((funFact) => {
+        expect(funFact).toHaveProperty("id");
+        expect(funFact).toHaveProperty("fact");
+
+        // Type checks
+        expect(typeof funFact.id).toBe("string");
+        expect(typeof funFact.fact).toBe("string");
+      });
+    });
+
+    it("should have non-empty required string fields for each fun fact", () => {
+      data.funFacts.forEach((funFact) => {
+        expect(funFact.id.trim().length).toBeGreaterThan(0);
+        expect(funFact.fact.trim().length).toBeGreaterThan(0);
+      });
+    });
+
+    it("should have unique fun fact IDs", () => {
+      const ids = data.funFacts.map((f) => f.id);
+      const uniqueIds = new Set(ids);
+      expect(uniqueIds.size).toBe(ids.length);
     });
   });
 });

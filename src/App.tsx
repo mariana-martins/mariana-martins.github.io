@@ -3,6 +3,7 @@ import React from "react";
 import AboutMe from "@components/AboutMe";
 import ContactInfo from "@components/ContactInfo";
 import Experience from "@components/Experience";
+import FunFacts from "@components/FunFacts/FunFacts";
 import Header from "@components/Header";
 import ProfileImage from "@components/ProfileImage/ProfileImage";
 import Skills from "@components/Skills/Skills";
@@ -20,9 +21,9 @@ function App(): React.JSX.Element {
           <div className="col-start-2 row-start-2">
             <ContactInfo />
             <Skills />
+            <FunFacts />
           </div>
           <section>Projects</section>
-          <section>Fun Facts</section>
         </div>
       </main>
       <footer className="col-span-2">Footer</footer>
