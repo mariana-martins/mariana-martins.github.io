@@ -3,6 +3,7 @@ import React from "react";
 import AboutMe from "@components/AboutMe";
 import ContactInfo from "@components/ContactInfo";
 import Experience from "@components/Experience";
+import Footer from "@components/Footer/Footer";
 import FunFacts from "@components/FunFacts/FunFacts";
 import Header from "@components/Header";
 import ProfileImage from "@components/ProfileImage/ProfileImage";
@@ -27,7 +28,7 @@ function App(): React.JSX.Element {
         </div>
         <Projects />
       </main>
-      <footer className="w-full">Footer</footer>
+      <Footer />
     </div>
   );
 }
