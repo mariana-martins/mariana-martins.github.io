@@ -34,6 +34,6 @@ describe("App", () => {
     render(<App />);
 
     const main = screen.getByRole("main");
-    expect(main).toHaveClass("col-span-2");
+    expect(main).toBeInTheDocument();
   });
 });

@@ -5,7 +5,7 @@ import type { FunFact } from "@/types";
 
 function FunFacts(): React.JSX.Element {
   return (
-    <section className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom  p-8">
+    <section className="text-text-primary dark:text-text-primary-dark p-8 h-full place-content-center">
       <h3 id="fun-facts-heading" className="text-2xl mb-4">
         Fun Facts
       </h3>
