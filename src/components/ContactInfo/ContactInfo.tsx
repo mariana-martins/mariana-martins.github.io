@@ -1,8 +1,21 @@
-import * as React from "react";
+import React from "react";
 
 import { AtSign, GitFork, Mail, MapPin } from "lucide-react";
 
 import { data } from "@/data";
+
+const contactLinkClasses = [
+  // Layout
+  "flex items-center gap-2",
+  // Styling
+  "rounded transition-colors",
+  // Hover states
+  "hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green",
+  // Focus states - matching SkipLink colors
+  "focus:outline-none focus:ring-2 focus:ring-offset-2",
+  "focus:ring-[var(--color-pink)]",
+  "dark:focus:ring-[var(--color-blue-100)]",
+].join(" ");
 
 function ContactInfo(): React.JSX.Element {
   return (
@@ -21,23 +34,27 @@ function ContactInfo(): React.JSX.Element {
         <a
           href={`mailto:${data.contact.email}`}
           aria-label={`Send email to ${data.contact.email}`}
-          className="flex items-center gap-2 hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+          className={contactLinkClasses}
         >
           <Mail size={20} aria-hidden="true" />
           <span className="text-base">{data.contact.email}</span>
         </a>
         <a
           href={data.contact.linkedIn}
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Visit Mariana Martins Menezes LinkedIn profile"
-          className="flex items-center gap-2 hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+          className={contactLinkClasses}
         >
           <AtSign size={20} aria-hidden="true" />
           <span className="text-base">Mariana Martins Menezes</span>
         </a>
         <a
           href={data.contact.github}
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Visit mariana-martins GitHub profile"
-          className="flex items-center gap-2 hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded"
+          className={contactLinkClasses}
         >
           <GitFork size={20} aria-hidden="true" />
           <span className="text-base">mariana-martins</span>

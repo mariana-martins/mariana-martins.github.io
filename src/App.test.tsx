@@ -82,12 +82,16 @@ describe("App", () => {
     });
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute("href", data.contact.linkedIn);
+    expect(linkedInLink).toHaveAttribute("target", "_blank");
+    expect(linkedInLink).toHaveAttribute("rel", "noopener noreferrer");
 
     const githubLink = screen.getByRole("link", {
       name: /Visit mariana-martins GitHub profile/i,
     });
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute("href", data.contact.github);
+    expect(githubLink).toHaveAttribute("target", "_blank");
+    expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("renders Skills section with all skills", () => {

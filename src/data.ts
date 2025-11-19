@@ -13,8 +13,7 @@ export const data: PortfolioData = {
         "Developed a single-page application that is a Contact List. Main features are to add a new contact on the list, favorite a contact, display the contact list and update the contact information.",
       image: "/images/contact-app.png", // TODO: Add actual image path
       technologies: ["React", "JavaScript"],
-      liveUrl: "", // TODO: Add live URL if available
-      githubUrl: "", // TODO: Add GitHub URL if available,
+      githubUrl: "https://github.com/mariana-martins",
     },
     {
       id: "husky-rescue",
@@ -23,8 +22,7 @@ export const data: PortfolioData = {
         "It was SPA using React, Bootstrap 4, Sass and Webpack. I also developed the new website mockups using Photoshop. It was a proposing to replace the old Husky Rescue website.",
       image: "/images/husky-rescue.png", // TODO: Add actual image path
       technologies: ["React", "Bootstrap 4", "Sass", "Webpack", "Photoshop"],
-      liveUrl: "", // TODO: Add live URL if available
-      githubUrl: "", // TODO: Add GitHub URL if available,
+      githubUrl: "https://github.com/mariana-martins",
     },
     {
       id: "would-you-rather",
@@ -33,8 +31,7 @@ export const data: PortfolioData = {
         "The goal here is to implement an App to lets a user play the Would You Rather? game. A question is displayed and a user needs answer it. It was developed using React, Redux and Material UI.",
       image: "/images/would-you-rather.png", // TODO: Add actual image path
       technologies: ["React", "Redux", "Material UI"],
-      liveUrl: "", // TODO: Add live URL if available
-      githubUrl: "", // TODO: Add GitHub URL if available,
+      githubUrl: "https://github.com/mariana-martins",
     },
   ],
   experience: [

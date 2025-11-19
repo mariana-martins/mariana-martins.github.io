@@ -59,7 +59,6 @@ describe("data object", () => {
         expect(project).toHaveProperty("description");
         expect(project).toHaveProperty("image");
         expect(project).toHaveProperty("technologies");
-        expect(project).toHaveProperty("liveUrl");
         expect(project).toHaveProperty("githubUrl");
 
         // Type checks
@@ -68,7 +67,6 @@ describe("data object", () => {
         expect(typeof project.description).toBe("string");
         expect(typeof project.image).toBe("string");
         expect(Array.isArray(project.technologies)).toBe(true);
-        expect(typeof project.liveUrl).toBe("string");
         expect(typeof project.githubUrl).toBe("string");
       });
     });

@@ -1,4 +1,6 @@
-import * as React from "react";
+import React from "react";
+
+import { Separator } from "@radix-ui/react-separator";
 
 function Footer(): React.JSX.Element {
   return (
@@ -6,7 +8,10 @@ function Footer(): React.JSX.Element {
       <h3 className="text-lg mb-4 text-center">
         Not all those who wander are lost. Some are just debugging.
       </h3>
-      <hr className="my-4 opacity-30" />
+      <Separator
+        className="my-4 opacity-30 bg-current data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px"
+        decorative
+      />
       <p className="text-sm text-center">
         © 2025 Mariana Martins Menezes. Frontend engineer and eternal learner.
       </p>
