@@ -1,5 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 import App from "@/App";
 import { data } from "@/data";
@@ -161,5 +162,11 @@ describe("App", () => {
     sectionHeadings.forEach((heading) => {
       expect(screen.getByText(heading)).toBeInTheDocument();
     });
+  });
+
+  it("should have no accessibility violations", async () => {
+    const { container } = render(<App />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

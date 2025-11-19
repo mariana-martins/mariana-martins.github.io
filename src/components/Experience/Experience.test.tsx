@@ -1,32 +1,16 @@
 import Experience from "@components/Experience/Experience";
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
+import { axe } from "jest-axe";
 
 // Mock the data module
-jest.mock("@/data", () => ({
-  data: {
-    experience: [
-      {
-        id: "test-1",
-        company: "Test Company",
-        position: "Test Position",
-        startDate: "2020-01",
-        endDate: "2021-12",
-        description: "Test description with end date",
-        technologies: ["React", "TypeScript"],
-      },
-      {
-        id: "test-2",
-        company: "Current Company",
-        position: "Current Position",
-        startDate: "2022-01",
-        endDate: undefined,
-        description: "Test description without end date",
-        technologies: ["React"],
-      },
-    ],
-  },
-}));
+jest.mock("@/data", () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const { mockPortfolioData } = require("@/__mocks__/mockData");
+  return {
+    data: mockPortfolioData,
+  };
+});
 
 describe("Experience", () => {
   it("renders experience section with title", () => {
@@ -56,5 +40,11 @@ describe("Experience", () => {
     expect(
       screen.getByText(/Test description without end date/),
     ).toBeInTheDocument();
+  });
+
+  it("should have no accessibility violations", async () => {
+    const { container } = render(<Experience />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

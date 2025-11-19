@@ -1,59 +1,126 @@
 import "@testing-library/jest-dom";
+import { toHaveNoViolations } from "jest-axe";
 
-// Mock IntersectionObserver
+// Extend Jest matchers with jest-axe
+expect.extend(toHaveNoViolations);
+
+// ============================================================================
+// Browser API Mocks
+// ============================================================================
+
+/**
+ * Mock IntersectionObserver API
+ * Required for components that use intersection-based features (e.g., lazy loading)
+ */
 global.IntersectionObserver = class IntersectionObserver {
   root = null;
   rootMargin = "";
-  thresholds = [];
+  readonly thresholds: readonly number[] = [];
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() {}
-  observe() {
-    return null;
+  constructor(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    callback?: IntersectionObserverCallback,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    options?: IntersectionObserverInit,
+  ) {
+    // Mock implementation - empty constructor required for IntersectionObserver mock
   }
-  disconnect() {
-    return null;
+
+  observe(): void {
+    // Mock implementation
   }
-  unobserve() {
-    return null;
+
+  disconnect(): void {
+    // Mock implementation
   }
-  takeRecords() {
+
+  unobserve(): void {
+    // Mock implementation
+  }
+
+  takeRecords(): IntersectionObserverEntry[] {
     return [];
   }
-};
+} as typeof IntersectionObserver;
 
-// Mock ResizeObserver
+/**
+ * Mock ResizeObserver API
+ * Required for components that observe element size changes
+ */
 global.ResizeObserver = class ResizeObserver {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() {}
-  observe() {
-    return null;
+  constructor(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    callback?: ResizeObserverCallback,
+  ) {
+    // Mock implementation - empty constructor required for ResizeObserver mock
   }
-  disconnect() {
-    return null;
-  }
-  unobserve() {
-    return null;
-  }
-};
 
-// Mock matchMedia
+  observe(): void {
+    // Mock implementation
+  }
+
+  disconnect(): void {
+    // Mock implementation
+  }
+
+  unobserve(): void {
+    // Mock implementation
+  }
+} as typeof ResizeObserver;
+
+/**
+ * Mock window.matchMedia API
+ * Required for media query-based features (e.g., responsive design, dark mode)
+ * Uses modern EventTarget-based API (addEventListener/removeEventListener)
+ */
 Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-    matches: false,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(), // deprecated
-    removeListener: jest.fn(), // deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
+  configurable: true,
+  value: jest.fn().mockImplementation((query: string): MediaQueryList => {
+    const listeners = new Map<string, (event: MediaQueryListEvent) => void>();
+
+    const mediaQueryList = {
+      matches: false,
+      media: query,
+      onchange: null,
+      addEventListener: jest.fn(
+        (
+          type: string,
+          listener: (event: MediaQueryListEvent) => void,
+        ): void => {
+          listeners.set(type, listener);
+        },
+      ),
+      removeEventListener: jest.fn(
+        (
+          type: string,
+          listener: (event: MediaQueryListEvent) => void,
+        ): void => {
+          const storedListener = listeners.get(type);
+          if (storedListener === listener) {
+            listeners.delete(type);
+          }
+        },
+      ),
+      dispatchEvent: jest.fn((event: Event): boolean => {
+        const listener = listeners.get(event.type);
+        if (listener && event instanceof MediaQueryListEvent) {
+          listener(event);
+        }
+        return true;
+      }),
+    } as unknown as MediaQueryList;
+
+    return mediaQueryList;
+  }),
 });
 
-// Mock scrollTo
+/**
+ * Mock window.scrollTo API
+ * Required for components that programmatically scroll
+ */
 Object.defineProperty(window, "scrollTo", {
   writable: true,
+  configurable: true,
   value: jest.fn(),
 });

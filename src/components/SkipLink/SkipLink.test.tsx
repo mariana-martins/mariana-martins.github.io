@@ -8,6 +8,7 @@ import {
 } from "@jest/globals";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
 
 import SkipLink from "./SkipLink";
 
@@ -216,5 +217,15 @@ describe("SkipLink", () => {
     // Should not call focus or scrollIntoView for other keys
     expect(mockFocus).not.toHaveBeenCalled();
     expect(mockScrollIntoView).not.toHaveBeenCalled();
+  });
+
+  it("should have no accessibility violations", async () => {
+    const targetElement = document.createElement("h1");
+    targetElement.id = "a11y-target";
+    document.body.appendChild(targetElement);
+
+    const { container } = render(<SkipLink targetId="a11y-target" />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
