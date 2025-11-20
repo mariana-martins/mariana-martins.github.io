@@ -14,7 +14,7 @@ import "@styles/index.css";
 
 function App(): React.JSX.Element {
   return (
-    <div className="min-h-screen max-w-6xl mx-auto flex flex-col gap-4 px-16 justify-center items-center">
+    <div className="relative min-h-screen max-w-6xl mx-auto flex flex-col gap-4 px-16 justify-center items-center">
       <SkipLink targetId="about-me-heading" />
       <Header />
       <main
@@ -34,6 +34,11 @@ function App(): React.JSX.Element {
         <Projects />
       </main>
       <Footer />
+      <SkipLink
+        targetId="about-me-heading"
+        position="bottom"
+        label="Back to About Me"
+      />
     </div>
   );
 }

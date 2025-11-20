@@ -19,9 +19,9 @@ global.IntersectionObserver = class IntersectionObserver {
 
   constructor(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    callback?: IntersectionObserverCallback,
+    _callback?: IntersectionObserverCallback,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    options?: IntersectionObserverInit,
+    _options?: IntersectionObserverInit,
   ) {
     // Mock implementation - empty constructor required for IntersectionObserver mock
   }
@@ -50,7 +50,7 @@ global.IntersectionObserver = class IntersectionObserver {
 global.ResizeObserver = class ResizeObserver {
   constructor(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    callback?: ResizeObserverCallback,
+    _callback?: ResizeObserverCallback,
   ) {
     // Mock implementation - empty constructor required for ResizeObserver mock
   }

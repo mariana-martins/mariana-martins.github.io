@@ -1,5 +1,7 @@
 import React from "react";
 
+import clsx from "clsx";
+
 interface TagProps {
   name: string;
   index: number;
@@ -20,7 +22,10 @@ function Tag({ name, index }: TagProps): React.JSX.Element {
 
   return (
     <span
-      className={`text-sm px-3 py-1 rounded-md ${getColorByPosition(index)}`}
+      className={clsx(
+        "text-sm px-3 py-1 rounded-md",
+        getColorByPosition(index),
+      )}
     >
       {name}
     </span>

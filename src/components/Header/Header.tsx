@@ -13,7 +13,7 @@ function Header(): React.JSX.Element {
             className="w-full object-scale-down"
           />
         </div>
-        <div className="basis-2/2 text-text-primary dark:text-text-primary-dark ">
+        <div className="basis-2/2 text-text-primary dark:text-text-primary-dark">
           <h1 className="text-5xl font-bold font-heading tracking-[0.25rem] text-heading uppercase">
             Mariana Martins Menezes
           </h1>

@@ -10,7 +10,7 @@ function Experience(): React.JSX.Element {
       className="col-start-1 row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom border-t-dashed-custom  h-fit py-8"
       aria-labelledby="experience-heading"
     >
-      <h3 id="experience-heading" className="text-2xl mb-4 ">
+      <h3 id="experience-heading" className="text-2xl mb-4">
         Experience
       </h3>
       <div className="flex flex-col gap-4 justify-between h-full">

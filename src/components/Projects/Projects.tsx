@@ -29,10 +29,10 @@ function Projects(): React.JSX.Element {
       className="col-start-1 text-text-primary dark:text-text-primary-dark h-fit py-8"
       aria-labelledby="projects-heading"
     >
-      <h3 id="projects-heading" className="text-2xl mb-4 ">
+      <h3 id="projects-heading" className="text-2xl mb-4">
         Projects
       </h3>
-      <div className="flex flex-row gap-8 justify-between h-full ">
+      <div className="flex flex-row gap-8 justify-between h-full">
         {data.projects.map((project: Project) => {
           return (
             <a
@@ -41,7 +41,7 @@ function Projects(): React.JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${project.title} on GitHub`}
-              className={`${projectCardClasses} `}
+              className={projectCardClasses}
             >
               <div className="h-20 w-full bg-warm-200/40 dark:bg-indigo-50/30 rounded-sm flex items-center justify-center text-center border-2 border-warm-50">
                 <h4
