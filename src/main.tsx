@@ -5,9 +5,28 @@ import ReactDOM from "react-dom/client";
 
 import App from "@/App";
 
-const rootElement = document.getElementById("root");
+const THEME_STORAGE_KEY = "theme";
 
-if (rootElement === null) {
+/**
+ * Initializes the theme before React renders to prevent flash of unstyled content.
+ * Checks localStorage first, then falls back to system preference.
+ */
+function initializeTheme(): void {
+  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const shouldUseDarkMode =
+    storedTheme === "dark" || (!storedTheme && prefersDark);
+
+  if (shouldUseDarkMode) {
+    document.documentElement.classList.add("dark");
+  }
+}
+
+/**
+ * Displays an error message if the root element is not found.
+ */
+function showRootElementError(): never {
   const errorMessage = document.createElement("div");
   errorMessage.className =
     "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-8 bg-red-50 border-2 border-red-600 rounded-lg shadow-xl max-w-md text-center";
@@ -22,6 +41,17 @@ if (rootElement === null) {
   );
 }
 
+// Initialize theme early to prevent flash
+initializeTheme();
+
+// Get root element and validate it exists
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  showRootElementError();
+}
+
+// Render the application
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <App />

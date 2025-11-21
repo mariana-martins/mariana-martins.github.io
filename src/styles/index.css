@@ -1,48 +1,52 @@
 @import "tailwindcss";
 
+/* Configure class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
 @theme {
-  /* Font Families */
+  /* Typography */
   --font-family-heading: "Fredoka", ui-sans-serif, system-ui, sans-serif;
   --font-family-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Custom Colors - Blue Scale */
+  /* Color Palette - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
   --color-blue-100: hsl(200 57% 84%);
   --color-blue-200: hsl(223 33% 26%);
 
-  /* Custom Colors - Indigo Scale */
+  /* Color Palette - Indigo Scale */
   --color-indigo-50: hsl(227 20% 26%);
   --color-indigo-100: hsl(224 33% 26%);
   --color-indigo-200: hsl(224 16% 32%);
 
-  /* Custom Colors - Pink Scale */
+  /* Color Palette - Pink */
   --color-pink: hsl(356 75% 78%);
 
-  /* Custom Colors - Warm Tones */
+  /* Color Palette - Warm Tones */
   --color-warm-50: hsl(47 64% 96%);
   --color-warm-100: hsl(19 100% 96%);
   --color-warm-200: hsl(6 100% 92%);
   --color-warm-300: hsl(37 100% 94%);
   --color-warm-400: hsl(35 100% 88%);
 
-  /* Custom Colors - Green */
+  /* Color Palette - Accent Colors */
   --color-green: hsl(168 37% 85%);
-
-  /* Custom Colors - Purple */
   --color-purple: hsl(325 34% 87%);
 
-  /* Text Colors */
+  /* Semantic Text Colors */
   --color-text-primary: var(--color-blue-200);
   --color-text-primary-dark: var(--color-warm-50);
 }
 
 /* ============================================
-   CUSTOM CSS VARIABLES & UTILITIES
+   BASE STYLES
    ============================================ */
 @layer base {
   :root {
-    /* Background Gradients */
-    --background-gradient:
+    /* Light Mode Gradient */
+    --bg-gradient-light:
       radial-gradient(
         circle at 30% 20%,
         hsl(195 56% 79% / 0.8) 0%,
@@ -71,65 +75,102 @@
         hsl(60 100% 94% / 0.4) 75%,
         hsl(300 47% 75% / 0.5) 100%
       );
+
+    /* Dark Mode Gradient */
+    --bg-gradient-dark:
+      radial-gradient(
+        circle at 25% 15%,
+        hsl(214 19% 35% / 0.4) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 75% 30%,
+        hsl(300 21% 45% / 0.35) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 15% 70%,
+        hsl(195 34% 34% / 0.38) 0%,
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at 85% 80%,
+        hsl(336 27% 48% / 0.32) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        hsl(218 14% 21% / 0.5) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 10% 40%,
+        hsl(214 17% 39% / 0.42) 0%,
+        transparent 40%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(20, 24, 32, 0.98) 0%,
+        rgba(30, 34, 44, 0.97) 25%,
+        rgba(25, 30, 40, 0.98) 50%,
+        rgba(28, 32, 42, 0.97) 75%,
+        rgba(22, 26, 36, 0.98) 100%
+      );
+
     --divider-color: var(--color-pink);
+
+    /* Dashed Border Configuration */
+    --dashed-border-segment-length: 8px;
+    --dashed-border-gap-length: 6px;
+    --dashed-border-opacity: 0.6;
+    --dashed-border-width: 3px;
+    --dashed-border-spacing: 2rem;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Background Gradients - Dark Mode */
-      --background-gradient:
-        radial-gradient(
-          circle at 25% 15%,
-          hsl(214 19% 35% / 0.4) 0%,
-          transparent 45%
-        ),
-        radial-gradient(
-          circle at 75% 30%,
-          hsl(300 21% 45% / 0.35) 0%,
-          transparent 50%
-        ),
-        radial-gradient(
-          circle at 15% 70%,
-          hsl(195 34% 34% / 0.38) 0%,
-          transparent 48%
-        ),
-        radial-gradient(
-          circle at 85% 80%,
-          hsl(336 27% 48% / 0.32) 0%,
-          transparent 45%
-        ),
-        radial-gradient(
-          circle at 50% 50%,
-          hsl(218 14% 21% / 0.5) 0%,
-          transparent 60%
-        ),
-        radial-gradient(
-          circle at 10% 40%,
-          hsl(214 17% 39% / 0.42) 0%,
-          transparent 40%
-        ),
-        linear-gradient(
-          135deg,
-          rgba(20, 24, 32, 0.98) 0%,
-          rgba(30, 34, 44, 0.97) 25%,
-          rgba(25, 30, 40, 0.98) 50%,
-          rgba(28, 32, 42, 0.97) 75%,
-          rgba(22, 26, 36, 0.98) 100%
-        );
-      --divider-color: var(--color-blue-100);
-    }
+  .dark {
+    --divider-color: var(--color-blue-100);
   }
 
-  html {
-    background: var(--background-gradient);
+  /* Global Color Transitions */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
   }
 
+  /* Base Body Styles with Light Gradient */
+  body {
+    background: var(--bg-gradient-light);
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate; /* Ensures z-index context */
+  }
+
+  /* Dark Gradient Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--bg-gradient-dark);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+  }
+
+  /* Fade in Dark Gradient when .dark class is present */
+  .dark body::before {
+    opacity: 1;
+  }
+
+  body,
   h2,
   h3,
   h4,
   h5,
-  h6,
-  body {
+  h6 {
     font-family: var(--font-family-body);
   }
 
@@ -139,26 +180,18 @@
 }
 
 /* ============================================
-   CUSTOM DASHED BORDER UTILITIES
+   CUSTOM UTILITIES
    ============================================ */
 @layer utilities {
-  :root {
-    --dashed-border-segment-length: 8px;
-    --dashed-border-gap-length: 6px;
-    --dashed-border-opacity: 0.6;
-    --dashed-border-width: 3px;
-    --dashed-border-spacing: 2rem;
-  }
-
-  [class*="border-"]:is(
-    .border-b-dashed-custom,
-    .border-r-dashed-custom,
-    .border-t-dashed-custom
-  ) {
+  /* Shared dashed border base styles */
+  .border-b-dashed-custom,
+  .border-r-dashed-custom,
+  .border-t-dashed-custom {
     --dashed-border-color: var(--divider-color);
     position: relative;
   }
 
+  /* Bottom dashed border */
   .border-b-dashed-custom {
     --dashed-border-bottom-left-offset: 0;
   }
@@ -166,9 +199,7 @@
   .border-b-dashed-custom::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: var(--dashed-border-bottom-left-offset);
-    right: 0;
+    inset: auto 0 0 var(--dashed-border-bottom-left-offset);
     height: var(--dashed-border-width);
     background: repeating-linear-gradient(
       to right,
@@ -183,6 +214,7 @@
     opacity: var(--dashed-border-opacity);
   }
 
+  /* Right dashed border */
   .border-r-dashed-custom {
     padding-right: var(--dashed-border-spacing);
   }
@@ -190,9 +222,7 @@
   .border-r-dashed-custom::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
+    inset: 0 0 0 auto;
     width: var(--dashed-border-width);
     background: repeating-linear-gradient(
       to bottom,
@@ -207,12 +237,11 @@
     opacity: var(--dashed-border-opacity);
   }
 
+  /* Top dashed border */
   .border-t-dashed-custom::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto 0;
     height: var(--dashed-border-width);
     background: repeating-linear-gradient(
       to right,
@@ -227,9 +256,9 @@
     opacity: var(--dashed-border-opacity);
   }
 
+  /* Combined top and right dashed borders */
   .border-t-dashed-custom.border-r-dashed-custom::before {
-    left: 0;
-    bottom: 0;
+    inset: 0;
     width: auto;
     height: auto;
     background:

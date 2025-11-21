@@ -10,11 +10,13 @@ import ProfileImage from "@components/ProfileImage/ProfileImage";
 import Projects from "@components/Projects/Projects";
 import Skills from "@components/Skills/Skills";
 import SkipLink from "@components/SkipLink";
+import ThemeToggle from "@components/ThemeToggle";
 import "@styles/index.css";
 
 function App(): React.JSX.Element {
   return (
     <div className="relative min-h-screen max-w-6xl mx-auto flex flex-col gap-4 px-16 justify-center items-center">
+      <ThemeToggle />
       <SkipLink targetId="about-me-heading" />
       <Header />
       <main
