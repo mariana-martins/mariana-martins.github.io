@@ -4,23 +4,19 @@ import "@styles/index.css";
 import ReactDOM from "react-dom/client";
 
 import App from "@/App";
-
-const THEME_STORAGE_KEY = "theme";
+import {
+  applyTheme,
+  getInitialTheme,
+  ThemeProvider,
+} from "@/contexts/ThemeContext";
 
 /**
  * Initializes the theme before React renders to prevent flash of unstyled content.
- * Checks localStorage first, then falls back to system preference.
+ * This ensures the correct theme class is applied immediately.
  */
 function initializeTheme(): void {
-  const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const shouldUseDarkMode =
-    storedTheme === "dark" || (!storedTheme && prefersDark);
-
-  if (shouldUseDarkMode) {
-    document.documentElement.classList.add("dark");
-  }
+  const theme = getInitialTheme();
+  applyTheme(theme);
 }
 
 /**
@@ -54,6 +50,8 @@ if (!rootElement) {
 // Render the application
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
 );
