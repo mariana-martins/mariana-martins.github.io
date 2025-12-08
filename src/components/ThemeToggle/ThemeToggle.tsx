@@ -16,7 +16,8 @@ function ThemeToggle(): React.JSX.Element {
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       aria-pressed={isDark}
       className={clsx(
-        "absolute top-0 right-0 rounded-b-md pt-8 px-2 pb-2 transition-colors cursor-pointer",
+        "absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 transition-colors cursor-pointer",
+        "flex items-center justify-center", // Add this to center the icons
         "focus:outline-none focus:ring-2 focus:ring-offset-2",
         "bg-pink text-text-primary",
         "hover:bg-pink/70",
@@ -24,7 +25,11 @@ function ThemeToggle(): React.JSX.Element {
         "dark:hover:bg-[var(--color-blue-100)]/90",
         "focus:ring-[var(--color-pink)]",
         "dark:focus:ring-[var(--color-blue-100)]",
+        "z-50",
+        "min-w-[44px] min-h-[44px]",
+        "touch-manipulation",
       )}
+      style={{ touchAction: "manipulation" }} // Alternative: inline style
     >
       <span className="sr-only">Toggle theme</span>
       {isDark ? (

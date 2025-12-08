@@ -146,23 +146,12 @@
     position: relative;
     min-height: 100vh;
     isolation: isolate; /* Ensures z-index context */
+    transition: background 0.5s ease-in-out;
   }
 
-  /* Dark Gradient Overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+  /* Dark Mode Background */
+  .dark body {
     background: var(--bg-gradient-dark);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    pointer-events: none;
-  }
-
-  /* Fade in Dark Gradient when .dark class is present */
-  .dark body::before {
-    opacity: 1;
   }
 
   body,
