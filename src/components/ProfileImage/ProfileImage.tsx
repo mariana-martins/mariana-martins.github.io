@@ -73,14 +73,14 @@ function ProfileImage(): React.JSX.Element {
   const aboutMeImage = theme === "dark" ? aboutMeImageDark : aboutMeImageLight;
 
   return (
-    <figure className="md:col-2 relative self-end text-text-primary dark:text-text-primary-dark h-fit w-full md:mx-8">
+    <figure className="md:col-2 relative place-self-center text-text-primary dark:text-text-primary-dark  w-full md:mx-8">
       <img
         src={aboutMeImage}
         alt="Me and my dog, Margot"
         className="h-full object-cover max-h-50 justify-self-center"
       />
       <FunnyLabel
-        className="absolute bottom-30 left-10 w-34 h-34"
+        className="absolute bottom-20 right-40 md:left-10 md:right-0 w-34 h-34"
         theme={theme}
       />
     </figure>

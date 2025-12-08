@@ -7,7 +7,7 @@ function AboutMe(): React.JSX.Element {
 
   return (
     <section
-      className="col-1 text-text-primary dark:text-text-primary-dark h-full content-around"
+      className="h-full col-1 pb-8 md:pb-0 text-text-primary dark:text-text-primary-dark border-b-dashed-custom md:after:hidden"
       aria-labelledby="about-me-heading"
     >
       <h3 id="about-me-heading" className="text-2xl mb-4">

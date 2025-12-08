@@ -281,4 +281,47 @@
       var(--dashed-border-width) 100%;
     background-repeat: no-repeat;
   }
+
+  /* Support for responsive right border combined with top border */
+  @media (width >= 768px) {
+    .border-t-dashed-custom.md\:border-r-dashed-custom::before {
+      inset: 0;
+      width: auto;
+      height: auto;
+      background:
+        repeating-linear-gradient(
+          to right,
+          var(--dashed-border-color) 0,
+          var(--dashed-border-color) var(--dashed-border-segment-length),
+          transparent var(--dashed-border-segment-length),
+          transparent
+            calc(
+              var(--dashed-border-segment-length) +
+                var(--dashed-border-gap-length)
+            )
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          var(--dashed-border-color) 0,
+          var(--dashed-border-color) var(--dashed-border-segment-length),
+          transparent var(--dashed-border-segment-length),
+          transparent
+            calc(
+              var(--dashed-border-segment-length) +
+                var(--dashed-border-gap-length)
+            )
+        );
+      background-position:
+        top left,
+        top right;
+      background-size:
+        100% var(--dashed-border-width),
+        var(--dashed-border-width) 100%;
+      background-repeat: no-repeat;
+    }
+
+    .border-t-dashed-custom.md\:border-r-dashed-custom {
+      padding-right: var(--dashed-border-spacing);
+    }
+  }
 }

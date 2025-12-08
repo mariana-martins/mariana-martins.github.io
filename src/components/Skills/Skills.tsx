@@ -42,13 +42,13 @@ function Skills(): React.JSX.Element {
 
   return (
     <section
-      className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom h-fit flex flex-col items-center px-6"
+      className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom h-fit gap-6 flex flex-col items-center justify-evenly p-8"
       aria-labelledby="skills-heading"
     >
-      <h3 id="skills-heading" className="text-2xl mt-8 text-center">
+      <h3 id="skills-heading" className="text-2xl text-center">
         Skills
       </h3>
-      <div className="flex flex-wrap gap-x-3 gap-y-2 justify-center bg-warm-100/50 dark:bg-indigo-50/30 rounded-sm mt-4 mb-8 ml-5 w-full items-center px-4 py-6">
+      <div className="flex flex-wrap gap-y-4 gap-x-2 justify-center p-4 bg-warm-100/50 dark:bg-indigo-50/30 rounded-sm w-full items-center">
         {sortedSkills.map((skill, position) => (
           <Tag key={skill.name} name={skill.name} index={position} />
         ))}

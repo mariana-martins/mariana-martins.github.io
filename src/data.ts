@@ -248,19 +248,31 @@ export const data: PortfolioData = {
     },
     {
       id: "fun-fact-2",
-      fact: "🎮 I'm a big fan of the TV show The Office.",
+      fact: "🎮 I'm a fan of the TV show Pluribus.",
     },
     {
       id: "fun-fact-3",
-      fact: "🇧🇷 I'm a big fan of the TV show The Office.",
+      fact: "🇧🇷 I'm a little fan of the TV show.",
     },
     {
       id: "fun-fact-4",
-      fact: "🍕 I'm a big fan of the TV show The Office.",
+      fact: "🍕 I'm a big fan of Pizza",
     },
     {
       id: "fun-fact-5",
-      fact: "🎵 I'm a big fan of the TV show The Office.",
+      fact: "🎵 I've not seen Game of Thrones.",
+    },
+    {
+      id: "fun-fact-6",
+      fact: "🇮🇹 I'm a little fan of the TV show.",
+    },
+    {
+      id: "fun-fact-7",
+      fact: "🇧🇷 I'm a like to travel to new places.",
+    },
+    {
+      id: "fun-fact-8",
+      fact: "💇‍♀️ I'm a like to travel to new places.",
     },
   ],
   contact: {

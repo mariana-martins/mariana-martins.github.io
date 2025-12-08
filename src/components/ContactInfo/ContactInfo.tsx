@@ -20,13 +20,13 @@ const contactLinkClasses = [
 function ContactInfo(): React.JSX.Element {
   return (
     <section
-      className="text-text-primary dark:text-text-primary-dark border-b-dashed-custom border-t-dashed-custom h-fit p-8"
+      className="w-full h-fit flex flex-col gap-6 justify-evenly py-8 items-center text-text-primary dark:text-text-primary-dark border-b-dashed-custom border-t-dashed-custom"
       aria-labelledby="contact-info-heading"
     >
-      <h3 id="contact-info-heading" className="text-2xl mb-4">
+      <h3 id="contact-info-heading" className="text-2xl">
         Contact Info
       </h3>
-      <div className="flex flex-col gap-6 not-italic ml-6">
+      <div className="flex flex-col gap-6">
         <address className="flex items-center gap-2">
           <MapPin size={20} aria-hidden="true" />
           <p className="text-base">{data.contact.address}</p>

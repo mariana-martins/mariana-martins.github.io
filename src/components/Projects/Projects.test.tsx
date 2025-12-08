@@ -41,7 +41,7 @@ describe("Projects", () => {
     render(<Projects />);
 
     const contactAppLink = screen.getByRole("link", {
-      name: /View Contact App on GitHub/i,
+      name: /View Contact App project on GitHub/i,
     });
     expect(contactAppLink).toHaveAttribute(
       "href",
@@ -49,7 +49,7 @@ describe("Projects", () => {
     );
 
     const huskyRescueLink = screen.getByRole("link", {
-      name: /View Husky Rescue Org. Website on GitHub/i,
+      name: /View Husky Rescue Org. Website project on GitHub/i,
     });
     expect(huskyRescueLink).toHaveAttribute(
       "href",
@@ -73,11 +73,11 @@ describe("Projects", () => {
     render(<Projects />);
 
     expect(
-      screen.getByRole("link", { name: /View Contact App on GitHub/i }),
+      screen.getByRole("link", { name: /View Contact App project on GitHub/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole("link", {
-        name: /View Husky Rescue Org. Website on GitHub/i,
+        name: /View Husky Rescue Org. Website project on GitHub/i,
       }),
     ).toBeInTheDocument();
   });

@@ -7,7 +7,7 @@ import type { Experience as ExperienceType } from "@/types";
 function Experience(): React.JSX.Element {
   return (
     <section
-      className="col-start-1 row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom border-t-dashed-custom  h-fit py-8"
+      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark md:border-r-dashed-custom border-t-dashed-custom  h-fit pt-8 md:pb-8"
       aria-labelledby="experience-heading"
     >
       <h3 id="experience-heading" className="text-2xl mb-4">
@@ -23,7 +23,10 @@ function Experience(): React.JSX.Element {
               {formatDate(experience.startDate)} -{" "}
               {experience.endDate ? formatDate(experience.endDate) : "Present"}
             </p>
-            <p className="text-sm/6">{experience.description}</p>
+            {/* TODO: Replace the hidden and md:display:inherit with an accordion component from Radix Primitives */}
+            <p className="hidden md:[display:inherit]  text-sm/6">
+              {experience.description}
+            </p>
           </div>
         ))}
       </div>

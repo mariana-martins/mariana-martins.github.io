@@ -3,11 +3,16 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 
 import App from "@/App";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import { data } from "@/data";
 
 describe("App", () => {
   it("renders header with title, subtitle, and logo", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(
       screen.getByRole("heading", { name: "Mariana Martins Menezes" }),
@@ -17,27 +22,43 @@ describe("App", () => {
   });
 
   it("renders main content area", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     const main = screen.getByRole("main");
     expect(main).toBeInTheDocument();
   });
 
   it("renders AboutMe section with introduction", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("About Me")).toBeInTheDocument();
     expect(screen.getByText(data.introduction)).toBeInTheDocument();
   });
 
   it("renders ProfileImage with correct alt text", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByAltText("Me and my dog, Margot")).toBeInTheDocument();
   });
 
   it("renders Experience section with all experience entries", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("Experience")).toBeInTheDocument();
 
@@ -67,7 +88,11 @@ describe("App", () => {
   });
 
   it("renders ContactInfo section with all contact details", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("Contact Info")).toBeInTheDocument();
     expect(screen.getByText(data.contact.address)).toBeInTheDocument();
@@ -96,7 +121,11 @@ describe("App", () => {
   });
 
   it("renders Skills section with all skills", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("Skills")).toBeInTheDocument();
 
@@ -107,7 +136,11 @@ describe("App", () => {
   });
 
   it("renders FunFacts section with all fun facts", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("Fun Facts")).toBeInTheDocument();
 
@@ -117,7 +150,11 @@ describe("App", () => {
   });
 
   it("renders Projects section with all projects and technologies", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(screen.getByText("Projects")).toBeInTheDocument();
 
@@ -133,7 +170,11 @@ describe("App", () => {
   });
 
   it("renders Footer with copyright and quote", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     expect(
       screen.getByText(
@@ -148,7 +189,11 @@ describe("App", () => {
   });
 
   it("renders all portfolio sections with correct headings", () => {
-    render(<App />);
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
 
     const sectionHeadings = [
       "About Me",
@@ -165,7 +210,11 @@ describe("App", () => {
   });
 
   it("should have no accessibility violations", async () => {
-    const { container } = render(<App />);
+    const { container } = render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
