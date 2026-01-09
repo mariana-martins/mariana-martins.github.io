@@ -5,7 +5,6 @@ import { axe } from "jest-axe";
 
 // Mock the data module
 jest.mock("@/data", () => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { mockPortfolioData } = require("@/__mocks__/mockData");
   return {
     data: mockPortfolioData,
