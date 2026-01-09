@@ -14,9 +14,18 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(
-      screen.getByRole("heading", { name: "Mariana Martins Menezes" }),
-    ).toBeInTheDocument();
+    // The name is split into characters with spaces, so we need to query differently
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toBeInTheDocument();
+    // Normalize all whitespace (including non-breaking spaces) and remove spaces between characters
+    const normalizedText = heading.textContent
+      ?.replace(/\s+/g, " ")
+      .replace(/\s/g, "")
+      .toLowerCase();
+    const expectedText = "Mariana Martins Menezes"
+      .replace(/\s/g, "")
+      .toLowerCase();
+    expect(normalizedText).toContain(expectedText);
     expect(screen.getByText("Frontend Engineer")).toBeInTheDocument();
     expect(screen.getByAltText("Mariana Martins Logo")).toBeInTheDocument();
   });
@@ -217,5 +226,45 @@ describe("App", () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it("handles reduced motion preference", () => {
+    // Mock matchMedia for reduced motion
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => {
+        if (query === "(prefers-reduced-motion: reduce)") {
+          return {
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+          };
+        }
+        return {
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+          dispatchEvent: jest.fn(),
+        };
+      }),
+    });
+
+    render(
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>,
+    );
+
+    // App should render without errors when reduced motion is preferred
+    expect(screen.getByRole("main")).toBeInTheDocument();
   });
 });

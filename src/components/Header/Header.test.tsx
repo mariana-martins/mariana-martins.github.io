@@ -22,9 +22,18 @@ describe("Header", () => {
   it("renders name heading", () => {
     render(<Header />);
 
-    expect(
-      screen.getByRole("heading", { name: "Mariana Martins Menezes" }),
-    ).toBeInTheDocument();
+    // The name is split into characters with spaces, so we need to query differently
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toBeInTheDocument();
+    // Normalize all whitespace (including non-breaking spaces) and remove spaces between characters
+    const normalizedText = heading.textContent
+      ?.replace(/\s+/g, " ")
+      .replace(/\s/g, "")
+      .toLowerCase();
+    const expectedText = "Mariana Martins Menezes"
+      .replace(/\s/g, "")
+      .toLowerCase();
+    expect(normalizedText).toContain(expectedText);
   });
 
   it("renders title subtitle", () => {

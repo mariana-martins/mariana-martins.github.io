@@ -1,11 +1,11 @@
 import ContactInfo from "@components/ContactInfo/ContactInfo";
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 
 // Mock the data module
 jest.mock("@/data", () => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const { mockPortfolioData } = require("@/__mocks__/mockData");
   return {
     data: mockPortfolioData,
@@ -88,5 +88,68 @@ describe("ContactInfo", () => {
     const { container } = render(<ContactInfo />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it("handles hover interactions on address", async () => {
+    const user = userEvent.setup();
+    render(<ContactInfo />);
+
+    const address = screen.getByText("Melbourne, Australia").closest("address");
+    expect(address).toBeInTheDocument();
+
+    if (address) {
+      await user.hover(address);
+      // Component should handle hover without errors
+      expect(address).toBeInTheDocument();
+    }
+  });
+
+  it("handles hover interactions on email link", async () => {
+    const user = userEvent.setup();
+    render(<ContactInfo />);
+
+    const emailLink = screen.getByRole("link", {
+      name: /Send email to mariana@example.com/i,
+    });
+    await user.hover(emailLink);
+    // Component should handle hover without errors
+    expect(emailLink).toBeInTheDocument();
+  });
+
+  it("handles hover interactions on LinkedIn link", async () => {
+    const user = userEvent.setup();
+    render(<ContactInfo />);
+
+    const linkedInLink = screen.getByRole("link", {
+      name: /Visit Mariana Martins Menezes LinkedIn profile/i,
+    });
+    await user.hover(linkedInLink);
+    // Component should handle hover without errors
+    expect(linkedInLink).toBeInTheDocument();
+  });
+
+  it("handles hover interactions on GitHub link", async () => {
+    const user = userEvent.setup();
+    render(<ContactInfo />);
+
+    const githubLink = screen.getByRole("link", {
+      name: /Visit mariana-martins GitHub profile/i,
+    });
+    await user.hover(githubLink);
+    // Component should handle hover without errors
+    expect(githubLink).toBeInTheDocument();
+  });
+
+  it("handles mouse leave events", async () => {
+    const user = userEvent.setup();
+    render(<ContactInfo />);
+
+    const emailLink = screen.getByRole("link", {
+      name: /Send email to mariana@example.com/i,
+    });
+    await user.hover(emailLink);
+    await user.unhover(emailLink);
+    // Component should handle unhover without errors
+    expect(emailLink).toBeInTheDocument();
   });
 });
