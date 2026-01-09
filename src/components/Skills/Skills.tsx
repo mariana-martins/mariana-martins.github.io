@@ -48,7 +48,7 @@ function Skills(): React.JSX.Element {
       <h3 id="skills-heading" className="text-2xl text-center">
         Skills
       </h3>
-      <div className="flex flex-wrap gap-y-4 gap-x-2 justify-center p-4 bg-warm-100/50 dark:bg-indigo-50/30 rounded-sm w-full items-center">
+      <div className="flex flex-wrap gap-y-4 gap-x-2 justify-center p-4 bg-blue-50/20 dark:bg-indigo-50/30 rounded-sm w-full items-center">
         {sortedSkills.map((skill, position) => (
           <Tag key={skill.name} name={skill.name} index={position} />
         ))}

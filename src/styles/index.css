@@ -201,6 +201,7 @@
         )
     );
     opacity: var(--dashed-border-opacity);
+    pointer-events: none;
   }
 
   /* Right dashed border */
@@ -224,6 +225,7 @@
         )
     );
     opacity: var(--dashed-border-opacity);
+    pointer-events: none;
   }
 
   /* Top dashed border */
@@ -243,6 +245,7 @@
         )
     );
     opacity: var(--dashed-border-opacity);
+    pointer-events: none;
   }
 
   /* Combined top and right dashed borders */
@@ -280,6 +283,7 @@
       100% var(--dashed-border-width),
       var(--dashed-border-width) 100%;
     background-repeat: no-repeat;
+    pointer-events: none;
   }
 
   /* Support for responsive right border combined with top border */

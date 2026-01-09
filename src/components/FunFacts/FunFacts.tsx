@@ -6,7 +6,7 @@ import type { FunFact } from "@/types";
 function FunFacts(): React.JSX.Element {
   return (
     <section
-      className="w-full h-full flex flex-col items-center justify-center gap-6 py-8 text-text-primary dark:text-text-primary-dark"
+      className="w-full h-full flex flex-col items-center justify-center gap-6 p-8 text-text-primary dark:text-text-primary-dark"
       aria-labelledby="fun-facts-heading"
     >
       <h3 id="fun-facts-heading" className="text-2xl">
@@ -16,7 +16,7 @@ function FunFacts(): React.JSX.Element {
         {data.funFacts.map((funFact: FunFact) => (
           <li
             key={funFact.id}
-            className="text-base break-words w-full max-w-[240px] flex-wrap lg:max-w-full"
+            className="text-base break-words w-full max-w-[350px] flex-wrap lg:max-w-full"
           >
             {funFact.fact}
           </li>
