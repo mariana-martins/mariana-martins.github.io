@@ -244,35 +244,23 @@ export const data: PortfolioData = {
   funFacts: [
     {
       id: "fun-fact-1",
-      fact: "🪻 I'm a big fan of the TV show The Office.",
+      fact: "🗺️ I’ve lived in three countries so far: Brazil, New Zealand, and Australia. I collect countries like side quests and XP.",
     },
     {
       id: "fun-fact-2",
-      fact: "🎮 I'm a fan of the TV show Pluribus.",
+      fact: "🖊️ I have a soft spot for collecting gel pens. At this point, I own a pen for every mood, occasion, and minor life crisis.",
     },
     {
       id: "fun-fact-3",
-      fact: "🇧🇷 I'm a little fan of the TV show.",
+      fact: '👩‍🎓 I have a degree in History, which means I treat "legacy code" like an ancient archaeological site. I’ll carefully dust off the layers of the past before I start building the future!',
     },
     {
       id: "fun-fact-4",
-      fact: "🍕 I'm a big fan of Pizza",
+      fact: "🎬 I’ve watched the Lord of the Rings extended editions so many times that I could probably navigate the path to Mount Doom better than a GPS.",
     },
     {
       id: "fun-fact-5",
-      fact: "🎵 I've not seen Game of Thrones.",
-    },
-    {
-      id: "fun-fact-6",
-      fact: "🇮🇹 I'm a little fan of the TV show.",
-    },
-    {
-      id: "fun-fact-7",
-      fact: "🇧🇷 I'm a like to travel to new places.",
-    },
-    {
-      id: "fun-fact-8",
-      fact: "💇‍♀️ I'm a like to travel to new places.",
+      fact: '📚 My reading list is as diverse as a JavaScript library catalog. I’ll dip into almost anything, but my soul-book is Untamed. It taught me to be a "wild" engineer who isn’t afraid to question the status quo (or the legacy code).',
     },
   ],
   contact: {
