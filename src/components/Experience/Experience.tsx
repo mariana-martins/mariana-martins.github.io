@@ -7,7 +7,7 @@ import type { Experience as ExperienceType } from "@/types";
 function Experience(): React.JSX.Element {
   return (
     <section
-      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark md:border-r-dashed-custom border-t-dashed-custom h-fit pt-8 md:pb-8"
+      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom  h-fit pt-8 md:pb-8"
       aria-labelledby="experience-heading"
     >
       <h3 id="experience-heading" className="text-2xl mb-4">
@@ -19,7 +19,7 @@ function Experience(): React.JSX.Element {
             <h4 className="text-lg font-bold mb-1">
               {experience.position} at {experience.company}
             </h4>
-            <p className="text-md font-semibold mb-1">
+            <p className="text-base font-semibold mb-1">
               {formatDate(experience.startDate)} -{" "}
               {experience.endDate ? formatDate(experience.endDate) : "Present"}
             </p>

@@ -3,40 +3,75 @@ import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 
+import { ThemeProvider } from "@/contexts/ThemeContext";
+
 // Mock the data module
 jest.mock("@/data", () => {
   const { mockPortfolioData } = require("@/__mocks__/mockData");
   return {
-    data: mockPortfolioData,
+    data: {
+      ...mockPortfolioData,
+      introduction:
+        "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.",
+    },
   };
 });
 
 describe("AboutMe", () => {
-  it("renders section with heading", () => {
-    render(<AboutMe />);
+  it("renders introduction text with correct structure", () => {
+    const { container } = render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
 
-    expect(screen.getByText("About Me")).toBeInTheDocument();
+    // Text is split across elements due to LoopingHighlight component
+    // Find the paragraph element and check its textContent
+    const paragraph = container.querySelector("p");
+    expect(paragraph).toBeInTheDocument();
+
+    const textContent = paragraph?.textContent ?? "";
+    expect(textContent).toMatch(/Hi! I.m Mariana, but you can call me/);
+    expect(textContent).toContain("like all my Brazilian friends do");
   });
 
-  it("renders introduction text from data", () => {
-    render(<AboutMe />);
+  it("renders LoopingHighlight component with Mari text", () => {
+    render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
 
-    expect(
-      screen.getByText(
-        /Hello, I'm Mariana Martins Menezes, but you can call me Mari!/i,
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Mari")).toBeInTheDocument();
+  });
+
+  it("renders profile image with correct alt text", () => {
+    render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
+
+    expect(screen.getByAltText("Me and my dog, Margot")).toBeInTheDocument();
   });
 
   it("has correct aria-labelledby attribute", () => {
-    render(<AboutMe />);
+    render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
 
-    const section = screen.getByRole("region", { name: "About Me" });
+    const section = screen.getByRole("region");
     expect(section).toHaveAttribute("aria-labelledby", "about-me-heading");
   });
 
   it("should have no accessibility violations", async () => {
-    const { container } = render(<AboutMe />);
+    const { container } = render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

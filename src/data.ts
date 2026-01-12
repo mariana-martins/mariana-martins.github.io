@@ -4,7 +4,7 @@ import type { PortfolioData } from "@/types";
 
 export const data: PortfolioData = {
   introduction:
-    "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications. I'm currently based in Melbourne, Australia, and I'm always looking for new challenges and opportunities to grow my skills.",
+    "I’m a Frontend Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” I believe the best products are built with empathy, curiosity, and a healthy obsession with details. If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!",
   projects: [
     {
       id: "contact-app",

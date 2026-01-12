@@ -10,8 +10,9 @@ import type {
 /**
  * Mock introduction text for testing
  */
-export const mockIntroduction =
-  "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.";
+export const mockIntroduction = [
+  "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.",
+];
 
 /**
  * Mock contact information for testing
