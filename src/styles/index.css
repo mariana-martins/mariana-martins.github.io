@@ -38,6 +38,15 @@
   /* Semantic Text Colors */
   --color-text-primary: var(--color-blue-200);
   --color-text-primary-dark: var(--color-warm-50);
+
+  /* Rainbow Highlight Colors - Light Theme */
+  --color-highlight-red: hsl(356 75% 55%);
+  --color-highlight-orange: hsl(25 85% 55%);
+  --color-highlight-yellow: hsl(47 85% 60%);
+  --color-highlight-green: hsl(168 60% 50%);
+  --color-highlight-blue: hsl(200 70% 55%);
+  --color-highlight-indigo: hsl(240 65% 55%);
+  --color-highlight-violet: hsl(300 55% 60%);
 }
 
 /* ============================================
@@ -129,6 +138,15 @@
 
   .dark {
     --divider-color: var(--color-blue-100);
+
+    /* Rainbow Highlight Colors - Dark Theme */
+    --color-highlight-red: hsl(356 80% 45%);
+    --color-highlight-orange: hsl(25 90% 45%);
+    --color-highlight-yellow: hsl(47 90% 50%);
+    --color-highlight-green: hsl(168 70% 40%);
+    --color-highlight-blue: hsl(200 75% 45%);
+    --color-highlight-indigo: hsl(240 70% 45%);
+    --color-highlight-violet: hsl(300 65% 50%);
   }
 
   /* Global Color Transitions */

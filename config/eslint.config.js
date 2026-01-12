@@ -6,9 +6,16 @@ import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import { readFileSync } from "fs";
+import { join } from "path";
+
+// Read Prettier config
+const prettierConfigPath = join(import.meta.dirname, ".prettierrc");
+const prettierOptions = JSON.parse(readFileSync(prettierConfigPath, "utf-8"));
 
 export default [
   js.configs.recommended,
+  prettierConfig,
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -37,8 +44,7 @@ export default [
     },
     rules: {
       // Prettier integration
-      ...prettierConfig.rules,
-      "prettier/prettier": "error",
+      "prettier/prettier": ["error", prettierOptions],
 
       // React Refresh
       "react-refresh/only-export-components": [
