@@ -19,10 +19,9 @@ const LoopingHighlight = ({
 
   return (
     <span className="relative inline-block px-1">
-      {/* The Animated Background Layer */}
       <motion.span
         autoFocus
-        className="absolute inset-0 -z-10 bottom-1 h-[60%] my-auto rounded-sm opacity-70 dark:opacity-80"
+        className="absolute inset-0 -z-10 bottom-1 h-[60%] my-auto rounded-sm opacity-50 dark:opacity-80"
         animate={{
           backgroundColor: colors,
         }}
@@ -37,7 +36,7 @@ const LoopingHighlight = ({
         }}
       />
 
-      <span className="relative z-10 font-semibold text-text-primary  dark:text-text-primary-dark">
+      <span className="relative z-10 font-medium font-highlight  text-base md:text-lg tracking-wider text-text-primary dark:text-text-primary-dark">
         {children}
       </span>
     </span>

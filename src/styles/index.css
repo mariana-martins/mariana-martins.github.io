@@ -10,6 +10,7 @@
   /* Typography */
   --font-family-heading: "Fredoka", ui-sans-serif, system-ui, sans-serif;
   --font-family-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-highlight: "Zilla Slab", serif;
 
   /* Color Palette - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
@@ -201,6 +202,7 @@
   /* Bottom dashed border */
   .border-b-dashed-custom {
     --dashed-border-bottom-left-offset: 0;
+    padding-bottom: 1.5rem;
   }
 
   .border-b-dashed-custom::after {
