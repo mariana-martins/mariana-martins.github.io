@@ -1,5 +1,3 @@
-// Portfolio data template
-// Update this file with your actual portfolio information
 import type { PortfolioData } from "@/types";
 
 export const data: PortfolioData = {
@@ -36,39 +34,69 @@ export const data: PortfolioData = {
   ],
   experience: [
     {
+      id: "health-and-well-being-career-break",
+      company: "Career Break",
+      position: "Health and well-being",
+      startDate: "2024-04",
+      endDate: undefined, // ongoing
+      description: [
+        "Took time away from full-time work for health recovery while maintaining active technical development through structured study and hands-on projects in modern frontend technologies.",
+        "Built and maintained personal projects to apply updated patterns, tooling, and frontend architecture practices, keeping production-level engineering skills current.",
+      ],
+      technologies: [
+        "React",
+        "React Query",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Vite",
+        "Next.js",
+        "Atomic Design",
+      ],
+    },
+    {
       id: "remote-frontend-engineer",
       company: "Remote",
       position: "Frontend Engineer",
       startDate: "2021-07",
       endDate: "2024-04", // ongoing
-      description:
-        "Working on the Onboarding team, focused on providing the best experience for new users on Remote. Our team is fully async and distributed across the world. A few highlights I contributed are: the rework of how Remote prices its customers, ensuring the process aligns with different countries' legislation, and refactoring code for better code practices and components reusability. I also support our design system, which is widely used on our systems.",
+      description: [
+        "Developed and implemented essential onboarding features utilizing React, React Query, and Styled Components within a large, global, remote-first, and asynchronous platform.",
+        "Contributed to the re-architecture of the customer pricing and onboarding systems, building reusable, legislation-aware UI components used across multiple countries.",
+        "Core contributor to the Accessibility (A11y) team, auditing and improving components across the platform to meet WCAG standards and improve inclusive UX.",
+        "Modernized legacy form infrastructure by migrating from hard-coded flows to a scalable JSON-driven architecture, improving delivery speed and maintainability.",
+        "Contributed to the company Design System using Storybook, improving UI consistency, component reuse, and cross-team development velocity.",
+        "Maintained and expanded automated testing using Jest, React Testing Library, and Cypress, helping ensure stability across critical business flows.",
+      ],
       technologies: [
         "React",
         "React Query",
+        "Storybook",
+        "Cypress",
+        "Styled Components",
         "Jest",
         "React Testing Library",
-        "Styled Components",
       ],
     },
     {
       id: "phocas-software-developer",
       company: "Phocas",
-      position: "Software Developer (Frontend Dev)",
-      startDate: "2021-02",
+      position: "Frontend Developer",
+      startDate: "2021-01",
       endDate: "2021-06",
-      description:
-        "Working on web development using jQuery, React, Typescript, Redux, Sass, Enzyme, and Bootstrap. I am designing the new grid layout for the main finance product in collaboration with the design team. I am also involved in creating a Design System using Figma and Storybook. I am following Scrum rules and working in a remote team across NZ, AUS, and the UK.",
+      description: [
+        "Promoted to Frontend Developer within 10 months due to high performance and significant contributions to the core product UI.",
+        "Spearheaded the UI architecture for a new grid layout within the flagship Finance product, collaborating deeply with the design team to ensure high performance and usability.",
+        "Pioneered the initial architecture and development of a new company-wide Design System using Figma and Storybook, establishing the foundation for UI consistency across multiple products.",
+      ],
       technologies: [
-        "jQuery",
         "React",
         "TypeScript",
-        "Redux",
-        "Sass",
-        "Enzyme",
-        "Bootstrap",
+        "Mobx",
+        "Material UI",
+        "Jest",
+        "React Testing Library",
         "Figma",
-        "Storybook",
       ],
     },
     {
@@ -77,8 +105,11 @@ export const data: PortfolioData = {
       position: "Junior Software Developer (Frontend Dev)",
       startDate: "2020-03",
       endDate: "2021-01",
-      description:
-        "Worked on web development using React, Redux, Mobx, Typescript, Material UI, Jest and React Testing Library. Also, my responsibilities were to define and implement the layout for the project in collaboration with Phocas designers. We followed Scrumban rules and interacted with remote teams, including designers and other developers.",
+      description: [
+        "Built and maintained responsive UI components using React, TypeScript, and Material UI, with a strong focus on clean code, usability, and design consistency.",
+        "Strengthened the team’s testing culture by writing comprehensive unit and integration tests with Jest and React Testing Library, contributing to a noticeable reduction in production issues.",
+        "Worked with complex state management using Redux and MobX, developing a strong understanding of frontend architecture, data flow, and application scalability.",
+      ],
       technologies: [
         "React",
         "Redux",
@@ -87,6 +118,7 @@ export const data: PortfolioData = {
         "Material UI",
         "Jest",
         "React Testing Library",
+        "Figma",
       ],
     },
     {
@@ -95,8 +127,11 @@ export const data: PortfolioData = {
       position: "Junior Frontend Developer",
       startDate: "2018-10",
       endDate: "2020-03",
-      description:
-        "As a member of the Web Development team, my main role was to code highly efficient and scalable software to maintain, extend and enhance Kathmandu's eCommerce website. I worked on web development using HTML5, CSS3, Javascript, jQuery, Figma and Magento 2. I was also responsible for development code review of tags on Google Tag Manager.",
+      description: [
+        "Engineered high-performance e-commerce interfaces for a leading AU/UK/NZ retail platform (Magento 2), focusing on enhancing the customer journey and driving conversion rates.",
+        "Developed responsive front-end components using HTML5, CSS3, and JavaScript (jQuery), ensuring 100% cross-browser compatibility and mobile-first performance.",
+        "Collaborated with cross-functional teams to implement UI enhancements that directly improved site speed and Core Web Vitals.",
+      ],
       technologies: [
         "HTML5",
         "CSS3",
@@ -105,22 +140,6 @@ export const data: PortfolioData = {
         "Figma",
         "Magento 2",
         "Google Tag Manager",
-      ],
-    },
-    {
-      id: "chingu-frontend-developer",
-      company: "Chingu Cohorts Journey",
-      position: "Frontend Developer",
-      startDate: "2017-12",
-      endDate: "2018-01",
-      description:
-        "My main role was Frontend developer but also acted as Project Manager. As a Frontend Developer, I designed and implemented the Husky Rescue webpage. Its design was created using Adobe Photoshop. It was developed using React, Bootstrap 4, SASS and Webpack. On this project, I worked remotely with a mixed level team using tools like Slack, Trello and Github.",
-      technologies: [
-        "React",
-        "Bootstrap 4",
-        "SASS",
-        "Webpack",
-        "Adobe Photoshop",
       ],
     },
   ],

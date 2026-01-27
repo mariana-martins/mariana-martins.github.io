@@ -16,7 +16,7 @@ export interface Experience {
   position: string;
   startDate: string;
   endDate: string | undefined;
-  description: string;
+  description: string[];
   technologies: string[];
 }
 
