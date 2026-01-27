@@ -148,7 +148,10 @@ describe("data object", () => {
         if (exp.endDate !== undefined) {
           expect(typeof exp.endDate).toBe("string");
         }
-        expect(typeof exp.description).toBe("string");
+        expect(Array.isArray(exp.description)).toBe(true);
+        exp.description.forEach((desc) => {
+          expect(typeof desc).toBe("string");
+        });
         expect(Array.isArray(exp.technologies)).toBe(true);
       });
     });
@@ -158,7 +161,10 @@ describe("data object", () => {
         expect(exp.id.trim().length).toBeGreaterThan(0);
         expect(exp.company.trim().length).toBeGreaterThan(0);
         expect(exp.position.trim().length).toBeGreaterThan(0);
-        expect(exp.description.trim().length).toBeGreaterThan(0);
+        expect(exp.description.length).toBeGreaterThan(0);
+        exp.description.forEach((desc) => {
+          expect(desc.trim().length).toBeGreaterThan(0);
+        });
       });
     });
 

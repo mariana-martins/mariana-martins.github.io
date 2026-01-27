@@ -35,7 +35,7 @@ export const mockExperience: Experience[] = [
     position: "Test Position",
     startDate: "2020-01",
     endDate: "2021-12",
-    description: "Test description with end date",
+    description: ["Test description with end date"],
     technologies: ["React", "TypeScript"],
   },
   {
@@ -44,7 +44,7 @@ export const mockExperience: Experience[] = [
     position: "Current Position",
     startDate: "2022-01",
     endDate: undefined,
-    description: "Test description without end date",
+    description: ["Test description without end date"],
     technologies: ["React"],
   },
 ];

@@ -13,6 +13,7 @@ export interface Project {
 export interface Experience {
   id: string;
   company: string;
+  website?: string;
   position: string;
   startDate: string;
   endDate: string | undefined;

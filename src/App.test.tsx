@@ -26,7 +26,9 @@ describe("App", () => {
       .replace(/\s/g, "")
       .toLowerCase();
     expect(normalizedText).toContain(expectedText);
-    expect(screen.getByText("Frontend Engineer")).toBeInTheDocument();
+    // Find the subtitle h2 specifically (not experience positions)
+    const subtitle = screen.getByRole("heading", { level: 2 });
+    expect(subtitle).toHaveTextContent("Frontend Engineer");
     expect(screen.getByAltText("Mariana Martins Logo")).toBeInTheDocument();
   });
 
@@ -95,18 +97,12 @@ describe("App", () => {
         /[.*+?^${}()|[\]\\]/g,
         "\\$&",
       );
-      // Use exact match pattern: position at start, then " at ", then company
-      const headingPattern = new RegExp(
-        `^${escapedPosition} at ${escapedCompany}$`,
-        "i",
-      );
-      // Check that heading contains both position and company
-      const headings = screen.getAllByRole("heading", { level: 4 });
-      const matchingHeading = headings.find((heading) =>
-        headingPattern.test(heading.textContent || ""),
-      );
-      expect(matchingHeading).toBeDefined();
-      expect(screen.getByText(experience.description)).toBeInTheDocument();
+      // The accordion trigger has an aria-label starting with position at company
+      // Use ^ to match from start to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
+      const trigger = screen.getByRole("button", {
+        name: new RegExp(`^${escapedPosition} at ${escapedCompany}`, "i"),
+      });
+      expect(trigger).toBeInTheDocument();
     });
   });
 

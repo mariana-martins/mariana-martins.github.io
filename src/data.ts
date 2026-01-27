@@ -57,16 +57,15 @@ export const data: PortfolioData = {
     {
       id: "remote-frontend-engineer",
       company: "Remote",
+      website: "https://remote.com",
       position: "Frontend Engineer",
       startDate: "2021-07",
       endDate: "2024-04", // ongoing
       description: [
         "Developed and implemented essential onboarding features utilizing React, React Query, and Styled Components within a large, global, remote-first, and asynchronous platform.",
-        "Contributed to the re-architecture of the customer pricing and onboarding systems, building reusable, legislation-aware UI components used across multiple countries.",
         "Core contributor to the Accessibility (A11y) team, auditing and improving components across the platform to meet WCAG standards and improve inclusive UX.",
         "Modernized legacy form infrastructure by migrating from hard-coded flows to a scalable JSON-driven architecture, improving delivery speed and maintainability.",
         "Contributed to the company Design System using Storybook, improving UI consistency, component reuse, and cross-team development velocity.",
-        "Maintained and expanded automated testing using Jest, React Testing Library, and Cypress, helping ensure stability across critical business flows.",
       ],
       technologies: [
         "React",
@@ -81,6 +80,7 @@ export const data: PortfolioData = {
     {
       id: "phocas-software-developer",
       company: "Phocas",
+      website: "https://www.phocassoftware.com/",
       position: "Frontend Developer",
       startDate: "2021-01",
       endDate: "2021-06",
@@ -102,7 +102,8 @@ export const data: PortfolioData = {
     {
       id: "phocas-junior-software-developer",
       company: "Phocas",
-      position: "Junior Software Developer (Frontend Dev)",
+      website: "https://www.phocassoftware.com/",
+      position: "Junior Frontend Developer",
       startDate: "2020-03",
       endDate: "2021-01",
       description: [
@@ -124,6 +125,7 @@ export const data: PortfolioData = {
     {
       id: "kathmandu-junior-frontend",
       company: "Kathmandu",
+      website: "https://www.kathmandu.co.nz/",
       position: "Junior Frontend Developer",
       startDate: "2018-10",
       endDate: "2020-03",
@@ -166,17 +168,12 @@ export const data: PortfolioData = {
     },
     {
       name: "TypeScript",
-      level: "advanced",
+      level: "intermediate",
       category: "frontend",
     },
     {
       name: "Redux",
-      level: "advanced",
-      category: "frontend",
-    },
-    {
-      name: "Gatsby",
-      level: "beginner",
+      level: "intermediate",
       category: "frontend",
     },
     {
@@ -215,11 +212,6 @@ export const data: PortfolioData = {
       category: "frontend",
     },
     {
-      name: "GraphQL",
-      level: "beginner",
-      category: "frontend",
-    },
-    {
       name: "Jest",
       level: "intermediate",
       category: "tools",
@@ -255,9 +247,29 @@ export const data: PortfolioData = {
       category: "tools",
     },
     {
-      name: "Magento 2",
+      name: "Tailwind CSS",
       level: "beginner",
       category: "frontend",
+    },
+    {
+      name: "Framer Motion",
+      level: "beginner",
+      category: "frontend",
+    },
+    {
+      name: "Vite",
+      level: "beginner",
+      category: "tools",
+    },
+    {
+      name: "Next.js",
+      level: "intermediate",
+      category: "frontend",
+    },
+    {
+      name: "Atomic Design",
+      level: "beginner",
+      category: "design",
     },
   ],
   funFacts: [
