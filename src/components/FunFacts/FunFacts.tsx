@@ -1,27 +1,58 @@
 import React from "react";
 
-import { data } from "@/data";
-import type { FunFact } from "@/types";
+import { AnimatePresence, motion } from "motion/react";
+
+import { FlipCard } from "@/components/FlipCard";
+import { useFunFactsTrivia } from "@/hooks/useFunFactsTrivia";
 
 function FunFacts(): React.JSX.Element {
+  const {
+    currentFact,
+    totalFacts,
+    revealedCount,
+    isFlipped,
+    allRevealed,
+    handleFlip,
+    handleNext,
+    handleReset,
+  } = useFunFactsTrivia();
+
   return (
     <section
-      className="w-full h-full flex flex-col items-center justify-center gap-6 p-8 text-text-primary dark:text-text-primary-dark"
+      className="w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8 text-text-primary dark:text-text-primary-dark"
       aria-labelledby="fun-facts-heading"
     >
       <h3 id="fun-facts-heading" className="text-2xl">
         Fun Facts
       </h3>
-      <ul className="w-fit h-fit flex flex-col gap-6">
-        {data.funFacts.map((funFact: FunFact) => (
-          <li
-            key={funFact.id}
-            className="text-base break-words w-full max-w-[350px] flex-wrap lg:max-w-full"
-          >
-            {funFact.fact}
-          </li>
-        ))}
-      </ul>
+
+      <p className="text-sm text-text-primary/60 dark:text-text-primary-dark/60">
+        {revealedCount} of {totalFacts} revealed
+      </p>
+
+      {/* Card container */}
+      <div className="relative w-full">
+        <div className="relative z-30">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentFact.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FlipCard
+                funFact={currentFact}
+                isFlipped={isFlipped}
+                onFlip={handleFlip}
+                onNext={handleNext}
+                onReset={handleReset}
+                allRevealed={allRevealed && isFlipped}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
     </section>
   );
 }

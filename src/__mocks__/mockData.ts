@@ -10,9 +10,8 @@ import type {
 /**
  * Mock introduction text for testing
  */
-export const mockIntroduction = [
-  "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.",
-];
+export const mockIntroduction =
+  "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.";
 
 /**
  * Mock contact information for testing
@@ -108,14 +107,17 @@ export const mockSkills: Skill[] = [
 export const mockFunFacts: FunFact[] = [
   {
     id: "fact-1",
+    question: "What pet do I have?",
     fact: "I love dogs and have a husky named Margot.",
   },
   {
     id: "fact-2",
+    question: "What do I enjoy in my free time?",
     fact: "I enjoy reading science fiction novels in my free time.",
   },
   {
     id: "fact-3",
+    question: "What am I passionate about?",
     fact: "I'm passionate about accessibility in web development.",
   },
 ];

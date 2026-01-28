@@ -154,7 +154,7 @@ describe("App", () => {
     });
   });
 
-  it("renders FunFacts section with all fun facts", () => {
+  it("renders FunFacts section with trivia game", () => {
     render(
       <ThemeProvider>
         <App />
@@ -163,9 +163,11 @@ describe("App", () => {
 
     expect(screen.getByText("Fun Facts")).toBeInTheDocument();
 
-    data.funFacts.forEach((funFact) => {
-      expect(screen.getByText(funFact.fact)).toBeInTheDocument();
-    });
+    // The trivia game shows one question at a time, so check for the first question
+    expect(screen.getByText(data.funFacts[0].question)).toBeInTheDocument();
+
+    // Verify the progress counter is present
+    expect(screen.getByText(/0 of \d+ revealed/)).toBeInTheDocument();
   });
 
   it("renders Projects section with all projects and technologies", () => {

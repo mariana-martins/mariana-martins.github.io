@@ -1,0 +1,151 @@
+import React from "react";
+
+import clsx from "clsx";
+import { ArrowRight, MousePointerClick, RotateCcw } from "lucide-react";
+import { motion } from "motion/react";
+
+import type { FunFact } from "@/types";
+
+const cardClasses = clsx(
+  "p-4 rounded-lg",
+  "bg-blue-50/20 dark:bg-indigo-50/30",
+  "border border-pink/30 dark:border-blue-100/30",
+  "shadow-lg",
+);
+
+export interface FlipCardProps {
+  funFact: FunFact;
+  isFlipped: boolean;
+  onFlip: () => void;
+  onNext: () => void;
+  onReset: () => void;
+  allRevealed: boolean;
+}
+
+export function FlipCard({
+  funFact,
+  isFlipped,
+  onFlip,
+  onNext,
+  onReset,
+  allRevealed,
+}: FlipCardProps): React.JSX.Element {
+  const handleKeyDown = (e: React.KeyboardEvent): void => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (!isFlipped) {
+        onFlip();
+      }
+    }
+  };
+
+  const handleNextKeyDown = (e: React.KeyboardEvent): void => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      if (allRevealed) {
+        onReset();
+      } else {
+        onNext();
+      }
+    }
+  };
+
+  return (
+    <div
+      className="relative w-full min-h-[230px]"
+      style={{ perspective: "1000px" }}
+    >
+      <motion.div
+        className="relative w-full h-full"
+        initial={false}
+        animate={{ rotateY: isFlipped ? 180 : 0 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Front - Question */}
+        <div
+          className={clsx(
+            cardClasses,
+            "absolute inset-0 w-full min-h-[230px]",
+            "flex flex-col items-center justify-center gap-4",
+            "cursor-pointer",
+            "hover:border-pink/70 dark:hover:border-blue-100/70",
+            "focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100",
+          )}
+          style={{ backfaceVisibility: "hidden" }}
+          role="button"
+          tabIndex={isFlipped ? -1 : 0}
+          onClick={!isFlipped ? onFlip : undefined}
+          onKeyDown={!isFlipped ? handleKeyDown : undefined}
+          aria-label={`Question: ${funFact.question}. Click to reveal answer.`}
+        >
+          <p className="text-base md:text-lg text-center font-medium px-2">
+            {funFact.question}
+          </p>
+          <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
+            <MousePointerClick size={18} aria-hidden="true" />
+            <span>Click to reveal</span>
+          </div>
+        </div>
+
+        {/* Back - Answer */}
+        <div
+          className={clsx(
+            cardClasses,
+            "absolute inset-0 w-full min-h-[230px]",
+            "flex flex-col justify-between",
+          )}
+          style={{
+            backfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+          }}
+          aria-hidden={!isFlipped}
+        >
+          <div className="flex-1 flex items-center">
+            <p className="text-sm md:text-base leading-relaxed">
+              {funFact.fact}
+            </p>
+          </div>
+
+          {/* Next/Reset button */}
+          <button
+            type="button"
+            className={clsx(
+              "mt-4 flex items-center justify-center gap-2 w-full py-2 rounded-md cursor-pointer",
+              "bg-pink/20 dark:bg-blue-100/20",
+              "hover:bg-pink/30 dark:hover:bg-blue-100/30",
+              "text-sm font-medium",
+              "transition-colors duration-200",
+              "focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100",
+            )}
+            onClick={allRevealed ? onReset : onNext}
+            onKeyDown={handleNextKeyDown}
+            tabIndex={isFlipped ? 0 : -1}
+            aria-label={
+              allRevealed
+                ? "Play again from the beginning"
+                : "See next fun fact"
+            }
+          >
+            {allRevealed ? (
+              <>
+                <RotateCcw size={16} aria-hidden="true" />
+                <span>Play again</span>
+              </>
+            ) : (
+              <>
+                <span>Next fact</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </>
+            )}
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Screen reader announcement */}
+      <div aria-live="polite" className="sr-only">
+        {isFlipped ? `Answer: ${funFact.fact}` : ""}
+      </div>
+    </div>
+  );
+}

@@ -44,6 +44,7 @@ export interface Contact {
 
 export interface FunFact {
   id: string;
+  question: string;
   fact: string;
 }
 

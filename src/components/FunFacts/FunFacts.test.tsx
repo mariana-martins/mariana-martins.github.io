@@ -1,6 +1,7 @@
 import FunFacts from "@components/FunFacts/FunFacts";
 import { describe, expect, it } from "@jest/globals";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 
 // Mock the data module
@@ -18,32 +19,43 @@ describe("FunFacts", () => {
     expect(screen.getByText("Fun Facts")).toBeInTheDocument();
   });
 
-  it("renders all fun facts from data", () => {
+  it("renders progress counter", () => {
     render(<FunFacts />);
 
-    expect(
-      screen.getByText("I love dogs and have a husky named Margot."),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "I enjoy reading science fiction novels in my free time.",
-      ),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        "I'm passionate about accessibility in web development.",
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/0 of \d+ revealed/)).toBeInTheDocument();
   });
 
-  it("renders facts in a list structure", () => {
+  it("renders first question card with click hint", () => {
     render(<FunFacts />);
 
-    const list = screen.getByRole("list");
-    expect(list).toBeInTheDocument();
+    expect(screen.getByText("Click to reveal")).toBeInTheDocument();
+  });
 
-    const listItems = screen.getAllByRole("listitem");
-    expect(listItems).toHaveLength(3);
+  it("flips card and reveals answer when clicked", async () => {
+    const user = userEvent.setup();
+    render(<FunFacts />);
+
+    const card = screen.getByRole("button", {
+      name: /Question:.*Click to reveal/i,
+    });
+    await user.click(card);
+
+    // After flip, progress should update
+    expect(screen.getByText(/1 of \d+ revealed/)).toBeInTheDocument();
+  });
+
+  it("shows next fact button after revealing answer", async () => {
+    const user = userEvent.setup();
+    render(<FunFacts />);
+
+    const card = screen.getByRole("button", {
+      name: /Question:.*Click to reveal/i,
+    });
+    await user.click(card);
+
+    expect(
+      screen.getByRole("button", { name: /See next fun fact/i }),
+    ).toBeInTheDocument();
   });
 
   it("has correct aria-labelledby attribute", () => {

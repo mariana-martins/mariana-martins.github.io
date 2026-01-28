@@ -275,23 +275,28 @@ export const data: PortfolioData = {
   funFacts: [
     {
       id: "fun-fact-1",
-      fact: "🗺️ I’ve lived in three countries so far: Brazil, New Zealand, and Australia. I collect countries like side quests and XP.",
+      question: "How many countries have I lived in?",
+      fact: "I’ve lived in three countries so far: Brazil, New Zealand, and Australia. I collect countries like side quests and XP.",
     },
     {
       id: "fun-fact-2",
-      fact: "🖊️ I have a soft spot for collecting gel pens. At this point, I own a pen for every mood, occasion, and minor life crisis.",
+      question: "What is my quirky collection hobby?",
+      fact: "I have a soft spot for collecting gel pens. At this point, I own a pen for every mood, occasion, and minor life crisis.",
     },
     {
       id: "fun-fact-3",
-      fact: '👩‍🎓 I have a degree in History, which means I treat "legacy code" like an ancient archaeological site. I’ll carefully dust off the layers of the past before I start building the future!',
+      question: "What did I study before becoming a developer?",
+      fact: 'I have a degree in History, which means I treat "legacy code" like an ancient archaeological site. I’ll carefully dust off the layers of the past before I start building the future!',
     },
     {
       id: "fun-fact-4",
-      fact: "🎬 I’ve watched the Lord of the Rings extended editions so many times that I could probably navigate the path to Mount Doom better than a GPS.",
+      question: "What is my favorite movie franchise?",
+      fact: "I’ve watched the Lord of the Rings extended editions so many times that I could probably navigate the path to Mount Doom better than a GPS.",
     },
     {
       id: "fun-fact-5",
-      fact: '📚 My reading list is as diverse as a JavaScript library catalog. I’ll dip into almost anything, but my soul-book is Untamed. It taught me to be a "wild" engineer who isn’t afraid to question the status quo (or the legacy code).',
+      question: "What book changed my perspective on life?",
+      fact: 'My reading list is as diverse as a JavaScript library catalog. I’ll dip into almost anything, but my soul-book is Untamed. It taught me to be a "wild" engineer who isn’t afraid to question the status quo (or the legacy code).',
     },
   ],
   contact: {
