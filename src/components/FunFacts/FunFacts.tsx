@@ -22,8 +22,8 @@ function FunFacts(): React.JSX.Element {
       className="w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8 text-text-primary dark:text-text-primary-dark"
       aria-labelledby="fun-facts-heading"
     >
-      <h3 id="fun-facts-heading" className="text-2xl">
-        Fun Facts
+      <h3 id="fun-facts-heading" className="text-xl font-semibold">
+        A Bit of Trivia
       </h3>
 
       <p className="text-sm text-text-primary/60 dark:text-text-primary-dark/60">

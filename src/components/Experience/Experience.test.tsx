@@ -16,7 +16,7 @@ describe("Experience", () => {
   it("renders experience section with title", () => {
     render(<Experience />);
 
-    const heading = screen.getByText("Experience");
+    const heading = screen.getByText("Past Chapters");
     expect(heading).toBeInTheDocument();
 
     // The section should have proper aria-labelledby

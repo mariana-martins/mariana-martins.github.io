@@ -54,8 +54,8 @@ function ContactInfo(): React.JSX.Element {
       className="w-full h-fit flex flex-col gap-6 justify-evenly py-8 items-center text-text-primary dark:text-text-primary-dark border-b-dashed-custom"
       aria-labelledby="contact-info-heading"
     >
-      <h3 id="contact-info-heading" className="text-2xl">
-        Contact Info
+      <h3 id="contact-info-heading" className="text-xl font-semibold">
+        Say Hi!
       </h3>
       <div className="flex flex-col gap-6">
         <address

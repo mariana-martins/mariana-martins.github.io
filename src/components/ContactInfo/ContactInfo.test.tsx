@@ -16,7 +16,7 @@ describe("ContactInfo", () => {
   it("renders section heading", () => {
     render(<ContactInfo />);
 
-    expect(screen.getByText("Contact Info")).toBeInTheDocument();
+    expect(screen.getByText("Say Hi!")).toBeInTheDocument();
   });
 
   it("renders address", () => {
@@ -80,7 +80,7 @@ describe("ContactInfo", () => {
   it("has correct aria-labelledby attribute", () => {
     render(<ContactInfo />);
 
-    const section = screen.getByRole("region", { name: "Contact Info" });
+    const section = screen.getByRole("region", { name: "Say Hi!" });
     expect(section).toHaveAttribute("aria-labelledby", "contact-info-heading");
   });
 

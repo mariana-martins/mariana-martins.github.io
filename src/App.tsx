@@ -7,7 +7,6 @@ import Footer from "@components/Footer/Footer";
 import FunFacts from "@components/FunFacts/FunFacts";
 import Header from "@components/Header";
 import Projects from "@components/Projects/Projects";
-import Skills from "@components/Skills";
 import SkipLink from "@components/SkipLink";
 import ThemeToggle from "@components/ThemeToggle";
 import "@styles/index.css";
@@ -33,7 +32,6 @@ function App(): React.JSX.Element {
             </div>
           </div>
           <Projects />
-          <Skills />
         </main>
         <Footer />
         <SkipLink

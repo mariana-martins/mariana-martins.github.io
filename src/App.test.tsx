@@ -87,7 +87,7 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Experience")).toBeInTheDocument();
+    expect(screen.getByText("Past Chapters")).toBeInTheDocument();
 
     data.experience.forEach((experience) => {
       // Escape special regex characters in position and company
@@ -115,7 +115,7 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Contact Info")).toBeInTheDocument();
+    expect(screen.getByText("Say Hi!")).toBeInTheDocument();
     expect(screen.getByText(data.contact.address)).toBeInTheDocument();
 
     const emailLink = screen.getByRole("link", {
@@ -141,21 +141,6 @@ describe("App", () => {
     expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
   });
 
-  it("renders Skills section with all skills", () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>,
-    );
-
-    expect(screen.getByText("Skills")).toBeInTheDocument();
-
-    data.skills.forEach((skill) => {
-      const skillElements = screen.getAllByText(skill.name);
-      expect(skillElements.length).toBeGreaterThan(0);
-    });
-  });
-
   it("renders FunFacts section with trivia game", () => {
     render(
       <ThemeProvider>
@@ -163,7 +148,7 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Fun Facts")).toBeInTheDocument();
+    expect(screen.getByText("A Bit of Trivia")).toBeInTheDocument();
 
     // The trivia game shows one question at a time, so check for the first question
     expect(screen.getByText(data.funFacts[0].question)).toBeInTheDocument();
@@ -179,7 +164,7 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Projects")).toBeInTheDocument();
+    expect(screen.getByText("Crafted with Care")).toBeInTheDocument();
 
     data.projects.forEach((project) => {
       expect(screen.getByText(project.title)).toBeInTheDocument();
@@ -190,11 +175,6 @@ describe("App", () => {
       if (descriptionElement) {
         expect(descriptionElement).toBeInTheDocument();
       }
-
-      project.technologies.forEach((technology) => {
-        const technologyElements = screen.getAllByText(technology);
-        expect(technologyElements.length).toBeGreaterThan(0);
-      });
     });
   });
 
@@ -225,11 +205,10 @@ describe("App", () => {
     );
 
     const sectionHeadings = [
-      "Experience",
-      "Projects",
-      "Fun Facts",
-      "Contact Info",
-      "Skills",
+      "Past Chapters",
+      "Crafted with Care",
+      "A Bit of Trivia",
+      "Say Hi!",
     ];
 
     sectionHeadings.forEach((heading) => {

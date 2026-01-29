@@ -15,7 +15,7 @@ describe("Projects", () => {
   it("renders section heading", () => {
     render(<Projects />);
 
-    expect(screen.getByText("Projects")).toBeInTheDocument();
+    expect(screen.getByText("Crafted with Care")).toBeInTheDocument();
   });
 
   it("renders all projects", () => {
@@ -93,7 +93,7 @@ describe("Projects", () => {
   it("has correct aria-labelledby attribute", () => {
     render(<Projects />);
 
-    const section = screen.getByRole("region", { name: "Projects" });
+    const section = screen.getByRole("region", { name: "Crafted with Care" });
     expect(section).toHaveAttribute("aria-labelledby", "projects-heading");
   });
 

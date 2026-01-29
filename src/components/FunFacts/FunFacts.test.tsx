@@ -16,7 +16,7 @@ describe("FunFacts", () => {
   it("renders section heading", () => {
     render(<FunFacts />);
 
-    expect(screen.getByText("Fun Facts")).toBeInTheDocument();
+    expect(screen.getByText("A Bit of Trivia")).toBeInTheDocument();
   });
 
   it("renders progress counter", () => {
@@ -61,7 +61,7 @@ describe("FunFacts", () => {
   it("has correct aria-labelledby attribute", () => {
     render(<FunFacts />);
 
-    const section = screen.getByRole("region", { name: "Fun Facts" });
+    const section = screen.getByRole("region", { name: "A Bit of Trivia" });
     expect(section).toHaveAttribute("aria-labelledby", "fun-facts-heading");
   });
 

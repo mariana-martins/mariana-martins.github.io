@@ -151,8 +151,8 @@ function Experience(): React.JSX.Element {
       className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom h-auto self-stretch pt-8 md:pb-8"
       aria-labelledby="experience-heading"
     >
-      <h3 id="experience-heading" className="text-2xl mb-6">
-        Experience
+      <h3 id="experience-heading" className="text-xl font-semibold mb-6">
+        Past Chapters
       </h3>
 
       <div className="relative">

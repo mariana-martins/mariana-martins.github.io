@@ -162,8 +162,8 @@ function Projects(): React.JSX.Element {
       className="w-full text-text-primary dark:text-text-primary-dark py-6 md:py-10"
       aria-labelledby="projects-heading"
     >
-      <h3 id="projects-heading" className="text-2xl mb-6">
-        Projects
+      <h3 id="projects-heading" className="text-xl font-semibold mb-6">
+        Crafted with Care
       </h3>
 
       <div
