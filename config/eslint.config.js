@@ -17,7 +17,7 @@ export default [
   js.configs.recommended,
   prettierConfig,
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -113,7 +113,7 @@ export default [
   },
   {
     files: [
-      "*.config.{js,ts}",
+      "**/*.config.{js,ts}",
       "vite.config.ts",
       "babel.config.js",
       "jest.config.js",
@@ -150,7 +150,11 @@ export default [
     },
   },
   {
-    files: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}", "**/setupTests.ts"],
+    files: [
+      "**/*.test.{ts,tsx,js,jsx}",
+      "**/*.spec.{ts,tsx,js,jsx}",
+      "**/setupTests.ts",
+    ],
     languageOptions: {
       globals: {
         jest: "readonly",
@@ -197,6 +201,12 @@ export default [
     },
   },
   {
-    ignores: ["dist", "node_modules", "babel.config.js", "**/*.css"],
+    ignores: [
+      "dist",
+      "node_modules",
+      "babel.config.js",
+      "**/*.css",
+      "coverage",
+    ],
   },
 ];
