@@ -1,4 +1,3 @@
-/* global describe, it, expect */
 import { data } from "@/data";
 
 describe("data object", () => {
@@ -57,7 +56,6 @@ describe("data object", () => {
         expect(project).toHaveProperty("id");
         expect(project).toHaveProperty("title");
         expect(project).toHaveProperty("description");
-        expect(project).toHaveProperty("image");
         expect(project).toHaveProperty("technologies");
         expect(project).toHaveProperty("githubUrl");
 
@@ -65,7 +63,6 @@ describe("data object", () => {
         expect(typeof project.id).toBe("string");
         expect(typeof project.title).toBe("string");
         expect(typeof project.description).toBe("string");
-        expect(typeof project.image).toBe("string");
         expect(Array.isArray(project.technologies)).toBe(true);
         expect(typeof project.githubUrl).toBe("string");
       });
@@ -76,7 +73,6 @@ describe("data object", () => {
         expect(project.id.trim().length).toBeGreaterThan(0);
         expect(project.title.trim().length).toBeGreaterThan(0);
         expect(project.description.trim().length).toBeGreaterThan(0);
-        expect(project.image.trim().length).toBeGreaterThan(0);
       });
     });
 
@@ -94,20 +90,6 @@ describe("data object", () => {
       const ids = data.projects.map((p) => p.id);
       const uniqueIds = new Set(ids);
       expect(uniqueIds.size).toBe(ids.length);
-    });
-
-    it("should have valid image path format for each project", () => {
-      data.projects.forEach((project) => {
-        expect(project.image).toMatch(/^\/.*\.(png|jpg|jpeg|gif|webp|svg)$/i);
-      });
-    });
-
-    it("should have valid URL format for liveUrl when provided", () => {
-      data.projects.forEach((project) => {
-        if (project.liveUrl && project.liveUrl.trim().length > 0) {
-          expect(project.liveUrl).toMatch(/^https?:\/\//);
-        }
-      });
     });
 
     it("should have valid URL format for githubUrl when provided", () => {

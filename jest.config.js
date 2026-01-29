@@ -15,6 +15,7 @@ export default {
     "^@types/(.*)$": "<rootDir>/src/types/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
     "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+    "^motion/react$": "<rootDir>/src/__mocks__/motionMock.js",
   },
 
   // File extensions to consider

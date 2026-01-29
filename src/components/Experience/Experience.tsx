@@ -9,6 +9,8 @@ import { data } from "@/data";
 import { formatDate } from "@/lib/utils";
 import type { Experience as ExperienceType } from "@/types";
 
+import { Card } from "../Card";
+
 function TimelineNode(): React.JSX.Element {
   return (
     <div
@@ -38,114 +40,107 @@ function ExperienceCard({
     <div className="relative pl-12 pb-8 last:pb-0 group">
       <TimelineNode />
 
-      <Accordion.Item
-        value={experience.id}
-        className={clsx(
-          "rounded-lg overflow-hidden",
-          "bg-blue-50/20 dark:bg-indigo-50/30",
-          "backdrop-blur-md",
-          "border border-pink/30 dark:border-blue-100/30",
-          "transition-all duration-300",
-          "hover:border-pink/70 dark:hover:border-blue-100/70",
-          "hover:shadow-[0_4px_20px_hsl(356_75%_78%/0.2)]",
-          "dark:hover:shadow-[0_4px_20px_hsl(200_57%_84%/0.2)]",
-          "data-[state=open]:border-pink/70 dark:data-[state=open]:border-blue-100/70",
-        )}
+      <Card
+        asChild
+        variant="interactive"
+        className="p-0 transition-all duration-300 hover:shadow-[0_4px_20px_hsl(356_75%_78%/0.2)] dark:hover:shadow-[0_4px_20px_hsl(200_57%_84%/0.2)] data-[state=open]:border-pink/70 dark:data-[state=open]:border-blue-100/70"
       >
-        <Accordion.Header asChild>
-          <h4>
-            <Accordion.Trigger
-              className={clsx(
-                "w-full p-3 md:p-4 text-left",
-                "flex flex-col gap-1",
-                "cursor-pointer",
-                "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-                "focus-visible:ring-pink dark:focus-visible:ring-blue-100",
-                "group/trigger",
-                "min-h-[44px]", // Touch-friendly minimum height
-              )}
-              aria-label={`${experience.position} at ${experience.company}, ${dateRange}. Click to ${experience.id === "expanded" ? "collapse" : "expand"} details.`}
-            >
-              <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between md:gap-2 w-full">
-                <div className="flex-1 min-w-0">
-                  <span className="text-base md:text-lg font-bold block leading-tight">
-                    {experience.position}
-                  </span>
-                  <span className="text-sm md:text-base">
-                    {experience.company}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between md:justify-end gap-2 mt-1 md:mt-0">
-                  <span className="text-xs md:text-sm text-text-primary/70 dark:text-text-primary-dark/70">
-                    {dateRange}
-                  </span>
-                  <ChevronDown
-                    size={20}
-                    className={clsx(
-                      "shrink-0 transition-transform duration-300",
-                      "group-data-[state=open]/trigger:rotate-180",
-                    )}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </Accordion.Trigger>
-          </h4>
-        </Accordion.Header>
-
-        <Accordion.Content
-          className={clsx(
-            "overflow-hidden",
-            "data-[state=open]:animate-accordion-down",
-            "data-[state=closed]:animate-accordion-up",
-          )}
-        >
-          <div className="px-3 md:px-4 pb-3 md:pb-4">
-            {experience.website && (
-              <a
-                href={experience.website}
-                target="_blank"
-                rel="noopener noreferrer"
+        <Accordion.Item value={experience.id}>
+          <Accordion.Header asChild>
+            <h4>
+              <Accordion.Trigger
                 className={clsx(
-                  "inline-flex items-center gap-1 mb-3 text-sm",
-                  "text-pink dark:text-blue-100",
-                  "hover:underline",
-                  "focus:outline-none focus-visible:underline focus-visible:ring-2 focus-visible:ring-offset-2",
+                  "w-full p-3 md:p-4 text-left",
+                  "flex flex-col gap-1",
+                  "cursor-pointer",
+                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
                   "focus-visible:ring-pink dark:focus-visible:ring-blue-100",
-                  "transition-colors",
+                  "group/trigger",
+                  "min-h-[44px]",
                 )}
-                aria-label={`Visit ${experience.company} website (opens in new tab)`}
+                aria-label={`${experience.position} at ${experience.company}, ${dateRange}. Click to ${experience.id === "expanded" ? "collapse" : "expand"} details.`}
               >
-                <ExternalLink size={14} aria-hidden="true" />
-                Visit company website
-              </a>
+                <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between md:gap-2 w-full">
+                  <div className="flex-1 min-w-0">
+                    <span className="text-base md:text-lg font-bold block leading-tight">
+                      {experience.position}
+                    </span>
+                    <span className="text-sm md:text-base">
+                      {experience.company}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between md:justify-end gap-2 mt-1 md:mt-0">
+                    <span className="text-xs md:text-sm text-text-primary/70 dark:text-text-primary-dark/70">
+                      {dateRange}
+                    </span>
+                    <ChevronDown
+                      size={20}
+                      className={clsx(
+                        "shrink-0 transition-transform duration-300",
+                        "group-data-[state=open]/trigger:rotate-180",
+                      )}
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
+              </Accordion.Trigger>
+            </h4>
+          </Accordion.Header>
+
+          <Accordion.Content
+            className={clsx(
+              "overflow-hidden",
+              "data-[state=open]:animate-accordion-down",
+              "data-[state=closed]:animate-accordion-up",
             )}
-
-            <ul className="hidden md:block text-sm/6 mb-4 list-disc list-inside space-y-2">
-              {experience.description.map((paragraph) => (
-                <li
-                  key={`${experience.id}-${paragraph.substring(0, 30)}`}
-                  className="text-text-primary/90 dark:text-text-primary-dark/90"
+          >
+            <div className="px-3 md:px-4 pb-3 md:pb-4">
+              {experience.website && (
+                <a
+                  href={experience.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx(
+                    "inline-flex items-center gap-1 mb-3 text-sm",
+                    "text-pink dark:text-blue-100",
+                    "hover:underline",
+                    "focus:outline-none focus-visible:underline focus-visible:ring-2 focus-visible:ring-offset-2",
+                    "focus-visible:ring-pink dark:focus-visible:ring-blue-100",
+                    "transition-colors",
+                  )}
+                  aria-label={`Visit ${experience.company} website (opens in new tab)`}
                 >
-                  {paragraph}
-                </li>
-              ))}
-            </ul>
+                  <ExternalLink size={14} aria-hidden="true" />
+                  Visit company website
+                </a>
+              )}
 
-            <div
-              className="flex flex-wrap gap-2"
-              role="list"
-              aria-label="Technologies used"
-            >
-              {experience.technologies.map((tech, techIndex) => (
-                <span key={tech} role="listitem">
-                  <Tag name={tech} index={techIndex} />
-                </span>
-              ))}
+              <ul className="hidden md:block text-sm/6 mb-4 list-disc list-inside space-y-2">
+                {experience.description.map((paragraph) => (
+                  <li
+                    key={`${experience.id}-${paragraph.substring(0, 30)}`}
+                    className="text-text-primary/90 dark:text-text-primary-dark/90"
+                  >
+                    {paragraph}
+                  </li>
+                ))}
+              </ul>
+
+              <div
+                className="flex flex-wrap gap-2"
+                role="list"
+                aria-label="Technologies used"
+              >
+                {experience.technologies.map((tech, techIndex) => (
+                  <span key={tech} role="listitem">
+                    <Tag name={tech} index={techIndex} />
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </Accordion.Content>
-      </Accordion.Item>
+          </Accordion.Content>
+        </Accordion.Item>
+      </Card>
     </div>
   );
 }

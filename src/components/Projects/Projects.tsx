@@ -1,146 +1,196 @@
 import * as React from "react";
 
+import {
+  Card,
+  CardContent,
+  CardDecoration,
+  CardFooter,
+  CardHeader,
+} from "@components/Card";
 import Tag from "@components/Tag";
 import clsx from "clsx";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 import { data } from "@/data";
 import type { Project } from "@/types";
 
-const projectCardClasses = clsx(
-  // Layout
-  "relative group flex flex-col gap-3 md:gap-4 p-3 md:p-4",
-  "w-full md:w-auto md:flex-1 min-h-[280px]",
-  // Background and backdrop
-  "bg-warm-100/50 dark:bg-indigo-50/30",
-  "backdrop-blur-md rounded-lg",
-  // Border
-  "border border-pink/30 dark:border-blue-100/30",
-  // Transitions and animations
-  "transition-all duration-300 ease-out",
-  "motion-safe:hover:-translate-y-1",
-  // Hover states
-  "hover:border-pink/70 dark:hover:border-blue-100/70",
-  "hover:shadow-[0_8px_30px_hsl(356_75%_78%_/_0.4),0_4px_20px_0_rgba(0,0,0,0.12)]",
-  "dark:hover:shadow-[0_8px_30px_hsl(200_57%_84%_/_0.5),0_4px_20px_0_rgba(0,0,0,0.3)]",
-  "hover:bg-warm-100/70 dark:hover:bg-indigo-50/40",
-  // Active/pressed state for mobile
-  "active:shadow-[0_2px_10px_hsl(356_75%_78%_/_0.3)]",
-  "dark:active:shadow-[0_2px_10px_hsl(200_57%_84%_/_0.4)]",
-  // Focus states
-  "focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2",
-  "focus-visible:ring-[var(--color-pink)]",
-  "dark:focus-visible:ring-[var(--color-blue-100)]",
-  // Touch optimization
-  "touch-manipulation",
-);
+const projectDecorations: Record<
+  string,
+  {
+    shape: "blob" | "wave" | "diagonal";
+    color: "violet" | "blue" | "green";
+  }
+> = {
+  "fit-my-space": { shape: "blob", color: "violet" },
+  "frontend-practice-abstract": { shape: "wave", color: "blue" },
+  "contact-app": { shape: "diagonal", color: "green" },
+};
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+  isFeatured: boolean;
+  projectCount: number;
+}
+
+function ProjectCard({
+  project,
+  index,
+  isFeatured,
+  projectCount,
+}: ProjectCardProps): React.JSX.Element {
+  const projectNumber = index + 1;
+  const techStackSummary = project.technologies.join(", ");
+  const decoration = projectDecorations[project.id] || {
+    shape: "blob" as const,
+    color: "violet" as const,
+  };
+
+  // Show more tags for featured card
+  const visibleTechnologies = isFeatured
+    ? project.technologies
+    : project.technologies.slice(0, 3);
+  const hiddenCount = project.technologies.length - visibleTechnologies.length;
+
+  return (
+    <motion.a
+      href={project.githubUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`View ${project.title} project on GitHub. Project ${projectNumber} of ${projectCount}. Built with ${techStackSummary}`}
+      aria-describedby={isFeatured ? `project-${project.id}-desc` : undefined}
+      className="block h-full"
+      whileHover={{ y: -4, scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+    >
+      <Card
+        variant="interactive"
+        size={isFeatured ? "lg" : "md"}
+        className={clsx(
+          "h-full flex flex-col",
+          isFeatured ? "min-h-[280px]" : "min-h-[120px]",
+        )}
+      >
+        <CardDecoration
+          shape={decoration.shape}
+          color={decoration.color}
+          position="top-right"
+        />
+
+        {isFeatured && (
+          <div
+            className={clsx(
+              "absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full",
+              "bg-pink/80 dark:bg-blue-100/80 backdrop-blur-sm",
+              "text-xs font-medium text-text-primary ",
+            )}
+          >
+            <Sparkles size={12} aria-hidden="true" />
+            <span>Featured</span>
+          </div>
+        )}
+
+        <div
+          className={clsx(
+            "absolute z-10 p-2 rounded-full",
+            "bg-pink/20 dark:bg-blue-100/20",
+            "opacity-60 hover:opacity-100",
+            "transition-opacity duration-300",
+            isFeatured ? "bottom-4 right-4" : "top-3 right-3",
+          )}
+          aria-hidden="true"
+        >
+          <ExternalLink
+            size={isFeatured ? 18 : 14}
+            className="text-text-primary dark:text-text-primary-dark"
+          />
+        </div>
+
+        <CardHeader className={clsx("relative z-10", isFeatured && "pt-10")}>
+          <h4
+            id={`project-${project.id}-title`}
+            className={clsx(
+              "font-bold text-text-primary dark:text-text-primary-dark",
+              isFeatured ? "text-xl md:text-2xl" : "text-sm md:text-base",
+            )}
+          >
+            {project.title}
+          </h4>
+        </CardHeader>
+
+        <CardContent className="relative z-10">
+          {isFeatured && (
+            <p
+              id={`project-${project.id}-desc`}
+              className="text-sm md:text-base/6 text-text-primary/80 dark:text-text-primary-dark/80 mt-2"
+            >
+              {project.description}
+            </p>
+          )}
+        </CardContent>
+
+        <CardFooter className="relative z-10 flex-wrap">
+          {visibleTechnologies.map((technology: string, techIndex: number) => (
+            <Tag key={technology} name={technology} index={techIndex} />
+          ))}
+          {hiddenCount > 0 && (
+            <span
+              className={clsx(
+                "text-xs px-2 py-0.5 rounded-md",
+                "bg-pink/20 dark:bg-blue-100/20",
+                "text-text-primary/70 dark:text-text-primary-dark/70",
+              )}
+            >
+              +{hiddenCount}
+            </span>
+          )}
+        </CardFooter>
+
+        <span className="sr-only">Opens in a new window. External site.</span>
+      </Card>
+    </motion.a>
+  );
+}
 
 function Projects(): React.JSX.Element {
   const projectCount = data.projects.length;
 
   return (
     <section
-      className="col-start-1 text-text-primary dark:text-text-primary-dark h-fit py-4 md:py-8"
+      className="w-full text-text-primary dark:text-text-primary-dark py-6 md:py-10"
       aria-labelledby="projects-heading"
     >
-      <h3 id="projects-heading" className="text-2xl mb-4">
+      <h3 id="projects-heading" className="text-2xl mb-6">
         Projects
       </h3>
-      <ul
-        className="flex flex-col md:flex-row gap-4 md:gap-6 justify-between"
+
+      <div
+        className="grid gap-4 grid-cols-1 md:grid-cols-[1.3fr_1fr] md:grid-rows-2 md:grid-flow-dense"
         role="list"
         aria-label="Project portfolio"
       >
         {data.projects.map((project: Project, index: number) => {
-          const projectNumber = index + 1;
-          const techStackSummary = project.technologies.join(", ");
-
+          const isFeatured = index === 0;
           return (
-            <li key={project.id} role="listitem">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`View ${project.title} project on GitHub. Project ${projectNumber} of ${projectCount}. Built with ${techStackSummary}`}
-                aria-describedby={`project-${project.id}-desc`}
-                className={projectCardClasses}
-              >
-                {/* External link indicator */}
-                <div
-                  className={clsx(
-                    "absolute top-3 right-3 z-10 p-1.5 rounded-full",
-                    "bg-pink/80 dark:bg-blue-100/80 backdrop-blur-sm",
-                    "opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100",
-                    "transition-opacity duration-300",
-                  )}
-                  aria-hidden="true"
-                >
-                  <ExternalLink
-                    size={16}
-                    className="text-text-primary dark:text-text-primary-dark"
-                  />
-                </div>
-
-                {/* Image with overlay gradient */}
-                <div className="relative overflow-hidden rounded-md">
-                  <img
-                    src={`https://picsum.photos/seed/${project.id}/400/200`}
-                    alt=""
-                    role="presentation"
-                    className="w-full h-40 md:h-48 object-cover"
-                    loading="lazy"
-                  />
-                  <div
-                    className={clsx(
-                      "absolute inset-0 bg-gradient-to-t",
-                      "from-pink/20 to-transparent dark:from-blue-100/20",
-                      "opacity-0 group-hover:opacity-100",
-                      "transition-opacity duration-300",
-                    )}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-col gap-2 flex-1">
-                  <h4
-                    id={`project-${project.id}-title`}
-                    className="text-base md:text-lg font-bold text-center"
-                  >
-                    {project.title}
-                  </h4>
-
-                  <p
-                    id={`project-${project.id}-desc`}
-                    className="hidden lg:block text-xs md:text-sm/6 text-center md:text-left"
-                  >
-                    {project.description}
-                  </p>
-
-                  {/* Technology tags */}
-                  <ul
-                    className="flex flex-wrap gap-2 justify-center lg:justify-start w-full mt-auto"
-                    aria-label={`Technologies used: ${techStackSummary}`}
-                  >
-                    {project.technologies.map(
-                      (technology: string, techIndex: number) => (
-                        <li key={technology}>
-                          <Tag name={technology} index={techIndex} />
-                        </li>
-                      ),
-                    )}
-                  </ul>
-                </div>
-
-                {/* Screen reader only context */}
-                <span className="sr-only">
-                  Opens in a new window. External site.
-                </span>
-              </a>
-            </li>
+            <div
+              key={project.id}
+              role="listitem"
+              className={clsx(
+                isFeatured && "md:col-start-1 md:row-span-2 md:row-start-1",
+              )}
+            >
+              <ProjectCard
+                project={project}
+                index={index}
+                isFeatured={isFeatured}
+                projectCount={projectCount}
+              />
+            </div>
           );
         })}
-      </ul>
+      </div>
     </section>
   );
 }

@@ -5,31 +5,48 @@ export const data: PortfolioData = {
     "I’m a Frontend Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” I believe the best products are built with empathy, curiosity, and a healthy obsession with details. If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!",
   projects: [
     {
+      id: "fit-my-space",
+      title: "Fit My Space",
+      description:
+        "Developed a sleek and intuitive single-page application that serves as a complete digital address book. The project focuses on a smooth user experience, allowing you to easily add new contacts, favorite the people you talk to most, and keep your entire list organized with full update and display capabilities.",
+      technologies: [
+        "React",
+        "Typescript",
+        "Tailwind CSS",
+        "Next.js",
+        "React Query",
+        "Jest",
+        "React Testing Library",
+        "Atomic Design",
+        "Axe",
+        "Radix Primitives",
+      ],
+      githubUrl: "https://github.com/mariana-martins/FitMySpace",
+    },
+    {
+      id: "frontend-practice-abstract",
+      title: "Frontend Practice Abstract",
+      description:
+        "It is a fully responsive, pixel-perfect implementation of the original Abstract design. It features a clean, modular component architecture and a functional search interface, ensuring a seamless experience whether you're on a desktop or a mobile phone.",
+      technologies: [
+        "React",
+        "Vite",
+        "Styled Components",
+        "Jest",
+        "React Testing Library",
+        "Axe",
+        "Radix Primitives",
+      ],
+      githubUrl:
+        "https://github.com/mariana-martins/frontend-practice-abstract",
+    },
+    {
       id: "contact-app",
       title: "Contact App",
       description:
-        "Developed a single-page application that is a Contact List. Main features are to add a new contact on the list, favorite a contact, display the contact list and update the contact information.",
-      image: "/images/contact-app.png", // TODO: Add actual image path
-      technologies: ["React", "JavaScript"],
-      githubUrl: "https://github.com/mariana-martins",
-    },
-    {
-      id: "husky-rescue",
-      title: "Husky Rescue Org. Website",
-      description:
-        "It was SPA using React, Bootstrap 4, Sass and Webpack. I also developed the new website mockups using Photoshop. It was a proposing to replace the old Husky Rescue website.",
-      image: "/images/husky-rescue.png", // TODO: Add actual image path
-      technologies: ["React", "Bootstrap 4", "Sass", "Webpack", "Photoshop"],
-      githubUrl: "https://github.com/mariana-martins",
-    },
-    {
-      id: "would-you-rather",
-      title: "Would You Rather?",
-      description:
         "The goal here is to implement an App to lets a user play the Would You Rather? game. A question is displayed and a user needs answer it. It was developed using React, Redux and Material UI.",
-      image: "/images/would-you-rather.png", // TODO: Add actual image path
-      technologies: ["React", "Redux", "Material UI"],
-      githubUrl: "https://github.com/mariana-martins",
+      technologies: ["React", "Javascript", "React Router", "Material UI"],
+      githubUrl: "https://github.com/mariana-martins/contact-app",
     },
   ],
   experience: [
@@ -268,8 +285,23 @@ export const data: PortfolioData = {
     },
     {
       name: "Atomic Design",
-      level: "beginner",
+      level: "intermediate",
       category: "design",
+    },
+    {
+      name: "Radix Primitives",
+      level: "beginner",
+      category: "frontend",
+    },
+    {
+      name: "Axe",
+      level: "beginner",
+      category: "tools",
+    },
+    {
+      name: "React Router",
+      level: "beginner",
+      category: "frontend",
     },
   ],
   funFacts: [

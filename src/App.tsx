@@ -7,7 +7,7 @@ import Footer from "@components/Footer/Footer";
 import FunFacts from "@components/FunFacts/FunFacts";
 import Header from "@components/Header";
 import Projects from "@components/Projects/Projects";
-import Skills from "@components/Skills/Skills";
+import Skills from "@components/Skills";
 import SkipLink from "@components/SkipLink";
 import ThemeToggle from "@components/ThemeToggle";
 import "@styles/index.css";
@@ -29,11 +29,11 @@ function App(): React.JSX.Element {
             <Experience />
             <div className="md:col-start-2 md:row-start-2 self-stretch flex flex-col h-full">
               <ContactInfo />
-              <Skills />
               <FunFacts />
             </div>
           </div>
           <Projects />
+          <Skills />
         </main>
         <Footer />
         <SkipLink

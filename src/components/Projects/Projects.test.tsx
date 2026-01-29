@@ -25,14 +25,12 @@ describe("Projects", () => {
     expect(screen.getByText("Husky Rescue Org. Website")).toBeInTheDocument();
   });
 
-  it("renders project descriptions", () => {
+  it("renders featured project description", () => {
     render(<Projects />);
 
+    // Only the featured (first) project shows its description
     expect(
       screen.getByText("A single-page contact list application."),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("A SPA using React, Bootstrap 4, Sass and Webpack."),
     ).toBeInTheDocument();
   });
 

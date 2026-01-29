@@ -6,12 +6,7 @@ import { motion } from "motion/react";
 
 import type { FunFact } from "@/types";
 
-const cardClasses = clsx(
-  "p-4 rounded-lg",
-  "bg-blue-50/20 dark:bg-indigo-50/30",
-  "border border-pink/30 dark:border-blue-100/30",
-  "shadow-lg",
-);
+import { Card } from "../Card";
 
 export interface FlipCardProps {
   funFact: FunFact;
@@ -63,14 +58,12 @@ export function FlipCard({
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front - Question */}
-        <div
+        <Card
+          variant="interactive"
           className={clsx(
-            cardClasses,
             "absolute inset-0 w-full min-h-[230px]",
             "flex flex-col items-center justify-center gap-4",
-            "cursor-pointer",
-            "hover:border-pink/70 dark:hover:border-blue-100/70",
-            "focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100",
+            "backface-hidden",
           )}
           style={{ backfaceVisibility: "hidden" }}
           role="button"
@@ -86,12 +79,12 @@ export function FlipCard({
             <MousePointerClick size={18} aria-hidden="true" />
             <span>Click to reveal</span>
           </div>
-        </div>
+        </Card>
 
         {/* Back - Answer */}
-        <div
+        <Card
+          variant="default"
           className={clsx(
-            cardClasses,
             "absolute inset-0 w-full min-h-[230px]",
             "flex flex-col justify-between",
           )}
@@ -139,7 +132,7 @@ export function FlipCard({
               </>
             )}
           </button>
-        </div>
+        </Card>
       </motion.div>
 
       {/* Screen reader announcement */}
