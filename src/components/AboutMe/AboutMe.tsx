@@ -2,25 +2,8 @@ import React from "react";
 
 import LoopingHighlight from "@components/LoopingHighlight/";
 
-import aboutMeImageDark from "@/assets/darkAvatar.png";
-import aboutMeImageLight from "@/assets/lightAvatar.png";
+import aboutMeImage from "@/assets/avatar.png";
 import { data } from "@/data";
-import { useTheme } from "@/hooks/useTheme";
-
-function AboutMeProfileImage(): React.JSX.Element {
-  const { theme } = useTheme();
-  const aboutMeImage = theme === "dark" ? aboutMeImageDark : aboutMeImageLight;
-
-  return (
-    <figure className="relative place-self-center w-full text-text-primary dark:text-text-primary-dark md:mx-8">
-      <img
-        src={aboutMeImage}
-        alt="Me and my dog, Margot"
-        className="h-full max-h-50 object-cover justify-self-center"
-      />
-    </figure>
-  );
-}
 
 function AboutMe(): React.JSX.Element {
   const { introduction } = data;
@@ -32,7 +15,11 @@ function AboutMe(): React.JSX.Element {
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[3fr_1fr] md:items-center ">
         <div className="order-1 md:order-2">
-          <AboutMeProfileImage />
+          <img
+            src={aboutMeImage}
+            alt="Me and my dog, Margot, a very fluffy white dog!"
+            className="h-full object-cover justify-self-center shape-blob bg-linear-to-tr from-warm-400 via-warm-200 to-pink dark:from-purple dark:to-blue-50"
+          />
         </div>
 
         <div className="order-2 md:order-1">

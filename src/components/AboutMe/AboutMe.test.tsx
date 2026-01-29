@@ -52,7 +52,9 @@ describe("AboutMe", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByAltText("Me and my dog, Margot")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Me and my dog, Margot, a very fluffy white dog!"),
+    ).toBeInTheDocument();
   });
 
   it("has correct aria-labelledby attribute", () => {

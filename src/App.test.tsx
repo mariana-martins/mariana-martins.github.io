@@ -75,7 +75,9 @@ describe("App", () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByAltText("Me and my dog, Margot")).toBeInTheDocument();
+    expect(
+      screen.getByAltText("Me and my dog, Margot, a very fluffy white dog!"),
+    ).toBeInTheDocument();
   });
 
   it("renders Experience section with all experience entries", () => {

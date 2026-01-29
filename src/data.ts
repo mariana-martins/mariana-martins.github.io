@@ -2,7 +2,7 @@ import type { PortfolioData } from "@/types";
 
 export const data: PortfolioData = {
   introduction:
-    "I’m a Frontend Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” I believe the best products are built with empathy, curiosity, and a healthy obsession with details. If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!",
+    "I’m a Frontend Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!",
   projects: [
     {
       id: "fit-my-space",
@@ -65,7 +65,7 @@ export const data: PortfolioData = {
         "React Query",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
+        "Motion",
         "Vite",
         "Next.js",
         "Atomic Design",
@@ -269,7 +269,7 @@ export const data: PortfolioData = {
       category: "frontend",
     },
     {
-      name: "Framer Motion",
+      name: "Motion",
       level: "beginner",
       category: "frontend",
     },
@@ -307,28 +307,35 @@ export const data: PortfolioData = {
   funFacts: [
     {
       id: "fun-fact-1",
-      question: "How many countries have I lived in?",
-      fact: "I’ve lived in three countries so far: Brazil, New Zealand, and Australia. I collect countries like side quests and XP.",
+      question: 'How many countries have I called "home" so far?',
+      fact: "Three! Brazil, New Zealand, and now Australia. I’m basically collecting countries like side quests and XP.",
     },
     {
       id: "fun-fact-2",
       question: "What is my quirky collection hobby?",
-      fact: "I have a soft spot for collecting gel pens. At this point, I own a pen for every mood, occasion, and minor life crisis.",
+      fact: "Gel pens! I have one for every mood, occasion, and minor life crisis. Digital code is great, but physical ink is a vibe.",
     },
     {
       id: "fun-fact-3",
-      question: "What did I study before becoming a developer?",
-      fact: 'I have a degree in History, which means I treat "legacy code" like an ancient archaeological site. I’ll carefully dust off the layers of the past before I start building the future!',
+      question:
+        'What is my favorite way to "build" things when I’m away from a computer screen?',
+      fact: "My shelves are home to a wild mix including the Simpsons House, the Yellow Submarine, and Rivendell. Up next? Conquering Sauron’s Tower and Bag End brick by brick.",
     },
     {
       id: "fun-fact-4",
-      question: "What is my favorite movie franchise?",
-      fact: "I’ve watched the Lord of the Rings extended editions so many times that I could probably navigate the path to Mount Doom better than a GPS.",
+      question:
+        'Which movie franchise have I watched an "unreasonable" number of times?',
+      fact: "The Lord of the Rings! (Extended editions only, obviously). I can navigate the path to Mount Doom better than a GPS.",
     },
     {
       id: "fun-fact-5",
       question: "What book changed my perspective on life?",
-      fact: 'My reading list is as diverse as a JavaScript library catalog. I’ll dip into almost anything, but my soul-book is Untamed. It taught me to be a "wild" engineer who isn’t afraid to question the status quo (or the legacy code).',
+      fact: "Which book serves as my personal manual for living authentically?",
+    },
+    {
+      id: "fun-fact-6",
+      question: "How do I stay grounded between intense coding sessions?",
+      fact: 'Tai Chi! It’s my favorite way to slow down and find my "zen" when life gets a little too fast.',
     },
   ],
   contact: {

@@ -389,4 +389,8 @@
   .clip-path-diagonal {
     clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%);
   }
+
+  .shape-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
 }
