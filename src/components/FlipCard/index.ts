@@ -1,2 +1,2 @@
-export { FlipCard } from "./FlipCard";
-export type { FlipCardProps } from "./FlipCard";
+export { FlipCard } from './FlipCard';
+export type { FlipCardProps } from './FlipCard';

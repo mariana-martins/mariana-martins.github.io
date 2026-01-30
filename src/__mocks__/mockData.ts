@@ -5,7 +5,7 @@ import type {
   PortfolioData,
   Project,
   Skill,
-} from "@/types";
+} from '@/types';
 
 /**
  * Mock introduction text for testing
@@ -17,11 +17,11 @@ export const mockIntroduction =
  * Mock contact information for testing
  */
 export const mockContact: Contact = {
-  address: "Melbourne, Australia",
-  email: "mariana@example.com",
-  linkedIn: "https://linkedin.com/in/mariana-martins",
-  github: "https://github.com/mariana-martins",
-  name: "Mariana Martins Menezes",
+  address: 'Melbourne, Australia',
+  email: 'mariana@example.com',
+  linkedIn: 'https://linkedin.com/in/mariana-martins',
+  github: 'https://github.com/mariana-martins',
+  name: 'Mariana Martins Menezes',
 };
 
 /**
@@ -29,22 +29,22 @@ export const mockContact: Contact = {
  */
 export const mockExperience: Experience[] = [
   {
-    id: "test-1",
-    company: "Test Company",
-    position: "Test Position",
-    startDate: "2020-01",
-    endDate: "2021-12",
-    description: ["Test description with end date"],
-    technologies: ["React", "TypeScript"],
+    id: 'test-1',
+    company: 'Test Company',
+    position: 'Test Position',
+    startDate: '2020-01',
+    endDate: '2021-12',
+    description: ['Test description with end date'],
+    technologies: ['React', 'TypeScript'],
   },
   {
-    id: "test-2",
-    company: "Current Company",
-    position: "Current Position",
-    startDate: "2022-01",
+    id: 'test-2',
+    company: 'Current Company',
+    position: 'Current Position',
+    startDate: '2022-01',
     endDate: undefined,
-    description: ["Test description without end date"],
-    technologies: ["React"],
+    description: ['Test description without end date'],
+    technologies: ['React'],
   },
 ];
 
@@ -53,20 +53,20 @@ export const mockExperience: Experience[] = [
  */
 export const mockProjects: Project[] = [
   {
-    id: "project-1",
-    title: "Contact App",
-    description: "A single-page contact list application.",
-    image: "/images/contact-app.png",
-    technologies: ["React", "JavaScript"],
-    githubUrl: "https://github.com/mariana-martins/contact-app",
+    id: 'project-1',
+    title: 'Contact App',
+    description: 'A single-page contact list application.',
+    image: '/images/contact-app.png',
+    technologies: ['React', 'JavaScript'],
+    githubUrl: 'https://github.com/mariana-martins/contact-app',
   },
   {
-    id: "project-2",
-    title: "Husky Rescue Org. Website",
-    description: "A SPA using React, Bootstrap 4, Sass and Webpack.",
-    image: "/images/husky-rescue.png",
-    technologies: ["React", "Bootstrap 4", "Sass"],
-    githubUrl: "https://github.com/mariana-martins/husky-rescue",
+    id: 'project-2',
+    title: 'Husky Rescue Org. Website',
+    description: 'A SPA using React, Bootstrap 4, Sass and Webpack.',
+    image: '/images/husky-rescue.png',
+    technologies: ['React', 'Bootstrap 4', 'Sass'],
+    githubUrl: 'https://github.com/mariana-martins/husky-rescue',
   },
 ];
 
@@ -75,29 +75,29 @@ export const mockProjects: Project[] = [
  */
 export const mockSkills: Skill[] = [
   {
-    name: "JavaScript",
-    level: "expert",
-    category: "frontend",
+    name: 'JavaScript',
+    level: 'expert',
+    category: 'frontend',
   },
   {
-    name: "Python",
-    level: "intermediate",
-    category: "backend",
+    name: 'Python',
+    level: 'intermediate',
+    category: 'backend',
   },
   {
-    name: "React",
-    level: "expert",
-    category: "frontend",
+    name: 'React',
+    level: 'expert',
+    category: 'frontend',
   },
   {
-    name: "Git",
-    level: "advanced",
-    category: "tools",
+    name: 'Git',
+    level: 'advanced',
+    category: 'tools',
   },
   {
-    name: "Figma",
-    level: "advanced",
-    category: "design",
+    name: 'Figma',
+    level: 'advanced',
+    category: 'design',
   },
 ];
 
@@ -106,18 +106,18 @@ export const mockSkills: Skill[] = [
  */
 export const mockFunFacts: FunFact[] = [
   {
-    id: "fact-1",
-    question: "What pet do I have?",
-    fact: "I love dogs and have a husky named Margot.",
+    id: 'fact-1',
+    question: 'What pet do I have?',
+    fact: 'I love dogs and have a husky named Margot.',
   },
   {
-    id: "fact-2",
-    question: "What do I enjoy in my free time?",
-    fact: "I enjoy reading science fiction novels in my free time.",
+    id: 'fact-2',
+    question: 'What do I enjoy in my free time?',
+    fact: 'I enjoy reading science fiction novels in my free time.',
   },
   {
-    id: "fact-3",
-    question: "What am I passionate about?",
+    id: 'fact-3',
+    question: 'What am I passionate about?',
     fact: "I'm passionate about accessibility in web development.",
   },
 ];

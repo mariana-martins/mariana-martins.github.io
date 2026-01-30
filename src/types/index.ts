@@ -21,8 +21,8 @@ export interface Experience {
 
 export interface Skill {
   name: string;
-  level: "beginner" | "intermediate" | "advanced" | "expert";
-  category: "frontend" | "backend" | "tools" | "design";
+  level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  category: 'frontend' | 'backend' | 'tools' | 'design';
 }
 
 export interface ContactForm {

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from '@radix-ui/react-separator';
 
 function Footer(): React.JSX.Element {
   return (

@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { AtSign, GitFork, Mail, MapPin } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
-import type { TargetAndTransition } from "motion/react";
+import { AtSign, GitFork, Mail, MapPin } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import type { TargetAndTransition } from 'motion/react';
 
-import { data } from "@/data";
+import { data } from '@/data';
 
 const contactLinkClasses = [
   // Layout
-  "flex items-center gap-2",
+  'flex items-center gap-2',
   // Styling
-  "rounded transition-colors",
+  'rounded transition-colors',
   // Hover states
-  "hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green",
+  'hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green',
   // Focus states - matching SkipLink colors
-  "focus:outline-none focus:ring-2 focus:ring-offset-2",
-  "focus:ring-[var(--color-pink)]",
-  "dark:focus:ring-[var(--color-blue-100)]",
-].join(" ");
+  'focus:outline-none focus:ring-2 focus:ring-offset-2',
+  'focus:ring-[var(--color-pink)]',
+  'dark:focus:ring-[var(--color-blue-100)]',
+].join(' ');
 
 function ContactInfo(): React.JSX.Element {
   const prefersReducedMotion = useReducedMotion();
@@ -33,7 +33,7 @@ function ContactInfo(): React.JSX.Element {
           x: [0, -3, 3, -3, 3, 0],
           transition: {
             duration: 0.4,
-            ease: "easeInOut" as const,
+            ease: 'easeInOut' as const,
           },
         }
       : { x: 0 };
@@ -60,12 +60,12 @@ function ContactInfo(): React.JSX.Element {
       <div className="flex flex-col gap-6">
         <address
           className="flex items-center gap-2"
-          onMouseEnter={() => setHoveredRow("address")}
+          onMouseEnter={() => setHoveredRow('address')}
           onMouseLeave={() => setHoveredRow(null)}
         >
           <motion.span
             className="inline-block"
-            animate={getIconShakeAnimation("address")}
+            animate={getIconShakeAnimation('address')}
             aria-hidden="true"
           >
             <MapPin size={20} aria-hidden="true" />
@@ -76,12 +76,12 @@ function ContactInfo(): React.JSX.Element {
           href={`mailto:${data.contact.email}`}
           aria-label={`Send email to ${data.contact.email}`}
           className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow("email")}
+          onMouseEnter={() => setHoveredRow('email')}
           onMouseLeave={() => setHoveredRow(null)}
         >
           <motion.span
             className="inline-block"
-            animate={getIconShakeAnimation("email")}
+            animate={getIconShakeAnimation('email')}
             whileTap={iconPressAnimation}
             aria-hidden="true"
           >
@@ -95,12 +95,12 @@ function ContactInfo(): React.JSX.Element {
           rel="noopener noreferrer"
           aria-label="Visit Mariana Martins Menezes LinkedIn profile"
           className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow("linkedin")}
+          onMouseEnter={() => setHoveredRow('linkedin')}
           onMouseLeave={() => setHoveredRow(null)}
         >
           <motion.span
             className="inline-block"
-            animate={getIconShakeAnimation("linkedin")}
+            animate={getIconShakeAnimation('linkedin')}
             whileTap={iconPressAnimation}
             aria-hidden="true"
           >
@@ -114,12 +114,12 @@ function ContactInfo(): React.JSX.Element {
           rel="noopener noreferrer"
           aria-label="Visit mariana-martins GitHub profile"
           className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow("github")}
+          onMouseEnter={() => setHoveredRow('github')}
           onMouseLeave={() => setHoveredRow(null)}
         >
           <motion.span
             className="inline-block"
-            animate={getIconShakeAnimation("github")}
+            animate={getIconShakeAnimation('github')}
             whileTap={iconPressAnimation}
             aria-hidden="true"
           >

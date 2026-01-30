@@ -1,2 +1,2 @@
-export * from "./ContactInfo";
-export { default } from "./ContactInfo";
+export * from './ContactInfo';
+export { default } from './ContactInfo';

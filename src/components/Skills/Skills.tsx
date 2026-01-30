@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Tag from "@components/Tag";
+import Tag from '@components/Tag';
 
-import { data } from "@/data";
+import { data } from '@/data';
 
 function Skills(): React.JSX.Element {
   // Priority order for categories (frontend is most important)

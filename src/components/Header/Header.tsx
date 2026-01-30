@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from 'motion/react';
 
-import logo from "@/assets/logo.png";
+import logo from '@/assets/logo.png';
 
 function Header(): React.JSX.Element {
   const prefersReducedMotion = useReducedMotion();
-  const name = "Mariana Martins Menezes";
+  const name = 'Mariana Martins Menezes';
 
   // Split name into characters, preserving spaces
-  const characters = name.split("");
+  const characters = name.split('');
 
   // Animation variants for the logo
   const logoVariants = {
@@ -18,7 +18,7 @@ function Header(): React.JSX.Element {
       scale: 1,
       opacity: 1,
       transition: {
-        type: "spring" as const,
+        type: 'spring' as const,
         damping: 12,
         stiffness: 200,
         duration: 0.6,
@@ -45,7 +45,7 @@ function Header(): React.JSX.Element {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring" as const,
+        type: 'spring' as const,
         damping: 12,
         stiffness: 200,
       },
@@ -108,9 +108,9 @@ function Header(): React.JSX.Element {
                   key={`${char}-${index}`}
                   variants={letterVariants}
                   className="inline-block"
-                  style={{ display: char === " " ? "inline" : "inline-block" }}
+                  style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
                 >
-                  {char === " " ? "\u00A0" : char}
+                  {char === ' ' ? '\u00A0' : char}
                 </motion.span>
               ))}
             </motion.span>

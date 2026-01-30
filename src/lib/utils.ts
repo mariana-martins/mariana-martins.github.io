@@ -4,11 +4,11 @@
  * @returns Formatted date string (e.g., "Mar 2020")
  */
 export function formatDate(dateString: string): string {
-  const [year, month] = dateString.split("-");
+  const [year, month] = dateString.split('-');
   const date = new Date(parseInt(year, 10), parseInt(month, 10) - 1);
 
-  return date.toLocaleDateString("en-US", {
-    month: "short",
-    year: "numeric",
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
   });
 }

@@ -1,5 +1,5 @@
-import "@testing-library/jest-dom";
-import { toHaveNoViolations } from "jest-axe";
+import '@testing-library/jest-dom';
+import { toHaveNoViolations } from 'jest-axe';
 
 // Extend Jest matchers with jest-axe
 expect.extend(toHaveNoViolations);
@@ -14,7 +14,7 @@ expect.extend(toHaveNoViolations);
  */
 global.IntersectionObserver = class IntersectionObserver {
   root = null;
-  rootMargin = "";
+  rootMargin = '';
   readonly thresholds: readonly number[] = [];
 
   constructor(
@@ -73,7 +73,7 @@ global.ResizeObserver = class ResizeObserver {
  * Required for media query-based features (e.g., responsive design, dark mode)
  * Uses modern EventTarget-based API (addEventListener/removeEventListener)
  */
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   configurable: true,
   value: jest.fn().mockImplementation((query: string): MediaQueryList => {
@@ -119,7 +119,7 @@ Object.defineProperty(window, "matchMedia", {
  * Mock window.scrollTo API
  * Required for components that programmatically scroll
  */
-Object.defineProperty(window, "scrollTo", {
+Object.defineProperty(window, 'scrollTo', {
   writable: true,
   configurable: true,
   value: jest.fn(),

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import clsx from "clsx";
-import { ArrowRight, MousePointerClick, RotateCcw } from "lucide-react";
-import { motion } from "motion/react";
+import clsx from 'clsx';
+import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
+import { motion } from 'motion/react';
 
-import type { FunFact } from "@/types";
+import type { FunFact } from '@/types';
 
-import { Card } from "../Card";
+import { Card } from '../Card';
 
 export interface FlipCardProps {
   funFact: FunFact;
@@ -26,7 +26,7 @@ export function FlipCard({
   allRevealed,
 }: FlipCardProps): React.JSX.Element {
   const handleKeyDown = (e: React.KeyboardEvent): void => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       if (!isFlipped) {
         onFlip();
@@ -35,7 +35,7 @@ export function FlipCard({
   };
 
   const handleNextKeyDown = (e: React.KeyboardEvent): void => {
-    if (e.key === "Enter" || e.key === " ") {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       if (allRevealed) {
         onReset();
@@ -48,24 +48,24 @@ export function FlipCard({
   return (
     <div
       className="relative w-full min-h-[230px]"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: '1000px' }}
     >
       <motion.div
         className="relative w-full h-full"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        style={{ transformStyle: "preserve-3d" }}
+        transition={{ duration: 0.6, ease: 'easeInOut' }}
+        style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Front - Question */}
         <Card
           variant="interactive"
           className={clsx(
-            "absolute inset-0 w-full min-h-[230px]",
-            "flex flex-col items-center justify-center gap-4",
-            "backface-hidden",
+            'absolute inset-0 w-full min-h-[230px]',
+            'flex flex-col items-center justify-center gap-4',
+            'backface-hidden',
           )}
-          style={{ backfaceVisibility: "hidden" }}
+          style={{ backfaceVisibility: 'hidden' }}
           role="button"
           tabIndex={isFlipped ? -1 : 0}
           onClick={!isFlipped ? onFlip : undefined}
@@ -85,12 +85,12 @@ export function FlipCard({
         <Card
           variant="default"
           className={clsx(
-            "absolute inset-0 w-full min-h-[230px]",
-            "flex flex-col justify-between",
+            'absolute inset-0 w-full min-h-[230px]',
+            'flex flex-col justify-between',
           )}
           style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
           }}
           aria-hidden={!isFlipped}
         >
@@ -104,20 +104,20 @@ export function FlipCard({
           <button
             type="button"
             className={clsx(
-              "mt-4 flex items-center justify-center gap-2 w-full py-2 rounded-md cursor-pointer",
-              "bg-pink/20 dark:bg-blue-100/20",
-              "hover:bg-pink/30 dark:hover:bg-blue-100/30",
-              "text-sm font-medium",
-              "transition-colors duration-200",
-              "focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100",
+              'mt-4 flex items-center justify-center gap-2 w-full py-2 rounded-md cursor-pointer',
+              'bg-pink/20 dark:bg-blue-100/20',
+              'hover:bg-pink/30 dark:hover:bg-blue-100/30',
+              'text-sm font-medium',
+              'transition-colors duration-200',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100',
             )}
             onClick={allRevealed ? onReset : onNext}
             onKeyDown={handleNextKeyDown}
             tabIndex={isFlipped ? 0 : -1}
             aria-label={
               allRevealed
-                ? "Play again from the beginning"
-                : "See next fun fact"
+                ? 'Play again from the beginning'
+                : 'See next fun fact'
             }
           >
             {allRevealed ? (
@@ -137,7 +137,7 @@ export function FlipCard({
 
       {/* Screen reader announcement */}
       <div aria-live="polite" className="sr-only">
-        {isFlipped ? `Answer: ${funFact.fact}` : ""}
+        {isFlipped ? `Answer: ${funFact.fact}` : ''}
       </div>
     </div>
   );

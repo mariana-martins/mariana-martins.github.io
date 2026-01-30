@@ -1,16 +1,16 @@
-import { describe, expect, it, jest } from "@jest/globals";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
+import { describe, expect, it, jest } from '@jest/globals';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 
-import { FlipCard } from "./FlipCard";
+import { FlipCard } from './FlipCard';
 
 const mockFunFact = {
-  id: "test-1",
-  question: "What is your favorite color?",
-  fact: "My favorite color is blue because it reminds me of the ocean.",
+  id: 'test-1',
+  question: 'What is your favorite color?',
+  fact: 'My favorite color is blue because it reminds me of the ocean.',
 };
 
-describe("FlipCard", () => {
+describe('FlipCard', () => {
   const mockOnFlip = jest.fn();
   const mockOnNext = jest.fn();
   const mockOnReset = jest.fn();
@@ -21,7 +21,7 @@ describe("FlipCard", () => {
     mockOnReset.mockClear();
   });
 
-  it("renders question card when not flipped", () => {
+  it('renders question card when not flipped', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -34,10 +34,10 @@ describe("FlipCard", () => {
     );
 
     expect(screen.getByText(mockFunFact.question)).toBeInTheDocument();
-    expect(screen.getByText("Click to reveal")).toBeInTheDocument();
+    expect(screen.getByText('Click to reveal')).toBeInTheDocument();
   });
 
-  it("calls onFlip when question card is clicked", () => {
+  it('calls onFlip when question card is clicked', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -49,7 +49,7 @@ describe("FlipCard", () => {
       />,
     );
 
-    const questionButton = screen.getByRole("button", {
+    const questionButton = screen.getByRole('button', {
       name: /Question: What is your favorite color\?/i,
     });
     fireEvent.click(questionButton);
@@ -57,7 +57,7 @@ describe("FlipCard", () => {
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onFlip when Enter key is pressed on question card", () => {
+  it('calls onFlip when Enter key is pressed on question card', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -69,15 +69,15 @@ describe("FlipCard", () => {
       />,
     );
 
-    const questionButton = screen.getByRole("button", {
+    const questionButton = screen.getByRole('button', {
       name: /Question: What is your favorite color\?/i,
     });
-    fireEvent.keyDown(questionButton, { key: "Enter" });
+    fireEvent.keyDown(questionButton, { key: 'Enter' });
 
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onFlip when Space key is pressed on question card", () => {
+  it('calls onFlip when Space key is pressed on question card', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -89,15 +89,15 @@ describe("FlipCard", () => {
       />,
     );
 
-    const questionButton = screen.getByRole("button", {
+    const questionButton = screen.getByRole('button', {
       name: /Question: What is your favorite color\?/i,
     });
-    fireEvent.keyDown(questionButton, { key: " " });
+    fireEvent.keyDown(questionButton, { key: ' ' });
 
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
 
-  it("renders answer when flipped", () => {
+  it('renders answer when flipped', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -113,7 +113,7 @@ describe("FlipCard", () => {
     expect(screen.getByText(mockFunFact.fact)).toBeInTheDocument();
   });
 
-  it("shows Next fact button when flipped and not all revealed", () => {
+  it('shows Next fact button when flipped and not all revealed', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -125,14 +125,14 @@ describe("FlipCard", () => {
       />,
     );
 
-    const nextButton = screen.getByRole("button", {
+    const nextButton = screen.getByRole('button', {
       name: /See next fun fact/i,
     });
     expect(nextButton).toBeInTheDocument();
-    expect(screen.getByText("Next fact")).toBeInTheDocument();
+    expect(screen.getByText('Next fact')).toBeInTheDocument();
   });
 
-  it("calls onNext when Next fact button is clicked", () => {
+  it('calls onNext when Next fact button is clicked', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -144,7 +144,7 @@ describe("FlipCard", () => {
       />,
     );
 
-    const nextButton = screen.getByRole("button", {
+    const nextButton = screen.getByRole('button', {
       name: /See next fun fact/i,
     });
     fireEvent.click(nextButton);
@@ -152,7 +152,7 @@ describe("FlipCard", () => {
     expect(mockOnNext).toHaveBeenCalledTimes(1);
   });
 
-  it("shows Play again button when flipped and all revealed", () => {
+  it('shows Play again button when flipped and all revealed', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -164,14 +164,14 @@ describe("FlipCard", () => {
       />,
     );
 
-    const resetButton = screen.getByRole("button", {
+    const resetButton = screen.getByRole('button', {
       name: /Play again from the beginning/i,
     });
     expect(resetButton).toBeInTheDocument();
-    expect(screen.getByText("Play again")).toBeInTheDocument();
+    expect(screen.getByText('Play again')).toBeInTheDocument();
   });
 
-  it("calls onReset when Play again button is clicked", () => {
+  it('calls onReset when Play again button is clicked', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -183,7 +183,7 @@ describe("FlipCard", () => {
       />,
     );
 
-    const resetButton = screen.getByRole("button", {
+    const resetButton = screen.getByRole('button', {
       name: /Play again from the beginning/i,
     });
     fireEvent.click(resetButton);
@@ -191,7 +191,7 @@ describe("FlipCard", () => {
     expect(mockOnReset).toHaveBeenCalledTimes(1);
   });
 
-  it("has proper ARIA attributes", () => {
+  it('has proper ARIA attributes', () => {
     const { container } = render(
       <FlipCard
         funFact={mockFunFact}
@@ -203,17 +203,17 @@ describe("FlipCard", () => {
       />,
     );
 
-    const questionButton = screen.getByRole("button", {
+    const questionButton = screen.getByRole('button', {
       name: /Question: What is your favorite color\?/i,
     });
-    expect(questionButton).toHaveAttribute("tabIndex", "0");
+    expect(questionButton).toHaveAttribute('tabIndex', '0');
 
     // The live region should exist for screen reader announcements
     const liveRegion = container.querySelector('[aria-live="polite"]');
     expect(liveRegion).toBeInTheDocument();
   });
 
-  it("announces answer to screen readers when flipped", () => {
+  it('announces answer to screen readers when flipped', () => {
     const { container } = render(
       <FlipCard
         funFact={mockFunFact}
@@ -229,7 +229,7 @@ describe("FlipCard", () => {
     expect(liveRegion).toHaveTextContent(`Answer: ${mockFunFact.fact}`);
   });
 
-  it("sets correct tabIndex when flipped", () => {
+  it('sets correct tabIndex when flipped', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -241,18 +241,18 @@ describe("FlipCard", () => {
       />,
     );
 
-    const questionButton = screen.getByRole("button", {
+    const questionButton = screen.getByRole('button', {
       name: /Question: What is your favorite color\?/i,
     });
-    expect(questionButton).toHaveAttribute("tabIndex", "-1");
+    expect(questionButton).toHaveAttribute('tabIndex', '-1');
 
-    const nextButton = screen.getByRole("button", {
+    const nextButton = screen.getByRole('button', {
       name: /See next fun fact/i,
     });
-    expect(nextButton).toHaveAttribute("tabIndex", "0");
+    expect(nextButton).toHaveAttribute('tabIndex', '0');
   });
 
-  it("should have no accessibility violations", async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(
       <FlipCard
         funFact={mockFunFact}
@@ -267,7 +267,7 @@ describe("FlipCard", () => {
     expect(results).toHaveNoViolations();
   });
 
-  it("should have no accessibility violations when flipped", async () => {
+  it('should have no accessibility violations when flipped', async () => {
     const { container } = render(
       <FlipCard
         funFact={mockFunFact}

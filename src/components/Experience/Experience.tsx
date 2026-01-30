@@ -1,27 +1,27 @@
-import React from "react";
+import React from 'react';
 
-import * as Accordion from "@radix-ui/react-accordion";
-import Tag from "@components/Tag";
-import clsx from "clsx";
-import { ChevronDown, ExternalLink, Star } from "lucide-react";
+import * as Accordion from '@radix-ui/react-accordion';
+import Tag from '@components/Tag';
+import clsx from 'clsx';
+import { ChevronDown, ExternalLink, Star } from 'lucide-react';
 
-import { data } from "@/data";
-import { formatDate } from "@/lib/utils";
-import type { Experience as ExperienceType } from "@/types";
+import { data } from '@/data';
+import { formatDate } from '@/lib/utils';
+import type { Experience as ExperienceType } from '@/types';
 
-import { Card } from "../Card";
+import { Card } from '../Card';
 
 function TimelineNode(): React.JSX.Element {
   return (
     <div
       className={clsx(
-        "absolute left-0 w-8 h-8 rounded-full z-10",
-        "flex items-center justify-center",
-        "bg-pink dark:bg-blue-100",
-        "ring-4 ring-warm-100/80 dark:ring-indigo-50/80",
-        "transition-all duration-300 ease-out",
-        "group-hover:ring-pink/50 dark:group-hover:ring-blue-100/50",
-        "group-hover:scale-110",
+        'absolute left-0 w-8 h-8 rounded-full z-10',
+        'flex items-center justify-center',
+        'bg-pink dark:bg-blue-100',
+        'ring-4 ring-warm-100/80 dark:ring-indigo-50/80',
+        'transition-all duration-300 ease-out',
+        'group-hover:ring-pink/50 dark:group-hover:ring-blue-100/50',
+        'group-hover:scale-110',
       )}
     >
       <Star size={16} className="text-text-primary " aria-hidden="true" />
@@ -34,7 +34,7 @@ function ExperienceCard({
 }: {
   experience: ExperienceType;
 }): React.JSX.Element {
-  const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : "Present"}`;
+  const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
 
   return (
     <div className="relative pl-12 pb-8 last:pb-0 group">
@@ -50,15 +50,15 @@ function ExperienceCard({
             <h4>
               <Accordion.Trigger
                 className={clsx(
-                  "w-full p-3 md:p-4 text-left",
-                  "flex flex-col gap-1",
-                  "cursor-pointer",
-                  "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-                  "focus-visible:ring-pink dark:focus-visible:ring-blue-100",
-                  "group/trigger",
-                  "min-h-[44px]",
+                  'w-full p-3 md:p-4 text-left',
+                  'flex flex-col gap-1',
+                  'cursor-pointer',
+                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+                  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+                  'group/trigger',
+                  'min-h-[44px]',
                 )}
-                aria-label={`${experience.position} at ${experience.company}, ${dateRange}. Click to ${experience.id === "expanded" ? "collapse" : "expand"} details.`}
+                aria-label={`${experience.position} at ${experience.company}, ${dateRange}. Click to ${experience.id === 'expanded' ? 'collapse' : 'expand'} details.`}
               >
                 <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between md:gap-2 w-full">
                   <div className="flex-1 min-w-0">
@@ -76,8 +76,8 @@ function ExperienceCard({
                     <ChevronDown
                       size={20}
                       className={clsx(
-                        "shrink-0 transition-transform duration-300",
-                        "group-data-[state=open]/trigger:rotate-180",
+                        'shrink-0 transition-transform duration-300',
+                        'group-data-[state=open]/trigger:rotate-180',
                       )}
                       aria-hidden="true"
                     />
@@ -89,9 +89,9 @@ function ExperienceCard({
 
           <Accordion.Content
             className={clsx(
-              "overflow-hidden",
-              "data-[state=open]:animate-accordion-down",
-              "data-[state=closed]:animate-accordion-up",
+              'overflow-hidden',
+              'data-[state=open]:animate-accordion-down',
+              'data-[state=closed]:animate-accordion-up',
             )}
           >
             <div className="px-3 md:px-4 pb-3 md:pb-4">
@@ -101,12 +101,12 @@ function ExperienceCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={clsx(
-                    "inline-flex items-center gap-1 mb-3 text-sm",
-                    "text-pink dark:text-blue-100",
-                    "hover:underline",
-                    "focus:outline-none focus-visible:underline focus-visible:ring-2 focus-visible:ring-offset-2",
-                    "focus-visible:ring-pink dark:focus-visible:ring-blue-100",
-                    "transition-colors",
+                    'inline-flex items-center gap-1 mb-3 text-sm',
+                    'text-pink dark:text-blue-100',
+                    'hover:underline',
+                    'focus:outline-none focus-visible:underline focus-visible:ring-2 focus-visible:ring-offset-2',
+                    'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+                    'transition-colors',
                   )}
                   aria-label={`Visit ${experience.company} website (opens in new tab)`}
                 >

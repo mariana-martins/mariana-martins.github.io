@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import AboutMe from "@components/AboutMe";
-import ContactInfo from "@components/ContactInfo";
-import Experience from "@components/Experience";
-import Footer from "@components/Footer/Footer";
-import FunFacts from "@components/FunFacts/FunFacts";
-import Header from "@components/Header";
-import Projects from "@components/Projects/Projects";
-import SkipLink from "@components/SkipLink";
-import ThemeToggle from "@components/ThemeToggle";
-import "@styles/index.css";
-import { MotionConfig } from "motion/react";
+import AboutMe from '@components/AboutMe';
+import ContactInfo from '@components/ContactInfo';
+import Experience from '@components/Experience';
+import Footer from '@components/Footer/Footer';
+import FunFacts from '@components/FunFacts/FunFacts';
+import Header from '@components/Header';
+import Projects from '@components/Projects/Projects';
+import SkipLink from '@components/SkipLink';
+import ThemeToggle from '@components/ThemeToggle';
+import '@styles/index.css';
+import { MotionConfig } from 'motion/react';
 
 function App(): React.JSX.Element {
   return (

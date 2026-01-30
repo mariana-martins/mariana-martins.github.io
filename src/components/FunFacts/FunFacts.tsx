@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from 'motion/react';
 
-import { FlipCard } from "@/components/FlipCard";
-import { useFunFactsTrivia } from "@/hooks/useFunFactsTrivia";
+import { FlipCard } from '@/components/FlipCard';
+import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
 
 function FunFacts(): React.JSX.Element {
   const {

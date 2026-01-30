@@ -1,16 +1,16 @@
-import ThemeToggle from "@components/ThemeToggle/ThemeToggle";
-import { describe, expect, it } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import ThemeToggle from '@components/ThemeToggle/ThemeToggle';
+import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe } from 'jest-axe';
 
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 // Mock Motion to avoid animation issues in tests
-jest.mock("motion/react", () => ({
+jest.mock('motion/react', () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
   useReducedMotion: (): boolean =>
-    window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false,
+    window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false,
   motion: {
     button: ({
       children,
@@ -43,19 +43,19 @@ jest.mock("motion/react", () => ({
   },
 }));
 
-describe("ThemeToggle", () => {
-  it("renders theme toggle button", () => {
+describe('ThemeToggle', () => {
+  it('renders theme toggle button', () => {
     render(
       <ThemeProvider>
         <ThemeToggle />
       </ThemeProvider>,
     );
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
   });
 
-  it("toggles theme when clicked", async () => {
+  it('toggles theme when clicked', async () => {
     const user = userEvent.setup();
     render(
       <ThemeProvider>
@@ -63,20 +63,20 @@ describe("ThemeToggle", () => {
       </ThemeProvider>,
     );
 
-    const button = screen.getByRole("button");
-    const initialAriaPressed = button.getAttribute("aria-pressed");
+    const button = screen.getByRole('button');
+    const initialAriaPressed = button.getAttribute('aria-pressed');
 
     await user.click(button);
 
-    const newAriaPressed = button.getAttribute("aria-pressed");
+    const newAriaPressed = button.getAttribute('aria-pressed');
     expect(newAriaPressed).not.toBe(initialAriaPressed);
   });
 
-  it("shows correct icon for light theme", () => {
+  it('shows correct icon for light theme', () => {
     // Mock localStorage to set light theme
-    Object.defineProperty(window, "localStorage", {
+    Object.defineProperty(window, 'localStorage', {
       value: {
-        getItem: jest.fn(() => "light"),
+        getItem: jest.fn(() => 'light'),
         setItem: jest.fn(),
         removeItem: jest.fn(),
       },
@@ -89,15 +89,15 @@ describe("ThemeToggle", () => {
       </ThemeProvider>,
     );
 
-    const button = screen.getByRole("button");
-    expect(button).toHaveAttribute("aria-pressed", "false");
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('aria-pressed', 'false');
   });
 
-  it("shows correct icon for dark theme", () => {
+  it('shows correct icon for dark theme', () => {
     // Mock localStorage to set dark theme
-    Object.defineProperty(window, "localStorage", {
+    Object.defineProperty(window, 'localStorage', {
       value: {
-        getItem: jest.fn(() => "dark"),
+        getItem: jest.fn(() => 'dark'),
         setItem: jest.fn(),
         removeItem: jest.fn(),
       },
@@ -110,16 +110,16 @@ describe("ThemeToggle", () => {
       </ThemeProvider>,
     );
 
-    const button = screen.getByRole("button");
-    expect(button).toHaveAttribute("aria-pressed", "true");
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it("handles reduced motion preference", () => {
+  it('handles reduced motion preference', () => {
     // Mock matchMedia for reduced motion
-    Object.defineProperty(window, "matchMedia", {
+    Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => {
-        if (query === "(prefers-reduced-motion: reduce)") {
+        if (query === '(prefers-reduced-motion: reduce)') {
           return {
             matches: true,
             media: query,
@@ -150,11 +150,11 @@ describe("ThemeToggle", () => {
       </ThemeProvider>,
     );
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
   });
 
-  it("should have no accessibility violations", async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(
       <ThemeProvider>
         <ThemeToggle />

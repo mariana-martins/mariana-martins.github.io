@@ -1,2 +1,2 @@
-export * from "./LoopingHighlight";
-export { default } from "./LoopingHighlight";
+export * from './LoopingHighlight';
+export { default } from './LoopingHighlight';

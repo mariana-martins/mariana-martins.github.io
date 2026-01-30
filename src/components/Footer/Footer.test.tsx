@@ -1,20 +1,20 @@
-import Footer from "@components/Footer/Footer";
-import { describe, expect, it } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
+import Footer from '@components/Footer/Footer';
+import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 
-describe("Footer", () => {
-  it("renders quote text", () => {
+describe('Footer', () => {
+  it('renders quote text', () => {
     render(<Footer />);
 
     expect(
       screen.getByText(
-        "Not all those who wander are lost. Some are just debugging.",
+        'Not all those who wander are lost. Some are just debugging.',
       ),
     ).toBeInTheDocument();
   });
 
-  it("renders copyright text", () => {
+  it('renders copyright text', () => {
     render(<Footer />);
 
     expect(
@@ -24,7 +24,7 @@ describe("Footer", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders Radix Separator", () => {
+  it('renders Radix Separator', () => {
     const { container } = render(<Footer />);
 
     // Radix Separator with decorative prop doesn't have a role
@@ -35,7 +35,7 @@ describe("Footer", () => {
     expect(separator).toBeInTheDocument();
   });
 
-  it("should have no accessibility violations", async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(<Footer />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();

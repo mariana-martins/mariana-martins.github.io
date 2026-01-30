@@ -1,13 +1,13 @@
-import AboutMe from "@components/AboutMe/AboutMe";
-import { describe, expect, it } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
+import AboutMe from '@components/AboutMe/AboutMe';
+import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 
-import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 // Mock the data module
-jest.mock("@/data", () => {
-  const { mockPortfolioData } = require("@/__mocks__/mockData");
+jest.mock('@/data', () => {
+  const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
     data: {
       ...mockPortfolioData,
@@ -17,8 +17,8 @@ jest.mock("@/data", () => {
   };
 });
 
-describe("AboutMe", () => {
-  it("renders introduction text with correct structure", () => {
+describe('AboutMe', () => {
+  it('renders introduction text with correct structure', () => {
     const { container } = render(
       <ThemeProvider>
         <AboutMe />
@@ -27,25 +27,25 @@ describe("AboutMe", () => {
 
     // Text is split across elements due to LoopingHighlight component
     // Find the paragraph element and check its textContent
-    const paragraph = container.querySelector("p");
+    const paragraph = container.querySelector('p');
     expect(paragraph).toBeInTheDocument();
 
-    const textContent = paragraph?.textContent ?? "";
+    const textContent = paragraph?.textContent ?? '';
     expect(textContent).toMatch(/Hi! I.m Mariana, but you can call me/);
-    expect(textContent).toContain("like all my Brazilian friends do");
+    expect(textContent).toContain('like all my Brazilian friends do');
   });
 
-  it("renders LoopingHighlight component with Mari text", () => {
+  it('renders LoopingHighlight component with Mari text', () => {
     render(
       <ThemeProvider>
         <AboutMe />
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Mari")).toBeInTheDocument();
+    expect(screen.getByText('Mari')).toBeInTheDocument();
   });
 
-  it("renders profile image with correct alt text", () => {
+  it('renders profile image with correct alt text', () => {
     render(
       <ThemeProvider>
         <AboutMe />
@@ -53,22 +53,22 @@ describe("AboutMe", () => {
     );
 
     expect(
-      screen.getByAltText("Me and my dog, Margot, a very fluffy white dog!"),
+      screen.getByAltText('Me and my dog, Margot, a very fluffy white dog!'),
     ).toBeInTheDocument();
   });
 
-  it("has correct aria-labelledby attribute", () => {
+  it('has correct aria-labelledby attribute', () => {
     render(
       <ThemeProvider>
         <AboutMe />
       </ThemeProvider>,
     );
 
-    const section = screen.getByRole("region");
-    expect(section).toHaveAttribute("aria-labelledby", "about-me-heading");
+    const section = screen.getByRole('region');
+    expect(section).toHaveAttribute('aria-labelledby', 'about-me-heading');
   });
 
-  it("should have no accessibility violations", async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(
       <ThemeProvider>
         <AboutMe />

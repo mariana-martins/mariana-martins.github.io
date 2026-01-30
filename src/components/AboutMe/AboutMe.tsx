@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import LoopingHighlight from "@components/LoopingHighlight/";
+import LoopingHighlight from '@components/LoopingHighlight/';
 
-import aboutMeImage from "@/assets/avatar.png";
-import { data } from "@/data";
+import aboutMeImage from '@/assets/avatar.png';
+import { data } from '@/data';
 
 function AboutMe(): React.JSX.Element {
   const { introduction } = data;
@@ -24,7 +24,7 @@ function AboutMe(): React.JSX.Element {
 
         <div className="order-2 md:order-1">
           <p className="text-sm/4 md:text-base/6 tracking-wide text-justify">
-            Hi! I’m Mariana, but you can call me{" "}
+            Hi! I’m Mariana, but you can call me{' '}
             <LoopingHighlight>Mari</LoopingHighlight>, like all my Brazilian
             friends do. {introduction}
           </p>

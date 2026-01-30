@@ -1,2 +1,2 @@
-export * from "./Skills";
-export { default } from "./Skills";
+export * from './Skills';
+export { default } from './Skills';

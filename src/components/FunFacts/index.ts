@@ -1,1 +1,1 @@
-export { default } from "./FunFacts";
+export { default } from './FunFacts';

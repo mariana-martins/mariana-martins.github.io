@@ -1,7 +1,7 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState } from 'react';
 
-import { data } from "@/data";
-import type { FunFact } from "@/types";
+import { data } from '@/data';
+import type { FunFact } from '@/types';
 
 interface UseFunFactsTriviaReturn {
   currentFact: FunFact;

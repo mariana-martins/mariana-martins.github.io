@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { motion } from "motion/react";
+import { motion } from 'motion/react';
 
 const LoopingHighlight = ({
   children,
@@ -8,13 +8,13 @@ const LoopingHighlight = ({
   children: React.ReactNode;
 }): React.JSX.Element => {
   const colors = [
-    "var(--color-highlight-red)",
-    "var(--color-highlight-orange)",
-    "var(--color-highlight-yellow)",
-    "var(--color-highlight-green)",
-    "var(--color-highlight-blue)",
-    "var(--color-highlight-indigo)",
-    "var(--color-highlight-violet)",
+    'var(--color-highlight-red)',
+    'var(--color-highlight-orange)',
+    'var(--color-highlight-yellow)',
+    'var(--color-highlight-green)',
+    'var(--color-highlight-blue)',
+    'var(--color-highlight-indigo)',
+    'var(--color-highlight-violet)',
   ];
 
   return (
@@ -28,11 +28,11 @@ const LoopingHighlight = ({
         transition={{
           duration: 7,
           repeat: Infinity,
-          ease: "linear",
+          ease: 'linear',
         }}
         style={{
           // Adding a slight skew or rotation makes it feel hand-drawn
-          transform: "rotate(-1deg) skewX(-2deg)",
+          transform: 'rotate(-1deg) skewX(-2deg)',
         }}
       />
 

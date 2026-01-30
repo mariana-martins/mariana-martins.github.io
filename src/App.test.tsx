@@ -1,13 +1,13 @@
-import { describe, expect, it } from "@jest/globals";
-import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
+import { describe, expect, it } from '@jest/globals';
+import { render, screen } from '@testing-library/react';
+import { axe } from 'jest-axe';
 
-import App from "@/App";
-import { ThemeProvider } from "@/contexts/ThemeContext";
-import { data } from "@/data";
+import App from '@/App';
+import { ThemeProvider } from '@/contexts/ThemeContext';
+import { data } from '@/data';
 
-describe("App", () => {
-  it("renders header with title, subtitle, and logo", () => {
+describe('App', () => {
+  it('renders header with title, subtitle, and logo', () => {
     render(
       <ThemeProvider>
         <App />
@@ -15,35 +15,35 @@ describe("App", () => {
     );
 
     // The name is split into characters with spaces, so we need to query differently
-    const heading = screen.getByRole("heading", { level: 1 });
+    const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
     // Normalize all whitespace (including non-breaking spaces) and remove spaces between characters
     const normalizedText = heading.textContent
-      ?.replace(/\s+/g, " ")
-      .replace(/\s/g, "")
+      ?.replace(/\s+/g, ' ')
+      .replace(/\s/g, '')
       .toLowerCase();
-    const expectedText = "Mariana Martins Menezes"
-      .replace(/\s/g, "")
+    const expectedText = 'Mariana Martins Menezes'
+      .replace(/\s/g, '')
       .toLowerCase();
     expect(normalizedText).toContain(expectedText);
     // Find the subtitle h2 specifically (not experience positions)
-    const subtitle = screen.getByRole("heading", { level: 2 });
-    expect(subtitle).toHaveTextContent("Frontend Engineer");
-    expect(screen.getByAltText("Mariana Martins Logo")).toBeInTheDocument();
+    const subtitle = screen.getByRole('heading', { level: 2 });
+    expect(subtitle).toHaveTextContent('Frontend Engineer');
+    expect(screen.getByAltText('Mariana Martins Logo')).toBeInTheDocument();
   });
 
-  it("renders main content area", () => {
+  it('renders main content area', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    const main = screen.getByRole("main");
+    const main = screen.getByRole('main');
     expect(main).toBeInTheDocument();
   });
 
-  it("renders AboutMe section with introduction", () => {
+  it('renders AboutMe section with introduction', () => {
     const { container } = render(
       <ThemeProvider>
         <App />
@@ -59,16 +59,16 @@ describe("App", () => {
     );
     expect(aboutMeSection).toBeInTheDocument();
 
-    const paragraph = aboutMeSection?.querySelector("p");
+    const paragraph = aboutMeSection?.querySelector('p');
     expect(paragraph).toBeInTheDocument();
 
-    const textContent = paragraph?.textContent ?? "";
+    const textContent = paragraph?.textContent ?? '';
     expect(textContent).toMatch(/Hi! I.m Mariana, but you can call me/);
-    expect(textContent).toContain("like all my Brazilian friends do");
+    expect(textContent).toContain('like all my Brazilian friends do');
     expect(textContent).toContain(data.introduction);
   });
 
-  it("renders AboutMe profile image with correct alt text", () => {
+  it('renders AboutMe profile image with correct alt text', () => {
     render(
       <ThemeProvider>
         <App />
@@ -76,79 +76,79 @@ describe("App", () => {
     );
 
     expect(
-      screen.getByAltText("Me and my dog, Margot, a very fluffy white dog!"),
+      screen.getByAltText('Me and my dog, Margot, a very fluffy white dog!'),
     ).toBeInTheDocument();
   });
 
-  it("renders Experience section with all experience entries", () => {
+  it('renders Experience section with all experience entries', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Past Chapters")).toBeInTheDocument();
+    expect(screen.getByText('Past Chapters')).toBeInTheDocument();
 
     data.experience.forEach((experience) => {
       // Escape special regex characters in position and company
       const escapedPosition = experience.position.replace(
         /[.*+?^${}()|[\]\\]/g,
-        "\\$&",
+        '\\$&',
       );
       const escapedCompany = experience.company.replace(
         /[.*+?^${}()|[\]\\]/g,
-        "\\$&",
+        '\\$&',
       );
       // The accordion trigger has an aria-label starting with position at company
       // Use ^ to match from start to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
-      const trigger = screen.getByRole("button", {
-        name: new RegExp(`^${escapedPosition} at ${escapedCompany}`, "i"),
+      const trigger = screen.getByRole('button', {
+        name: new RegExp(`^${escapedPosition} at ${escapedCompany}`, 'i'),
       });
       expect(trigger).toBeInTheDocument();
     });
   });
 
-  it("renders ContactInfo section with all contact details", () => {
+  it('renders ContactInfo section with all contact details', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Say Hi!")).toBeInTheDocument();
+    expect(screen.getByText('Say Hi!')).toBeInTheDocument();
     expect(screen.getByText(data.contact.address)).toBeInTheDocument();
 
-    const emailLink = screen.getByRole("link", {
-      name: new RegExp(data.contact.email, "i"),
+    const emailLink = screen.getByRole('link', {
+      name: new RegExp(data.contact.email, 'i'),
     });
     expect(emailLink).toBeInTheDocument();
-    expect(emailLink).toHaveAttribute("href", `mailto:${data.contact.email}`);
+    expect(emailLink).toHaveAttribute('href', `mailto:${data.contact.email}`);
 
-    const linkedInLink = screen.getByRole("link", {
+    const linkedInLink = screen.getByRole('link', {
       name: /Visit Mariana Martins Menezes LinkedIn profile/i,
     });
     expect(linkedInLink).toBeInTheDocument();
-    expect(linkedInLink).toHaveAttribute("href", data.contact.linkedIn);
-    expect(linkedInLink).toHaveAttribute("target", "_blank");
-    expect(linkedInLink).toHaveAttribute("rel", "noopener noreferrer");
+    expect(linkedInLink).toHaveAttribute('href', data.contact.linkedIn);
+    expect(linkedInLink).toHaveAttribute('target', '_blank');
+    expect(linkedInLink).toHaveAttribute('rel', 'noopener noreferrer');
 
-    const githubLink = screen.getByRole("link", {
+    const githubLink = screen.getByRole('link', {
       name: /Visit mariana-martins GitHub profile/i,
     });
     expect(githubLink).toBeInTheDocument();
-    expect(githubLink).toHaveAttribute("href", data.contact.github);
-    expect(githubLink).toHaveAttribute("target", "_blank");
-    expect(githubLink).toHaveAttribute("rel", "noopener noreferrer");
+    expect(githubLink).toHaveAttribute('href', data.contact.github);
+    expect(githubLink).toHaveAttribute('target', '_blank');
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it("renders FunFacts section with trivia game", () => {
+  it('renders FunFacts section with trivia game', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("A Bit of Trivia")).toBeInTheDocument();
+    expect(screen.getByText('A Bit of Trivia')).toBeInTheDocument();
 
     // The trivia game shows one question at a time, so check for the first question
     expect(screen.getByText(data.funFacts[0].question)).toBeInTheDocument();
@@ -157,14 +157,14 @@ describe("App", () => {
     expect(screen.getByText(/0 of \d+ revealed/)).toBeInTheDocument();
   });
 
-  it("renders Projects section with all projects and technologies", () => {
+  it('renders Projects section with all projects and technologies', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    expect(screen.getByText("Crafted with Care")).toBeInTheDocument();
+    expect(screen.getByText('Crafted with Care')).toBeInTheDocument();
 
     data.projects.forEach((project) => {
       expect(screen.getByText(project.title)).toBeInTheDocument();
@@ -178,7 +178,7 @@ describe("App", () => {
     });
   });
 
-  it("renders Footer with copyright and quote", () => {
+  it('renders Footer with copyright and quote', () => {
     render(
       <ThemeProvider>
         <App />
@@ -187,7 +187,7 @@ describe("App", () => {
 
     expect(
       screen.getByText(
-        "Not all those who wander are lost. Some are just debugging.",
+        'Not all those who wander are lost. Some are just debugging.',
       ),
     ).toBeInTheDocument();
     expect(
@@ -197,7 +197,7 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders all portfolio sections with correct headings", () => {
+  it('renders all portfolio sections with correct headings', () => {
     render(
       <ThemeProvider>
         <App />
@@ -205,10 +205,10 @@ describe("App", () => {
     );
 
     const sectionHeadings = [
-      "Past Chapters",
-      "Crafted with Care",
-      "A Bit of Trivia",
-      "Say Hi!",
+      'Past Chapters',
+      'Crafted with Care',
+      'A Bit of Trivia',
+      'Say Hi!',
     ];
 
     sectionHeadings.forEach((heading) => {
@@ -217,14 +217,14 @@ describe("App", () => {
 
     // AboutMe section doesn't have a visible heading, but should be present
     const aboutMeSection = screen
-      .getAllByRole("region")
+      .getAllByRole('region')
       .find((section) =>
-        section.getAttribute("aria-labelledby")?.includes("about-me-heading"),
+        section.getAttribute('aria-labelledby')?.includes('about-me-heading'),
       );
     expect(aboutMeSection).toBeInTheDocument();
   });
 
-  it("should have no accessibility violations", async () => {
+  it('should have no accessibility violations', async () => {
     const { container } = render(
       <ThemeProvider>
         <App />
@@ -234,12 +234,12 @@ describe("App", () => {
     expect(results).toHaveNoViolations();
   });
 
-  it("handles reduced motion preference", () => {
+  it('handles reduced motion preference', () => {
     // Mock matchMedia for reduced motion
-    Object.defineProperty(window, "matchMedia", {
+    Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => {
-        if (query === "(prefers-reduced-motion: reduce)") {
+        if (query === '(prefers-reduced-motion: reduce)') {
           return {
             matches: true,
             media: query,
@@ -271,6 +271,6 @@ describe("App", () => {
     );
 
     // App should render without errors when reduced motion is preferred
-    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole('main')).toBeInTheDocument();
   });
 });

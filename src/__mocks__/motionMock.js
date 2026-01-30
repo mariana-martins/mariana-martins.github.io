@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from "react";
+import React from 'react';
 
 export const motion = new Proxy(
   {},
@@ -36,7 +36,7 @@ export const motion = new Proxy(
         const Component = prop;
 
         return React.createElement(
-          Component || "div",
+          Component || 'div',
           { ...validProps, ref },
           children,
         );

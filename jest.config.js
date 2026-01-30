@@ -1,30 +1,30 @@
 export default {
   // Test environment
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // Setup files
-  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 
   // Module name mapping for path aliases
   moduleNameMapper: {
-    "\\.(jpg|jpeg|png|gif|svg|webp)$": "<rootDir>/src/__mocks__/fileMock.js",
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-    "^@/(.*)$": "<rootDir>/src/$1",
-    "^@components/(.*)$": "<rootDir>/src/components/$1",
-    "^@lib/(.*)$": "<rootDir>/src/lib/$1",
-    "^@types/(.*)$": "<rootDir>/src/types/$1",
-    "^@styles/(.*)$": "<rootDir>/src/styles/$1",
-    "^@assets/(.*)$": "<rootDir>/src/assets/$1",
-    "^motion/react$": "<rootDir>/src/__mocks__/motionMock.js",
+    '\\.(jpg|jpeg|png|gif|svg|webp)$': '<rootDir>/src/__mocks__/fileMock.js',
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@lib/(.*)$': '<rootDir>/src/lib/$1',
+    '^@types/(.*)$': '<rootDir>/src/types/$1',
+    '^@styles/(.*)$': '<rootDir>/src/styles/$1',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^motion/react$': '<rootDir>/src/__mocks__/motionMock.js',
   },
 
   // File extensions to consider
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
   // Transform files
   transform: {
-    "^.+\\.(ts|tsx)$": [
-      "ts-jest",
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
       {
         useESM: true,
         tsconfig: {
@@ -32,23 +32,23 @@ export default {
         },
       },
     ],
-    "^.+\\.(js|jsx)$": "babel-jest",
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
 
   // Test file patterns
   testMatch: [
-    "<rootDir>/src/**/__tests__/**/*.(ts|tsx|js)",
-    "<rootDir>/src/**/*.(test|spec).(ts|tsx|js)",
+    '<rootDir>/src/**/__tests__/**/*.(ts|tsx|js)',
+    '<rootDir>/src/**/*.(test|spec).(ts|tsx|js)',
   ],
 
   // Coverage configuration
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
-    "!src/**/*.d.ts",
-    "!src/main.tsx",
-    "!src/setupTests.ts",
-    "!src/**/*.stories.{ts,tsx}",
-    "!src/**/index.{ts,tsx}",
+    'src/**/*.{ts,tsx}',
+    '!src/**/*.d.ts',
+    '!src/main.tsx',
+    '!src/setupTests.ts',
+    '!src/**/*.stories.{ts,tsx}',
+    '!src/**/index.{ts,tsx}',
   ],
 
   // Coverage thresholds
@@ -62,10 +62,10 @@ export default {
   },
 
   // Coverage directory
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // Coverage reporters
-  coverageReporters: ["text", "lcov", "html"],
+  coverageReporters: ['text', 'lcov', 'html'],
 
   // Clear mocks between tests
   clearMocks: true,
