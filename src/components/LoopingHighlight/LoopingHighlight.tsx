@@ -30,10 +30,6 @@ const LoopingHighlight = ({
           repeat: Infinity,
           ease: 'linear',
         }}
-        style={{
-          // Adding a slight skew or rotation makes it feel hand-drawn
-          transform: 'rotate(-1deg) skewX(-2deg)',
-        }}
       />
 
       <span className="relative z-10 font-medium font-highlight  text-base md:text-lg tracking-wider text-text-primary dark:text-text-primary-dark">

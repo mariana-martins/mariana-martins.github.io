@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 type CardVariant = 'default' | 'interactive' | 'accent';
 type CardSize = 'sm' | 'md' | 'lg';
@@ -59,19 +60,21 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <CardContext.Provider value={{ variant, size }}>
         <Comp
           ref={ref}
-          className={clsx(
-            // Base styles
-            'relative overflow-hidden',
-            'backdrop-blur-md rounded-xl',
-            'transition-all duration-300 ease-out',
-            // Focus styles
-            'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
-            'focus-visible:ring-pink',
-            'dark:focus-visible:ring-blue-100',
-            // Variant and size
-            cardVariants[variant],
-            cardSizes[size],
-            className,
+          className={twMerge(
+            clsx(
+              // Base styles
+              'relative overflow-hidden',
+              'backdrop-blur-md rounded-xl',
+              'transition-all duration-300 ease-out',
+              // Focus styles
+              'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
+              'focus-visible:ring-pink',
+              'dark:focus-visible:ring-blue-100',
+              // Variant and size
+              cardVariants[variant],
+              cardSizes[size],
+              className,
+            ),
           )}
           {...props}
         />

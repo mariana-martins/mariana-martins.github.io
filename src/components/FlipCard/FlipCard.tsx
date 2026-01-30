@@ -46,16 +46,12 @@ export function FlipCard({
   };
 
   return (
-    <div
-      className="relative w-full min-h-[230px]"
-      style={{ perspective: '1000px' }}
-    >
+    <div className="relative w-full min-h-[230px] perspective-1000">
       <motion.div
-        className="relative w-full h-full"
+        className="relative w-full h-full preserve-3d"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
-        style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Front - Question */}
         <Card
@@ -65,7 +61,6 @@ export function FlipCard({
             'flex flex-col items-center justify-center gap-4',
             'backface-hidden',
           )}
-          style={{ backfaceVisibility: 'hidden' }}
           role="button"
           tabIndex={isFlipped ? -1 : 0}
           onClick={!isFlipped ? onFlip : undefined}
@@ -87,11 +82,8 @@ export function FlipCard({
           className={clsx(
             'absolute inset-0 w-full min-h-[230px]',
             'flex flex-col justify-between',
+            'backface-hidden rotate-y-180',
           )}
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-          }}
           aria-hidden={!isFlipped}
         >
           <div className="flex-1 flex items-center">

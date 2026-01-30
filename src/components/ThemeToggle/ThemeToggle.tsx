@@ -43,19 +43,18 @@ function ThemeToggle(): React.JSX.Element {
       whileTap={tapAnimation}
       className={clsx(
         'absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 transition-colors cursor-pointer',
-        'flex items-center justify-center', // Add this to center the icons
+        'flex items-center justify-center',
         'focus:outline-none focus:ring-2 focus:ring-offset-2',
         'bg-pink text-text-primary',
         'hover:bg-pink/70',
-        'dark:bg-[var(--color-blue-100)] dark:text-[var(--color-blue-200)]',
-        'dark:hover:bg-[var(--color-blue-100)]/90',
-        'focus:ring-[var(--color-pink)]',
-        'dark:focus:ring-[var(--color-blue-100)]',
+        'dark:bg-blue-100 dark:text-blue-200',
+        'dark:hover:bg-blue-100/90',
+        'focus:ring-pink',
+        'dark:focus:ring-blue-100',
         'z-50',
         'min-w-[44px] min-h-[44px]',
         'touch-manipulation',
       )}
-      style={{ touchAction: 'manipulation' }} // Alternative: inline style
     >
       <span className="sr-only">Toggle theme</span>
       <AnimatePresence mode="wait" initial={false}>

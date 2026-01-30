@@ -107,8 +107,7 @@ function Header(): React.JSX.Element {
                   // eslint-disable-next-line react/no-array-index-key
                   key={`${char}-${index}`}
                   variants={letterVariants}
-                  className="inline-block"
-                  style={{ display: char === ' ' ? 'inline' : 'inline-block' }}
+                  className={char === ' ' ? 'inline' : 'inline-block'}
                 >
                   {char === ' ' ? '\u00A0' : char}
                 </motion.span>
