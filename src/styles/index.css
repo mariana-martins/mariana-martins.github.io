@@ -176,13 +176,46 @@
     --color-highlight-violet: hsl(300 65% 50%);
   }
 
-  /* Global Color Transitions */
-  *,
-  *::before,
-  *::after {
+  /* Theme Color Transitions - targeted to specific elements for performance */
+  body,
+  header,
+  section,
+  nav,
+  footer,
+  main,
+  article,
+  aside,
+  button,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  svg {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    transition-duration: 200ms;
+  }
+
+  /* Disable transitions during scroll for better performance */
+  .is-scrolling * {
+    transition: none !important;
+  }
+
+  /* Respect user's reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* Base Body Styles with Light Gradient */
@@ -409,5 +442,10 @@
 
   .rotate-y-180 {
     transform: rotateY(180deg);
+  }
+
+  /* GPU Acceleration Hints */
+  .will-change-bg {
+    will-change: background-color;
   }
 }

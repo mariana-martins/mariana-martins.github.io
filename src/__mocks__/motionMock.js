@@ -50,6 +50,7 @@ export const AnimatePresence = ({ children }) => children;
 
 // Hooks
 export const useReducedMotion = () => false;
+export const useInView = () => true;
 export const useAnimation = () => ({ start: jest.fn() });
 export const usePresence = () => [true, jest.fn()];
 export const useIsPresent = () => true;

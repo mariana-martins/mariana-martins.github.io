@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { FlipCard } from '@/components/FlipCard';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
@@ -16,6 +16,7 @@ function FunFacts(): React.JSX.Element {
     handleNext,
     handleReset,
   } = useFunFactsTrivia();
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
@@ -36,10 +37,10 @@ function FunFacts(): React.JSX.Element {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentFact.id}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -20 }}
+              transition={{ duration: prefersReducedMotion ? 0.1 : 0.3 }}
             >
               <FlipCard
                 funFact={currentFact}

@@ -32,35 +32,33 @@ function Header(): React.JSX.Element {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.03,
-        delayChildren: 0.2,
+        staggerChildren: 0.02,
+        delayChildren: 0.15,
       },
     },
   };
 
   // Animation variants for each letter
   const letterVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
-      y: 0,
       opacity: 1,
+      y: 0,
       transition: {
-        type: 'spring' as const,
-        damping: 12,
-        stiffness: 200,
+        duration: 0.25,
+        ease: 'easeOut' as const,
       },
     },
   };
 
   // Animation variants for subtitle
   const subtitleVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { opacity: 0 },
     visible: {
-      y: 0,
       opacity: 1,
       transition: {
-        delay: 1,
-        duration: 0.5,
+        delay: 0.6,
+        duration: 0.4,
       },
     },
   };

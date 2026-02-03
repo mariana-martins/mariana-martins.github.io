@@ -10,7 +10,7 @@ import {
 import Tag from '@components/Tag';
 import clsx from 'clsx';
 import { ExternalLink, Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 import { data } from '@/data';
 import type { Project } from '@/types';
@@ -46,6 +46,7 @@ function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
+  const prefersReducedMotion = useReducedMotion();
 
   // Show more tags for featured card
   const visibleTechnologies = isFeatured
@@ -60,10 +61,10 @@ function ProjectCard({
       rel="noopener noreferrer"
       aria-label={`View ${project.title} project on GitHub. Project ${projectNumber} of ${projectCount}. Built with ${techStackSummary}`}
       aria-describedby={isFeatured ? `project-${project.id}-desc` : undefined}
-      className="block h-full"
-      whileHover={{ y: -4, scale: 1.01 }}
-      whileTap={{ scale: 0.99 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+      className="block h-full will-change-transform"
+      whileHover={prefersReducedMotion ? undefined : { scale: 1.02 }}
+      whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
+      transition={{ duration: 0.15, ease: 'easeOut' }}
     >
       <Card
         variant="interactive"

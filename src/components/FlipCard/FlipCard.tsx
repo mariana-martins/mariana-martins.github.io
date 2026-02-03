@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx';
 import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 import type { FunFact } from '@/types';
 
@@ -25,6 +25,8 @@ export function FlipCard({
   onReset,
   allRevealed,
 }: FlipCardProps): React.JSX.Element {
+  const prefersReducedMotion = useReducedMotion();
+
   const handleKeyDown = (e: React.KeyboardEvent): void => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -48,10 +50,13 @@ export function FlipCard({
   return (
     <div className="relative w-full min-h-[230px] perspective-1000">
       <motion.div
-        className="relative w-full h-full preserve-3d"
+        className="relative w-full h-full preserve-3d will-change-transform"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
+        transition={{
+          duration: prefersReducedMotion ? 0 : 0.5,
+          ease: 'easeInOut',
+        }}
       >
         {/* Front - Question */}
         <Card
