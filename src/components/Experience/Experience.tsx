@@ -15,7 +15,7 @@ function TimelineNode(): React.JSX.Element {
   return (
     <div
       className={clsx(
-        'absolute left-0 w-8 h-8 rounded-full z-10',
+        'absolute left-0 top-8 w-8 h-8 rounded-full z-10',
         'flex items-center justify-center',
         'bg-pink dark:bg-blue-100',
         'ring-4 ring-warm-100/80 dark:ring-indigo-50/80',
@@ -37,7 +37,7 @@ function ExperienceCard({
   const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
 
   return (
-    <div className="relative pl-12 pb-8 last:pb-0 group">
+    <div className="relative pl-12 group">
       <TimelineNode />
 
       <Card
@@ -148,14 +148,14 @@ function ExperienceCard({
 function Experience(): React.JSX.Element {
   return (
     <section
-      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom h-auto self-stretch pt-8 md:pb-8"
+      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom flex-1 flex flex-col self-stretch pt-8 md:pb-8"
       aria-labelledby="experience-heading"
     >
       <h3 id="experience-heading" className="text-xl font-semibold mb-6">
         Past Chapters
       </h3>
 
-      <div className="relative">
+      <div className="relative flex-1 flex flex-col">
         <div
           className="absolute left-4 top-4 bottom-4 w-0.5 bg-pink/40 dark:bg-blue-100/40"
           aria-hidden="true"
@@ -165,7 +165,7 @@ function Experience(): React.JSX.Element {
           type="single"
           collapsible
           defaultValue={data.experience[0]?.id}
-          className="flex flex-col"
+          className="flex-1 flex flex-col justify-between gap-4"
         >
           {data.experience.map((experience: ExperienceType) => (
             <ExperienceCard key={experience.id} experience={experience} />
