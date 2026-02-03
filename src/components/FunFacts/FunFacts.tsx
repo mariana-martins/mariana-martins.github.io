@@ -20,7 +20,7 @@ function FunFacts(): React.JSX.Element {
 
   return (
     <section
-      className="w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8 text-text-primary dark:text-text-primary-dark"
+      className="w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8 text-text-primary dark:text-text-primary-dark border-b-dashed-custom"
       aria-labelledby="fun-facts-heading"
     >
       <h3 id="fun-facts-heading" className="text-xl font-semibold">

@@ -25,6 +25,7 @@ describe('data object', () => {
         'skills',
         'contact',
         'funFacts',
+        'learningShelf',
       ];
       const actualKeys = Object.keys(data);
 
@@ -343,6 +344,61 @@ describe('data object', () => {
 
     it('should have unique fun fact IDs', () => {
       const ids = data.funFacts.map((f) => f.id);
+      const uniqueIds = new Set(ids);
+      expect(uniqueIds.size).toBe(ids.length);
+    });
+  });
+
+  describe('7. LearningShelf array structure', () => {
+    it('should have learningShelf as an array', () => {
+      expect(Array.isArray(data.learningShelf)).toBe(true);
+    });
+
+    it('should have at least one learning item', () => {
+      expect(data.learningShelf.length).toBeGreaterThan(0);
+    });
+
+    it('should have expected structure for each learning item', () => {
+      data.learningShelf.forEach((item) => {
+        expect(item).toHaveProperty('id');
+        expect(item).toHaveProperty('title');
+        expect(item).toHaveProperty('author');
+        expect(item).toHaveProperty('category');
+        expect(item).toHaveProperty('status');
+
+        // Type checks
+        expect(typeof item.id).toBe('string');
+        expect(typeof item.title).toBe('string');
+        expect(typeof item.author).toBe('string');
+        expect(typeof item.category).toBe('string');
+        expect(typeof item.status).toBe('string');
+      });
+    });
+
+    it('should have non-empty required string fields for each learning item', () => {
+      data.learningShelf.forEach((item) => {
+        expect(item.id.trim().length).toBeGreaterThan(0);
+        expect(item.title.trim().length).toBeGreaterThan(0);
+        expect(item.author.trim().length).toBeGreaterThan(0);
+      });
+    });
+
+    it('should have valid category values', () => {
+      const validCategories = ['book', 'course'];
+      data.learningShelf.forEach((item) => {
+        expect(validCategories).toContain(item.category);
+      });
+    });
+
+    it('should have valid status values', () => {
+      const validStatuses = ['planned', 'in-progress', 'completed'];
+      data.learningShelf.forEach((item) => {
+        expect(validStatuses).toContain(item.status);
+      });
+    });
+
+    it('should have unique learning item IDs', () => {
+      const ids = data.learningShelf.map((i) => i.id);
       const uniqueIds = new Set(ids);
       expect(uniqueIds.size).toBe(ids.length);
     });

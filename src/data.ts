@@ -345,4 +345,47 @@ export const data: PortfolioData = {
     github: 'https://github.com/mariana-martins', // TODO: Verify GitHub URL
     address: 'Melbourne, Australia',
   },
+  learningShelf: [
+    {
+      id: 'laws-of-ux',
+      title:
+        'Laws of UX: Using Psychology to Design Better Products & Services',
+      author: 'Jon Yablonski',
+      category: 'book',
+      status: 'in-progress',
+      link: 'https://lawsofux.com/book/',
+    },
+    {
+      id: 'subatomic',
+      title: 'Subatomic: The Complete Guide To Design Tokens',
+      author: 'Brad Frost',
+      category: 'course',
+      status: 'in-progress',
+      link: 'https://bradfrost.com/blog/post/introducing-subatomic-the-complete-guide-to-design-tokens/',
+    },
+    {
+      id: 'ai-and-design-systems',
+      title: 'AI and Design Systems',
+      author: 'Brad Frost',
+      category: 'course',
+      status: 'planned',
+      link: 'https://aianddesign.systems/',
+    },
+    {
+      id: 'total-typescript',
+      title: 'Total Typescript',
+      author: 'Matt Pocock',
+      category: 'course',
+      status: 'planned',
+      link: 'https://www.totaltypescript.com/',
+    },
+    {
+      id: 'give-and-take',
+      title: 'Give and Take: Why Helping Others Drives Success',
+      author: 'Adam Grant',
+      category: 'book',
+      status: 'planned',
+      link: 'https://adamgrant.net/book/give-and-take/',
+    },
+  ],
 };

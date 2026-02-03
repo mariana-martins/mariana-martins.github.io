@@ -46,6 +46,15 @@ export interface FunFact {
   fact: string;
 }
 
+export interface LearningItem {
+  id: string;
+  title: string;
+  author: string;
+  category: 'book' | 'course';
+  status: 'planned' | 'in-progress' | 'completed';
+  link?: string;
+}
+
 export interface PortfolioData {
   introduction: string;
   projects: Project[];
@@ -53,4 +62,5 @@ export interface PortfolioData {
   skills: Skill[];
   contact: Contact;
   funFacts: FunFact[];
+  learningShelf: LearningItem[];
 }

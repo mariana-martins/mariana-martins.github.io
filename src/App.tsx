@@ -6,6 +6,7 @@ import Experience from '@components/Experience';
 import Footer from '@components/Footer/Footer';
 import FunFacts from '@components/FunFacts/FunFacts';
 import Header from '@components/Header';
+import LearningShelf from '@components/LearningShelf';
 import Projects from '@components/Projects/Projects';
 import SkipLink from '@components/SkipLink';
 import ThemeToggle from '@components/ThemeToggle';
@@ -29,6 +30,7 @@ function App(): React.JSX.Element {
             <div className="md:col-start-2 md:row-start-2 self-stretch flex flex-col h-full">
               <ContactInfo />
               <FunFacts />
+              <LearningShelf />
             </div>
           </div>
           <Projects />
