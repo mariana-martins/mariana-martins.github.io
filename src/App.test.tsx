@@ -125,7 +125,7 @@ describe('App', () => {
     expect(emailLink).toHaveAttribute('href', `mailto:${data.contact.email}`);
 
     const linkedInLink = screen.getByRole('link', {
-      name: /Visit Mariana Martins Menezes LinkedIn profile/i,
+      name: /Visit LinkedIn profile/i,
     });
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute('href', data.contact.linkedIn);
@@ -133,7 +133,7 @@ describe('App', () => {
     expect(linkedInLink).toHaveAttribute('rel', 'noopener noreferrer');
 
     const githubLink = screen.getByRole('link', {
-      name: /Visit mariana-martins GitHub profile/i,
+      name: /Visit GitHub profile/i,
     });
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute('href', data.contact.github);

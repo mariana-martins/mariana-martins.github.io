@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { AtSign, GitFork, Mail, MapPin } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
@@ -6,128 +6,162 @@ import type { TargetAndTransition } from 'motion/react';
 
 import { data } from '@/data';
 
-const contactLinkClasses = [
-  // Layout
-  'flex items-center gap-2',
-  // Styling
-  'rounded transition-colors',
-  // Hover states
-  'hover:opacity-80 dark:hover:opacity-100 dark:hover:text-green',
-  // Focus states - matching SkipLink colors
-  'focus:outline-none focus:ring-2 focus:ring-offset-2',
-  'focus:ring-[var(--color-pink)]',
-  'dark:focus:ring-[var(--color-blue-100)]',
+const itemClasses = [
+  'w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300',
+  'bg-transparent hover:bg-warm-100/50 dark:hover:bg-white/5',
+  'text-text-primary dark:text-text-primary-dark',
+  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+  'group cursor-pointer',
+].join(' ');
+
+const iconContainerClasses = [
+  'flex items-center justify-center p-2 rounded-lg transition-colors',
+  'bg-white/50 dark:bg-white/5',
+  'group-hover:bg-white group-hover:shadow-sm dark:group-hover:bg-white/10',
 ].join(' ');
 
 function ContactInfo(): React.JSX.Element {
   const prefersReducedMotion = useReducedMotion();
-  const [hoveredRow, setHoveredRow] = useState<string | null>(null);
 
-  // Animation variants for icon shake effect
-  const getIconShakeAnimation = (rowId: string): TargetAndTransition => {
-    if (prefersReducedMotion) {
-      return {};
-    }
-    return hoveredRow === rowId
-      ? {
-          x: [0, -3, 3, -3, 3, 0],
-          transition: {
-            duration: 0.4,
-            ease: 'easeInOut' as const,
-          },
-        }
-      : { x: 0 };
-  };
-
-  // Animation variants for icon press effect
-  const iconPressAnimation: TargetAndTransition = prefersReducedMotion
+  const iconAnimation: TargetAndTransition = prefersReducedMotion
     ? {}
     : {
-        scale: 0.9,
+        scale: [1, 1.1, 1],
         transition: {
-          duration: 0.1,
+          duration: 0.2,
+          ease: 'easeInOut',
         },
       };
 
   return (
     <section
-      className="w-full h-fit flex flex-col gap-6 justify-evenly py-8 items-center text-text-primary dark:text-text-primary-dark border-b-dashed-custom"
+      className="w-full flex-1 flex flex-col justify-center gap-6 py-4 md:py-8 items-center border-b-dashed-custom"
       aria-labelledby="contact-info-heading"
     >
-      <h3 id="contact-info-heading" className="text-xl font-semibold">
+      <h3
+        id="contact-info-heading"
+        className="text-xl text-text-primary dark:text-text-primary-dark font-semibold mb-2"
+      >
         Say Hi!
       </h3>
-      <div className="flex flex-col gap-6">
-        <address
-          className="flex items-center gap-2"
-          onMouseEnter={() => setHoveredRow('address')}
-          onMouseLeave={() => setHoveredRow(null)}
-        >
-          <motion.span
-            className="inline-block"
-            animate={getIconShakeAnimation('address')}
-            aria-hidden="true"
+
+      <ul className="w-full max-w-sm flex flex-col gap-2">
+        {/* Address */}
+        <li>
+          <address
+            className={`${itemClasses} cursor-default hover:bg-transparent dark:hover:bg-transparent not-italic`}
           >
-            <MapPin size={20} aria-hidden="true" />
-          </motion.span>
-          <p className="text-base">{data.contact.address}</p>
-        </address>
-        <a
-          href={`mailto:${data.contact.email}`}
-          aria-label={`Send email to ${data.contact.email}`}
-          className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow('email')}
-          onMouseLeave={() => setHoveredRow(null)}
-        >
-          <motion.span
-            className="inline-block"
-            animate={getIconShakeAnimation('email')}
-            whileTap={iconPressAnimation}
-            aria-hidden="true"
+            <div className={iconContainerClasses}>
+              <MapPin
+                size={22}
+                className="text-pink dark:text-blue-100"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
+                Location
+              </span>
+              <span className="text-base font-medium">
+                {data.contact.address}
+              </span>
+            </div>
+          </address>
+        </li>
+
+        {/* Email */}
+        <li>
+          <motion.a
+            href={`mailto:${data.contact.email}`}
+            className={itemClasses}
+            whileHover={prefersReducedMotion ? {} : { x: 4 }}
+            whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+            aria-label={`Send email to ${data.contact.email}`}
           >
-            <Mail size={20} aria-hidden="true" />
-          </motion.span>
-          <span className="text-base">{data.contact.email}</span>
-        </a>
-        <a
-          href={data.contact.linkedIn}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit Mariana Martins Menezes LinkedIn profile"
-          className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow('linkedin')}
-          onMouseLeave={() => setHoveredRow(null)}
-        >
-          <motion.span
-            className="inline-block"
-            animate={getIconShakeAnimation('linkedin')}
-            whileTap={iconPressAnimation}
-            aria-hidden="true"
+            <motion.div
+              className={iconContainerClasses}
+              whileHover={iconAnimation}
+            >
+              <Mail
+                size={22}
+                className="text-pink dark:text-blue-100"
+                aria-hidden="true"
+              />
+            </motion.div>
+            <div className="flex flex-col">
+              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
+                Email
+              </span>
+              <span className="text-base font-medium break-all">
+                {data.contact.email}
+              </span>
+            </div>
+          </motion.a>
+        </li>
+
+        {/* LinkedIn */}
+        <li>
+          <motion.a
+            href={data.contact.linkedIn}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={itemClasses}
+            whileHover={prefersReducedMotion ? {} : { x: 4 }}
+            whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+            aria-label="Visit LinkedIn profile"
           >
-            <AtSign size={20} aria-hidden="true" />
-          </motion.span>
-          <span className="text-base">Mariana Martins Menezes</span>
-        </a>
-        <a
-          href={data.contact.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit mariana-martins GitHub profile"
-          className={contactLinkClasses}
-          onMouseEnter={() => setHoveredRow('github')}
-          onMouseLeave={() => setHoveredRow(null)}
-        >
-          <motion.span
-            className="inline-block"
-            animate={getIconShakeAnimation('github')}
-            whileTap={iconPressAnimation}
-            aria-hidden="true"
+            <motion.div
+              className={iconContainerClasses}
+              whileHover={iconAnimation}
+            >
+              <AtSign
+                size={22}
+                className="text-pink dark:text-blue-100"
+                aria-hidden="true"
+              />
+            </motion.div>
+            <div className="flex flex-col">
+              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
+                LinkedIn
+              </span>
+              <span className="text-base font-medium truncate">
+                Mariana Martins Menezes
+              </span>
+            </div>
+          </motion.a>
+        </li>
+
+        {/* GitHub */}
+        <li>
+          <motion.a
+            href={data.contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={itemClasses}
+            whileHover={prefersReducedMotion ? {} : { x: 4 }}
+            whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+            aria-label="Visit GitHub profile"
           >
-            <GitFork size={20} aria-hidden="true" />
-          </motion.span>
-          <span className="text-base">mariana-martins</span>
-        </a>
-      </div>
+            <motion.div
+              className={iconContainerClasses}
+              whileHover={iconAnimation}
+            >
+              <GitFork
+                size={22}
+                className="text-pink dark:text-blue-100"
+                aria-hidden="true"
+              />
+            </motion.div>
+            <div className="flex flex-col">
+              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
+                GitHub
+              </span>
+              <span className="text-base font-medium">mariana-martins</span>
+            </div>
+          </motion.a>
+        </li>
+      </ul>
     </section>
   );
 }

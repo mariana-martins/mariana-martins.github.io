@@ -10,7 +10,7 @@ function AboutMe(): React.JSX.Element {
 
   return (
     <section
-      className="col-start-1 h-full  text-text-primary  dark:text-text-primary-dark md:col-span-full md:row-start-1 md:pb-0 border-b-dashed-custom"
+      className="col-start-1 h-full  text-text-primary  dark:text-text-primary-dark md:col-span-full md:row-start-1 px-2 md:pb-0 border-b-dashed-custom"
       aria-labelledby="about-me-heading"
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-[3fr_1fr] md:items-center ">

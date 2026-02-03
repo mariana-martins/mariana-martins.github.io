@@ -261,7 +261,7 @@
   /* Bottom dashed border */
   .border-b-dashed-custom {
     --dashed-border-bottom-left-offset: 0;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
   }
 
   .border-b-dashed-custom::after {

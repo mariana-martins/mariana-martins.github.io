@@ -39,7 +39,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const linkedInLink = screen.getByRole('link', {
-      name: /Visit Mariana Martins Menezes LinkedIn profile/i,
+      name: /Visit LinkedIn profile/i,
     });
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute(
@@ -54,7 +54,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const githubLink = screen.getByRole('link', {
-      name: /Visit mariana-martins GitHub profile/i,
+      name: /Visit GitHub profile/i,
     });
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(
@@ -121,7 +121,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const linkedInLink = screen.getByRole('link', {
-      name: /Visit Mariana Martins Menezes LinkedIn profile/i,
+      name: /Visit LinkedIn profile/i,
     });
     await user.hover(linkedInLink);
     // Component should handle hover without errors
@@ -133,7 +133,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const githubLink = screen.getByRole('link', {
-      name: /Visit mariana-martins GitHub profile/i,
+      name: /Visit GitHub profile/i,
     });
     await user.hover(githubLink);
     // Component should handle hover without errors
