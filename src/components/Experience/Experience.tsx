@@ -50,19 +50,19 @@ function ExperienceCard({
             <h4>
               <Accordion.Trigger
                 className={clsx(
-                  'w-full p-3 md:p-4 text-left',
+                  'w-full p-4 md:p-5 text-left',
                   'flex flex-col gap-1',
                   'cursor-pointer',
                   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
                   'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
                   'group/trigger',
-                  'min-h-[44px]',
+                  'min-h-[48px]',
                 )}
                 aria-label={`${experience.position} at ${experience.company}, ${dateRange}. Click to ${experience.id === 'expanded' ? 'collapse' : 'expand'} details.`}
               >
                 <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between md:gap-2 w-full">
                   <div className="flex-1 min-w-0">
-                    <span className="text-base md:text-lg font-bold block leading-tight">
+                    <span className="text-base md:text-lg font-bold block leading-snug text-balance">
                       {experience.position}
                     </span>
                     <span className="text-sm md:text-base">

@@ -113,8 +113,8 @@ function ProjectCard({
           <h4
             id={`project-${project.id}-title`}
             className={clsx(
-              'font-bold text-text-primary dark:text-text-primary-dark',
-              isFeatured ? 'text-xl md:text-2xl' : 'text-sm md:text-base',
+              'font-bold text-text-primary dark:text-text-primary-dark text-balance',
+              isFeatured ? 'text-xl md:text-2xl' : 'text-base md:text-lg',
             )}
           >
             {project.title}
@@ -125,7 +125,7 @@ function ProjectCard({
           {isFeatured && (
             <p
               id={`project-${project.id}-desc`}
-              className="text-sm md:text-base/6 text-text-primary/80 dark:text-text-primary-dark/80 mt-2"
+              className="text-sm md:text-base/6 text-text-primary/80 dark:text-text-primary-dark/80 mt-2 text-pretty"
             >
               {project.description}
             </p>

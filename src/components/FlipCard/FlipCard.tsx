@@ -72,7 +72,7 @@ export function FlipCard({
           onKeyDown={!isFlipped ? handleKeyDown : undefined}
           aria-label={`Question: ${funFact.question}. Click to reveal answer.`}
         >
-          <p className="text-base md:text-lg text-center font-medium px-2">
+          <p className="text-base md:text-lg text-center font-medium px-2 text-balance">
             {funFact.question}
           </p>
           <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
@@ -92,7 +92,7 @@ export function FlipCard({
           aria-hidden={!isFlipped}
         >
           <div className="flex-1 flex items-center">
-            <p className="text-sm md:text-base leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed text-pretty">
               {funFact.fact}
             </p>
           </div>

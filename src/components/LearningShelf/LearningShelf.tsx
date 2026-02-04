@@ -82,7 +82,7 @@ function LearningShelf(): React.JSX.Element {
               </div>
 
               <div className="flex-1 flex flex-col gap-1 min-w-0">
-                <h4 className="font-medium text-sm md:text-base">
+                <h4 className="font-medium text-base text-balance leading-snug">
                   {item.link ? (
                     <a
                       href={item.link}
@@ -108,7 +108,7 @@ function LearningShelf(): React.JSX.Element {
                     item.title
                   )}
                 </h4>
-                <p className="text-xs md:text-sm text-text-primary/70 dark:text-text-primary-dark/70">
+                <p className="text-sm text-text-primary/70 dark:text-text-primary-dark/70">
                   {item.author}
                 </p>
               </div>

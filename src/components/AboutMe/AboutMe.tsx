@@ -26,7 +26,7 @@ function AboutMe(): React.JSX.Element {
         >
           <h3
             id="about-me-heading"
-            className="text-2xl md:text-3xl font-bold font-heading self-start"
+            className="text-2xl md:text-3xl font-bold font-heading self-start text-balance"
           >
             A Little Bit of Everything
           </h3>
