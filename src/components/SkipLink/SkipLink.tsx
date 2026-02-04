@@ -82,7 +82,7 @@ function SkipLink({
       className={getSkipLinkClasses(position)}
     >
       <span className="flex items-center gap-2">
-        <Icon />
+        <Icon aria-hidden="true" />
         {label}
       </span>
     </a>

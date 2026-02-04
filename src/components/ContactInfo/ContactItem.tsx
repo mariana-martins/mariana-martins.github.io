@@ -96,6 +96,7 @@ export const ContactItem = ({
           <span className={cn('text-base font-medium', valueClassName)}>
             {value}
           </span>
+          {isExternal && <span className="sr-only"> (opens in new tab)</span>}
         </div>
       </motion.a>
     </li>

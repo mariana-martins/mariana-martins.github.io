@@ -99,6 +99,8 @@ function LearningItemTitle({
           className={cn(
             'underline decoration-transparent hover:decoration-current',
             'focus:decoration-current focus:outline-none',
+            'focus-visible:ring-2 focus-visible:ring-offset-2',
+            'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
             'hover:text-pink dark:hover:text-blue-100',
             'transition-all duration-200',
             'decoration-2 underline-offset-2',
