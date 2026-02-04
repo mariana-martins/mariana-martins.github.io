@@ -1,10 +1,10 @@
 import React from 'react';
 
-import clsx from 'clsx';
 import { BookOpen, GraduationCap, Video } from 'lucide-react';
 
 import { Card } from '@/components/Card';
 import { data } from '@/data';
+import { cn } from '@/lib/cn';
 import type { LearningItem } from '@/types';
 
 const statusConfig = {
@@ -70,7 +70,7 @@ function LearningShelf(): React.JSX.Element {
               className="flex flex-col sm:flex-row sm:items-center gap-3"
             >
               <div
-                className={clsx(
+                className={cn(
                   'p-2 rounded-full shrink-0 self-start sm:self-center text-text-primary dark:text-text-primary-dark',
                   item.category === 'book'
                     ? 'bg-warm-200 dark:bg-warm-200/50'
@@ -88,7 +88,7 @@ function LearningShelf(): React.JSX.Element {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={clsx(
+                      className={cn(
                         'underline decoration-transparent hover:decoration-current',
                         'focus:decoration-current focus:outline-none',
                         'hover:text-pink dark:hover:text-blue-100',
@@ -114,7 +114,7 @@ function LearningShelf(): React.JSX.Element {
               </div>
 
               <span
-                className={clsx(
+                className={cn(
                   'self-start sm:self-center px-2.5 py-0.5 rounded-full text-xs font-medium border-2',
                   statusConfig[item.status].colors,
                 )}

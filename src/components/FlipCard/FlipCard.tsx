@@ -1,9 +1,9 @@
 import React from 'react';
 
-import clsx from 'clsx';
 import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
+import { cn } from '@/lib/cn';
 import type { FunFact } from '@/types';
 
 import { Card } from '../Card';
@@ -61,7 +61,7 @@ export function FlipCard({
         {/* Front - Question */}
         <Card
           variant="interactive"
-          className={clsx(
+          className={cn(
             'absolute inset-0 w-full min-h-[230px]',
             'flex flex-col items-center justify-center gap-4',
             'backface-hidden',
@@ -84,7 +84,7 @@ export function FlipCard({
         {/* Back - Answer */}
         <Card
           variant="default"
-          className={clsx(
+          className={cn(
             'absolute inset-0 w-full min-h-[230px]',
             'flex flex-col justify-between',
             'backface-hidden rotate-y-180',
@@ -100,7 +100,7 @@ export function FlipCard({
           {/* Next/Reset button */}
           <button
             type="button"
-            className={clsx(
+            className={cn(
               'mt-4 flex items-center justify-center gap-2 w-full py-2 rounded-md cursor-pointer',
               'bg-pink/20 dark:bg-blue-100/20',
               'hover:bg-pink/30 dark:hover:bg-blue-100/30',

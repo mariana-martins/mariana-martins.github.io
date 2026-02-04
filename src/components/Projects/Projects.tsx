@@ -8,11 +8,11 @@ import {
   CardHeader,
 } from '@components/Card';
 import Tag from '@components/Tag';
-import clsx from 'clsx';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { data } from '@/data';
+import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
 
 const projectDecorations: Record<
@@ -69,7 +69,7 @@ function ProjectCard({
       <Card
         variant="interactive"
         size={isFeatured ? 'lg' : 'md'}
-        className={clsx(
+        className={cn(
           'h-full flex flex-col',
           isFeatured ? 'min-h-[280px]' : 'min-h-[120px]',
         )}
@@ -82,10 +82,10 @@ function ProjectCard({
 
         {isFeatured && (
           <div
-            className={clsx(
+            className={cn(
               'absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full',
               'bg-pink/80 dark:bg-blue-100/80 backdrop-blur-sm',
-              'text-xs font-medium text-text-primary ',
+              'text-xs font-medium text-text-primary',
             )}
           >
             <Sparkles size={12} aria-hidden="true" />
@@ -94,7 +94,7 @@ function ProjectCard({
         )}
 
         <div
-          className={clsx(
+          className={cn(
             'absolute z-10 p-2 rounded-full',
             'bg-pink/20 dark:bg-blue-100/20',
             'opacity-60 hover:opacity-100',
@@ -109,10 +109,10 @@ function ProjectCard({
           />
         </div>
 
-        <CardHeader className={clsx('relative z-10', isFeatured && 'pt-10')}>
+        <CardHeader className={cn('relative z-10', isFeatured && 'pt-10')}>
           <h4
             id={`project-${project.id}-title`}
-            className={clsx(
+            className={cn(
               'font-bold text-text-primary dark:text-text-primary-dark text-balance',
               isFeatured ? 'text-xl md:text-2xl' : 'text-base md:text-lg',
             )}
@@ -138,7 +138,7 @@ function ProjectCard({
           ))}
           {hiddenCount > 0 && (
             <span
-              className={clsx(
+              className={cn(
                 'text-xs px-2 py-0.5 rounded-md',
                 'bg-pink/20 dark:bg-blue-100/20',
                 'text-text-primary/70 dark:text-text-primary-dark/70',
@@ -178,7 +178,7 @@ function Projects(): React.JSX.Element {
             <div
               key={project.id}
               role="listitem"
-              className={clsx(
+              className={cn(
                 isFeatured && 'md:col-start-1 md:row-span-2 md:row-start-1',
               )}
             >

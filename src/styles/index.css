@@ -448,4 +448,14 @@
   .will-change-bg {
     will-change: background-color;
   }
+
+  /* Icon Accent Colors - Pink in light, Blue in dark */
+  .icon-accent {
+    @apply text-pink dark:text-blue-100;
+  }
+
+  /* Muted Text - Reduced opacity for secondary text */
+  .text-muted {
+    @apply text-text-primary/60 dark:text-text-primary-dark/60;
+  }
 }

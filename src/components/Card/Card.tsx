@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+
+import { cn } from '@/lib/cn';
 
 type CardVariant = 'default' | 'interactive' | 'accent';
 type CardSize = 'sm' | 'md' | 'lg';
@@ -18,11 +18,11 @@ const CardContext = React.createContext<CardContextValue>({
 });
 
 const cardVariants: Record<CardVariant, string> = {
-  default: clsx(
+  default: cn(
     'bg-warm-100/50 dark:bg-indigo-50/30',
     'border border-pink/30 dark:border-blue-100/30',
   ),
-  interactive: clsx(
+  interactive: cn(
     'bg-warm-100/50 dark:bg-indigo-50/30',
     'border border-pink/30 dark:border-blue-100/30',
     'cursor-pointer',
@@ -31,7 +31,7 @@ const cardVariants: Record<CardVariant, string> = {
     'hover:shadow-[0_4px_20px_hsl(356_75%_78%/0.2)]',
     'dark:hover:shadow-[0_4px_20px_hsl(200_57%_84%/0.2)]',
   ),
-  accent: clsx(
+  accent: cn(
     'bg-blue-50/20 dark:bg-indigo-50/30',
     'border border-pink/30 dark:border-blue-100/30',
   ),
@@ -60,21 +60,18 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       <CardContext.Provider value={{ variant, size }}>
         <Comp
           ref={ref}
-          className={twMerge(
-            clsx(
-              // Base styles
-              'relative overflow-hidden',
-              'backdrop-blur-md rounded-xl',
-              'transition-all duration-300 ease-out',
-              // Focus styles
-              'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
-              'focus-visible:ring-pink',
-              'dark:focus-visible:ring-blue-100',
-              // Variant and size
-              cardVariants[variant],
-              cardSizes[size],
-              className,
-            ),
+          className={cn(
+            // Base styles
+            'relative overflow-hidden',
+            'backdrop-blur-md rounded-xl',
+            'transition-all duration-300 ease-out',
+            // Focus styles
+            'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
+            'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+            // Variant and size
+            cardVariants[variant],
+            cardSizes[size],
+            className,
           )}
           {...props}
         />
@@ -96,7 +93,7 @@ const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
     return (
       <Comp
         ref={ref}
-        className={clsx('flex flex-col gap-1.5', className)}
+        className={cn('flex flex-col gap-1.5', className)}
         {...props}
       />
     );
@@ -113,7 +110,7 @@ const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
   ({ asChild = false, className, ...props }, ref) => {
     const Comp = asChild ? Slot : 'div';
 
-    return <Comp ref={ref} className={clsx('flex-1', className)} {...props} />;
+    return <Comp ref={ref} className={cn('flex-1', className)} {...props} />;
   },
 );
 
@@ -130,7 +127,7 @@ const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
     return (
       <Comp
         ref={ref}
-        className={clsx('flex items-center gap-2 mt-auto pt-3', className)}
+        className={cn('flex items-center gap-2 mt-auto pt-3', className)}
         {...props}
       />
     );
@@ -185,7 +182,7 @@ const CardDecoration = React.forwardRef<HTMLDivElement, CardDecorationProps>(
       <div
         ref={ref}
         aria-hidden="true"
-        className={clsx(
+        className={cn(
           'absolute w-24 h-24 md:w-32 md:h-32 opacity-60',
           positionClasses[position],
           decorationShapes[shape],

@@ -2,10 +2,10 @@ import React from 'react';
 
 import * as Accordion from '@radix-ui/react-accordion';
 import Tag from '@components/Tag';
-import clsx from 'clsx';
 import { ChevronDown, ExternalLink, Star } from 'lucide-react';
 
 import { data } from '@/data';
+import { cn } from '@/lib/cn';
 import { formatDate } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
 
@@ -14,7 +14,7 @@ import { Card } from '../Card';
 function TimelineNode(): React.JSX.Element {
   return (
     <div
-      className={clsx(
+      className={cn(
         'absolute left-0 top-8 w-8 h-8 rounded-full z-10',
         'flex items-center justify-center',
         'bg-pink dark:bg-blue-100',
@@ -24,7 +24,7 @@ function TimelineNode(): React.JSX.Element {
         'group-hover:scale-110',
       )}
     >
-      <Star size={16} className="text-text-primary " aria-hidden="true" />
+      <Star size={16} className="text-text-primary" aria-hidden="true" />
     </div>
   );
 }
@@ -49,7 +49,7 @@ function ExperienceCard({
           <Accordion.Header asChild>
             <h4>
               <Accordion.Trigger
-                className={clsx(
+                className={cn(
                   'w-full p-4 md:p-5 text-left',
                   'flex flex-col gap-1',
                   'cursor-pointer',
@@ -75,7 +75,7 @@ function ExperienceCard({
                     </span>
                     <ChevronDown
                       size={20}
-                      className={clsx(
+                      className={cn(
                         'shrink-0 transition-transform duration-300',
                         'group-data-[state=open]/trigger:rotate-180',
                       )}
@@ -88,7 +88,7 @@ function ExperienceCard({
           </Accordion.Header>
 
           <Accordion.Content
-            className={clsx(
+            className={cn(
               'overflow-hidden',
               'data-[state=open]:animate-accordion-down',
               'data-[state=closed]:animate-accordion-up',
@@ -100,9 +100,9 @@ function ExperienceCard({
                   href={experience.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={clsx(
+                  className={cn(
                     'inline-flex items-center gap-1 mb-3 text-sm',
-                    'text-pink dark:text-blue-100',
+                    'icon-accent',
                     'hover:underline',
                     'focus:outline-none focus-visible:underline focus-visible:ring-2 focus-visible:ring-offset-2',
                     'focus-visible:ring-pink dark:focus-visible:ring-blue-100',

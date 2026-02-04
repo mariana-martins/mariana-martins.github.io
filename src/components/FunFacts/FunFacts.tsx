@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { FlipCard } from '@/components/FlipCard';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
+import { cn } from '@/lib/cn';
 
 function FunFacts(): React.JSX.Element {
   const {
@@ -20,14 +21,18 @@ function FunFacts(): React.JSX.Element {
 
   return (
     <section
-      className="w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8 text-text-primary dark:text-text-primary-dark border-b-dashed-custom"
+      className={cn(
+        'w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8',
+        'text-text-primary dark:text-text-primary-dark',
+        'border-b-dashed-custom',
+      )}
       aria-labelledby="fun-facts-heading"
     >
       <h3 id="fun-facts-heading" className="text-xl font-semibold">
         A Bit of Trivia
       </h3>
 
-      <p className="text-sm text-text-primary/60 dark:text-text-primary-dark/60">
+      <p className="text-sm text-muted">
         {revealedCount} of {totalFacts} revealed
       </p>
 

@@ -5,21 +5,22 @@ import { motion, useReducedMotion } from 'motion/react';
 import type { TargetAndTransition } from 'motion/react';
 
 import { data } from '@/data';
+import { cn } from '@/lib/cn';
 
-const itemClasses = [
+const itemClasses = cn(
   'w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300',
   'bg-transparent hover:bg-warm-100/50 dark:hover:bg-white/5',
   'text-text-primary dark:text-text-primary-dark',
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
   'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
   'group cursor-pointer',
-].join(' ');
+);
 
-const iconContainerClasses = [
+const iconContainerClasses = cn(
   'flex items-center justify-center p-2 rounded-lg transition-colors',
   'bg-white/50 dark:bg-white/5',
   'group-hover:bg-white group-hover:shadow-sm dark:group-hover:bg-white/10',
-].join(' ');
+);
 
 function ContactInfo(): React.JSX.Element {
   const prefersReducedMotion = useReducedMotion();
@@ -50,19 +51,16 @@ function ContactInfo(): React.JSX.Element {
         {/* Address */}
         <li>
           <address
-            className={`${itemClasses} cursor-default hover:bg-transparent dark:hover:bg-transparent not-italic`}
+            className={cn(
+              itemClasses,
+              'cursor-default hover:bg-transparent dark:hover:bg-transparent not-italic',
+            )}
           >
             <div className={iconContainerClasses}>
-              <MapPin
-                size={22}
-                className="text-pink dark:text-blue-100"
-                aria-hidden="true"
-              />
+              <MapPin size={22} className="icon-accent" aria-hidden="true" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
-                Location
-              </span>
+              <span className="text-xs text-muted font-medium">Location</span>
               <span className="text-base font-medium">
                 {data.contact.address}
               </span>
@@ -83,16 +81,10 @@ function ContactInfo(): React.JSX.Element {
               className={iconContainerClasses}
               whileHover={iconAnimation}
             >
-              <Mail
-                size={22}
-                className="text-pink dark:text-blue-100"
-                aria-hidden="true"
-              />
+              <Mail size={22} className="icon-accent" aria-hidden="true" />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
-                Email
-              </span>
+              <span className="text-xs text-muted font-medium">Email</span>
               <span className="text-base font-medium break-all">
                 {data.contact.email}
               </span>
@@ -115,16 +107,10 @@ function ContactInfo(): React.JSX.Element {
               className={iconContainerClasses}
               whileHover={iconAnimation}
             >
-              <AtSign
-                size={22}
-                className="text-pink dark:text-blue-100"
-                aria-hidden="true"
-              />
+              <AtSign size={22} className="icon-accent" aria-hidden="true" />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
-                LinkedIn
-              </span>
+              <span className="text-xs text-muted font-medium">LinkedIn</span>
               <span className="text-base font-medium truncate">
                 Mariana Martins Menezes
               </span>
@@ -147,16 +133,10 @@ function ContactInfo(): React.JSX.Element {
               className={iconContainerClasses}
               whileHover={iconAnimation}
             >
-              <GitFork
-                size={22}
-                className="text-pink dark:text-blue-100"
-                aria-hidden="true"
-              />
+              <GitFork size={22} className="icon-accent" aria-hidden="true" />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-xs text-text-primary/60 dark:text-text-primary-dark/60 font-medium">
-                GitHub
-              </span>
+              <span className="text-xs text-muted font-medium">GitHub</span>
               <span className="text-base font-medium">mariana-martins</span>
             </div>
           </motion.a>

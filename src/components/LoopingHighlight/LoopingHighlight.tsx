@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 
 import { motion, useInView, useReducedMotion } from 'motion/react';
 
+import { cn } from '@/lib/cn';
+
 const LoopingHighlight = ({
   children,
 }: {
@@ -31,7 +33,11 @@ const LoopingHighlight = ({
   return (
     <span ref={ref} className="relative inline-block px-1">
       <motion.span
-        className="absolute inset-0 -z-10 bottom-1 h-[60%] my-auto rounded-sm opacity-50 dark:opacity-80 will-change-bg"
+        className={cn(
+          'absolute inset-0 -z-10 bottom-1 h-[60%] my-auto rounded-sm',
+          'opacity-50 dark:opacity-80',
+          'will-change-bg',
+        )}
         initial={{ backgroundColor: colors[0] }}
         animate={
           shouldAnimate
@@ -50,7 +56,14 @@ const LoopingHighlight = ({
         }
       />
 
-      <span className="relative z-10 font-medium font-highlight text-base md:text-lg tracking-wider text-text-primary dark:text-text-primary-dark">
+      <span
+        className={cn(
+          'relative z-10',
+          'font-medium font-highlight',
+          'text-base md:text-lg tracking-wider',
+          'text-text-primary dark:text-text-primary-dark',
+        )}
+      >
         {children}
       </span>
     </span>

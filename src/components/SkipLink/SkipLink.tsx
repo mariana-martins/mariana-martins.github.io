@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-import clsx from 'clsx';
 import { ArrowDown, ArrowUp } from 'lucide-react';
+
+import { cn } from '@/lib/cn';
 
 interface SkipLinkProps {
   targetId: string;
@@ -10,7 +11,7 @@ interface SkipLinkProps {
 }
 
 const getSkipLinkClasses = (position: 'top' | 'bottom'): string => {
-  return clsx(
+  return cn(
     // Positioning and layout
     'absolute left-0 z-50',
     position === 'top' ? 'top-0' : 'bottom-0',

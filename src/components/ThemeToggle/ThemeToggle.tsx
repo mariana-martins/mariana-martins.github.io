@@ -1,10 +1,10 @@
 import React from 'react';
 
-import clsx from 'clsx';
 import { Moon, Sun } from 'lucide-react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { useTheme } from '@/hooks/useTheme';
+import { cn } from '@/lib/cn';
 
 function ThemeToggle(): React.JSX.Element {
   const { theme, toggleTheme } = useTheme();
@@ -41,7 +41,7 @@ function ThemeToggle(): React.JSX.Element {
       aria-pressed={isDark}
       whileHover={hoverAnimation}
       whileTap={tapAnimation}
-      className={clsx(
+      className={cn(
         'absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 transition-colors cursor-pointer',
         'flex items-center justify-center',
         'focus:outline-none focus:ring-2 focus:ring-offset-2',
