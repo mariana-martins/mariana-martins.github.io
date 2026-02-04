@@ -1,5 +1,6 @@
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 import { data } from '@/data';
@@ -65,5 +66,32 @@ describe('LearningShelf', () => {
     const { container } = render(<LearningShelf />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('has correct aria-labelledby attribute', () => {
+    render(<LearningShelf />);
+
+    const section = screen.getByRole('region', { name: 'The Learning Shelf' });
+    expect(section).toHaveAttribute(
+      'aria-labelledby',
+      'learning-shelf-heading',
+    );
+  });
+
+  it('supports keyboard navigation for links', async () => {
+    const user = userEvent.setup();
+    render(<LearningShelf />);
+
+    const links = screen.getAllByRole('link');
+
+    // Tab to first link
+    await user.tab();
+    expect(links[0]).toHaveFocus();
+
+    // Tab to next link
+    await user.tab();
+    if (links.length > 1) {
+      expect(links[1]).toHaveFocus();
+    }
   });
 });

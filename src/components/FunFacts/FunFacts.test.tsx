@@ -70,4 +70,21 @@ describe('FunFacts', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('supports keyboard interaction to flip card', async () => {
+    const user = userEvent.setup();
+    render(<FunFacts />);
+
+    const card = screen.getByRole('button', {
+      name: /Question:.*Click to reveal/i,
+    });
+
+    // Focus the card
+    card.focus();
+    expect(card).toHaveFocus();
+
+    // Press Enter to flip
+    await user.keyboard('{Enter}');
+    expect(screen.getByText(/1 of \d+ revealed/)).toBeInTheDocument();
+  });
 });

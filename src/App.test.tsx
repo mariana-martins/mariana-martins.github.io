@@ -108,37 +108,22 @@ describe('App', () => {
     });
   });
 
-  it('renders ContactInfo section with all contact details', () => {
+  it('renders ContactInfo section with contact details', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
+    // Verify section exists and has key elements
     expect(screen.getByText('Say Hi!')).toBeInTheDocument();
     expect(screen.getByText(data.contact.address)).toBeInTheDocument();
 
+    // Verify at least one contact link exists (detailed checks in ContactInfo.test.tsx)
     const emailLink = screen.getByRole('link', {
       name: new RegExp(data.contact.email, 'i'),
     });
     expect(emailLink).toBeInTheDocument();
-    expect(emailLink).toHaveAttribute('href', `mailto:${data.contact.email}`);
-
-    const linkedInLink = screen.getByRole('link', {
-      name: /Visit LinkedIn profile/i,
-    });
-    expect(linkedInLink).toBeInTheDocument();
-    expect(linkedInLink).toHaveAttribute('href', data.contact.linkedIn);
-    expect(linkedInLink).toHaveAttribute('target', '_blank');
-    expect(linkedInLink).toHaveAttribute('rel', 'noopener noreferrer');
-
-    const githubLink = screen.getByRole('link', {
-      name: /Visit GitHub profile/i,
-    });
-    expect(githubLink).toBeInTheDocument();
-    expect(githubLink).toHaveAttribute('href', data.contact.github);
-    expect(githubLink).toHaveAttribute('target', '_blank');
-    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   it('renders FunFacts section with trivia game', () => {
@@ -195,33 +180,6 @@ describe('App', () => {
         /© 2025 Mariana Martins Menezes. Frontend engineer and eternal learner./i,
       ),
     ).toBeInTheDocument();
-  });
-
-  it('renders all portfolio sections with correct headings', () => {
-    render(
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>,
-    );
-
-    const sectionHeadings = [
-      'Past Chapters',
-      'Crafted with Care',
-      'A Bit of Trivia',
-      'Say Hi!',
-    ];
-
-    sectionHeadings.forEach((heading) => {
-      expect(screen.getByText(heading)).toBeInTheDocument();
-    });
-
-    // AboutMe section doesn't have a visible heading, but should be present
-    const aboutMeSection = screen
-      .getAllByRole('region')
-      .find((section) =>
-        section.getAttribute('aria-labelledby')?.includes('about-me-heading'),
-      );
-    expect(aboutMeSection).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {

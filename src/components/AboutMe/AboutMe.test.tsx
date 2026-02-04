@@ -77,4 +77,45 @@ describe('AboutMe', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('handles reduced motion preference', () => {
+    // Mock matchMedia for reduced motion
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => {
+        if (query === '(prefers-reduced-motion: reduce)') {
+          return {
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+          };
+        }
+        return {
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+          addEventListener: jest.fn(),
+          removeEventListener: jest.fn(),
+          dispatchEvent: jest.fn(),
+        };
+      }),
+    });
+
+    render(
+      <ThemeProvider>
+        <AboutMe />
+      </ThemeProvider>,
+    );
+
+    // Component should render without errors when reduced motion is preferred
+    const section = screen.getByRole('region');
+    expect(section).toBeInTheDocument();
+  });
 });
