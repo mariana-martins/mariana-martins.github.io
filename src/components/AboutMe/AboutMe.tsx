@@ -14,7 +14,7 @@ function AboutMe(): React.JSX.Element {
   return (
     <section
       className={cn(
-        'col-start-1 h-full px-2 md:pb-0',
+        'col-start-1 h-full px-2 py-12',
         'text-text-primary dark:text-text-primary-dark',
         'md:col-span-full md:row-start-1',
         'border-b-dashed-custom',
@@ -25,7 +25,6 @@ function AboutMe(): React.JSX.Element {
         className={cn(
           'flex flex-col gap-8 md:gap-12',
           'md:flex-row md:items-center',
-          'py-8 md:py-12',
         )}
       >
         {/* Text Content */}

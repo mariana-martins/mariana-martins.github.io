@@ -51,7 +51,7 @@ function LearningItemCategory({
   return (
     <div
       className={cn(
-        'p-2 rounded-full shrink-0 self-start sm:self-center text-text-primary dark:text-text-primary-dark',
+        'p-2 rounded-full shrink-0 text-text-primary dark:text-text-primary-dark',
         category === 'book'
           ? 'bg-warm-200 dark:bg-warm-200/50'
           : 'bg-purple dark:bg-purple/50',
@@ -79,7 +79,7 @@ function LearningItemStatus({
   return (
     <span
       className={cn(
-        'self-start sm:self-center px-2.5 py-0.5 rounded-full text-xs font-medium border-2',
+        'px-2.5 py-0.5 rounded-full text-xs font-medium border-2',
         statusConfig[status].colors,
       )}
       aria-label={`Status: ${statusConfig[status].label}`}
@@ -132,11 +132,11 @@ export function LearningShelfItem({
       <Card
         variant="default"
         size="sm"
-        className="flex flex-col sm:flex-row sm:items-center gap-3"
+        className="flex flex-col items-center sm:flex-row sm:items-center gap-3"
       >
         <LearningItemCategory category={item.category} />
 
-        <div className="flex-1 flex flex-col gap-1 min-w-0">
+        <div className="flex-1 flex flex-col gap-1 min-w-0 text-center sm:text-left">
           <LearningItemTitle item={item} />
           <LearningItemAuthor author={item.author} />
         </div>

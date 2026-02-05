@@ -103,6 +103,7 @@ function Header(): React.JSX.Element {
             'text-2xl lg:text-5xl font-bold font-heading',
             'tracking-[0.25rem] text-heading uppercase',
             'lg:text-left text-center',
+            'max-w-[300px] md:max-w-[900px]',
           )}
         >
           {prefersReducedMotion ? (

@@ -261,7 +261,6 @@
   /* Bottom dashed border */
   .border-b-dashed-custom {
     --dashed-border-bottom-left-offset: 0;
-    padding-bottom: 2rem;
   }
 
   .border-b-dashed-custom::after {
@@ -283,28 +282,38 @@
     pointer-events: none;
   }
 
-  /* Right dashed border */
-  .border-r-dashed-custom {
-    padding-right: var(--dashed-border-spacing);
+  /* Hide bottom dashed border on md+ screens */
+  @media (width >= 768px) {
+    .md\:border-b-0-dashed-custom::after {
+      display: none;
+    }
   }
 
-  .border-r-dashed-custom::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: var(--dashed-border-width);
-    background: repeating-linear-gradient(
-      to bottom,
-      var(--dashed-border-color) 0,
-      var(--dashed-border-color) var(--dashed-border-segment-length),
-      transparent var(--dashed-border-segment-length),
-      transparent
-        calc(
-          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
-        )
-    );
-    opacity: var(--dashed-border-opacity);
-    pointer-events: none;
+  /* Right dashed border - only on md+ screens */
+  @media (width >= 768px) {
+    .md\:border-r-dashed-custom {
+      padding-right: var(--dashed-border-spacing);
+    }
+
+    .md\:border-r-dashed-custom::before {
+      content: '';
+      position: absolute;
+      inset: 1.75rem 0 1.75rem auto;
+      width: var(--dashed-border-width);
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      );
+      opacity: var(--dashed-border-opacity);
+      pointer-events: none;
+    }
   }
 
   /* Top dashed border */

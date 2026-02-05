@@ -8,7 +8,7 @@ import { LearningShelfItem } from './LearningShelfItem';
 function LearningShelf(): React.JSX.Element {
   return (
     <section
-      className="w-full flex-1 flex flex-col gap-6 p-4 md:p-8 items-center text-text-primary dark:text-text-primary-dark"
+      className="w-full flex-1 flex flex-col gap-6 px-4 py-12 items-center text-text-primary dark:text-text-primary-dark"
       aria-labelledby="learning-shelf-heading"
       aria-describedby="learning-shelf-description"
     >

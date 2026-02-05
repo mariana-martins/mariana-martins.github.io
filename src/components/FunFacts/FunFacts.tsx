@@ -22,7 +22,7 @@ function FunFacts(): React.JSX.Element {
   return (
     <section
       className={cn(
-        'w-full h-fit flex flex-col items-center gap-4 p-4 md:p-8',
+        'w-full h-fit flex flex-col items-center gap-4 px-4 py-12',
         'text-text-primary dark:text-text-primary-dark',
         'border-b-dashed-custom',
       )}

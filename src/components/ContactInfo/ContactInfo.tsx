@@ -9,7 +9,7 @@ import { ContactItem } from './ContactItem';
 function ContactInfo(): React.JSX.Element {
   return (
     <section
-      className="w-full flex-1 flex flex-col justify-center gap-6 py-4 md:py-8 items-center border-b-dashed-custom"
+      className="w-full flex-1 flex flex-col justify-center gap-6 py-12 items-center border-b-dashed-custom"
       aria-labelledby="contact-info-heading"
     >
       <h3

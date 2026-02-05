@@ -11,7 +11,7 @@ function Projects(): React.JSX.Element {
 
   return (
     <section
-      className="w-full text-text-primary dark:text-text-primary-dark px-2 py-4 md:py-8"
+      className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12"
       aria-labelledby="projects-heading"
     >
       <h3 id="projects-heading" className="text-xl font-semibold mb-6">

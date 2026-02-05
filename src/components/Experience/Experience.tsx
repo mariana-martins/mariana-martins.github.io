@@ -10,7 +10,7 @@ import { ExperienceCard } from './ExperienceCard';
 function Experience(): React.JSX.Element {
   return (
     <section
-      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-r-dashed-custom flex-1 flex flex-col self-stretch px-2 py-4 md:py-8"
+      className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-b-dashed-custom md:border-b-0-dashed-custom md:border-r-dashed-custom flex-1 flex flex-col self-stretch px-2 py-12"
       aria-labelledby="experience-heading"
     >
       <h3 id="experience-heading" className="text-xl font-semibold mb-6">
