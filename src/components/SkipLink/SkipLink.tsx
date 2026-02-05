@@ -4,7 +4,7 @@ import { ArrowDown, ArrowUp } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 
-interface SkipLinkProps {
+export interface SkipLinkProps {
   targetId: string;
   label?: string;
   position?: 'top' | 'bottom';

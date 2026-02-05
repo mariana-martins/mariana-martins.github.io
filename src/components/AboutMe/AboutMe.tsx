@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoopingHighlight from '@components/LoopingHighlight/';
+import LoopingHighlight from '@components/LoopingHighlight';
 import { motion, useReducedMotion } from 'motion/react';
 
 import aboutMeImage from '@/assets/avatar.png';

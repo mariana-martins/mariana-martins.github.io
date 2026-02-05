@@ -1,4 +1,4 @@
-import Tag from '@components/Tag/Tag';
+import Tag from '@components/Tag';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';

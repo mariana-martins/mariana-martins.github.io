@@ -1,4 +1,4 @@
-import Projects from '@components/Projects/Projects';
+import Projects from '@components/Projects';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';

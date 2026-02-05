@@ -1,4 +1,4 @@
-import AboutMe from '@components/AboutMe/AboutMe';
+import AboutMe from '@components/AboutMe';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';

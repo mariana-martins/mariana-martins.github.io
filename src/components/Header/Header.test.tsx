@@ -1,4 +1,4 @@
-import Header from '@components/Header/Header';
+import Header from '@components/Header';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';

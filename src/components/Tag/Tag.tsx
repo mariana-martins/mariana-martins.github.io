@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cn } from '@/lib/cn';
 
-interface TagProps {
+export interface TagProps {
   name: string;
   index: number;
 }

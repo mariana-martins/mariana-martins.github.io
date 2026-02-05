@@ -1,4 +1,4 @@
-import Footer from '@components/Footer/Footer';
+import Footer from '@components/Footer';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';

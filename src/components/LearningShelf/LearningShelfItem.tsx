@@ -1,12 +1,17 @@
 import React from 'react';
 
+import { Card } from '@components/Card';
 import { BookOpen, Video } from 'lucide-react';
 
-import { Card } from '@/components/Card';
 import { cn } from '@/lib/cn';
 import type { LearningItem } from '@/types';
 
-const statusConfig = {
+interface StatusConfig {
+  label: string;
+  colors: string;
+}
+
+const statusConfig: Record<LearningItem['status'], StatusConfig> = {
   planned: {
     label: 'Planned',
     colors:
@@ -24,12 +29,12 @@ const statusConfig = {
   },
 };
 
-const categoryLabels = {
+const categoryLabels: Record<LearningItem['category'], string> = {
   book: 'Book',
   course: 'Course',
 };
 
-const categoryIcon = {
+const categoryIcon: Record<LearningItem['category'], React.ReactNode> = {
   book: <BookOpen size={16} aria-hidden="true" />,
   course: <Video size={16} aria-hidden="true" />,
 };

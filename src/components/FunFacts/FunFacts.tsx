@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { FlipCard } from '@components/FlipCard';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
-import { FlipCard } from '@/components/FlipCard';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
 import { cn } from '@/lib/cn';
 

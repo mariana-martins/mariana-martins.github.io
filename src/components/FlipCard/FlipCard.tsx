@@ -1,12 +1,11 @@
 import React from 'react';
 
+import { Card } from '@components/Card';
 import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
 import type { FunFact } from '@/types';
-
-import { Card } from '../Card';
 
 export interface FlipCardProps {
   funFact: FunFact;

@@ -2,6 +2,7 @@ import type {
   Contact,
   Experience,
   FunFact,
+  LearningItem,
   PortfolioData,
   Project,
   Skill,
@@ -56,7 +57,6 @@ export const mockProjects: Project[] = [
     id: 'project-1',
     title: 'Contact App',
     description: 'A single-page contact list application.',
-    image: '/images/contact-app.png',
     technologies: ['React', 'JavaScript'],
     githubUrl: 'https://github.com/mariana-martins/contact-app',
   },
@@ -64,7 +64,6 @@ export const mockProjects: Project[] = [
     id: 'project-2',
     title: 'Husky Rescue Org. Website',
     description: 'A SPA using React, Bootstrap 4, Sass and Webpack.',
-    image: '/images/husky-rescue.png',
     technologies: ['React', 'Bootstrap 4', 'Sass'],
     githubUrl: 'https://github.com/mariana-martins/husky-rescue',
   },
@@ -123,6 +122,27 @@ export const mockFunFacts: FunFact[] = [
 ];
 
 /**
+ * Mock learning shelf items for testing
+ */
+export const mockLearningShelf: LearningItem[] = [
+  {
+    id: 'learning-1',
+    title: 'Clean Code',
+    author: 'Robert C. Martin',
+    category: 'book',
+    status: 'completed',
+  },
+  {
+    id: 'learning-2',
+    title: 'React Testing Library',
+    author: 'Kent C. Dodds',
+    category: 'course',
+    status: 'in-progress',
+    link: 'https://testingjavascript.com',
+  },
+];
+
+/**
  * Complete mock portfolio data for testing
  */
 export const mockPortfolioData: PortfolioData = {
@@ -132,6 +152,7 @@ export const mockPortfolioData: PortfolioData = {
   projects: mockProjects,
   skills: mockSkills,
   funFacts: mockFunFacts,
+  learningShelf: mockLearningShelf,
 };
 
 /**

@@ -1,14 +1,13 @@
 import React from 'react';
 
 import * as Accordion from '@radix-ui/react-accordion';
+import { Card } from '@components/Card';
 import Tag from '@components/Tag';
 import { ChevronDown, ExternalLink, Star } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import { formatDate } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
-
-import { Card } from '../Card';
 
 function TimelineNode(): React.JSX.Element {
   return (
@@ -28,11 +27,13 @@ function TimelineNode(): React.JSX.Element {
   );
 }
 
+export interface ExperienceCardProps {
+  experience: ExperienceType;
+}
+
 export const ExperienceCard = ({
   experience,
-}: {
-  experience: ExperienceType;
-}): React.JSX.Element => {
+}: ExperienceCardProps): React.JSX.Element => {
   const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
 
   return (
