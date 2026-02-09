@@ -8,7 +8,7 @@ import FunFacts from '@components/FunFacts';
 import Header from '@components/Header';
 import LearningShelf from '@components/LearningShelf';
 import Projects from '@components/Projects';
-import SkipLink from '@components/SkipLink';
+import SectionNav from '@components/SectionNav';
 import ThemeToggle from '@components/ThemeToggle';
 import '@styles/index.css';
 import { MotionConfig } from 'motion/react';
@@ -17,8 +17,8 @@ function App(): React.JSX.Element {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen max-w-6xl mx-8 md:mx-auto flex flex-col gap-2 md:gap-4 md:px-16 justify-center items-center">
+        <SectionNav />
         <ThemeToggle />
-        <SkipLink targetId="about-me-heading" />
         <Header />
         <main
           id="main-content"
@@ -36,11 +36,6 @@ function App(): React.JSX.Element {
           <Projects />
         </main>
         <Footer />
-        <SkipLink
-          targetId="about-me-heading"
-          position="bottom"
-          label="Back to About Me"
-        />
       </div>
     </MotionConfig>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import type { LearningItem } from '@/types';
 
@@ -13,8 +14,12 @@ function LearningShelf(): React.JSX.Element {
       aria-describedby="learning-shelf-description"
     >
       <div className="flex items-center gap-2">
-        <h3 id="learning-shelf-heading" className="text-xl font-semibold">
-          The Learning Shelf
+        <h3
+          id="learning-shelf-heading"
+          tabIndex={-1}
+          className="text-xl font-semibold"
+        >
+          {SECTIONS[4].label}
         </h3>
       </div>
 

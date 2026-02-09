@@ -4,6 +4,7 @@ import LoopingHighlight from '@components/LoopingHighlight';
 import { motion, useReducedMotion } from 'motion/react';
 
 import aboutMeImage from '@/assets/avatar.png';
+import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 
@@ -37,12 +38,13 @@ function AboutMe(): React.JSX.Element {
         >
           <h3
             id="about-me-heading"
+            tabIndex={-1}
             className={cn(
               'text-2xl md:text-3xl font-bold font-heading',
               'self-start text-balance',
             )}
           >
-            A Little Bit of Everything
+            {SECTIONS[0].label}
           </h3>
           <p
             className={cn(

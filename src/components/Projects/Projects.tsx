@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
@@ -14,8 +15,12 @@ function Projects(): React.JSX.Element {
       className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12"
       aria-labelledby="projects-heading"
     >
-      <h3 id="projects-heading" className="text-xl font-semibold mb-6">
-        Crafted with Care
+      <h3
+        id="projects-heading"
+        tabIndex={-1}
+        className="text-xl font-semibold mb-6"
+      >
+        {SECTIONS[5].label}
       </h3>
 
       <div

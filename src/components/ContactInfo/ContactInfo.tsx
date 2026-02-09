@@ -2,6 +2,7 @@ import React from 'react';
 
 import { AtSign, GitFork, Mail, MapPin } from 'lucide-react';
 
+import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 
 import { ContactItem } from './ContactItem';
@@ -14,9 +15,10 @@ function ContactInfo(): React.JSX.Element {
     >
       <h3
         id="contact-info-heading"
+        tabIndex={-1}
         className="text-xl text-text-primary dark:text-text-primary-dark font-semibold mb-2"
       >
-        Say Hi!
+        {SECTIONS[2].label}
       </h3>
 
       <ul className="w-full max-w-sm flex flex-col gap-2">

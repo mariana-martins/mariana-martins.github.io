@@ -26,9 +26,12 @@ describe('App', () => {
       .replace(/\s/g, '')
       .toLowerCase();
     expect(normalizedText).toContain(expectedText);
-    // Find the subtitle h2 specifically (not experience positions)
-    const subtitle = screen.getByRole('heading', { level: 2 });
-    expect(subtitle).toHaveTextContent('Frontend Engineer');
+    // Find the subtitle h2 specifically (there are multiple h2s now including SectionNav)
+    const subtitles = screen.getAllByRole('heading', { level: 2 });
+    const subtitle = subtitles.find((h) =>
+      h.textContent?.includes('Frontend Engineer'),
+    );
+    expect(subtitle).toBeInTheDocument();
     expect(screen.getByAltText('Mariana Martins Logo')).toBeInTheDocument();
   });
 
@@ -87,7 +90,9 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText('Past Chapters')).toBeInTheDocument();
+    // Section label appears twice (in SectionNav and in section heading)
+    const pastChaptersElements = screen.getAllByText('Past Chapters');
+    expect(pastChaptersElements.length).toBeGreaterThanOrEqual(1);
 
     data.experience.forEach((experience) => {
       // Escape special regex characters in position and company
@@ -116,7 +121,9 @@ describe('App', () => {
     );
 
     // Verify section exists and has key elements
-    expect(screen.getByText('Say Hi!')).toBeInTheDocument();
+    // Section label appears twice (in SectionNav and in section heading)
+    const sayHiElements = screen.getAllByText('Say Hi!');
+    expect(sayHiElements.length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText(data.contact.address)).toBeInTheDocument();
 
     // Verify at least one contact link exists (detailed checks in ContactInfo.test.tsx)
@@ -133,7 +140,9 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText('A Bit of Trivia')).toBeInTheDocument();
+    // Section label appears twice (in SectionNav and in section heading)
+    const triviaElements = screen.getAllByText('A Bit of Trivia');
+    expect(triviaElements.length).toBeGreaterThanOrEqual(1);
 
     // The trivia game shows one question at a time, so check for the first question
     expect(screen.getByText(data.funFacts[0].question)).toBeInTheDocument();
@@ -149,7 +158,9 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    expect(screen.getByText('Crafted with Care')).toBeInTheDocument();
+    // Section label appears twice (in SectionNav and in section heading)
+    const craftedElements = screen.getAllByText('Crafted with Care');
+    expect(craftedElements.length).toBeGreaterThanOrEqual(1);
 
     data.projects.forEach((project) => {
       expect(screen.getByText(project.title)).toBeInTheDocument();

@@ -281,4 +281,94 @@ describe('FlipCard', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  describe('Auto-focus behavior', () => {
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
+    it('accepts shouldAutoFocus prop without error', () => {
+      expect(() => {
+        render(
+          <FlipCard
+            funFact={mockFunFact}
+            isFlipped={false}
+            onFlip={mockOnFlip}
+            onNext={mockOnNext}
+            onReset={mockOnReset}
+            allRevealed={false}
+            shouldAutoFocus={true}
+          />,
+        );
+      }).not.toThrow();
+    });
+
+    it('calls onAutoFocusComplete when shouldAutoFocus is true', () => {
+      const mockOnAutoFocusComplete = jest.fn();
+
+      render(
+        <FlipCard
+          funFact={mockFunFact}
+          isFlipped={false}
+          onFlip={mockOnFlip}
+          onNext={mockOnNext}
+          onReset={mockOnReset}
+          allRevealed={false}
+          shouldAutoFocus={true}
+          onAutoFocusComplete={mockOnAutoFocusComplete}
+        />,
+      );
+
+      // Advance timers to trigger the focus effect
+      jest.advanceTimersByTime(150);
+
+      expect(mockOnAutoFocusComplete).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not call onAutoFocusComplete when shouldAutoFocus is false', () => {
+      const mockOnAutoFocusComplete = jest.fn();
+
+      render(
+        <FlipCard
+          funFact={mockFunFact}
+          isFlipped={false}
+          onFlip={mockOnFlip}
+          onNext={mockOnNext}
+          onReset={mockOnReset}
+          allRevealed={false}
+          shouldAutoFocus={false}
+          onAutoFocusComplete={mockOnAutoFocusComplete}
+        />,
+      );
+
+      jest.advanceTimersByTime(150);
+
+      expect(mockOnAutoFocusComplete).not.toHaveBeenCalled();
+    });
+
+    it('focuses front card when shouldAutoFocus is true and not flipped', () => {
+      render(
+        <FlipCard
+          funFact={mockFunFact}
+          isFlipped={false}
+          onFlip={mockOnFlip}
+          onNext={mockOnNext}
+          onReset={mockOnReset}
+          allRevealed={false}
+          shouldAutoFocus={true}
+        />,
+      );
+
+      jest.advanceTimersByTime(150);
+
+      const card = screen.getByRole('button', {
+        name: /Question: What is your favorite color\?/i,
+      });
+      expect(document.activeElement).toBe(card);
+    });
+  });
 });

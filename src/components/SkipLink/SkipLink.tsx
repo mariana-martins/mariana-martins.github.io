@@ -57,6 +57,10 @@ function SkipLink({
     ): void => {
       event.preventDefault();
       if (targetElementRef.current !== null) {
+        // Ensure the element is focusable if it doesn't have tabIndex set
+        if (!targetElementRef.current.hasAttribute('tabindex')) {
+          targetElementRef.current.setAttribute('tabindex', '-1');
+        }
         targetElementRef.current.focus();
         targetElementRef.current.scrollIntoView({
           behavior: 'smooth',

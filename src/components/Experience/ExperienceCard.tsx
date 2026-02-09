@@ -43,7 +43,12 @@ export const ExperienceCard = ({
       <Card
         asChild
         variant="interactive"
-        className="p-0 transition-all duration-300 hover:shadow-[0_4px_20px_hsl(356_75%_78%/0.2)] dark:hover:shadow-[0_4px_20px_hsl(200_57%_84%/0.2)] data-[state=open]:border-pink/70 dark:data-[state=open]:border-blue-100/70"
+        className={cn(
+          'p-0',
+          'data-[state=open]:border-pink/70 dark:data-[state=open]:border-blue-100/70',
+          'focus-within:ring-4 focus-within:ring-offset-2',
+          'focus-within:ring-pink dark:focus-within:ring-blue-100',
+        )}
       >
         <Accordion.Item value={experience.id}>
           <Accordion.Header asChild>
@@ -53,8 +58,7 @@ export const ExperienceCard = ({
                   'w-full p-4 md:p-5 text-left',
                   'flex flex-col gap-1',
                   'cursor-pointer',
-                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-                  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+                  'focus:outline-none',
                   'group/trigger',
                   'min-h-[48px]',
                 )}

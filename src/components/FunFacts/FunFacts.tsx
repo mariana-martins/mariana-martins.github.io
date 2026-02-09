@@ -3,6 +3,7 @@ import React from 'react';
 import { FlipCard } from '@components/FlipCard';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
+import { SECTIONS } from '@/constants';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
 import { cn } from '@/lib/cn';
 
@@ -13,9 +14,11 @@ function FunFacts(): React.JSX.Element {
     revealedCount,
     isFlipped,
     allRevealed,
+    shouldAutoFocus,
     handleFlip,
     handleNext,
     handleReset,
+    clearAutoFocus,
   } = useFunFactsTrivia();
   const prefersReducedMotion = useReducedMotion();
 
@@ -28,8 +31,12 @@ function FunFacts(): React.JSX.Element {
       )}
       aria-labelledby="fun-facts-heading"
     >
-      <h3 id="fun-facts-heading" className="text-xl font-semibold">
-        A Bit of Trivia
+      <h3
+        id="fun-facts-heading"
+        tabIndex={-1}
+        className="text-xl font-semibold"
+      >
+        {SECTIONS[3].label}
       </h3>
 
       <p className="text-sm text-muted">
@@ -54,6 +61,8 @@ function FunFacts(): React.JSX.Element {
                 onNext={handleNext}
                 onReset={handleReset}
                 allRevealed={allRevealed && isFlipped}
+                shouldAutoFocus={shouldAutoFocus}
+                onAutoFocusComplete={clearAutoFocus}
               />
             </motion.div>
           </AnimatePresence>

@@ -9,15 +9,18 @@ interface UseFunFactsTriviaReturn {
   revealedCount: number;
   isFlipped: boolean;
   allRevealed: boolean;
+  shouldAutoFocus: boolean;
   handleFlip: () => void;
   handleNext: () => void;
   handleReset: () => void;
+  clearAutoFocus: () => void;
 }
 
 export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [revealedIds, setRevealedIds] = useState<string[]>([]);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [shouldAutoFocus, setShouldAutoFocus] = useState(false);
 
   const totalFacts = data.funFacts.length;
   const currentFact = data.funFacts[currentIndex];
@@ -34,6 +37,7 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
     setIsFlipped(false);
     window.setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % totalFacts);
+      setShouldAutoFocus(true);
     }, 100);
   }, [totalFacts]);
 
@@ -41,6 +45,11 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
     setRevealedIds([]);
     setIsFlipped(false);
     setCurrentIndex(0);
+    setShouldAutoFocus(true);
+  }, []);
+
+  const clearAutoFocus = useCallback(() => {
+    setShouldAutoFocus(false);
   }, []);
 
   return {
@@ -49,8 +58,10 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
     revealedCount: revealedIds.length,
     isFlipped,
     allRevealed,
+    shouldAutoFocus,
     handleFlip,
     handleNext,
     handleReset,
+    clearAutoFocus,
   };
 }
