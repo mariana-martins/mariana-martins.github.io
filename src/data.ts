@@ -330,7 +330,7 @@ export const data: PortfolioData = {
     {
       id: 'fun-fact-5',
       question: 'What book changed my perspective on life?',
-      fact: 'Which book serves as my personal manual for living authentically?',
+      fact: 'Untamed by Glennon Doyle. It’s the book that taught me to trust my intuition and never apologize for being exactly who I am.',
     },
     {
       id: 'fun-fact-6',
