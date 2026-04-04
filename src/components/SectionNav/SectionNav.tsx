@@ -11,8 +11,8 @@ function SectionNav(): React.JSX.Element {
       if (
         event.type === 'click' ||
         (event.type === 'keydown' &&
-          ((event as React.KeyboardEvent).key === 'Enter' ||
-            (event as React.KeyboardEvent).key === ' '))
+          'key' in event &&
+          (event.key === 'Enter' || event.key === ' '))
       ) {
         event.preventDefault();
         const targetElement = document.getElementById(targetId);
