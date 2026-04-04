@@ -15,7 +15,7 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
-  base: '/mariana-martins.github.io/',
+  base: '/',
   build: {
     outDir: 'dist',
   },
