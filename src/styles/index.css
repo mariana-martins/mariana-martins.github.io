@@ -1,0 +1,470 @@
+@import 'tailwindcss';
+
+/* Configure class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+@theme {
+  /* Typography */
+  --font-family-heading: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+  --font-family-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-highlight: 'Zilla Slab', serif;
+
+  /* Color Palette - Blue Scale */
+  --color-blue-50: hsl(205 36% 87%);
+  --color-blue-100: hsl(200 57% 84%);
+  --color-blue-200: hsl(223 33% 26%);
+
+  /* Color Palette - Indigo Scale */
+  --color-indigo-50: hsl(227 20% 26%);
+  --color-indigo-100: hsl(224 33% 26%);
+  --color-indigo-200: hsl(224 16% 32%);
+
+  /* Color Palette - Pink */
+  --color-pink: hsl(356 75% 78%);
+
+  /* Color Palette - Warm Tones */
+  --color-warm-50: hsl(47 64% 96%);
+  --color-warm-100: hsl(19 100% 96%);
+  --color-warm-200: hsl(6 100% 92%);
+  --color-warm-300: hsl(37 100% 94%);
+  --color-warm-400: hsl(35 100% 88%);
+
+  /* Color Palette - Accent Colors */
+  --color-green: hsl(168 37% 85%);
+  --color-purple: hsl(325 34% 87%);
+
+  /* Semantic Text Colors */
+  --color-text-primary: var(--color-blue-200);
+  --color-text-primary-dark: var(--color-warm-50);
+
+  /* Rainbow Highlight Colors - Light Theme */
+  --color-highlight-red: hsl(356 75% 55%);
+  --color-highlight-orange: hsl(25 85% 55%);
+  --color-highlight-yellow: hsl(47 85% 60%);
+  --color-highlight-green: hsl(168 60% 50%);
+  --color-highlight-blue: hsl(200 70% 55%);
+  --color-highlight-indigo: hsl(240 65% 55%);
+  --color-highlight-violet: hsl(300 55% 60%);
+
+  /* Accordion Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  :root {
+    /* Light Mode Gradient */
+    --bg-gradient-light:
+      radial-gradient(
+        circle at 30% 20%,
+        hsl(195 56% 79% / 0.8) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 40%,
+        hsl(352 100% 86% / 0.6) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        hsl(60 100% 94% / 0.7) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        hsl(300 47% 75% / 0.6) 0%,
+        transparent 50%
+      ),
+      linear-gradient(
+        135deg,
+        hsl(195 56% 79% / 0.3) 0%,
+        hsl(352 100% 86% / 0.4) 25%,
+        hsl(352 100% 86% / 0.5) 50%,
+        hsl(60 100% 94% / 0.4) 75%,
+        hsl(300 47% 75% / 0.5) 100%
+      );
+
+    /* Dark Mode Gradient */
+    --bg-gradient-dark:
+      radial-gradient(
+        circle at 25% 15%,
+        hsl(214 19% 35% / 0.4) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 75% 30%,
+        hsl(300 21% 45% / 0.35) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 15% 70%,
+        hsl(195 34% 34% / 0.38) 0%,
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at 85% 80%,
+        hsl(336 27% 48% / 0.32) 0%,
+        transparent 45%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        hsl(218 14% 21% / 0.5) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        circle at 10% 40%,
+        hsl(214 17% 39% / 0.42) 0%,
+        transparent 40%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(20, 24, 32, 0.98) 0%,
+        rgba(30, 34, 44, 0.97) 25%,
+        rgba(25, 30, 40, 0.98) 50%,
+        rgba(28, 32, 42, 0.97) 75%,
+        rgba(22, 26, 36, 0.98) 100%
+      );
+
+    --divider-color: var(--color-pink);
+
+    /* Dashed Border Configuration */
+    --dashed-border-segment-length: 8px;
+    --dashed-border-gap-length: 6px;
+    --dashed-border-opacity: 0.6;
+    --dashed-border-width: 3px;
+    --dashed-border-spacing: 2rem;
+  }
+
+  .dark {
+    --divider-color: var(--color-blue-100);
+
+    /* Rainbow Highlight Colors - Dark Theme */
+    --color-highlight-red: hsl(356 80% 45%);
+    --color-highlight-orange: hsl(25 90% 45%);
+    --color-highlight-yellow: hsl(47 90% 50%);
+    --color-highlight-green: hsl(168 70% 40%);
+    --color-highlight-blue: hsl(200 75% 45%);
+    --color-highlight-indigo: hsl(240 70% 45%);
+    --color-highlight-violet: hsl(300 65% 50%);
+  }
+
+  /* Theme Color Transitions - targeted to specific elements for performance */
+  body,
+  header,
+  section,
+  nav,
+  footer,
+  main,
+  article,
+  aside,
+  button,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  svg {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Disable transitions during scroll for better performance */
+  .is-scrolling * {
+    transition: none !important;
+  }
+
+  /* Respect user's reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Base Body Styles with Light Gradient */
+  body {
+    background: var(--bg-gradient-light);
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate; /* Ensures z-index context */
+    transition: background 0.5s ease-in-out;
+  }
+
+  /* Dark Mode Background */
+  .dark body {
+    background: var(--bg-gradient-dark);
+  }
+
+  body,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-body);
+  }
+
+  h1 {
+    font-family: var(--font-family-heading);
+  }
+}
+
+/* ============================================
+   CUSTOM UTILITIES
+   ============================================ */
+@layer utilities {
+  /* Shared dashed border base styles */
+  .border-b-dashed-custom,
+  .border-r-dashed-custom,
+  .border-t-dashed-custom {
+    --dashed-border-color: var(--divider-color);
+    position: relative;
+  }
+
+  /* Bottom dashed border */
+  .border-b-dashed-custom {
+    --dashed-border-bottom-left-offset: 0;
+  }
+
+  .border-b-dashed-custom::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0 var(--dashed-border-bottom-left-offset);
+    height: var(--dashed-border-width);
+    background: repeating-linear-gradient(
+      to right,
+      var(--dashed-border-color) 0,
+      var(--dashed-border-color) var(--dashed-border-segment-length),
+      transparent var(--dashed-border-segment-length),
+      transparent
+        calc(
+          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
+        )
+    );
+    opacity: var(--dashed-border-opacity);
+    pointer-events: none;
+  }
+
+  /* Hide bottom dashed border on md+ screens */
+  @media (width >= 768px) {
+    .md\:border-b-0-dashed-custom::after {
+      display: none;
+    }
+  }
+
+  /* Right dashed border - only on md+ screens */
+  @media (width >= 768px) {
+    .md\:border-r-dashed-custom {
+      padding-right: var(--dashed-border-spacing);
+    }
+
+    .md\:border-r-dashed-custom::before {
+      content: '';
+      position: absolute;
+      inset: 1.75rem 0 1.75rem auto;
+      width: var(--dashed-border-width);
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      );
+      opacity: var(--dashed-border-opacity);
+      pointer-events: none;
+    }
+  }
+
+  /* Top dashed border */
+  .border-t-dashed-custom::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: var(--dashed-border-width);
+    background: repeating-linear-gradient(
+      to right,
+      var(--dashed-border-color) 0,
+      var(--dashed-border-color) var(--dashed-border-segment-length),
+      transparent var(--dashed-border-segment-length),
+      transparent
+        calc(
+          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
+        )
+    );
+    opacity: var(--dashed-border-opacity);
+    pointer-events: none;
+  }
+
+  /* Combined top and right dashed borders */
+  .border-t-dashed-custom.border-r-dashed-custom::before {
+    inset: 0;
+    width: auto;
+    height: auto;
+    background:
+      repeating-linear-gradient(
+        to right,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        var(--dashed-border-color) 0,
+        var(--dashed-border-color) var(--dashed-border-segment-length),
+        transparent var(--dashed-border-segment-length),
+        transparent
+          calc(
+            var(--dashed-border-segment-length) +
+              var(--dashed-border-gap-length)
+          )
+      );
+    background-position:
+      top left,
+      top right;
+    background-size:
+      100% var(--dashed-border-width),
+      var(--dashed-border-width) 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  /* Support for responsive right border combined with top border */
+  @media (width >= 768px) {
+    .border-t-dashed-custom.md\:border-r-dashed-custom::before {
+      inset: 0;
+      width: auto;
+      height: auto;
+      background:
+        repeating-linear-gradient(
+          to right,
+          var(--dashed-border-color) 0,
+          var(--dashed-border-color) var(--dashed-border-segment-length),
+          transparent var(--dashed-border-segment-length),
+          transparent
+            calc(
+              var(--dashed-border-segment-length) +
+                var(--dashed-border-gap-length)
+            )
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          var(--dashed-border-color) 0,
+          var(--dashed-border-color) var(--dashed-border-segment-length),
+          transparent var(--dashed-border-segment-length),
+          transparent
+            calc(
+              var(--dashed-border-segment-length) +
+                var(--dashed-border-gap-length)
+            )
+        );
+      background-position:
+        top left,
+        top right;
+      background-size:
+        100% var(--dashed-border-width),
+        var(--dashed-border-width) 100%;
+      background-repeat: no-repeat;
+    }
+
+    .border-t-dashed-custom.md\:border-r-dashed-custom {
+      padding-right: var(--dashed-border-spacing);
+    }
+  }
+
+  /* Abstract Clip-Path Shapes for Card Decorations */
+  .clip-path-blob {
+    clip-path: path(
+      'M120,20 C140,0 160,10 150,40 C145,60 160,80 140,100 C120,105 100,95 80,100 C60,105 40,90 30,70 C20,50 10,30 30,15 C50,0 80,5 100,10 C110,15 115,25 120,20 Z'
+    );
+  }
+
+  .clip-path-wave {
+    clip-path: path('M0,0 L128,0 L128,60 Q100,80 70,60 Q40,40 0,70 Z');
+  }
+
+  .clip-path-diagonal {
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .shape-blob {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  /* 3D Transform Utilities for Flip Cards */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* GPU Acceleration Hints */
+  .will-change-bg {
+    will-change: background-color;
+  }
+
+  /* Icon Accent Colors - Pink in light, Blue in dark */
+  .icon-accent {
+    @apply text-pink dark:text-blue-100;
+  }
+
+  /* Muted Text - Reduced opacity for secondary text */
+  .text-muted {
+    @apply text-text-primary/60 dark:text-text-primary-dark/60;
+  }
+}

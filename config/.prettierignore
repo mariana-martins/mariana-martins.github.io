@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+coverage
+.next
+.nuxt
+.vscode
+.idea
+*.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
