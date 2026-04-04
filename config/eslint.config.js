@@ -115,8 +115,8 @@ export default [
     files: [
       '**/*.config.{js,ts}',
       'vite.config.ts',
-      'babel.config.js',
-      'jest.config.js',
+      'babel.config.cjs',
+      'jest.config.cjs',
     ],
     languageOptions: {
       parser: typescriptParser,
@@ -204,7 +204,7 @@ export default [
     ignores: [
       'dist',
       'node_modules',
-      'babel.config.js',
+      'babel.config.cjs',
       '**/*.css',
       'coverage',
     ],
