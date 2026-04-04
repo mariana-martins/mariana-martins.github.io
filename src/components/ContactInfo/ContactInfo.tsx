@@ -18,7 +18,7 @@ function ContactInfo(): React.JSX.Element {
         tabIndex={-1}
         className="text-xl text-text-primary dark:text-text-primary-dark font-semibold mb-2"
       >
-        {SECTIONS[2].label}
+        {SECTIONS.contact.label}
       </h3>
 
       <ul className="w-full max-w-sm flex flex-col gap-2">

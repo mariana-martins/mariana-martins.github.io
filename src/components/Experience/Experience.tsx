@@ -19,7 +19,7 @@ function Experience(): React.JSX.Element {
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >
-        {SECTIONS[1].label}
+        {SECTIONS.experience.label}
       </h3>
 
       <div className="relative flex-1 flex flex-col">

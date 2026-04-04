@@ -30,7 +30,7 @@ describe('SectionNav', () => {
     });
 
     // Create target elements for each section
-    SECTIONS.forEach((section) => {
+    Object.values(SECTIONS).forEach((section) => {
       const targetElement = document.createElement('h3');
       targetElement.id = section.id;
       targetElement.textContent = section.label;
@@ -43,7 +43,7 @@ describe('SectionNav', () => {
 
   afterEach(() => {
     // Clean up target elements
-    SECTIONS.forEach((section) => {
+    Object.values(SECTIONS).forEach((section) => {
       const element = document.getElementById(section.id);
       if (element) {
         element.remove();
@@ -67,7 +67,7 @@ describe('SectionNav', () => {
   it('renders all section links', () => {
     render(<SectionNav />);
 
-    SECTIONS.forEach((section) => {
+    Object.values(SECTIONS).forEach((section) => {
       const link = screen.getByRole('link', { name: section.label });
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute('href', `#${section.id}`);
@@ -79,7 +79,7 @@ describe('SectionNav', () => {
     render(<SectionNav />);
 
     const firstSectionLink = screen.getByRole('link', {
-      name: SECTIONS[0].label,
+      name: SECTIONS.about.label,
     });
     await user.click(firstSectionLink);
 
@@ -97,7 +97,7 @@ describe('SectionNav', () => {
     render(<SectionNav />);
 
     const firstSectionLink = screen.getByRole('link', {
-      name: SECTIONS[0].label,
+      name: SECTIONS.about.label,
     });
 
     fireEvent.keyDown(firstSectionLink, { key: 'Enter', code: 'Enter' });
@@ -116,7 +116,7 @@ describe('SectionNav', () => {
     render(<SectionNav />);
 
     const firstSectionLink = screen.getByRole('link', {
-      name: SECTIONS[0].label,
+      name: SECTIONS.about.label,
     });
 
     fireEvent.keyDown(firstSectionLink, { key: ' ', code: 'Space' });
@@ -135,7 +135,7 @@ describe('SectionNav', () => {
     render(<SectionNav />);
 
     const firstSectionLink = screen.getByRole('link', {
-      name: SECTIONS[0].label,
+      name: SECTIONS.about.label,
     });
 
     mockFocus.mockClear();
@@ -151,11 +151,11 @@ describe('SectionNav', () => {
     const user = userEvent.setup();
     render(<SectionNav />);
 
-    const targetElement = document.getElementById(SECTIONS[0].id);
+    const targetElement = document.getElementById(SECTIONS.about.id);
     expect(targetElement).not.toHaveAttribute('tabindex');
 
     const firstSectionLink = screen.getByRole('link', {
-      name: SECTIONS[0].label,
+      name: SECTIONS.about.label,
     });
     await user.click(firstSectionLink);
 

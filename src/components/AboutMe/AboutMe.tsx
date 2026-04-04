@@ -44,7 +44,7 @@ function AboutMe(): React.JSX.Element {
               'self-start text-balance',
             )}
           >
-            {SECTIONS[0].label}
+            {SECTIONS.about.label}
           </h3>
           <p
             className={cn(

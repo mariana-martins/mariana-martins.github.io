@@ -20,7 +20,7 @@ function Projects(): React.JSX.Element {
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >
-        {SECTIONS[5].label}
+        {SECTIONS.projects.label}
       </h3>
 
       <div

@@ -49,7 +49,7 @@ function SectionNav(): React.JSX.Element {
         Jump to section:
       </h2>
       <ul className="flex flex-col gap-1" role="list">
-        {SECTIONS.map((section) => (
+        {Object.values(SECTIONS).map((section) => (
           <li key={section.id}>
             <a
               href={`#${section.id}`}

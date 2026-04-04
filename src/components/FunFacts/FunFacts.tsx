@@ -36,7 +36,7 @@ function FunFacts(): React.JSX.Element {
         tabIndex={-1}
         className="text-xl font-semibold"
       >
-        {SECTIONS[3].label}
+        {SECTIONS.funFacts.label}
       </h3>
 
       <p className="text-sm text-muted">

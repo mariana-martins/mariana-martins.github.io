@@ -19,7 +19,7 @@ function LearningShelf(): React.JSX.Element {
           tabIndex={-1}
           className="text-xl font-semibold"
         >
-          {SECTIONS[4].label}
+          {SECTIONS.learningShelf.label}
         </h3>
       </div>
 

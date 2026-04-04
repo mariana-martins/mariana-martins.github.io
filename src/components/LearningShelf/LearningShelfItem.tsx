@@ -39,6 +39,11 @@ const categoryIcon: Record<LearningItem['category'], React.ReactNode> = {
   course: <Video size={16} aria-hidden="true" />,
 };
 
+const categoryColors: Record<LearningItem['category'], string> = {
+  book: 'bg-warm-200 dark:bg-warm-200/50',
+  course: 'bg-purple dark:bg-purple/50',
+};
+
 interface LearningShelfItemProps {
   item: LearningItem;
 }
@@ -52,9 +57,7 @@ function LearningItemCategory({
     <div
       className={cn(
         'p-2 rounded-full shrink-0 text-text-primary dark:text-text-primary-dark',
-        category === 'book'
-          ? 'bg-warm-200 dark:bg-warm-200/50'
-          : 'bg-purple dark:bg-purple/50',
+        categoryColors[category],
       )}
     >
       <span className="sr-only">{categoryLabels[category]}</span>
