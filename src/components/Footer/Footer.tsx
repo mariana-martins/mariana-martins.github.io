@@ -24,7 +24,8 @@ function Footer(): React.JSX.Element {
         decorative
       />
       <p className="text-sm text-center">
-        © 2025 Mariana Martins Menezes. Frontend engineer and eternal learner.
+        © 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal
+        learner.
       </p>
     </footer>
   );

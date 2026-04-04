@@ -2,7 +2,7 @@ import type { PortfolioData } from '@/types';
 
 export const data: PortfolioData = {
   introduction:
-    'I’m a Frontend Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!',
+    'I’m a Frontend & Design Engineer who recently moved to Melbourne and is currently on a very serious quest for the city’s best tiramisu, usually accompanied by my dog Margot, a Japanese Spitz with a lot of personality. My background in History trained me to research, question, and organize chaos, and now I use those same skills in frontend engineering, turning “what on earth is going on here?” into “oh, this makes sense.” If you want to talk about frontend techniques, tiramisu, or the best dog-friendly coffee spots in Melbourne, 🩷 I’d love to connect!',
   projects: [
     {
       id: 'fit-my-space',
@@ -77,7 +77,7 @@ export const data: PortfolioData = {
       website: 'https://remote.com',
       position: 'Frontend Engineer',
       startDate: '2021-07',
-      endDate: '2024-04', // ongoing
+      endDate: '2024-04',
       description: [
         'Developed and implemented essential onboarding features utilizing React, React Query, and Styled Components within a large, global, remote-first, and asynchronous platform.',
         'Core contributor to the Accessibility (A11y) team, auditing and improving components across the platform to meet WCAG standards and improve inclusive UX.',
@@ -319,7 +319,7 @@ export const data: PortfolioData = {
       id: 'fun-fact-3',
       question:
         'What is my favorite way to "build" things when I’m away from a computer screen?',
-      fact: 'My shelves are home to a wild mix including the Simpsons House, the Yellow Submarine, and Rivendell. Up next? Conquering Sauron’s Tower and Bag End brick by brick.',
+      fact: 'LEGO! My shelves are home to a wild mix including the Simpsons House, the Yellow Submarine, and Rivendell. Up next? Conquering Sauron’s Tower and Bag End brick by brick.',
     },
     {
       id: 'fun-fact-4',

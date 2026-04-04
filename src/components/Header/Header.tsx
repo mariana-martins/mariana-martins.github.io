@@ -145,7 +145,7 @@ function Header(): React.JSX.Element {
             prefersReducedMotion ? reducedMotionVariants : subtitleVariants
           }
         >
-          Frontend Engineer
+          Frontend & Design Engineer
         </motion.h2>
       </div>
     </header>

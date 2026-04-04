@@ -39,7 +39,7 @@ describe('Header', () => {
   it('renders title subtitle', () => {
     render(<Header />);
 
-    expect(screen.getByText('Frontend Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Frontend & Design Engineer')).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {

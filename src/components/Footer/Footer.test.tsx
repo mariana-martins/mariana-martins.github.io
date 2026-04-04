@@ -19,7 +19,7 @@ describe('Footer', () => {
 
     expect(
       screen.getByText(
-        /© 2025 Mariana Martins Menezes. Frontend engineer and eternal learner./i,
+        '© 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal learner.',
       ),
     ).toBeInTheDocument();
   });
