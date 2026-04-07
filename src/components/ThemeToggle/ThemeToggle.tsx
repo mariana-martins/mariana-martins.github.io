@@ -37,7 +37,6 @@ function ThemeToggle(): React.JSX.Element {
     <motion.button
       type="button"
       onClick={toggleTheme}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       aria-pressed={isDark}
       whileHover={hoverAnimation}
       whileTap={tapAnimation}
