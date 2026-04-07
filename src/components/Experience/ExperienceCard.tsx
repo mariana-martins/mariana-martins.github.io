@@ -17,7 +17,7 @@ function TimelineNode(): React.JSX.Element {
         'flex items-center justify-center',
         'bg-pink dark:bg-blue-100',
         'ring-4 ring-warm-100/80 dark:ring-indigo-50/80',
-        'transition-all duration-300 ease-out',
+        'transition-[color,background-color,ring-color,transform] duration-300 ease-out',
         'group-hover:ring-pink/50 dark:group-hover:ring-blue-100/50',
         'group-hover:scale-110',
       )}

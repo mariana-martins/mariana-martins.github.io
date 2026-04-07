@@ -17,7 +17,7 @@ interface ContactItemProps {
 }
 
 const itemClasses = cn(
-  'w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-300',
+  'w-full flex items-center gap-4 p-4 rounded-xl transition-colors duration-300',
   'bg-transparent hover:bg-warm-100/50 dark:hover:bg-white/5',
   'text-text-primary dark:text-text-primary-dark',
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',

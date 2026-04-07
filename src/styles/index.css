@@ -176,35 +176,12 @@
     --color-highlight-violet: hsl(300 65% 50%);
   }
 
-  /* Theme Color Transitions - targeted to specific elements for performance */
-  body,
-  header,
-  section,
-  nav,
-  footer,
-  main,
-  article,
-  aside,
-  button,
-  a,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  div,
-  svg {
+  /* Theme Color Transitions - only active during theme toggles for scroll performance */
+  .theme-transitioning *,
+  .theme-transitioning {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
-  }
-
-  /* Disable transitions during scroll for better performance */
-  .is-scrolling * {
-    transition: none !important;
   }
 
   /* Respect user's reduced motion preference */
