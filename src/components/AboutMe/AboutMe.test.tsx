@@ -25,24 +25,14 @@ describe('AboutMe', () => {
       </ThemeProvider>,
     );
 
-    // Text is split across elements due to LoopingHighlight component
     // Find the paragraph element and check its textContent
     const paragraph = container.querySelector('p');
     expect(paragraph).toBeInTheDocument();
 
     const textContent = paragraph?.textContent ?? '';
-    expect(textContent).toMatch(/Hi! I.m Mariana, but you can call me/);
-    expect(textContent).toContain('like all my Brazilian friends do');
-  });
-
-  it('renders LoopingHighlight component with Mari text', () => {
-    render(
-      <ThemeProvider>
-        <AboutMe />
-      </ThemeProvider>,
+    expect(textContent).toContain(
+      "Hello, I'm Mariana Martins Menezes, but you can call me Mari!",
     );
-
-    expect(screen.getByText('Mari')).toBeInTheDocument();
   });
 
   it('renders profile image with correct alt text', () => {

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import LoopingHighlight from '@components/LoopingHighlight';
 import { motion, useReducedMotion } from 'motion/react';
 
 import aboutMeImage from '@/assets/avatar.png';
@@ -52,9 +51,7 @@ function AboutMe(): React.JSX.Element {
               'tracking-wide text-pretty font-light',
             )}
           >
-            Hi! I&apos;m Mariana, but you can call me{' '}
-            <LoopingHighlight>Mari</LoopingHighlight>, like all my Brazilian
-            friends do. {introduction}
+            {introduction}
           </p>
         </motion.div>
 
