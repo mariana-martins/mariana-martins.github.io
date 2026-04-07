@@ -9,7 +9,6 @@ import {
 } from '@components/Card';
 import Tag from '@components/Tag';
 import { ExternalLink, Sparkles } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
@@ -45,7 +44,6 @@ export function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
-  const prefersReducedMotion = useReducedMotion();
 
   // Show more tags for featured card
   const visibleTechnologies = isFeatured
@@ -54,16 +52,18 @@ export function ProjectCard({
   const hiddenCount = project.technologies.length - visibleTechnologies.length;
 
   return (
-    <motion.a
+    <a
       href={project.githubUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`View ${project.title} project on GitHub. Project ${projectNumber} of ${projectCount}. Built with ${techStackSummary}`}
       aria-describedby={isFeatured ? `project-${project.id}-desc` : undefined}
-      className="block h-full will-change-transform"
-      whileHover={prefersReducedMotion ? undefined : { scale: 1.02 }}
-      whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
-      transition={{ duration: 0.15, ease: 'easeOut' }}
+      className={cn(
+        'block h-full',
+        'transition-transform duration-150 ease-out',
+        'hover:scale-[1.02] active:scale-[0.98]',
+        'motion-reduce:transition-none motion-reduce:hover:scale-100 motion-reduce:active:scale-100',
+      )}
     >
       <Card
         variant="interactive"
@@ -150,6 +150,6 @@ export function ProjectCard({
 
         <span className="sr-only">Opens in a new window. External site.</span>
       </Card>
-    </motion.a>
+    </a>
   );
 }

@@ -53,9 +53,6 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // Check for the introduction text structure
-    // The text is: "Hi! I'm Mariana, but you can call me Mari, like all my Brazilian friends do. {introduction}"
-    // Text is split across elements due to LoopingHighlight component
     // Find the paragraph in the AboutMe section and check its textContent
     const aboutMeSection = container.querySelector(
       'section[aria-labelledby="about-me-heading"]',
@@ -66,9 +63,7 @@ describe('App', () => {
     expect(paragraph).toBeInTheDocument();
 
     const textContent = paragraph?.textContent ?? '';
-    expect(textContent).toMatch(/Hi! I.m Mariana, but you can call me/);
-    expect(textContent).toContain('like all my Brazilian friends do');
-    expect(textContent).toContain(data.introduction);
+    expect(textContent).toEqual(data.introduction);
   });
 
   it('renders AboutMe profile image with correct alt text', () => {

@@ -53,6 +53,10 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
+  /* Entrance Animations */
+  --animate-fade-in-up: fade-in-up 1.2s ease-out both;
+  --animate-fade-in-scale: fade-in-scale 1.2s ease-out both;
+
   @keyframes accordion-down {
     from {
       height: 0;
@@ -72,6 +76,28 @@
     to {
       height: 0;
       opacity: 0;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
@@ -176,35 +202,12 @@
     --color-highlight-violet: hsl(300 65% 50%);
   }
 
-  /* Theme Color Transitions - targeted to specific elements for performance */
-  body,
-  header,
-  section,
-  nav,
-  footer,
-  main,
-  article,
-  aside,
-  button,
-  a,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span,
-  div,
-  svg {
+  /* Theme Color Transitions - only active during theme toggles for scroll performance */
+  .theme-transitioning *,
+  .theme-transitioning {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
-  }
-
-  /* Disable transitions during scroll for better performance */
-  .is-scrolling * {
-    transition: none !important;
   }
 
   /* Respect user's reduced motion preference */

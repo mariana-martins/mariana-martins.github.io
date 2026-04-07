@@ -34,7 +34,16 @@ export function getInitialTheme(): Theme {
  * @param theme - The theme to apply
  */
 export function applyTheme(theme: Theme): void {
-  document.documentElement.classList.toggle('dark', theme === 'dark');
+  const root = document.documentElement;
+
+  // Enable transitions only during theme change
+  root.classList.add('theme-transitioning');
+  root.classList.toggle('dark', theme === 'dark');
+
+  // Remove transition class after animations complete
+  window.setTimeout(() => {
+    root.classList.remove('theme-transitioning');
+  }, 500);
 }
 
 /**
