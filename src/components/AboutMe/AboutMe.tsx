@@ -49,6 +49,7 @@ function AboutMe(): React.JSX.Element {
             className={cn(
               'text-base/7 md:text-lg/8',
               'tracking-wide text-pretty font-light',
+              'max-w-[40ch] md:max-w-[60ch]',
             )}
           >
             {introduction}
