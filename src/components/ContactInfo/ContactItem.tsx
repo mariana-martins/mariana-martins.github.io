@@ -2,7 +2,6 @@ import React from 'react';
 
 import type { LucideIcon } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
-import type { TargetAndTransition } from 'motion/react';
 
 import { cn } from '@/lib/cn';
 
@@ -42,16 +41,6 @@ export const ContactItem = ({
 }: ContactItemProps): React.JSX.Element => {
   const prefersReducedMotion = useReducedMotion();
 
-  const iconAnimation: TargetAndTransition = prefersReducedMotion
-    ? {}
-    : {
-        scale: [1, 1.1, 1],
-        transition: {
-          duration: 0.2,
-          ease: 'easeInOut',
-        },
-      };
-
   // Static item (no link)
   if (!href) {
     return (
@@ -88,9 +77,9 @@ export const ContactItem = ({
         whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
         aria-label={ariaLabel}
       >
-        <motion.div className={iconContainerClasses} whileHover={iconAnimation}>
+        <div className={iconContainerClasses}>
           <Icon size={22} className="icon-accent" aria-hidden="true" />
-        </motion.div>
+        </div>
         <div className="flex flex-col">
           <span className="text-xs text-muted font-medium">{label}</span>
           <span className={cn('text-base font-medium', valueClassName)}>

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { motion, useReducedMotion } from 'motion/react';
-
 import aboutMeImage from '@/assets/avatar.webp';
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
@@ -9,7 +7,6 @@ import { cn } from '@/lib/cn';
 
 function AboutMe(): React.JSX.Element {
   const { introduction } = data;
-  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
@@ -28,13 +25,7 @@ function AboutMe(): React.JSX.Element {
         )}
       >
         {/* Text Content */}
-        <motion.div
-          className="flex-1 order-2 md:order-1 flex flex-col gap-4"
-          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="flex-1 order-2 md:order-1 flex flex-col gap-4 animate-fade-in-up">
           <h3
             id="about-me-heading"
             tabIndex={-1}
@@ -54,16 +45,11 @@ function AboutMe(): React.JSX.Element {
           >
             {introduction}
           </p>
-        </motion.div>
+        </div>
 
         {/* Image Content */}
         <div className="order-1 md:order-2 self-center md:self-auto">
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }}
-            whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="animate-fade-in-scale">
             <img
               src={aboutMeImage}
               alt="Me and my dog, Margot, a very fluffy white dog!"
@@ -77,7 +63,7 @@ function AboutMe(): React.JSX.Element {
                 'dark:from-purple dark:to-blue-50',
               )}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
