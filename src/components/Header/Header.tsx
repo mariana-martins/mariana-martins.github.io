@@ -2,7 +2,7 @@ import React from 'react';
 
 import { motion, useReducedMotion } from 'motion/react';
 
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.webp';
 import { cn } from '@/lib/cn';
 
 function Header(): React.JSX.Element {
@@ -93,6 +93,8 @@ function Header(): React.JSX.Element {
         <img
           src={logo}
           alt="Mariana Martins Logo"
+          width={817}
+          height={589}
           className="w-fit object-scale-down"
         />
       </motion.div>

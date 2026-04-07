@@ -2,7 +2,7 @@ import React from 'react';
 
 import { motion, useReducedMotion } from 'motion/react';
 
-import aboutMeImage from '@/assets/avatar.png';
+import aboutMeImage from '@/assets/avatar.webp';
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
@@ -66,6 +66,8 @@ function AboutMe(): React.JSX.Element {
             <img
               src={aboutMeImage}
               alt="Me and my dog, Margot, a very fluffy white dog!"
+              width={256}
+              height={256}
               fetchPriority="high"
               className={cn(
                 'w-48 h-48 md:w-64 md:h-64',
