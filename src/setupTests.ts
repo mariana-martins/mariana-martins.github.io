@@ -12,7 +12,7 @@ expect.extend(toHaveNoViolations);
  * Mock IntersectionObserver API
  * Required for components that use intersection-based features (e.g., lazy loading)
  */
-global.IntersectionObserver = class IntersectionObserver {
+globalThis.IntersectionObserver = class IntersectionObserver {
   root = null;
   rootMargin = '';
   readonly thresholds: readonly number[] = [];
@@ -41,13 +41,13 @@ global.IntersectionObserver = class IntersectionObserver {
   takeRecords(): IntersectionObserverEntry[] {
     return [];
   }
-} as typeof IntersectionObserver;
+} as unknown as typeof IntersectionObserver;
 
 /**
  * Mock ResizeObserver API
  * Required for components that observe element size changes
  */
-global.ResizeObserver = class ResizeObserver {
+globalThis.ResizeObserver = class ResizeObserver {
   constructor(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _callback?: ResizeObserverCallback,
