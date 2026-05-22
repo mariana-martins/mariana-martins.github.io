@@ -66,7 +66,7 @@ globalThis.ResizeObserver = class ResizeObserver {
   unobserve(): void {
     // Mock implementation
   }
-} as typeof ResizeObserver;
+};
 
 /**
  * Mock window.matchMedia API
