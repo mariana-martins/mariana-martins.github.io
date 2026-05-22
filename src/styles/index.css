@@ -228,6 +228,8 @@
     min-height: 100vh;
     isolation: isolate; /* Ensures z-index context */
     transition: background 0.5s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Dark Mode Background */
@@ -246,6 +248,19 @@
 
   h1 {
     font-family: var(--font-family-heading);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 

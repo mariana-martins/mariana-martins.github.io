@@ -28,6 +28,7 @@ function Header(): React.JSX.Element {
           alt="Mariana Martins Logo"
           width={817}
           height={589}
+          fetchPriority="high"
           className="w-fit object-scale-down"
         />
       </div>

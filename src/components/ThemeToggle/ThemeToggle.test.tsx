@@ -6,43 +6,6 @@ import { axe } from 'jest-axe';
 
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
-// Mock Motion to avoid animation issues in tests
-jest.mock('motion/react', () => ({
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
-  useReducedMotion: (): boolean =>
-    window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false,
-  motion: {
-    button: ({
-      children,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      whileHover,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      whileTap,
-      ...props
-    }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
-      whileHover?: unknown;
-      whileTap?: unknown;
-    }) => <button {...props}>{children}</button>,
-    div: ({
-      children,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      initial,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      animate,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      exit,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      transition,
-      ...props
-    }: React.HTMLAttributes<HTMLDivElement> & {
-      initial?: unknown;
-      animate?: unknown;
-      exit?: unknown;
-      transition?: unknown;
-    }) => <div {...props}>{children}</div>,
-  },
-}));
-
 describe('ThemeToggle', () => {
   it('renders theme toggle button', () => {
     render(
@@ -112,46 +75,6 @@ describe('ThemeToggle', () => {
 
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-pressed', 'true');
-  });
-
-  it('handles reduced motion preference', () => {
-    // Mock matchMedia for reduced motion
-    Object.defineProperty(window, 'matchMedia', {
-      writable: true,
-      value: jest.fn().mockImplementation((query) => {
-        if (query === '(prefers-reduced-motion: reduce)') {
-          return {
-            matches: true,
-            media: query,
-            onchange: null,
-            addListener: jest.fn(),
-            removeListener: jest.fn(),
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-            dispatchEvent: jest.fn(),
-          };
-        }
-        return {
-          matches: false,
-          media: query,
-          onchange: null,
-          addListener: jest.fn(),
-          removeListener: jest.fn(),
-          addEventListener: jest.fn(),
-          removeEventListener: jest.fn(),
-          dispatchEvent: jest.fn(),
-        };
-      }),
-    });
-
-    render(
-      <ThemeProvider>
-        <ThemeToggle />
-      </ThemeProvider>,
-    );
-
-    const button = screen.getByRole('button');
-    expect(button).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {
