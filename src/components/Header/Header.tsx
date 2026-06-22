@@ -50,7 +50,7 @@ function Header(): React.JSX.Element {
             'lg:text-left text-center',
           )}
         >
-          Frontend & Design Engineer
+          Frontend Engineer
         </h2>
       </div>
     </header>

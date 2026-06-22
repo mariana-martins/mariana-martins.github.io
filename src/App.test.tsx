@@ -29,7 +29,7 @@ describe('App', () => {
     // Find the subtitle h2 specifically (there are multiple h2s now including SectionNav)
     const subtitles = screen.getAllByRole('heading', { level: 2 });
     const subtitle = subtitles.find((h) =>
-      h.textContent?.includes('Frontend & Design Engineer'),
+      h.textContent?.includes('Frontend Engineer'),
     );
     expect(subtitle).toBeInTheDocument();
     expect(screen.getByAltText('Mariana Martins Logo')).toBeInTheDocument();
