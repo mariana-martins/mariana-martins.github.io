@@ -24,7 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     /* Path mapping */
-    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "types": ["node", "jest", "@testing-library/jest-dom/jest-globals"],
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
