@@ -23,7 +23,7 @@ module.exports = {
 
   // Transform files
   transform: {
-    '^.+\\.(ts|tsx)$': [
+    '^.+\\.(ts|tsx|js|jsx)$': [
       'ts-jest',
       {
         useESM: true,
@@ -32,7 +32,6 @@ module.exports = {
         },
       },
     ],
-    '^.+\\.(js|jsx)$': 'babel-jest',
   },
 
   // Test file patterns
