@@ -112,12 +112,7 @@ export default [
     },
   },
   {
-    files: [
-      '**/*.config.{js,ts}',
-      'vite.config.ts',
-      'babel.config.cjs',
-      'jest.config.cjs',
-    ],
+    files: ['**/*.config.{js,ts}', 'vite.config.ts', 'jest.config.cjs'],
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -201,12 +196,6 @@ export default [
     },
   },
   {
-    ignores: [
-      'dist',
-      'node_modules',
-      'babel.config.cjs',
-      '**/*.css',
-      'coverage',
-    ],
+    ignores: ['dist', 'node_modules', '**/*.css', 'coverage'],
   },
 ];
