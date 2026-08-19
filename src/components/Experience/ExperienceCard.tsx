@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Tag from '@components/Tag';
+import TagList from '@components/TagList';
 import { ExternalLink } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
@@ -20,14 +20,6 @@ export const ExperienceCard = ({
   const isCurrent = !experience.endDate;
   const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
   const duration = formatDuration(experience.startDate, experience.endDate);
-
-  const visibleTechnologies = experience.technologies.slice(
-    0,
-    MAX_VISIBLE_TECHNOLOGIES,
-  );
-  const hiddenTechnologies = experience.technologies.slice(
-    MAX_VISIBLE_TECHNOLOGIES,
-  );
 
   return (
     <li
@@ -99,30 +91,12 @@ export const ExperienceCard = ({
         {experience.description}
       </p>
 
-      <ul
-        aria-label="Technologies used"
-        className="flex flex-wrap items-center gap-2 mt-3"
-      >
-        {visibleTechnologies.map((tech, techIndex) => (
-          <li key={tech}>
-            <Tag name={tech} index={techIndex} />
-          </li>
-        ))}
-        {hiddenTechnologies.length > 0 && (
-          <li
-            className={cn(
-              // Same 24px box as Tag, so the chip sits on the same baseline
-              'inline-flex items-center h-6 px-2.5 rounded-md text-xs',
-              'bg-pink/20 dark:bg-blue-100/20',
-              'text-text-primary/70 dark:text-text-primary-dark/70',
-            )}
-          >
-            <span aria-hidden="true">+{hiddenTechnologies.length}</span>
-            {/* The overflow is only visual - keep the hidden names readable */}
-            <span className="sr-only">{hiddenTechnologies.join(', ')}</span>
-          </li>
-        )}
-      </ul>
+      <TagList
+        technologies={experience.technologies}
+        label="Technologies used"
+        max={MAX_VISIBLE_TECHNOLOGIES}
+        className="mt-3"
+      />
     </li>
   );
 };
