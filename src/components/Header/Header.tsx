@@ -26,8 +26,8 @@ export function Header(): React.JSX.Element {
         <img
           src={logo}
           alt="Mariana Martins Logo"
-          width={817}
-          height={589}
+          width={272}
+          height={197}
           className="w-fit object-scale-down"
         />
       </div>
