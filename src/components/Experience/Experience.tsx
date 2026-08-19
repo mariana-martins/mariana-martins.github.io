@@ -1,7 +1,5 @@
 import React from 'react';
 
-import * as Accordion from '@radix-ui/react-accordion';
-
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import type { Experience as ExperienceType } from '@/types';
@@ -22,23 +20,11 @@ function Experience(): React.JSX.Element {
         {SECTIONS.experience.label}
       </h3>
 
-      <div className="relative flex-1 flex flex-col">
-        <div
-          className="absolute left-4 top-4 bottom-4 w-0.5 bg-pink/40 dark:bg-blue-100/40"
-          aria-hidden="true"
-        />
-
-        <Accordion.Root
-          type="single"
-          collapsible
-          defaultValue={data.experience[0]?.id}
-          className="flex-1 flex flex-col justify-between gap-4"
-        >
-          {data.experience.map((experience: ExperienceType) => (
-            <ExperienceCard key={experience.id} experience={experience} />
-          ))}
-        </Accordion.Root>
-      </div>
+      <ul data-testid="experience-list" className="flex flex-col">
+        {data.experience.map((experience: ExperienceType) => (
+          <ExperienceCard key={experience.id} experience={experience} />
+        ))}
+      </ul>
     </section>
   );
 }

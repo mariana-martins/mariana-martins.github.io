@@ -95,16 +95,20 @@ describe('App', () => {
         /[.*+?^${}()|[\]\\]/g,
         '\\$&',
       );
-      const escapedCompany = experience.company.replace(
-        /[.*+?^${}()|[\]\\]/g,
-        '\\$&',
-      );
-      // The accordion trigger has an aria-label starting with position at company
-      // Use ^ to match from start to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
-      const trigger = screen.getByRole('button', {
-        name: new RegExp(`^${escapedPosition} at ${escapedCompany}`, 'i'),
+      // Each entry renders its position as a heading, with the company below it.
+      // Use ^ and $ to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
+      const headings = screen.getAllByRole('heading', {
+        level: 4,
+        name: new RegExp(`^${escapedPosition}$`, 'i'),
       });
-      expect(trigger).toBeInTheDocument();
+      expect(headings.length).toBeGreaterThan(0);
+
+      const entry = headings
+        .map((heading) => heading.closest('[data-testid="experience-entry"]'))
+        .find((candidate) =>
+          candidate?.textContent?.includes(experience.company),
+        );
+      expect(entry).toBeTruthy();
     });
   });
 

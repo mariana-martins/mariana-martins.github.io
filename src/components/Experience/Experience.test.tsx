@@ -1,7 +1,6 @@
 import Experience from '@components/Experience';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen, within } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 // Mock the data module
@@ -38,9 +37,12 @@ describe('Experience', () => {
     // Check date range is displayed (abbreviated month format)
     expect(screen.getByText('Jan 2020 - Dec 2021')).toBeInTheDocument();
 
-    // Description is visible in the first accordion (which is open by default)
+    // Every description is rendered, no expanding required
     expect(
       screen.getByText('Test description with end date'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Test description without end date'),
     ).toBeInTheDocument();
   });
 
@@ -58,77 +60,55 @@ describe('Experience', () => {
   it('renders technologies as tags', () => {
     render(<Experience />);
 
-    // Technologies should be rendered in the first accordion (open by default)
-    expect(screen.getByText('React')).toBeInTheDocument();
+    // Technologies are rendered for every entry
+    expect(screen.getAllByText('React')).toHaveLength(2);
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
   });
 
-  it('has collapsible accordion functionality', async () => {
-    const user = userEvent.setup();
+  it('exposes every entry as a heading, with no disclosure to expand', () => {
     render(<Experience />);
 
-    // Find the first accordion trigger (Test Position)
-    const firstTrigger = screen.getByRole('button', {
-      name: /Test Position at Test Company/,
-    });
+    const positions = screen
+      .getAllByRole('heading', { level: 4 })
+      .map((heading) => heading.textContent);
+    expect(positions).toEqual(['Test Position', 'Current Position']);
 
-    // First accordion is open by default
-    expect(firstTrigger).toHaveAttribute('aria-expanded', 'true');
-
-    // Click to close
-    await user.click(firstTrigger);
-    expect(firstTrigger).toHaveAttribute('aria-expanded', 'false');
-
-    // Click to open again
-    await user.click(firstTrigger);
-    expect(firstTrigger).toHaveAttribute('aria-expanded', 'true');
+    // Content is always rendered, so there is nothing to toggle
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
   });
 
-  it('supports keyboard navigation', async () => {
-    const user = userEvent.setup();
+  it('renders every entry in a single list, marking the ongoing role', () => {
     render(<Experience />);
 
-    // Find the first accordion trigger
-    const firstTrigger = screen.getByRole('button', {
-      name: /Test Position at Test Company/,
-    });
+    const list = screen.getByTestId('experience-list');
+    expect(list.tagName).toBe('UL');
 
-    // Tab to focus on the trigger
-    await user.tab();
-    expect(firstTrigger).toHaveFocus();
+    const entries = screen.getAllByTestId('experience-entry');
+    expect(entries).toHaveLength(2);
 
-    // Press Enter to toggle
-    await user.keyboard('{Enter}');
-    expect(firstTrigger).toHaveAttribute('aria-expanded', 'false');
-
-    // Press Space to toggle back
-    await user.keyboard(' ');
-    expect(firstTrigger).toHaveAttribute('aria-expanded', 'true');
+    // Only the entry without an end date is flagged as current
+    expect(entries[0]).not.toHaveAttribute('data-current');
+    expect(entries[1]).toHaveAttribute('data-current');
   });
 
-  it('renders timeline visual elements', () => {
-    const { container } = render(<Experience />);
+  it('renders the duration alongside the date range', () => {
+    render(<Experience />);
 
-    // Check for timeline line (aria-hidden)
-    const timelineLine = container.querySelector(
-      '[aria-hidden="true"].bg-pink\\/40',
-    );
-    expect(timelineLine).toBeInTheDocument();
-
-    // Check for star icons
-    const starIcons = container.querySelectorAll('.lucide-star');
-    expect(starIcons.length).toBeGreaterThan(0);
+    // Jan 2020 - Dec 2021, inclusive of both months
+    expect(screen.getByText('2 yr')).toBeInTheDocument();
   });
 
   it('renders technologies list with proper accessibility attributes', () => {
     render(<Experience />);
 
-    // Check for technologies list with proper role
-    const techList = screen.getByRole('list', { name: 'Technologies used' });
-    expect(techList).toBeInTheDocument();
+    // One technologies list per entry, each with proper role and name
+    const techLists = screen.getAllByRole('list', {
+      name: 'Technologies used',
+    });
+    expect(techLists).toHaveLength(2);
 
     // Check for listitems
-    const listItems = within(techList).getAllByRole('listitem');
+    const listItems = within(techLists[0]).getAllByRole('listitem');
     expect(listItems.length).toBeGreaterThan(0);
   });
 
