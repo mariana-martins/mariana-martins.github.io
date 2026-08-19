@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '@/assets/logo.webp';
 import { cn } from '@/lib/cn';
 
-function Header(): React.JSX.Element {
+export function Header(): React.JSX.Element {
   const name = 'Mariana Martins Menezes';
 
   return (
@@ -56,5 +56,3 @@ function Header(): React.JSX.Element {
     </header>
   );
 }
-
-export default Header;

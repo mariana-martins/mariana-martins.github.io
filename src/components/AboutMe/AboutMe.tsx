@@ -5,7 +5,7 @@ import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 
-function AboutMe(): React.JSX.Element {
+export function AboutMe(): React.JSX.Element {
   const { introduction } = data;
 
   return (
@@ -69,5 +69,3 @@ function AboutMe(): React.JSX.Element {
     </section>
   );
 }
-
-export default AboutMe;

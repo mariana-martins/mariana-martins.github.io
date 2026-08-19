@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TagList from '@components/TagList';
+import { TagList } from '@components/TagList/TagList';
 import { ExternalLink } from 'lucide-react';
 
 import { cn } from '@/lib/cn';

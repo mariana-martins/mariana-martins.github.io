@@ -7,7 +7,7 @@ import { data } from '@/data';
 
 import { ContactItem } from './ContactItem';
 
-function ContactInfo(): React.JSX.Element {
+export function ContactInfo(): React.JSX.Element {
   return (
     <section
       className="w-full flex flex-col gap-6 py-12 items-center border-b-dashed-custom"
@@ -56,5 +56,3 @@ function ContactInfo(): React.JSX.Element {
     </section>
   );
 }
-
-export default ContactInfo;

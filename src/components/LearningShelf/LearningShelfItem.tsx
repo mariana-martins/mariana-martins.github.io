@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card } from '@components/Card';
+import { Card } from '@components/Card/Card';
 import { BookOpen, Video } from 'lucide-react';
 
 import { cn } from '@/lib/cn';

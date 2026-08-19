@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Tag from '@components/Tag';
+import { Tag } from '@components/Tag/Tag';
 
 import { cn } from '@/lib/cn';
 
@@ -23,7 +23,7 @@ export interface TagListProps {
  * The "+N" chip is presentational only: the names it stands for are still
  * exposed to assistive technology, so truncation never costs information.
  */
-function TagList({
+export function TagList({
   technologies,
   label,
   max,
@@ -63,5 +63,3 @@ function TagList({
     </ul>
   );
 }
-
-export default TagList;

@@ -7,7 +7,7 @@ import type { Project } from '@/types';
 
 import { ProjectCard } from './ProjectCard';
 
-function Projects(): React.JSX.Element {
+export function Projects(): React.JSX.Element {
   const projectCount = data.projects.length;
 
   return (
@@ -51,5 +51,3 @@ function Projects(): React.JSX.Element {
     </section>
   );
 }
-
-export default Projects;

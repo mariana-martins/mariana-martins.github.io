@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { Card } from '@components/Card';
+import { Card } from '@components/Card/Card';
 import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 

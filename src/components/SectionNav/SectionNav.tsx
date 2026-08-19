@@ -4,7 +4,7 @@ import { SECTIONS } from '@/constants';
 import { cn } from '@/lib/cn';
 import { prefersReducedMotion } from '@/lib/reducedMotion';
 
-function SectionNav(): React.JSX.Element {
+export function SectionNav(): React.JSX.Element {
   const navRef = useRef<HTMLElement>(null);
 
   const handleNavigation = useCallback(
@@ -75,5 +75,3 @@ function SectionNav(): React.JSX.Element {
     </nav>
   );
 }
-
-export default SectionNav;

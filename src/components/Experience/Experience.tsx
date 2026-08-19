@@ -6,7 +6,7 @@ import type { Experience as ExperienceType } from '@/types';
 
 import { ExperienceCard } from './ExperienceCard';
 
-function Experience(): React.JSX.Element {
+export function Experience(): React.JSX.Element {
   return (
     <section
       className="col-start-1 md:row-start-2 text-text-primary dark:text-text-primary-dark border-b-dashed-custom md:border-b-0-dashed-custom md:border-r-dashed-custom flex-1 flex flex-col self-stretch px-2 py-12"
@@ -28,5 +28,3 @@ function Experience(): React.JSX.Element {
     </section>
   );
 }
-
-export default Experience;

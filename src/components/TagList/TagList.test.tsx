@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-import TagList from './TagList';
+import { TagList } from './TagList';
 
 const technologies = ['React', 'TypeScript', 'Vite', 'Jest', 'Axe'];
 

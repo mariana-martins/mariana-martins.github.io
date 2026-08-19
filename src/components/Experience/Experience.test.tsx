@@ -1,4 +1,4 @@
-import Experience from '@components/Experience';
+import { Experience } from '@components/Experience/Experience';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';

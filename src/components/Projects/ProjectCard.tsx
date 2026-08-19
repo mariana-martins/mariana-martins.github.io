@@ -6,8 +6,8 @@ import {
   CardDecoration,
   CardFooter,
   CardHeader,
-} from '@components/Card';
-import TagList from '@components/TagList';
+} from '@components/Card/Card';
+import { TagList } from '@components/TagList/TagList';
 import { ExternalLink, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/cn';

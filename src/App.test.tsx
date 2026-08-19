@@ -2,7 +2,7 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-import App from '@/App';
+import { App } from '@/App';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { data } from '@/data';
 

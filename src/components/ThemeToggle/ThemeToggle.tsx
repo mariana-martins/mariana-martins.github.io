@@ -5,7 +5,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/cn';
 
-function ThemeToggle(): React.JSX.Element {
+export function ThemeToggle(): React.JSX.Element {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -56,5 +56,3 @@ function ThemeToggle(): React.JSX.Element {
     </button>
   );
 }
-
-export default ThemeToggle;

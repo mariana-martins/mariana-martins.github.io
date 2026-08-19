@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { FlipCard } from '@components/FlipCard';
+import { FlipCard } from '@components/FlipCard/FlipCard';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { SECTIONS } from '@/constants';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
 import { cn } from '@/lib/cn';
 
-function FunFacts(): React.JSX.Element {
+export function FunFacts(): React.JSX.Element {
   const {
     currentFact,
     totalFacts,
@@ -71,5 +71,3 @@ function FunFacts(): React.JSX.Element {
     </section>
   );
 }
-
-export default FunFacts;

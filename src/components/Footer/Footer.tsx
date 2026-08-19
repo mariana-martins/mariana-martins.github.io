@@ -4,7 +4,7 @@ import { Separator } from '@radix-ui/react-separator';
 
 import { cn } from '@/lib/cn';
 
-function Footer(): React.JSX.Element {
+export function Footer(): React.JSX.Element {
   return (
     <footer
       className={cn(
@@ -30,5 +30,3 @@ function Footer(): React.JSX.Element {
     </footer>
   );
 }
-
-export default Footer;
