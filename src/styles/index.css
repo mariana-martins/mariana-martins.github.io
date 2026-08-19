@@ -177,21 +177,53 @@
   }
 
   /* Theme Color Transitions - only active during theme toggles for scroll performance */
-  .theme-transitioning *,
-  .theme-transitioning {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
+  @media (prefers-reduced-motion: no-preference) {
+    .theme-transitioning *,
+    .theme-transitioning {
+      transition-property: background-color, border-color, color, fill, stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 200ms;
+    }
   }
 
-  /* Respect user's reduced motion preference */
+  /*
+   * Respect the user's reduced motion preference.
+   *
+   * Every animation utility resolves through its own theme variable -
+   * `.animate-fade-in-up` compiles to `animation: var(--animate-fade-in-up)` -
+   * so blanking the variable here switches the animation off at the source.
+   * The utility class still applies; its value simply resolves to `none`.
+   * That needs no `!important` and no global `*` override: the variables live
+   * in `@layer theme` and this rule is in `@layer base`, which wins.
+   *
+   * The trade-off is that this only covers token-driven animation. Any motion
+   * declared outside the theme - a hand-written keyframe rule, a scroll
+   * timeline, a transform transition - has to carry its own guard. The two
+   * patterns in use here are wrapping the rule in
+   * `@media (prefers-reduced-motion: no-preference)` (see `.theme-transitioning`
+   * and `.scroll-reveal`) or Tailwind's `motion-reduce:` variant at the
+   * component (see ProjectCard's hover scale).
+   */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
+    :root {
+      --animate-fade-in-up: none;
+      --animate-fade-in-scale: none;
+    }
+  }
+
+  /* Base Body Styles with Light Gradient */
+  body {
+    background: var(--bg-gradient-light);
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate; /* Ensures z-index context */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    body {
+      transition: background 0.5s ease-in-out;
     }
   }
 
