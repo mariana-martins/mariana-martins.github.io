@@ -12,7 +12,7 @@ import { axe } from 'jest-axe';
 
 import { SECTIONS } from '@/constants';
 
-import SectionNav from './SectionNav';
+import { SectionNav } from './SectionNav';
 
 describe('SectionNav', () => {
   const mockScrollIntoView = jest.fn();

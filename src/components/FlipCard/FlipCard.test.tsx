@@ -1,5 +1,6 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 import { FlipCard } from './FlipCard';
@@ -50,14 +51,15 @@ describe('FlipCard', () => {
     );
 
     const questionButton = screen.getByRole('button', {
-      name: /Question: What is your favorite color\?/i,
+      name: /What is your favorite color\?/i,
     });
     fireEvent.click(questionButton);
 
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
 
-  it('calls onFlip when Enter key is pressed on question card', () => {
+  it('calls onFlip when Enter key is pressed on question card', async () => {
+    const user = userEvent.setup();
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -70,14 +72,16 @@ describe('FlipCard', () => {
     );
 
     const questionButton = screen.getByRole('button', {
-      name: /Question: What is your favorite color\?/i,
+      name: /What is your favorite color\?/i,
     });
-    fireEvent.keyDown(questionButton, { key: 'Enter' });
+    questionButton.focus();
+    await user.keyboard('{Enter}');
 
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
 
-  it('calls onFlip when Space key is pressed on question card', () => {
+  it('calls onFlip when Space key is pressed on question card', async () => {
+    const user = userEvent.setup();
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -90,9 +94,10 @@ describe('FlipCard', () => {
     );
 
     const questionButton = screen.getByRole('button', {
-      name: /Question: What is your favorite color\?/i,
+      name: /What is your favorite color\?/i,
     });
-    fireEvent.keyDown(questionButton, { key: ' ' });
+    questionButton.focus();
+    await user.keyboard(' ');
 
     expect(mockOnFlip).toHaveBeenCalledTimes(1);
   });
@@ -126,7 +131,7 @@ describe('FlipCard', () => {
     );
 
     const nextButton = screen.getByRole('button', {
-      name: /See next fun fact/i,
+      name: /Next fact/i,
     });
     expect(nextButton).toBeInTheDocument();
     expect(screen.getByText('Next fact')).toBeInTheDocument();
@@ -145,7 +150,7 @@ describe('FlipCard', () => {
     );
 
     const nextButton = screen.getByRole('button', {
-      name: /See next fun fact/i,
+      name: /Next fact/i,
     });
     fireEvent.click(nextButton);
 
@@ -165,7 +170,7 @@ describe('FlipCard', () => {
     );
 
     const resetButton = screen.getByRole('button', {
-      name: /Play again from the beginning/i,
+      name: /Play again/i,
     });
     expect(resetButton).toBeInTheDocument();
     expect(screen.getByText('Play again')).toBeInTheDocument();
@@ -184,7 +189,7 @@ describe('FlipCard', () => {
     );
 
     const resetButton = screen.getByRole('button', {
-      name: /Play again from the beginning/i,
+      name: /Play again/i,
     });
     fireEvent.click(resetButton);
 
@@ -204,9 +209,9 @@ describe('FlipCard', () => {
     );
 
     const questionButton = screen.getByRole('button', {
-      name: /Question: What is your favorite color\?/i,
+      name: /What is your favorite color\?/i,
     });
-    expect(questionButton).toHaveAttribute('tabIndex', '0');
+    expect(questionButton).not.toHaveAttribute('inert');
 
     // The live region should exist for screen reader announcements
     const liveRegion = container.querySelector('[aria-live="polite"]');
@@ -229,7 +234,7 @@ describe('FlipCard', () => {
     expect(liveRegion).toHaveTextContent(`Answer: ${mockFunFact.fact}`);
   });
 
-  it('sets correct tabIndex when flipped', () => {
+  it('makes the turned-away face inert when flipped', () => {
     render(
       <FlipCard
         funFact={mockFunFact}
@@ -241,15 +246,13 @@ describe('FlipCard', () => {
       />,
     );
 
-    const questionButton = screen.getByRole('button', {
-      name: /Question: What is your favorite color\?/i,
-    });
-    expect(questionButton).toHaveAttribute('tabIndex', '-1');
+    // The question is turned away: out of the accessibility tree and out
+    // of keyboard reach, which CSS backface visibility alone cannot do
+    const question = screen.getByText(/What is your favorite color\?/i);
+    expect(question.closest('button')).toHaveAttribute('inert');
 
-    const nextButton = screen.getByRole('button', {
-      name: /See next fun fact/i,
-    });
-    expect(nextButton).toHaveAttribute('tabIndex', '0');
+    const answerFace = screen.getByText(mockFunFact.fact).closest('[inert]');
+    expect(answerFace).toBeNull();
   });
 
   it('should have no accessibility violations', async () => {
@@ -366,7 +369,7 @@ describe('FlipCard', () => {
       jest.advanceTimersByTime(150);
 
       const card = screen.getByRole('button', {
-        name: /Question: What is your favorite color\?/i,
+        name: /What is your favorite color\?/i,
       });
       expect(document.activeElement).toBe(card);
     });

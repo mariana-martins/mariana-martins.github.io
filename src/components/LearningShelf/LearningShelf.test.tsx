@@ -5,13 +5,13 @@ import { axe } from 'jest-axe';
 
 import { data } from '@/data';
 
-import LearningShelf from './LearningShelf';
+import { LearningShelf } from './LearningShelf';
 
 describe('LearningShelf', () => {
   it('renders with correct heading', () => {
     render(<LearningShelf />);
     expect(
-      screen.getByRole('heading', { level: 3, name: /The Learning Shelf/i }),
+      screen.getByRole('heading', { level: 2, name: /The Learning Shelf/i }),
     ).toBeInTheDocument();
   });
 

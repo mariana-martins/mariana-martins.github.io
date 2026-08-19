@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card } from '@components/Card';
+import { Card } from '@components/Card/Card';
 import { BookOpen, Video } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
@@ -85,8 +85,8 @@ function LearningItemStatus({
         'px-2.5 py-0.5 rounded-full text-xs font-medium border-2',
         statusConfig[status].colors,
       )}
-      aria-label={`Status: ${statusConfig[status].label}`}
     >
+      <span className="sr-only">Status: </span>
       {statusConfig[status].label}
     </span>
   );
@@ -98,7 +98,7 @@ function LearningItemTitle({
   item: LearningItem;
 }): React.JSX.Element {
   return (
-    <h4 className="font-medium text-base text-balance leading-snug">
+    <h3 className="font-medium text-base text-balance leading-snug">
       {item.link ? (
         <a
           href={item.link}
@@ -123,7 +123,7 @@ function LearningItemTitle({
       ) : (
         item.title
       )}
-    </h4>
+    </h3>
   );
 }
 

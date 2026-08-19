@@ -1,4 +1,4 @@
-import Experience from '@components/Experience';
+import { Experience } from '@components/Experience/Experience';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';
@@ -69,7 +69,7 @@ describe('Experience', () => {
     render(<Experience />);
 
     const positions = screen
-      .getAllByRole('heading', { level: 4 })
+      .getAllByRole('heading', { level: 3 })
       .map((heading) => heading.textContent);
     expect(positions).toEqual(['Test Position', 'Current Position']);
 

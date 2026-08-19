@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-import { Card } from '@components/Card';
+import { Card } from '@components/Card/Card';
 import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
@@ -30,7 +30,7 @@ export function FlipCard({
 }: FlipCardProps): React.JSX.Element {
   const prefersReducedMotion = useReducedMotion();
   const nextButtonRef = useRef<HTMLButtonElement>(null);
-  const frontCardRef = useRef<HTMLDivElement>(null);
+  const frontCardRef = useRef<HTMLButtonElement>(null);
 
   /**
    * Focus Management for Keyboard Navigation
@@ -72,26 +72,6 @@ export function FlipCard({
     }
   }, [shouldAutoFocus, isFlipped, prefersReducedMotion, onAutoFocusComplete]);
 
-  const handleKeyDown = (e: React.KeyboardEvent): void => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (!isFlipped) {
-        onFlip();
-      }
-    }
-  };
-
-  const handleNextKeyDown = (e: React.KeyboardEvent): void => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      if (allRevealed) {
-        onReset();
-      } else {
-        onNext();
-      }
-    }
-  };
-
   return (
     <div className="relative w-full min-h-[230px] perspective-1000">
       <motion.div
@@ -105,26 +85,29 @@ export function FlipCard({
       >
         {/* Front - Question */}
         <Card
-          ref={frontCardRef}
+          asChild
           variant="interactive"
           className={cn(
             'absolute inset-0 w-full min-h-[230px]',
             'flex flex-col items-center justify-center gap-4',
             'backface-hidden',
           )}
-          role="button"
-          tabIndex={isFlipped ? -1 : 0}
-          onClick={!isFlipped ? onFlip : undefined}
-          onKeyDown={!isFlipped ? handleKeyDown : undefined}
-          aria-label={`Question: ${funFact.question}. Click to reveal answer.`}
         >
-          <p className="text-base md:text-lg text-center font-medium px-2 text-balance">
-            {funFact.question}
-          </p>
-          <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
-            <MousePointerClick size={18} aria-hidden="true" />
-            <span>Click to reveal</span>
-          </div>
+          <button
+            ref={frontCardRef}
+            type="button"
+            onClick={onFlip}
+            inert={isFlipped}
+          >
+            <p className="text-base md:text-lg text-center font-medium px-2 text-balance">
+              <span className="sr-only">Question: </span>
+              {funFact.question}
+            </p>
+            <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
+              <MousePointerClick size={18} aria-hidden="true" />
+              <span>Click to reveal</span>
+            </div>
+          </button>
         </Card>
 
         {/* Back - Answer */}
@@ -135,7 +118,7 @@ export function FlipCard({
             'flex flex-col justify-between',
             'backface-hidden rotate-y-180',
           )}
-          aria-hidden={!isFlipped}
+          inert={!isFlipped}
         >
           <div className="flex-1 flex items-center">
             <p className="text-sm md:text-base leading-relaxed text-pretty">
@@ -156,13 +139,6 @@ export function FlipCard({
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100',
             )}
             onClick={allRevealed ? onReset : onNext}
-            onKeyDown={handleNextKeyDown}
-            tabIndex={isFlipped ? 0 : -1}
-            aria-label={
-              allRevealed
-                ? 'Play again from the beginning'
-                : 'See next fun fact'
-            }
           >
             {allRevealed ? (
               <>

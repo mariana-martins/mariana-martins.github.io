@@ -1,19 +1,19 @@
 import React from 'react';
 
-import AboutMe from '@components/AboutMe';
-import ContactInfo from '@components/ContactInfo';
-import Experience from '@components/Experience';
-import Footer from '@components/Footer';
-import FunFacts from '@components/FunFacts';
-import Header from '@components/Header';
-import LearningShelf from '@components/LearningShelf';
-import Projects from '@components/Projects';
-import SectionNav from '@components/SectionNav';
-import ThemeToggle from '@components/ThemeToggle';
+import { AboutMe } from '@components/AboutMe/AboutMe';
+import { ContactInfo } from '@components/ContactInfo/ContactInfo';
+import { Experience } from '@components/Experience/Experience';
+import { Footer } from '@components/Footer/Footer';
+import { FunFacts } from '@components/FunFacts/FunFacts';
+import { Header } from '@components/Header/Header';
+import { LearningShelf } from '@components/LearningShelf/LearningShelf';
+import { Projects } from '@components/Projects/Projects';
+import { SectionNav } from '@components/SectionNav/SectionNav';
+import { ThemeToggle } from '@components/ThemeToggle/ThemeToggle';
 import '@styles/index.css';
 import { MotionConfig } from 'motion/react';
 
-function App(): React.JSX.Element {
+export function App(): React.JSX.Element {
   return (
     <MotionConfig reducedMotion="user">
       <div className="relative min-h-screen max-w-6xl mx-8 md:mx-auto flex flex-col gap-2 md:gap-4 md:px-16 justify-center items-center">
@@ -40,5 +40,3 @@ function App(): React.JSX.Element {
     </MotionConfig>
   );
 }
-
-export default App;

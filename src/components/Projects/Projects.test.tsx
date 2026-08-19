@@ -1,4 +1,4 @@
-import Projects from '@components/Projects';
+import { Projects } from '@components/Projects/Projects';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
@@ -38,7 +38,7 @@ describe('Projects', () => {
     render(<Projects />);
 
     const contactAppLink = screen.getByRole('link', {
-      name: /View Contact App project on GitHub/i,
+      name: /^Contact App/i,
     });
     expect(contactAppLink).toHaveAttribute(
       'href',
@@ -46,7 +46,7 @@ describe('Projects', () => {
     );
 
     const huskyRescueLink = screen.getByRole('link', {
-      name: /View Husky Rescue Org. Website project on GitHub/i,
+      name: /^Husky Rescue Org\. Website/i,
     });
     expect(huskyRescueLink).toHaveAttribute(
       'href',
@@ -66,15 +66,15 @@ describe('Projects', () => {
     });
   });
 
-  it('renders project links with correct aria-labels', () => {
+  it('names each project link after its title', () => {
     render(<Projects />);
 
     expect(
-      screen.getByRole('link', { name: /View Contact App project on GitHub/i }),
+      screen.getByRole('link', { name: /^Contact App/i }),
     ).toBeInTheDocument();
     expect(
       screen.getByRole('link', {
-        name: /View Husky Rescue Org. Website project on GitHub/i,
+        name: /^Husky Rescue Org\. Website/i,
       }),
     ).toBeInTheDocument();
   });

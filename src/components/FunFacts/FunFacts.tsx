@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { FlipCard } from '@components/FlipCard';
+import { FlipCard } from '@components/FlipCard/FlipCard';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { SECTIONS } from '@/constants';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
 import { cn } from '@/lib/cn';
 
-function FunFacts(): React.JSX.Element {
+export function FunFacts(): React.JSX.Element {
   const {
     currentFact,
     totalFacts,
@@ -31,15 +31,16 @@ function FunFacts(): React.JSX.Element {
       )}
       aria-labelledby="fun-facts-heading"
     >
-      <h3
+      <h2
         id="fun-facts-heading"
         tabIndex={-1}
         className="text-xl font-semibold"
       >
         {SECTIONS.funFacts.label}
-      </h3>
+      </h2>
 
-      <p className="text-sm text-muted">
+      {/* Changes on interaction, so it has to announce itself */}
+      <p role="status" className="text-sm text-muted">
         {revealedCount} of {totalFacts} revealed
       </p>
 
@@ -71,5 +72,3 @@ function FunFacts(): React.JSX.Element {
     </section>
   );
 }
-
-export default FunFacts;

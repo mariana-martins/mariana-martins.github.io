@@ -7,7 +7,7 @@ export interface TagProps {
   index: number;
 }
 
-function Tag({ name, index }: TagProps): React.JSX.Element {
+export function Tag({ name, index }: TagProps): React.JSX.Element {
   const colorOptions = [
     'bg-blue-50 text-blue-200',
     'bg-warm-400 text-blue-200',
@@ -28,5 +28,3 @@ function Tag({ name, index }: TagProps): React.JSX.Element {
     </span>
   );
 }
-
-export default Tag;

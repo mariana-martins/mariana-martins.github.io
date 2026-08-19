@@ -3,7 +3,7 @@ import React from 'react';
 import logo from '@/assets/logo.webp';
 import { cn } from '@/lib/cn';
 
-function Header(): React.JSX.Element {
+export function Header(): React.JSX.Element {
   const name = 'Mariana Martins Menezes';
 
   return (
@@ -26,9 +26,8 @@ function Header(): React.JSX.Element {
         <img
           src={logo}
           alt="Mariana Martins Logo"
-          width={817}
-          height={589}
-          fetchPriority="high"
+          width={272}
+          height={197}
           className="w-fit object-scale-down"
         />
       </div>
@@ -44,17 +43,16 @@ function Header(): React.JSX.Element {
         >
           {name}
         </h1>
-        <h2
+        {/* A job title under the name, not a section of the page */}
+        <p
           className={cn(
             'mt-2 text-xl lg:text-2xl tracking-widest',
             'lg:text-left text-center',
           )}
         >
           Frontend Engineer
-        </h2>
+        </p>
       </div>
     </header>
   );
 }
-
-export default Header;

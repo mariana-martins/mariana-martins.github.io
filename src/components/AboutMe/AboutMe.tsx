@@ -1,11 +1,10 @@
 import React from 'react';
 
-import aboutMeImage from '@/assets/avatar.webp';
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 
-function AboutMe(): React.JSX.Element {
+export function AboutMe(): React.JSX.Element {
   const { introduction } = data;
 
   return (
@@ -26,7 +25,7 @@ function AboutMe(): React.JSX.Element {
       >
         {/* Text Content */}
         <div className="flex-1 order-2 md:order-1 flex flex-col gap-4 animate-fade-in-up">
-          <h3
+          <h2
             id="about-me-heading"
             tabIndex={-1}
             className={cn(
@@ -35,7 +34,7 @@ function AboutMe(): React.JSX.Element {
             )}
           >
             {SECTIONS.about.label}
-          </h3>
+          </h2>
           <p
             className={cn(
               'text-base/7 md:text-lg/8',
@@ -50,8 +49,14 @@ function AboutMe(): React.JSX.Element {
         {/* Image Content */}
         <div className="order-1 md:order-2 self-center md:self-auto">
           <div className="animate-fade-in-scale">
+            {/*
+              Served from public/ under a stable URL so index.html can
+              preload it. Imported through the bundler, the browser could
+              not discover this request until the JS had parsed - and this
+              is the LCP element.
+            */}
             <img
-              src={aboutMeImage}
+              src="/avatar.webp"
               alt="Me and my dog, Margot, a very fluffy white dog!"
               width={256}
               height={256}
@@ -69,5 +74,3 @@ function AboutMe(): React.JSX.Element {
     </section>
   );
 }
-
-export default AboutMe;

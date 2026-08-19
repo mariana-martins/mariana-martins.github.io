@@ -1,4 +1,4 @@
-import FunFacts from '@components/FunFacts';
+import { FunFacts } from '@components/FunFacts/FunFacts';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -54,7 +54,7 @@ describe('FunFacts', () => {
     await user.click(card);
 
     expect(
-      screen.getByRole('button', { name: /See next fun fact/i }),
+      screen.getByRole('button', { name: /Next fact/i }),
     ).toBeInTheDocument();
   });
 

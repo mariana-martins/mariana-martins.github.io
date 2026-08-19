@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TagList from '@components/TagList';
+import { TagList } from '@components/TagList/TagList';
 import { ExternalLink } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
@@ -59,9 +59,9 @@ export const ExperienceCard = ({
         )}
       </p>
 
-      <h4 className="mt-1 text-base font-bold leading-snug text-balance">
+      <h3 className="mt-1 text-base font-bold leading-snug text-balance">
         {experience.position}
-      </h4>
+      </h3>
 
       <p className="mt-0.5 text-sm text-muted">
         {experience.website ? (

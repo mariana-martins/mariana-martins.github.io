@@ -1,4 +1,4 @@
-import ContactInfo from '@components/ContactInfo';
+import { ContactInfo } from '@components/ContactInfo/ContactInfo';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
@@ -28,7 +28,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const emailLink = screen.getByRole('link', {
-      name: /Send email to mariana@example.com/i,
+      name: /Email mariana@example.com/i,
     });
     expect(emailLink).toBeInTheDocument();
     expect(emailLink).toHaveAttribute('href', 'mailto:mariana@example.com');
@@ -38,7 +38,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const linkedInLink = screen.getByRole('link', {
-      name: /Visit LinkedIn profile/i,
+      name: /LinkedIn Mariana Martins Menezes/i,
     });
     expect(linkedInLink).toBeInTheDocument();
     expect(linkedInLink).toHaveAttribute(
@@ -53,7 +53,7 @@ describe('ContactInfo', () => {
     render(<ContactInfo />);
 
     const githubLink = screen.getByRole('link', {
-      name: /Visit GitHub profile/i,
+      name: /GitHub mariana-martins/i,
     });
     expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(

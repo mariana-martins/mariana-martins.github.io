@@ -7,21 +7,19 @@ import type { Project } from '@/types';
 
 import { ProjectCard } from './ProjectCard';
 
-function Projects(): React.JSX.Element {
-  const projectCount = data.projects.length;
-
+export function Projects(): React.JSX.Element {
   return (
     <section
       className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12"
       aria-labelledby="projects-heading"
     >
-      <h3
+      <h2
         id="projects-heading"
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >
         {SECTIONS.projects.label}
-      </h3>
+      </h2>
 
       <div
         className="grid gap-4 grid-cols-1 md:grid-cols-[1.3fr_1fr] md:grid-rows-2 md:grid-flow-dense"
@@ -38,12 +36,7 @@ function Projects(): React.JSX.Element {
                 isFeatured && 'md:col-start-1 md:row-span-2 md:row-start-1',
               )}
             >
-              <ProjectCard
-                project={project}
-                index={index}
-                isFeatured={isFeatured}
-                projectCount={projectCount}
-              />
+              <ProjectCard project={project} isFeatured={isFeatured} />
             </div>
           );
         })}
@@ -51,5 +44,3 @@ function Projects(): React.JSX.Element {
     </section>
   );
 }
-
-export default Projects;
