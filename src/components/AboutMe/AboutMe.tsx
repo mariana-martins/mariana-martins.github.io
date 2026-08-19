@@ -1,6 +1,5 @@
 import React from 'react';
 
-import aboutMeImage from '@/assets/avatar.webp';
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
@@ -50,8 +49,14 @@ export function AboutMe(): React.JSX.Element {
         {/* Image Content */}
         <div className="order-1 md:order-2 self-center md:self-auto">
           <div className="animate-fade-in-scale">
+            {/*
+              Served from public/ under a stable URL so index.html can
+              preload it. Imported through the bundler, the browser could
+              not discover this request until the JS had parsed - and this
+              is the LCP element.
+            */}
             <img
-              src={aboutMeImage}
+              src="/avatar.webp"
               alt="Me and my dog, Margot, a very fluffy white dog!"
               width={256}
               height={256}
