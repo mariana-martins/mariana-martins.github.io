@@ -26,7 +26,8 @@ export interface Experience {
   startDate: string;
   /** End date in "YYYY-MM" format, undefined if current position */
   endDate?: string;
-  description: string[];
+  /** Short summary of the role, 5-6 lines when rendered */
+  description: string;
   technologies: string[];
 }
 

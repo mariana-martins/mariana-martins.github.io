@@ -95,16 +95,9 @@ export const ExperienceCard = ({
         )}
       </p>
 
-      <ul className="hidden md:flex flex-col gap-1.5 mt-2.5 text-sm/5 list-disc list-outside pl-4 marker:text-pink dark:marker:text-blue-100">
-        {experience.description.map((paragraph) => (
-          <li
-            key={`${experience.id}-${paragraph.substring(0, 30)}`}
-            className="text-text-primary/90 dark:text-text-primary-dark/90"
-          >
-            {paragraph}
-          </li>
-        ))}
-      </ul>
+      <p className="hidden md:block mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
+        {experience.description}
+      </p>
 
       <ul
         aria-label="Technologies used"
