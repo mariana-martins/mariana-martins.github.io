@@ -10,7 +10,6 @@ interface ContactItemProps {
   label: string;
   value: string;
   href?: string;
-  ariaLabel?: string;
   isExternal?: boolean;
   valueClassName?: string;
 }
@@ -35,7 +34,6 @@ export const ContactItem = ({
   label,
   value,
   href,
-  ariaLabel,
   isExternal = false,
   valueClassName,
 }: ContactItemProps): React.JSX.Element => {
@@ -75,7 +73,6 @@ export const ContactItem = ({
         className={itemClasses}
         whileHover={prefersReducedMotion ? {} : { x: 4 }}
         whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-        aria-label={ariaLabel}
       >
         <div className={iconContainerClasses}>
           <Icon size={22} className="icon-accent" aria-hidden="true" />

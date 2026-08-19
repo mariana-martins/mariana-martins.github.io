@@ -85,8 +85,8 @@ function LearningItemStatus({
         'px-2.5 py-0.5 rounded-full text-xs font-medium border-2',
         statusConfig[status].colors,
       )}
-      aria-label={`Status: ${statusConfig[status].label}`}
     >
+      <span className="sr-only">Status: </span>
       {statusConfig[status].label}
     </span>
   );

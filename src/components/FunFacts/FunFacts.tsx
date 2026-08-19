@@ -39,7 +39,8 @@ export function FunFacts(): React.JSX.Element {
         {SECTIONS.funFacts.label}
       </h3>
 
-      <p className="text-sm text-muted">
+      {/* Changes on interaction, so it has to announce itself */}
+      <p role="status" className="text-sm text-muted">
         {revealedCount} of {totalFacts} revealed
       </p>
 

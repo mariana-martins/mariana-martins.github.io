@@ -32,7 +32,6 @@ export function ContactInfo(): React.JSX.Element {
           label="Email"
           value={data.contact.email}
           href={`mailto:${data.contact.email}`}
-          ariaLabel={`Send email to ${data.contact.email}`}
           valueClassName="break-all"
         />
         <ContactItem
@@ -40,7 +39,6 @@ export function ContactInfo(): React.JSX.Element {
           label="LinkedIn"
           value="Mariana Martins Menezes"
           href={data.contact.linkedIn}
-          ariaLabel="Visit LinkedIn profile"
           isExternal
           valueClassName="truncate"
         />
@@ -49,7 +47,6 @@ export function ContactInfo(): React.JSX.Element {
           label="GitHub"
           value="mariana-martins"
           href={data.contact.github}
-          ariaLabel="Visit GitHub profile"
           isExternal
         />
       </ul>
