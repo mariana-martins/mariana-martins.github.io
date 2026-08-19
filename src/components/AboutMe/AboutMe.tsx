@@ -26,7 +26,7 @@ export function AboutMe(): React.JSX.Element {
       >
         {/* Text Content */}
         <div className="flex-1 order-2 md:order-1 flex flex-col gap-4 animate-fade-in-up">
-          <h3
+          <h2
             id="about-me-heading"
             tabIndex={-1}
             className={cn(
@@ -35,7 +35,7 @@ export function AboutMe(): React.JSX.Element {
             )}
           >
             {SECTIONS.about.label}
-          </h3>
+          </h2>
           <p
             className={cn(
               'text-base/7 md:text-lg/8',

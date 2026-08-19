@@ -13,13 +13,13 @@ export function ContactInfo(): React.JSX.Element {
       className="w-full flex flex-col gap-6 py-12 items-center border-b-dashed-custom"
       aria-labelledby="contact-info-heading"
     >
-      <h3
+      <h2
         id="contact-info-heading"
         tabIndex={-1}
         className="text-xl text-text-primary dark:text-text-primary-dark font-semibold mb-2"
       >
         {SECTIONS.contact.label}
-      </h3>
+      </h2>
 
       <ul className="w-full max-w-sm flex flex-col gap-2">
         <ContactItem

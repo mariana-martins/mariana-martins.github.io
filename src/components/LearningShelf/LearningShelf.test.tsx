@@ -11,7 +11,7 @@ describe('LearningShelf', () => {
   it('renders with correct heading', () => {
     render(<LearningShelf />);
     expect(
-      screen.getByRole('heading', { level: 3, name: /The Learning Shelf/i }),
+      screen.getByRole('heading', { level: 2, name: /The Learning Shelf/i }),
     ).toBeInTheDocument();
   });
 

@@ -31,13 +31,13 @@ export function FunFacts(): React.JSX.Element {
       )}
       aria-labelledby="fun-facts-heading"
     >
-      <h3
+      <h2
         id="fun-facts-heading"
         tabIndex={-1}
         className="text-xl font-semibold"
       >
         {SECTIONS.funFacts.label}
-      </h3>
+      </h2>
 
       {/* Changes on interaction, so it has to announce itself */}
       <p role="status" className="text-sm text-muted">

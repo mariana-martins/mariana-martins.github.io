@@ -44,14 +44,15 @@ export function Header(): React.JSX.Element {
         >
           {name}
         </h1>
-        <h2
+        {/* A job title under the name, not a section of the page */}
+        <p
           className={cn(
             'mt-2 text-xl lg:text-2xl tracking-widest',
             'lg:text-left text-center',
           )}
         >
           Frontend Engineer
-        </h2>
+        </p>
       </div>
     </header>
   );

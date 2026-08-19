@@ -101,7 +101,7 @@ export function ProjectCard({
         above the other sections without positioning it.
       */}
       <CardHeader className={cn('z-20', isFeatured && 'pt-10')}>
-        <h4
+        <h3
           id={`project-${project.id}-title`}
           className={cn(
             'font-bold text-text-primary dark:text-text-primary-dark text-balance',
@@ -122,7 +122,7 @@ export function ProjectCard({
             {project.title}
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
-        </h4>
+        </h3>
       </CardHeader>
 
       <CardContent className="relative z-10">

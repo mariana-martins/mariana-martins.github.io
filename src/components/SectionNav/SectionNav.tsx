@@ -48,9 +48,9 @@ export function SectionNav(): React.JSX.Element {
         'focus-within:ring-pink dark:focus-within:ring-blue-200',
       )}
     >
-      <h2 className="text-sm font-semibold mb-2 text-text-primary">
+      <p className="text-sm font-semibold mb-2 text-text-primary">
         Jump to section:
-      </h2>
+      </p>
       <ul className="flex flex-col gap-1" role="list">
         {Object.values(SECTIONS).map((section) => (
           <li key={section.id}>

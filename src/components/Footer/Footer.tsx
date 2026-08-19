@@ -12,9 +12,10 @@ export function Footer(): React.JSX.Element {
         'text-text-primary dark:text-text-primary-dark',
       )}
     >
-      <h3 className="text-lg mb-4 text-center">
+      {/* A sign-off, not a section heading - it introduces nothing */}
+      <p className="text-lg mb-4 text-center">
         Not all those who wander are lost. Some are just debugging.
-      </h3>
+      </p>
       <Separator
         className={cn(
           'my-4 opacity-30 bg-current',

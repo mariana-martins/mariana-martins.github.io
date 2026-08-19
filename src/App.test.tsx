@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 import { App } from '@/App';
@@ -26,12 +26,16 @@ describe('App', () => {
       .replace(/\s/g, '')
       .toLowerCase();
     expect(normalizedText).toContain(expectedText);
-    // Find the subtitle h2 specifically (there are multiple h2s now including SectionNav)
-    const subtitles = screen.getAllByRole('heading', { level: 2 });
-    const subtitle = subtitles.find((h) =>
-      h.textContent?.includes('Frontend Engineer'),
-    );
-    expect(subtitle).toBeInTheDocument();
+    // The job title is not a heading: it labels no section. Every level 2
+    // heading belongs to a real section of the page.
+    const sectionHeadings = screen
+      .getAllByRole('heading', { level: 2 })
+      .map((h) => h.textContent);
+    expect(sectionHeadings).not.toContain('Frontend Engineer');
+
+    // It is still there in the header, just not as a heading
+    const banner = screen.getByRole('banner');
+    expect(within(banner).getByText('Frontend Engineer')).toBeInTheDocument();
     expect(screen.getByAltText('Mariana Martins Logo')).toBeInTheDocument();
   });
 
@@ -98,7 +102,7 @@ describe('App', () => {
       // Each entry renders its position as a heading, with the company below it.
       // Use ^ and $ to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
       const headings = screen.getAllByRole('heading', {
-        level: 4,
+        level: 3,
         name: new RegExp(`^${escapedPosition}$`, 'i'),
       });
       expect(headings.length).toBeGreaterThan(0);

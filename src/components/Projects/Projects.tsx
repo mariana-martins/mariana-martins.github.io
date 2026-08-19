@@ -13,13 +13,13 @@ export function Projects(): React.JSX.Element {
       className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12"
       aria-labelledby="projects-heading"
     >
-      <h3
+      <h2
         id="projects-heading"
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >
         {SECTIONS.projects.label}
-      </h3>
+      </h2>
 
       <div
         className="grid gap-4 grid-cols-1 md:grid-cols-[1.3fr_1fr] md:grid-rows-2 md:grid-flow-dense"

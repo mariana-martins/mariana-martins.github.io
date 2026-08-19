@@ -14,13 +14,13 @@ export function LearningShelf(): React.JSX.Element {
       aria-describedby="learning-shelf-description"
     >
       <div className="flex items-center gap-2">
-        <h3
+        <h2
           id="learning-shelf-heading"
           tabIndex={-1}
           className="text-xl font-semibold"
         >
           {SECTIONS.learningShelf.label}
-        </h3>
+        </h2>
       </div>
 
       <p id="learning-shelf-description" className="sr-only">

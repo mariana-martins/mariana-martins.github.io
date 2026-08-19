@@ -69,7 +69,7 @@ describe('Experience', () => {
     render(<Experience />);
 
     const positions = screen
-      .getAllByRole('heading', { level: 4 })
+      .getAllByRole('heading', { level: 3 })
       .map((heading) => heading.textContent);
     expect(positions).toEqual(['Test Position', 'Current Position']);
 
