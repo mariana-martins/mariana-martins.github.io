@@ -8,8 +8,6 @@ import type { Project } from '@/types';
 import { ProjectCard } from './ProjectCard';
 
 export function Projects(): React.JSX.Element {
-  const projectCount = data.projects.length;
-
   return (
     <section
       className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12"
@@ -38,12 +36,7 @@ export function Projects(): React.JSX.Element {
                 isFeatured && 'md:col-start-1 md:row-span-2 md:row-start-1',
               )}
             >
-              <ProjectCard
-                project={project}
-                index={index}
-                isFeatured={isFeatured}
-                projectCount={projectCount}
-              />
+              <ProjectCard project={project} isFeatured={isFeatured} />
             </div>
           );
         })}

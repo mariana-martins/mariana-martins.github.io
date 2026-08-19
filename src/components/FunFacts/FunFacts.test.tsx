@@ -54,7 +54,7 @@ describe('FunFacts', () => {
     await user.click(card);
 
     expect(
-      screen.getByRole('button', { name: /See next fun fact/i }),
+      screen.getByRole('button', { name: /Next fact/i }),
     ).toBeInTheDocument();
   });
 
