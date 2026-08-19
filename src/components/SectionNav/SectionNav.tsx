@@ -2,6 +2,7 @@ import React, { useCallback, useRef } from 'react';
 
 import { SECTIONS } from '@/constants';
 import { cn } from '@/lib/cn';
+import { prefersReducedMotion } from '@/lib/reducedMotion';
 
 function SectionNav(): React.JSX.Element {
   const navRef = useRef<HTMLElement>(null);
@@ -22,8 +23,10 @@ function SectionNav(): React.JSX.Element {
             targetElement.setAttribute('tabindex', '-1');
           }
           targetElement.focus();
+          // Smooth scrolling is motion, and the explicit `behavior` option
+          // overrides the CSS `scroll-behavior` property.
           targetElement.scrollIntoView({
-            behavior: 'smooth',
+            behavior: prefersReducedMotion() ? 'auto' : 'smooth',
             block: 'start',
           });
         }

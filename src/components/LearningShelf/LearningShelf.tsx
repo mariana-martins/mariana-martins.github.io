@@ -28,7 +28,7 @@ function LearningShelf(): React.JSX.Element {
       </p>
 
       <ul
-        className="w-full flex-1 flex flex-col justify-between gap-4"
+        className="w-full grow flex flex-col gap-4"
         role="list"
         aria-label="Learning items"
       >

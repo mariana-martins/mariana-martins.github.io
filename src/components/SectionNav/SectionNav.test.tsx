@@ -131,6 +131,35 @@ describe('SectionNav', () => {
     });
   });
 
+  it('scrolls without animation when the user prefers reduced motion', async () => {
+    const originalMatchMedia = window.matchMedia;
+    window.matchMedia = ((query: string) => ({
+      matches: query === '(prefers-reduced-motion: reduce)',
+      media: query,
+      onchange: null,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn(),
+    })) as unknown as typeof window.matchMedia;
+
+    try {
+      render(<SectionNav />);
+
+      fireEvent.click(screen.getByRole('link', { name: SECTIONS.about.label }));
+
+      await waitFor(() => {
+        expect(mockFocus).toHaveBeenCalled();
+      });
+
+      expect(mockScrollIntoView).toHaveBeenCalledWith({
+        behavior: 'auto',
+        block: 'start',
+      });
+    } finally {
+      window.matchMedia = originalMatchMedia;
+    }
+  });
+
   it('does not navigate on other key presses', () => {
     render(<SectionNav />);
 

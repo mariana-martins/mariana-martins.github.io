@@ -7,11 +7,14 @@ import {
   CardFooter,
   CardHeader,
 } from '@components/Card';
-import Tag from '@components/Tag';
+import TagList from '@components/TagList';
 import { ExternalLink, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
+
+/** Keeps the non-featured card's tag row to a single line. */
+const MAX_VISIBLE_TECHNOLOGIES = 3;
 
 const projectDecorations: Record<
   string,
@@ -44,12 +47,6 @@ export function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
-
-  // Show more tags for featured card
-  const visibleTechnologies = isFeatured
-    ? project.technologies
-    : project.technologies.slice(0, 3);
-  const hiddenCount = project.technologies.length - visibleTechnologies.length;
 
   return (
     <a
@@ -131,21 +128,14 @@ export function ProjectCard({
           )}
         </CardContent>
 
-        <CardFooter className="relative z-10 flex-wrap">
-          {visibleTechnologies.map((technology: string, techIndex: number) => (
-            <Tag key={technology} name={technology} index={techIndex} />
-          ))}
-          {hiddenCount > 0 && (
-            <span
-              className={cn(
-                'text-xs px-2 py-0.5 rounded-md',
-                'bg-pink/20 dark:bg-blue-100/20',
-                'text-text-primary/70 dark:text-text-primary-dark/70',
-              )}
-            >
-              +{hiddenCount}
-            </span>
-          )}
+        <CardFooter className="relative z-10">
+          <TagList
+            technologies={project.technologies}
+            label={`Technologies used in ${project.title}`}
+            /* The featured card has the room to show everything */
+            max={isFeatured ? undefined : MAX_VISIBLE_TECHNOLOGIES}
+            className="w-full"
+          />
         </CardFooter>
 
         <span className="sr-only">Opens in a new window. External site.</span>

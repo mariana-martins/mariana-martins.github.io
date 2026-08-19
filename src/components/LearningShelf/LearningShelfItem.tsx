@@ -131,11 +131,11 @@ export function LearningShelfItem({
   item,
 }: LearningShelfItemProps): React.JSX.Element {
   return (
-    <li role="listitem">
+    <li role="listitem" className="grow flex flex-col">
       <Card
         variant="default"
         size="sm"
-        className="flex flex-col items-center sm:flex-row sm:items-center gap-3"
+        className="grow flex flex-col items-center sm:flex-row sm:items-center gap-3"
       >
         <LearningItemCategory category={item.category} />
 
