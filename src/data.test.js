@@ -25,7 +25,7 @@ describe('data object', () => {
         'skills',
         'contact',
         'funFacts',
-        'learningShelf',
+        'picks',
       ];
       const actualKeys = Object.keys(data);
 
@@ -343,56 +343,88 @@ describe('data object', () => {
     });
   });
 
-  describe('7. LearningShelf array structure', () => {
-    it('should have learningShelf as an array', () => {
-      expect(Array.isArray(data.learningShelf)).toBe(true);
+  describe('7. Picks array structure', () => {
+    const creditField = {
+      book: 'author',
+      course: 'author',
+      movie: 'director',
+      series: 'creator',
+      podcast: 'host',
+    };
+
+    it('should have picks as an array', () => {
+      expect(Array.isArray(data.picks)).toBe(true);
     });
 
-    it('should have at least one learning item', () => {
-      expect(data.learningShelf.length).toBeGreaterThan(0);
+    it('should have at least one pick', () => {
+      expect(data.picks.length).toBeGreaterThan(0);
     });
 
-    it('should have expected structure for each learning item', () => {
-      data.learningShelf.forEach((item) => {
+    it('should have expected structure for each pick', () => {
+      data.picks.forEach((item) => {
         expect(item).toHaveProperty('id');
         expect(item).toHaveProperty('title');
-        expect(item).toHaveProperty('author');
         expect(item).toHaveProperty('category');
         expect(item).toHaveProperty('status');
 
-        // Type checks
         expect(typeof item.id).toBe('string');
         expect(typeof item.title).toBe('string');
-        expect(typeof item.author).toBe('string');
         expect(typeof item.category).toBe('string');
         expect(typeof item.status).toBe('string');
       });
     });
 
-    it('should have non-empty required string fields for each learning item', () => {
-      data.learningShelf.forEach((item) => {
+    it('should have non-empty required string fields for each pick', () => {
+      data.picks.forEach((item) => {
         expect(item.id.trim().length).toBeGreaterThan(0);
         expect(item.title.trim().length).toBeGreaterThan(0);
-        expect(item.author.trim().length).toBeGreaterThan(0);
       });
     });
 
     it('should have valid category values', () => {
-      const validCategories = ['book', 'course'];
-      data.learningShelf.forEach((item) => {
+      const validCategories = Object.keys(creditField);
+      data.picks.forEach((item) => {
         expect(validCategories).toContain(item.category);
+      });
+    });
+
+    it('should have the credit field its category requires', () => {
+      data.picks.forEach((item) => {
+        const field = creditField[item.category];
+        expect(typeof item[field]).toBe('string');
+        expect(item[field].trim().length).toBeGreaterThan(0);
       });
     });
 
     it('should have valid status values', () => {
       const validStatuses = ['planned', 'in-progress', 'completed'];
-      data.learningShelf.forEach((item) => {
+      data.picks.forEach((item) => {
         expect(validStatuses).toContain(item.status);
       });
     });
 
-    it('should have unique learning item IDs', () => {
-      const ids = data.learningShelf.map((i) => i.id);
+    it('should only rate completed picks, with an integer from 1 to 5', () => {
+      data.picks.forEach((item) => {
+        if (item.rating === undefined) {
+          return;
+        }
+        expect(item.status).toBe('completed');
+        expect(Number.isInteger(item.rating)).toBe(true);
+        expect(item.rating).toBeGreaterThanOrEqual(1);
+        expect(item.rating).toBeLessThanOrEqual(5);
+      });
+    });
+
+    it('should format finishedAt as YYYY-MM', () => {
+      data.picks.forEach((item) => {
+        if (item.finishedAt !== undefined) {
+          expect(item.finishedAt).toMatch(/^\d{4}-(0[1-9]|1[0-2])$/);
+        }
+      });
+    });
+
+    it('should have unique pick IDs', () => {
+      const ids = data.picks.map((i) => i.id);
       const uniqueIds = new Set(ids);
       expect(uniqueIds.size).toBe(ids.length);
     });

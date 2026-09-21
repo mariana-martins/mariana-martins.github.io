@@ -2,7 +2,7 @@ import type {
   Contact,
   Experience,
   FunFact,
-  LearningItem,
+  PickItem,
   PortfolioData,
   Project,
   Skill,
@@ -124,21 +124,51 @@ export const mockFunFacts: FunFact[] = [
 /**
  * Mock learning shelf items for testing
  */
-export const mockLearningShelf: LearningItem[] = [
+export const mockPicks: PickItem[] = [
   {
-    id: 'learning-1',
+    id: 'pick-book',
     title: 'Clean Code',
     author: 'Robert C. Martin',
     category: 'book',
     status: 'completed',
+    rating: 4,
+    finishedAt: '2023-05',
+    note: 'Still argue with chapter 3.',
   },
   {
-    id: 'learning-2',
+    id: 'pick-course',
     title: 'React Testing Library',
     author: 'Kent C. Dodds',
+    platform: 'Testing JavaScript',
     category: 'course',
     status: 'in-progress',
     link: 'https://testingjavascript.com',
+  },
+  {
+    id: 'pick-movie',
+    title: 'Arrival',
+    director: 'Denis Villeneuve',
+    year: 2016,
+    category: 'movie',
+    status: 'completed',
+    rating: 5,
+    finishedAt: '2024-01',
+  },
+  {
+    id: 'pick-series',
+    title: 'Severance',
+    creator: 'Dan Erickson',
+    year: 2022,
+    category: 'series',
+    status: 'planned',
+  },
+  {
+    id: 'pick-podcast',
+    title: 'Syntax',
+    host: 'Wes Bos and Scott Tolinski',
+    category: 'podcast',
+    status: 'in-progress',
+    link: 'https://syntax.fm',
   },
 ];
 
@@ -152,7 +182,7 @@ export const mockPortfolioData: PortfolioData = {
   projects: mockProjects,
   skills: mockSkills,
   funFacts: mockFunFacts,
-  learningShelf: mockLearningShelf,
+  picks: mockPicks,
 };
 
 /**

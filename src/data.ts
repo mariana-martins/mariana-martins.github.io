@@ -354,7 +354,7 @@ export const data: PortfolioData = {
     github: 'https://github.com/mariana-martins', // TODO: Verify GitHub URL
     address: 'Melbourne, Australia',
   },
-  learningShelf: [
+  picks: [
     {
       id: 'ai-and-design-systems',
       title: 'AI and Design Systems',
@@ -369,6 +369,8 @@ export const data: PortfolioData = {
       author: 'Brad Frost',
       category: 'course',
       status: 'completed',
+      rating: 5,
+      finishedAt: '2025-06',
       link: 'https://bradfrost.com/blog/post/introducing-subatomic-the-complete-guide-to-design-tokens/',
     },
     {
@@ -395,6 +397,36 @@ export const data: PortfolioData = {
       category: 'book',
       status: 'planned',
       link: 'https://adamgrant.net/book/give-and-take/',
+    },
+    {
+      id: 'untamed',
+      title: 'Untamed',
+      author: 'Glennon Doyle',
+      category: 'book',
+      status: 'completed',
+      rating: 5,
+      finishedAt: '2022-03',
+      note: 'The book that taught me to trust my intuition.',
+    },
+    {
+      id: 'lotr-fellowship',
+      title: 'The Lord of the Rings: The Fellowship of the Ring',
+      director: 'Peter Jackson',
+      year: 2001,
+      category: 'movie',
+      status: 'completed',
+      rating: 5,
+      finishedAt: '2024-12',
+      note: 'Extended edition only, obviously.',
+    },
+    {
+      id: 'from',
+      title: 'FROM',
+      creator: 'John Griffin',
+      year: 2022,
+      category: 'series',
+      status: 'in-progress',
+      note: 'Nobody leaves. I keep coming back.',
     },
   ],
 };

@@ -20,7 +20,7 @@ export function ThemeToggle(): React.JSX.Element {
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         'bg-pink text-text-primary',
         'hover:bg-pink/70',
-        'dark:bg-blue-100 dark:text-blue-200',
+        'dark:bg-blue-100 dark:text-blue-300',
         'dark:hover:bg-blue-100/90',
         'focus-visible:ring-pink',
         'dark:focus-visible:ring-blue-100',

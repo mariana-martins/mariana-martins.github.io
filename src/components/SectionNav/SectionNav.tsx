@@ -45,7 +45,7 @@ export function SectionNav(): React.JSX.Element {
         'focus-within:p-4 focus-within:rounded-lg',
         'focus-within:bg-warm-100 dark:focus-within:bg-blue-100',
         'focus-within:shadow-lg focus-within:ring-2',
-        'focus-within:ring-pink dark:focus-within:ring-blue-200',
+        'focus-within:ring-pink dark:focus-within:ring-blue-300',
       )}
     >
       <p className="text-sm font-semibold mb-2 text-text-primary">
@@ -63,7 +63,7 @@ export function SectionNav(): React.JSX.Element {
                 'text-text-primary',
                 'hover:bg-pink/20 dark:hover:bg-blue-100/20',
                 'focus:outline-none focus-visible:ring-2',
-                'focus-visible:ring-pink dark:focus-visible:ring-blue-200',
+                'focus-visible:ring-pink dark:focus-visible:ring-blue-300',
                 'transition-colors duration-150',
               )}
             >

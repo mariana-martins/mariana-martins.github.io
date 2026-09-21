@@ -60,17 +60,37 @@ export interface FunFact {
   fact: string;
 }
 
+export type PickStatus = 'planned' | 'in-progress' | 'completed';
+export type PickRating = 1 | 2 | 3 | 4 | 5;
+
 /**
- * Learning shelf item (book or course).
+ * Fields shared by every pick, regardless of category.
  */
-export interface LearningItem {
+interface PickBase {
   id: string;
   title: string;
-  author: string;
-  category: 'book' | 'course';
-  status: 'planned' | 'in-progress' | 'completed';
+  status: PickStatus;
+  /** Only meaningful when status === 'completed' */
+  rating?: PickRating;
+  /** "YYYY-MM" when finished; drives the "recent first" sort */
+  finishedAt?: string;
+  /** One-liner opinion, shown in the drawer only */
+  note?: string;
   link?: string;
 }
+
+/**
+ * A pick on Margot's shelf: books, courses, movies, series and podcasts.
+ * `category` discriminates which credit fields exist.
+ */
+export type PickItem =
+  | (PickBase & { category: 'book'; author: string })
+  | (PickBase & { category: 'course'; author: string; platform?: string })
+  | (PickBase & { category: 'movie'; director: string; year?: number })
+  | (PickBase & { category: 'series'; creator: string; year?: number })
+  | (PickBase & { category: 'podcast'; host: string });
+
+export type PickCategory = PickItem['category'];
 
 /**
  * Complete portfolio data structure.
@@ -82,5 +102,5 @@ export interface PortfolioData {
   skills: Skill[];
   contact: Contact;
   funFacts: FunFact[];
-  learningShelf: LearningItem[];
+  picks: PickItem[];
 }

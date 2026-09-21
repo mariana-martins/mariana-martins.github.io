@@ -43,11 +43,11 @@ describe('Tag', () => {
 
   it('applies correct color classes for each index', () => {
     const colorOptions = [
-      'bg-blue-50 text-blue-200',
-      'bg-warm-400 text-blue-200',
-      'bg-warm-200 text-blue-200',
-      'bg-green text-blue-200',
-      'bg-purple text-blue-200',
+      'bg-blue-50 text-blue-300',
+      'bg-warm-400 text-blue-300',
+      'bg-warm-200 text-blue-300',
+      'bg-green-50 text-blue-300',
+      'bg-purple-50 text-blue-300',
     ];
 
     colorOptions.forEach((colorClass, index) => {
