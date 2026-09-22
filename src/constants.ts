@@ -20,5 +20,5 @@ export const MARGOTS_PICKS = {
   /** URL hash that opens the drawer, so it is linkable and survives reload */
   hash: '#shelf',
   /** How many picks the drawer reveals per "Show more" */
-  pageSize: 12,
+  pageSize: 24,
 } as const;

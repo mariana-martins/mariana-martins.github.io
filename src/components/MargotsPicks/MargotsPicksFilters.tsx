@@ -2,12 +2,12 @@ import React from 'react';
 
 import { cn } from '@/lib/cn';
 import {
-  PICK_CATEGORY_LABELS,
   PICK_STATUS_LABELS,
   type PickCategoryFilter,
+  type PickCategoryFilterGroup,
   type PickStatusFilter,
 } from '@/lib/picks';
-import type { PickCategory, PickStatus } from '@/types';
+import type { PickStatus } from '@/types';
 
 const STATUS_ORDER: PickStatus[] = ['in-progress', 'completed', 'planned'];
 
@@ -59,8 +59,8 @@ function ChipGroup<T extends string>({
 }
 
 export interface MargotsPicksFiltersProps {
-  /** Only categories that actually have picks get a chip */
-  categories: PickCategory[];
+  /** Only chips whose categories actually have picks */
+  filters: PickCategoryFilterGroup[];
   category: PickCategoryFilter;
   status: PickStatusFilter;
   onCategoryChange: (category: PickCategoryFilter) => void;
@@ -68,7 +68,7 @@ export interface MargotsPicksFiltersProps {
 }
 
 export function MargotsPicksFilters({
-  categories,
+  filters,
   category,
   status,
   onCategoryChange,
@@ -76,10 +76,7 @@ export function MargotsPicksFilters({
 }: MargotsPicksFiltersProps): React.JSX.Element {
   const categoryOptions: Array<{ value: PickCategoryFilter; label: string }> = [
     { value: 'all', label: 'All' },
-    ...categories.map((value) => ({
-      value,
-      label: PICK_CATEGORY_LABELS[value],
-    })),
+    ...filters.map(({ value, label }) => ({ value, label })),
   ];
 
   const statusOptions: Array<{ value: PickStatusFilter; label: string }> = [

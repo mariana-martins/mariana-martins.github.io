@@ -66,14 +66,17 @@ describe('MargotsPicks', () => {
     ).toBeInTheDocument();
   });
 
-  it('lists the first page, recent first, with ratings and notes', () => {
+  it('lists the first page, recent first, with ratings and notes', async () => {
     renderOpen();
     expect(visibleTitles()).toEqual([
-      'Arrival',
-      'Clean Code',
       'React Testing Library',
+      'The Courage to Be Disliked',
+      'Arrival',
     ]);
     expect(screen.getByText('Rated 5 out of 5 Margots')).toBeInTheDocument();
+    await userEvent
+      .setup()
+      .click(screen.getByRole('button', { name: 'Show more' }));
     expect(screen.getByText('Still argue with chapter 3.')).toBeInTheDocument();
     expect(screen.getByText(`${mockPicks.length} picks`)).toBeInTheDocument();
   });
@@ -83,9 +86,9 @@ describe('MargotsPicks', () => {
     renderOpen();
     await user.click(screen.getByRole('button', { name: 'Show more' }));
     expect(visibleTitles()).toHaveLength(5);
-    // Fourth in "recent" order is Severance, which has no link: the card itself takes focus
+    // Fourth in "recent" order is Clean Code, which has no link: the card itself takes focus
     expect(document.activeElement?.tagName).toBe('LI');
-    expect(document.activeElement).toHaveTextContent('Severance');
+    expect(document.activeElement).toHaveTextContent('Clean Code');
   });
 
   it('hides "Show more" once everything is visible', async () => {
@@ -119,7 +122,7 @@ describe('MargotsPicks', () => {
   it('shows an empty state when nothing matches', async () => {
     const user = userEvent.setup();
     renderOpen();
-    await user.click(screen.getByRole('button', { name: 'Podcast' }));
+    await user.click(screen.getByRole('button', { name: 'Audiobook' }));
     await user.click(screen.getByRole('button', { name: 'Completed' }));
     expect(
       screen.getByText('Nothing here yet. Margot went looking for more.'),
@@ -144,7 +147,7 @@ describe('MargotsPicks', () => {
       'Clean Code',
       'React Testing Library',
       'Severance',
-      'Syntax',
+      'The Courage to Be Disliked',
     ]);
   });
 

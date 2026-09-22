@@ -12,7 +12,7 @@ import { data } from '@/data';
 import { usePicksList } from '@/hooks/usePicksList';
 import { useShelfHash } from '@/hooks/useShelfHash';
 import { cn } from '@/lib/cn';
-import { getAvailableCategories } from '@/lib/picks';
+import { getAvailableFilters } from '@/lib/picks';
 
 import { MargotsPicksFilters } from './MargotsPicksFilters';
 import { MargotsPicksSort } from './MargotsPicksSort';
@@ -66,7 +66,7 @@ function MargotsPicksContent(): React.JSX.Element {
     setSort,
     showMore,
   } = usePicksList(data.picks);
-  const categories = getAvailableCategories(data.picks);
+  const filters = getAvailableFilters(data.picks);
 
   // After "Show more", land the keyboard on the first newly revealed card
   const listRef = useRef<HTMLUListElement>(null);
@@ -141,7 +141,7 @@ function MargotsPicksContent(): React.JSX.Element {
                 {MARGOTS_PICKS.label}
               </Dialog.Title>
               <Dialog.Description className="text-sm text-text-primary/70 dark:text-text-primary-dark/70">
-                Books, courses, films, TV shows and podcasts, rated by Margot.
+                Books, audiobooks, courses, films and TV shows, rated by Margot.
               </Dialog.Description>
             </div>
           </div>
@@ -160,7 +160,7 @@ function MargotsPicksContent(): React.JSX.Element {
         </div>
 
         <MargotsPicksFilters
-          categories={categories}
+          filters={filters}
           category={category}
           status={status}
           onCategoryChange={setCategory}

@@ -163,12 +163,12 @@ export const mockPicks: PickItem[] = [
     status: 'planned',
   },
   {
-    id: 'pick-podcast',
-    title: 'Syntax',
-    host: 'Wes Bos and Scott Tolinski',
-    category: 'podcast',
+    id: 'pick-audiobook',
+    title: 'The Courage to Be Disliked',
+    author: 'Ichiro Kishimi and Fumitake Koga',
+    category: 'audiobook',
     status: 'in-progress',
-    link: 'https://syntax.fm',
+    link: 'https://www.audible.com/pd/B07D5N3CV1',
   },
 ];
 

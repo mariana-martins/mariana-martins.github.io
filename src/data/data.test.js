@@ -346,10 +346,10 @@ describe('data object', () => {
   describe('7. Picks array structure', () => {
     const creditField = {
       book: 'author',
+      audiobook: 'author',
       course: 'author',
       movie: 'director',
       series: 'creator',
-      podcast: 'host',
     };
 
     it('should have picks as an array', () => {
@@ -394,6 +394,10 @@ describe('data object', () => {
         expect(typeof item[field]).toBe('string');
         expect(item[field].trim().length).toBeGreaterThan(0);
       });
+    });
+
+    it('should feature at least one pick for the main page', () => {
+      expect(data.picks.some((item) => item.featured === true)).toBe(true);
     });
 
     it('should have valid status values', () => {

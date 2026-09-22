@@ -10,7 +10,8 @@ describe('usePicksList', () => {
     expect(result.current.filtered).toHaveLength(mockPicks.length);
     expect(result.current.visible).toHaveLength(2);
     expect(result.current.hasMore).toBe(true);
-    expect(result.current.visible[0].id).toBe('pick-movie');
+    // In progress comes before anything finished
+    expect(result.current.visible[0].id).toBe('pick-course');
   });
 
   it('reveals another page on showMore', () => {
@@ -31,7 +32,7 @@ describe('usePicksList', () => {
     act(() => result.current.setStatus('in-progress'));
     expect(result.current.filtered.map((p) => p.id)).toEqual([
       'pick-course',
-      'pick-podcast',
+      'pick-audiobook',
     ]);
   });
 

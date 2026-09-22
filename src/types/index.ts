@@ -77,20 +77,28 @@ interface PickBase {
   /** One-liner opinion, shown in the drawer only */
   note?: string;
   link?: string;
+  /** Shown on the main page's Learning Shelf, up to LEARNING_SHELF_LIMIT */
+  featured?: boolean;
 }
 
 /**
- * A pick on Margot's shelf: books, courses, movies, series and podcasts.
+ * A pick on Margot's shelf: books, audiobooks, courses, movies and series.
  * `category` discriminates which credit fields exist.
  */
 export type PickItem =
   | (PickBase & { category: 'book'; author: string })
+  | (PickBase & { category: 'audiobook'; author: string })
   | (PickBase & { category: 'course'; author: string; platform?: string })
   | (PickBase & { category: 'movie'; director: string; year?: number })
-  | (PickBase & { category: 'series'; creator: string; year?: number })
-  | (PickBase & { category: 'podcast'; host: string });
+  | (PickBase & { category: 'series'; creator: string; year?: number });
 
 export type PickCategory = PickItem['category'];
+
+/** The union member for one category, e.g. `PickOfCategory<'book'>` */
+export type PickOfCategory<C extends PickCategory> = Extract<
+  PickItem,
+  { category: C }
+>;
 
 /**
  * Complete portfolio data structure.

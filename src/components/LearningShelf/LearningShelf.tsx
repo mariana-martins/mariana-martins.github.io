@@ -6,6 +6,7 @@ import { Library } from 'lucide-react';
 import { LEARNING_SHELF_LIMIT, MARGOTS_PICKS, SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
+import { getFeaturedPicks } from '@/lib/picks';
 
 export const MARGOTS_PICKS_TRIGGER_ID = 'margots-picks-trigger';
 
@@ -15,7 +16,7 @@ function openMargotsPicks(): void {
 }
 
 export function LearningShelf(): React.JSX.Element {
-  const shelf = data.picks.slice(0, LEARNING_SHELF_LIMIT);
+  const shelf = getFeaturedPicks(data.picks, LEARNING_SHELF_LIMIT);
   const remaining = data.picks.length - shelf.length;
 
   return (

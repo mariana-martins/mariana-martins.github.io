@@ -4,7 +4,8 @@ import type { PickItem } from '@/types';
 
 import {
   filterPicks,
-  getAvailableCategories,
+  getAvailableFilters,
+  getFeaturedPicks,
   getPickSubtitle,
   sortPicks,
 } from './picks';
@@ -43,17 +44,17 @@ const series: PickItem = {
   creator: 'Cris Creator',
   status: 'planned',
 };
-const podcast: PickItem = {
-  id: 'podcast',
-  title: 'Epsilon Podcast',
-  category: 'podcast',
-  host: 'Hana Host',
+const audiobook: PickItem = {
+  id: 'audiobook',
+  title: 'Epsilon Audiobook',
+  category: 'audiobook',
+  author: 'Abe Author',
   status: 'completed',
   rating: 4,
   finishedAt: '2023-06',
 };
 
-const picks = [book, course, movie, series, podcast];
+const picks = [book, course, movie, series, audiobook];
 
 describe('getPickSubtitle', () => {
   it('returns the author for books', () => {
@@ -81,31 +82,27 @@ describe('getPickSubtitle', () => {
     );
   });
 
-  it('returns the host for podcasts', () => {
-    expect(getPickSubtitle(podcast)).toBe('Hana Host');
-  });
-});
-
-describe('filterPicks', () => {
-  it('returns everything for all/all', () => {
-    expect(filterPicks(picks, 'all', 'all')).toHaveLength(5);
+  it('returns the author for audiobooks', () => {
+    expect(getPickSubtitle(audiobook)).toBe('Abe Author');
   });
 
   it('filters by category', () => {
-    expect(filterPicks(picks, 'movie', 'all')).toEqual([movie]);
+    expect(filterPicks(picks, 'book', 'all')).toEqual([book]);
+    // One chip for films and TV shows
+    expect(filterPicks(picks, 'screen', 'all')).toEqual([movie, series]);
   });
 
   it('filters by status', () => {
     expect(filterPicks(picks, 'all', 'completed')).toEqual([
       book,
       movie,
-      podcast,
+      audiobook,
     ]);
   });
 
   it('combines both filters', () => {
     expect(filterPicks(picks, 'book', 'planned')).toEqual([]);
-    expect(filterPicks(picks, 'series', 'planned')).toEqual([series]);
+    expect(filterPicks(picks, 'screen', 'planned')).toEqual([series]);
   });
 });
 
@@ -115,7 +112,7 @@ describe('sortPicks', () => {
       'course',
       'book',
       'series',
-      'podcast',
+      'audiobook',
       'movie',
     ]);
   });
@@ -123,19 +120,19 @@ describe('sortPicks', () => {
   it('sorts by rating descending with unrated last', () => {
     expect(sortPicks(picks, 'rating').map((p) => p.id)).toEqual([
       'movie',
-      'podcast',
+      'audiobook',
       'book',
       'course',
       'series',
     ]);
   });
 
-  it('sorts by finishedAt descending with undated last', () => {
+  it('sorts in progress first, then completed by date, then planned', () => {
     expect(sortPicks(picks, 'recent').map((p) => p.id)).toEqual([
+      'course',
       'movie',
       'book',
-      'podcast',
-      'course',
+      'audiobook',
       'series',
     ]);
   });
@@ -147,15 +144,35 @@ describe('sortPicks', () => {
   });
 });
 
-describe('getAvailableCategories', () => {
-  it('returns present categories in display order', () => {
-    expect(getAvailableCategories([podcast, book])).toEqual([
+describe('getFeaturedPicks', () => {
+  it('keeps only featured picks, in order, up to the limit', () => {
+    const featured = picks.map((pick) => ({ ...pick, featured: true }));
+    const mixed = [picks[0], featured[1], featured[2], picks[3], featured[4]];
+    expect(getFeaturedPicks(mixed, 2).map((p) => p.id)).toEqual([
+      'course',
+      'movie',
+    ]);
+    expect(getFeaturedPicks(mixed, 10)).toHaveLength(3);
+    expect(getFeaturedPicks(picks, 5)).toEqual([]);
+  });
+});
+
+describe('getAvailableFilters', () => {
+  it('returns chips with picks, in display order', () => {
+    expect(getAvailableFilters([audiobook, book]).map((f) => f.value)).toEqual([
       'book',
-      'podcast',
+      'audiobook',
     ]);
   });
 
+  it('shows one chip when either films or TV shows exist', () => {
+    expect(getAvailableFilters([series]).map((f) => f.label)).toEqual([
+      'Film & TV',
+    ]);
+    expect(getAvailableFilters([movie, series])).toHaveLength(1);
+  });
+
   it('returns an empty array for no picks', () => {
-    expect(getAvailableCategories([])).toEqual([]);
+    expect(getAvailableFilters([])).toEqual([]);
   });
 });

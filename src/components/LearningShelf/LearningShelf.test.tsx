@@ -5,11 +5,11 @@ import { axe } from 'jest-axe';
 
 import { LEARNING_SHELF_LIMIT, MARGOTS_PICKS } from '@/constants';
 import { data } from '@/data';
-import { getPickSubtitle } from '@/lib/picks';
+import { getFeaturedPicks, getPickSubtitle } from '@/lib/picks';
 
 import { LearningShelf, MARGOTS_PICKS_TRIGGER_ID } from './LearningShelf';
 
-const shelf = data.picks.slice(0, LEARNING_SHELF_LIMIT);
+const shelf = getFeaturedPicks(data.picks, LEARNING_SHELF_LIMIT);
 
 describe('LearningShelf', () => {
   afterEach(() => {
@@ -23,7 +23,7 @@ describe('LearningShelf', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders only the first picks, up to the limit', () => {
+  it('renders only the featured picks, up to the limit', () => {
     render(<LearningShelf />);
     const list = screen.getByRole('list', { name: 'Learning items' });
     const headings = within(list).getAllByRole('heading', { level: 3 });

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { MargotRating } from '@components/MargotRating/MargotRating';
-import { BookOpen, Film, GraduationCap, Podcast, Tv } from 'lucide-react';
+import { BookOpen, Film, GraduationCap, Headphones, Tv } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import {
@@ -21,18 +21,18 @@ const stampColors: Record<PickStatus, string> = {
 
 const categoryIcon: Record<PickCategory, React.ReactNode> = {
   book: <BookOpen size={16} aria-hidden="true" />,
+  audiobook: <Headphones size={16} aria-hidden="true" />,
   course: <GraduationCap size={16} aria-hidden="true" />,
   movie: <Film size={16} aria-hidden="true" />,
   series: <Tv size={16} aria-hidden="true" />,
-  podcast: <Podcast size={16} aria-hidden="true" />,
 };
 
 const spineColors: Record<PickCategory, string> = {
   book: 'bg-warm-200',
+  audiobook: 'bg-blue-100',
   course: 'bg-purple-50',
   movie: 'bg-blue-50',
   series: 'bg-green-50',
-  podcast: 'bg-warm-400',
 };
 
 function PickSpine({
@@ -59,7 +59,7 @@ function PickSpine({
         />
         <span className="relative">{categoryIcon[category]}</span>
       </div>
-      <span className="font-heading text-[11px] @sm:text-[10px] tracking-[0.12em] uppercase opacity-80">
+      <span className="font-heading text-[11px] @sm:text-[9px] tracking-[0.12em] @sm:tracking-[0.08em] uppercase opacity-80">
         {PICK_CATEGORY_LABELS[category]}
       </span>
     </div>

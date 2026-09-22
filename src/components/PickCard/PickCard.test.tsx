@@ -33,7 +33,7 @@ describe('PickCard', () => {
     ['book', 'Robert C. Martin'],
     ['course', 'Kent C. Dodds · Testing JavaScript'],
     ['series', 'Dan Erickson · 2022'],
-    ['podcast', 'Wes Bos and Scott Tolinski'],
+    ['audiobook', 'Ichiro Kishimi and Fumitake Koga'],
   ] as const)('renders the %s credit line', (category, subtitle) => {
     renderCard(byCategory[category]);
     expect(screen.getByText(subtitle)).toBeInTheDocument();
