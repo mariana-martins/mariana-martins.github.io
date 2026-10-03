@@ -20,7 +20,7 @@ export function Header(): React.JSX.Element {
           'px-1 py-4 mb-8 lg:mb-0',
           // Dark mode neon glow effect
           'dark:bg-transparent dark:border-blue-100',
-          'dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_8px_hsl(200_57%_84%),0_0_15px_hsl(200_57%_84%),0_0_30px_hsl(200_57%_84%)]',
+          'dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_8px_var(--color-blue-100),0_0_15px_var(--color-blue-100),0_0_30px_var(--color-blue-100)]',
         )}
       >
         <img

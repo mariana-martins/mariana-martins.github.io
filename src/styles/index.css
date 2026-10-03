@@ -15,7 +15,8 @@
   /* Color Palette - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
   --color-blue-100: hsl(200 57% 84%);
-  --color-blue-200: hsl(223 33% 26%);
+  --color-blue-200: hsl(205 92% 36%);
+  --color-blue-300: hsl(223 33% 26%);
 
   /* Color Palette - Indigo Scale */
   --color-indigo-50: hsl(227 20% 26%);
@@ -31,13 +32,22 @@
   --color-warm-200: hsl(6 100% 92%);
   --color-warm-300: hsl(37 100% 94%);
   --color-warm-400: hsl(35 100% 88%);
+  --color-warm-500: hsl(35 86% 69%);
+  --color-warm-600: hsl(38 90% 30%);
+
+  /* Color Palette - Green Scale */
+  --color-green-50: hsl(168 37% 85%);
+  --color-green-100: hsl(168 45% 65%);
+  --color-green-200: hsl(168 60% 50%);
+  --color-green-300: hsl(168 70% 34%);
+  --color-green-400: hsl(168 70% 27%);
 
   /* Color Palette - Accent Colors */
-  --color-green: hsl(168 37% 85%);
-  --color-purple: hsl(325 34% 87%);
+  --color-purple-50: hsl(325 34% 87%);
+  --color-purple-200: hsl(325 74% 42%);
 
   /* Semantic Text Colors */
-  --color-text-primary: var(--color-blue-200);
+  --color-text-primary: var(--color-blue-300);
   --color-text-primary-dark: var(--color-warm-50);
 
   /* Rainbow Highlight Colors - Light Theme */
@@ -52,6 +62,12 @@
   /* Entrance Animations */
   --animate-fade-in-up: fade-in-up 1.2s ease-out both;
   --animate-fade-in-scale: fade-in-scale 1.2s ease-out both;
+
+  /* Drawer Animations (Margot's Picks) */
+  --animate-fade-in: fade-in 0.3s ease-out both;
+  --animate-fade-out: fade-out 0.2s ease-in both;
+  --animate-slide-in-right: slide-in-right 0.3s ease-out both;
+  --animate-slide-out-right: slide-out-right 0.2s ease-in both;
 
   @keyframes fade-in-up {
     from {
@@ -72,6 +88,42 @@
     to {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-out-right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
     }
   }
 }
@@ -208,6 +260,10 @@
     :root {
       --animate-fade-in-up: none;
       --animate-fade-in-scale: none;
+      --animate-fade-in: none;
+      --animate-fade-out: none;
+      --animate-slide-in-right: none;
+      --animate-slide-out-right: none;
     }
   }
 
@@ -262,6 +318,109 @@
 /* ============================================
    CUSTOM UTILITIES
    ============================================ */
+/* Frosted panel shared by <main> and the Margot's Picks drawer */
+@utility glass-panel {
+  @apply bg-white/50 backdrop-blur-md supports-backdrop-filter:bg-white/40;
+  @apply ring-1 ring-slate-900/10 shadow-lg;
+  @variant dark {
+    @apply bg-white/10 ring-white/10 shadow-black/20;
+  }
+}
+
+/* Rating glow: soft pink by day, the logo's neon blue by night.
+   drop-shadow follows the SVG outline where box-shadow would draw a box. */
+@utility margot-glow {
+  filter: drop-shadow(
+    0 0 3px color-mix(in srgb, var(--color-pink) 80%, transparent)
+  );
+  @variant dark {
+    filter: drop-shadow(
+        0 0 2px color-mix(in srgb, var(--color-blue-100) 70%, transparent)
+      )
+      drop-shadow(
+        0 0 6px color-mix(in srgb, var(--color-blue-100) 35%, transparent)
+      );
+  }
+}
+
+/*
+ * Lift for the ticket. A drop-shadow on the unmasked wrapper follows the
+ * notched outline of the masked card inside it, where a box-shadow would
+ * draw a plain rectangle - or, on the card itself, be masked away.
+ */
+@utility ticket-lift {
+  filter: drop-shadow(
+    0 2px 6px color-mix(in srgb, var(--color-blue-300) 14%, transparent)
+  );
+  @variant dark {
+    filter: drop-shadow(0 3px 8px color-mix(in srgb, black 45%, transparent));
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    transition: filter 0.3s ease-out;
+    &:hover {
+      filter: drop-shadow(
+        0 6px 14px color-mix(in srgb, var(--color-blue-300) 20%, transparent)
+      );
+      @variant dark {
+        filter: drop-shadow(
+          0 8px 18px color-mix(in srgb, black 55%, transparent)
+        );
+      }
+    }
+  }
+}
+
+/*
+ * Ticket stub: two semicircle notches where the category spine meets the
+ * body, like a torn cinema ticket. Masking only paints - DOM, focus and
+ * reading order are untouched - and a browser without mask support just
+ * draws a plain rounded card. The notches follow the spine: along the top
+ * edge when the card stacks, down the left when it sits side by side.
+ */
+@utility ticket-card {
+  --ticket-notch: 9px;
+  --ticket-edge: calc(var(--ticket-notch) + 1px);
+  /* Spine height when stacked; matches `h-14` on the spine */
+  --ticket-seam: 3.5rem;
+  mask:
+    radial-gradient(
+      circle at 0 var(--ticket-seam),
+      transparent var(--ticket-notch),
+      black var(--ticket-edge)
+    ),
+    radial-gradient(
+      circle at 100% var(--ticket-seam),
+      transparent var(--ticket-notch),
+      black var(--ticket-edge)
+    );
+  mask-composite: intersect;
+
+  /* Same breakpoint as the `@sm:` container variant */
+  @container (min-width: 24rem) {
+    /* Spine width side by side; matches `@sm:w-18` on the spine */
+    --ticket-seam: 4.5rem;
+    mask:
+      radial-gradient(
+        circle at var(--ticket-seam) 0,
+        transparent var(--ticket-notch),
+        black var(--ticket-edge)
+      ),
+      radial-gradient(
+        circle at var(--ticket-seam) 100%,
+        transparent var(--ticket-notch),
+        black var(--ticket-edge)
+      );
+    /* The shorthand above resets this to `add`, which fills the notches back in */
+    mask-composite: intersect;
+  }
+
+  /* Chrome 139+ only for now; everyone else keeps the plain rounded corners */
+  @supports (corner-shape: squircle) {
+    corner-shape: squircle;
+    border-radius: 1.375rem;
+  }
+}
+
 @layer utilities {
   /* Shared dashed border base styles */
   .border-b-dashed-custom,

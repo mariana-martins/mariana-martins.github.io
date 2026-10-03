@@ -65,7 +65,7 @@ export function AboutMe(): React.JSX.Element {
                 'w-48 h-48 md:w-64 md:h-64',
                 'object-cover shape-blob',
                 'bg-linear-to-tr from-warm-400 via-warm-200 to-pink',
-                'dark:from-purple dark:to-blue-50',
+                'dark:from-purple-50 dark:to-blue-50',
               )}
             />
           </div>

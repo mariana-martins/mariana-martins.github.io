@@ -71,8 +71,10 @@ export const ExperienceCard = ({
             rel="noopener noreferrer"
             className={cn(
               'inline-flex items-center gap-1',
-              'hover:underline hover:text-pink dark:hover:text-blue-100',
+              'hover:underline hover:decoration-pink decoration-2',
+              'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
               'focus:outline-none focus-visible:underline',
+              'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
               'focus-visible:ring-2 focus-visible:ring-offset-2',
               'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
               'transition-colors',

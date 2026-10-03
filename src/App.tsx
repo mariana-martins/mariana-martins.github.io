@@ -7,6 +7,7 @@ import { Footer } from '@components/Footer/Footer';
 import { FunFacts } from '@components/FunFacts/FunFacts';
 import { Header } from '@components/Header/Header';
 import { LearningShelf } from '@components/LearningShelf/LearningShelf';
+import { MargotsPicks } from '@components/MargotsPicks/MargotsPicks';
 import { Projects } from '@components/Projects/Projects';
 import { SectionNav } from '@components/SectionNav/SectionNav';
 import { ThemeToggle } from '@components/ThemeToggle/ThemeToggle';
@@ -22,7 +23,7 @@ export function App(): React.JSX.Element {
         <Header />
         <main
           id="main-content"
-          className="w-full h-full py-10 px-8 mb:px-18 rounded-2xl bg-white/50 backdrop-blur-md supports-backdrop-filter:bg-white/40 ring-1 ring-slate-900/10 shadow-lg dark:bg-white/10 dark:backdrop-blur-md dark:ring-1 dark:ring-white/10 dark:shadow-lg dark:shadow-black/20"
+          className="w-full h-full py-10 px-8 mb:px-18 rounded-2xl glass-panel"
         >
           <div className="grid grid-cols-1 items-center w-full h-full border-b-dashed-custom md:grid-cols-2 md:gap-x-6">
             <AboutMe />
@@ -35,6 +36,7 @@ export function App(): React.JSX.Element {
           </div>
           <Projects />
         </main>
+        <MargotsPicks />
         <Footer />
       </div>
     </MotionConfig>

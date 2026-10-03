@@ -9,11 +9,11 @@ export interface TagProps {
 
 export function Tag({ name, index }: TagProps): React.JSX.Element {
   const colorOptions = [
-    'bg-blue-50 text-blue-200',
-    'bg-warm-400 text-blue-200',
-    'bg-warm-200 text-blue-200',
-    'bg-green text-blue-200',
-    'bg-purple text-blue-200',
+    'bg-blue-50 text-text-primary',
+    'bg-warm-400 text-text-primary',
+    'bg-warm-200 text-text-primary',
+    'bg-green-50 text-text-primary',
+    'bg-purple-50 text-text-primary',
   ];
 
   const getColorByPosition = (position: number): string => {

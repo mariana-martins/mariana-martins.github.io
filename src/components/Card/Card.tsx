@@ -28,8 +28,8 @@ const cardVariants: Record<CardVariant, string> = {
     'cursor-pointer',
     'hover:border-pink/70 dark:hover:border-blue-100/70',
     'hover:bg-warm-100/70 dark:hover:bg-indigo-50/40',
-    'hover:shadow-[0_4px_20px_hsl(356_75%_78%/0.2)]',
-    'dark:hover:shadow-[0_4px_20px_hsl(200_57%_84%/0.2)]',
+    'hover:shadow-[0_4px_20px] hover:shadow-pink/20',
+    'dark:hover:shadow-blue-100/20',
   ),
   accent: cn(
     'bg-blue-50/20 dark:bg-indigo-50/30',
@@ -146,12 +146,10 @@ const decorationShapes: Record<DecorationShape, string> = {
 };
 
 const decorationColors: Record<DecorationColor, string> = {
-  violet:
-    'bg-gradient-to-br from-[var(--color-highlight-violet)] to-[var(--color-purple)]',
-  blue: 'bg-gradient-to-br from-[var(--color-highlight-blue)] to-[var(--color-blue-100)]',
-  green:
-    'bg-gradient-to-br from-[var(--color-highlight-green)] to-[var(--color-green)]',
-  pink: 'bg-gradient-to-br from-[var(--color-highlight-red)] to-[var(--color-pink)]',
+  violet: 'bg-gradient-to-br from-highlight-violet to-purple-50',
+  blue: 'bg-gradient-to-br from-highlight-blue to-blue-100',
+  green: 'bg-gradient-to-br from-highlight-green to-green-50',
+  pink: 'bg-gradient-to-br from-highlight-red to-pink',
 };
 
 export interface CardDecorationProps extends React.HTMLAttributes<HTMLDivElement> {
