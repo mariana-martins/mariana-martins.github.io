@@ -175,27 +175,6 @@ export default [
     },
   },
   {
-    files: ['tailwind.config.js', 'postcss.config.js'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'commonjs',
-      globals: {
-        module: 'readonly',
-        require: 'readonly',
-        exports: 'readonly',
-        __dirname: 'readonly',
-        __filename: 'readonly',
-        process: 'readonly',
-        Buffer: 'readonly',
-        global: 'readonly',
-        console: 'readonly',
-      },
-    },
-    rules: {
-      'no-console': 'off',
-    },
-  },
-  {
     ignores: ['dist', 'node_modules', '**/*.css', 'coverage'],
   },
 ];

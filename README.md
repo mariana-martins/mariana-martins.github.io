@@ -60,7 +60,12 @@ npm run dev
 | `npm run lint:fix`      | Fix ESLint issues         |
 | `npm run format`        | Format code with Prettier |
 | `npm run type-check`    | TypeScript type checking  |
-| `npm run deploy`        | Deploy to GitHub Pages    |
+
+### Deployment
+
+Every push to `master` runs `.github/workflows/deploy.yml`, which tests, builds
+and publishes `dist` to the `gh-pages` branch served by GitHub Pages. There is
+no manual deploy command.
 
 ## 📁 Project Structure
 
