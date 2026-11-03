@@ -2,13 +2,13 @@ import type { Experience } from '@/types';
 
 export const experience: Experience[] = [
   {
-    id: 'health-and-well-being-career-break',
+    id: 'independent-design-systems-career-break',
     company: 'Career Break',
-    position: 'Health and well-being',
+    position: 'Independent Design Systems & Frontend Work',
     startDate: '2024-05',
     endDate: undefined, // ongoing
     description:
-      'Stepped away from full-time work for health recovery while building continuously. Designed FitMySpace in Next.js, TypeScript, and TanStack Query, owning a Style Dictionary token pipeline end to end, plus a design system on Radix Primitives and Storybook. Used Claude and Gemini to generate components from design specs, validating each for accessibility and performance.',
+      'Stepped back from full-time work in May 2024 and moved from New Zealand to Melbourne in March 2026, using the time to go deep on design systems, accessibility and AI-assisted development. Designed and built FitMySpace end to end, from Penpot and Figma to Next.js, with a three-tier token architecture in Style Dictionary and custom components on Radix Primitives. Uses Claude Code and Cursor daily while owning the architecture and reviewing what ships.',
     technologies: [
       'React',
       'TypeScript',
@@ -63,7 +63,7 @@ export const experience: Experience[] = [
     startDate: '2021-01',
     endDate: '2021-06',
     description:
-      "Promoted to Frontend Developer within ten months, recognised for the frontend experience work on Budgeting & Forecasting. Acted as the bridge between design and engineering on the Financial Statements flagship, designing components in Figma and architecting their implementation, and built the company's first Design System in React, Material UI, and Storybook.",
+      "Promoted to Frontend Developer within ten months, recognised for the interface and user experience work on the new flagship product. Led the frontend side of the company's first Design System alongside the lead designer, deciding which components to rebuild, in what order and how each was structured, and acted as the bridge between design and engineering, designing components in Figma and architecting them in code.",
     technologies: [
       'React',
       'TypeScript',
@@ -72,8 +72,11 @@ export const experience: Experience[] = [
       'Storybook',
       'Design Tokens',
       'MobX',
-      'Jest',
-      'React Testing Library',
+      'Redux',
+      'GraphQL',
+      'Apollo',
+      'CSS-in-JS',
+      'Mocha',
     ],
   },
   {
@@ -84,7 +87,7 @@ export const experience: Experience[] = [
     startDate: '2020-03',
     endDate: '2021-01',
     description:
-      "Led the frontend experience and layout for the flagship Budgeting & Forecasting module, pairing with the product designer and presenting the result to the company's founders. Built a high-performance data grid end to end in React, TypeScript, MobX, and Apollo GraphQL, and introduced a Jest and React Testing Library suite that cut production defects.",
+      "Helped build the new flagship Budgeting & Forecasting product from the ground up, developing reusable React components from scratch. Led frontend experience and layout decisions for the module, pairing with the product designer and design lead and presenting the interface directly to the company's founders, and contributed to a testing suite that measurably reduced production defects.",
     technologies: [
       'React',
       'TypeScript',
@@ -92,9 +95,9 @@ export const experience: Experience[] = [
       'GraphQL',
       'Apollo',
       'Material UI',
-      'Jest',
-      'React Testing Library',
       'Redux',
+      'CSS-in-JS',
+      'Mocha',
       'Figma',
     ],
   },
@@ -106,16 +109,29 @@ export const experience: Experience[] = [
     startDate: '2018-10',
     endDate: '2020-03',
     description:
-      'Engineered high-performance e-commerce interfaces for a leading AU/UK/NZ retail platform on Magento 2, improving the customer journey and conversion rates. Built responsive components in HTML5, CSS3, and jQuery with cross-browser compatibility and mobile-first performance.',
+      'Translated high-fidelity Figma designs into polished, brand-consistent, responsive e-commerce interfaces on Magento 2, for a high-traffic retail platform serving Australia, the UK and New Zealand. Worked across a large, established front end in JavaScript, Less and Jasmine, with regular exposure to the PHP backend and small backend changes where a task needed them.',
     technologies: [
       'Magento 2',
+      'JavaScript',
+      'Less',
+      'Jasmine',
+      'Figma',
+      'Responsive Design',
+      'jQuery',
       'HTML5',
       'CSS3',
-      'JavaScript',
-      'jQuery',
-      'Responsive Design',
-      'Figma',
       'Google Tag Manager',
     ],
+  },
+  {
+    id: 'chingu-frontend',
+    company: 'Chingu',
+    website: 'https://www.chingu.io/',
+    position: 'Frontend Developer',
+    startDate: '2017-12',
+    endDate: '2018-01',
+    description:
+      'Built a responsive web application for a non-profit, Husky Rescue, with React and Sass, as part of a remote, cross-functional cohort team.',
+    technologies: ['React', 'Sass', 'Responsive Design'],
   },
 ];

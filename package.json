@@ -2,7 +2,7 @@
   "name": "mariana-martins.github.io",
   "version": "1.0.0",
   "type": "module",
-  "description": "Mariana Martins Menezes - Frontend Developer",
+  "description": "Mariana Martins Menezes - Frontend Engineer",
   "main": "index.html",
   "scripts": {
     "dev": "vite --host",
