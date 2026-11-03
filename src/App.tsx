@@ -23,7 +23,7 @@ export function App(): React.JSX.Element {
         <Header />
         <main
           id="main-content"
-          className="w-full h-full py-10 px-8 mb:px-18 rounded-2xl glass-panel"
+          className="w-full h-full py-10 px-8 rounded-2xl glass-panel"
         >
           <div className="grid grid-cols-1 items-center w-full h-full border-b-dashed-custom md:grid-cols-2 md:gap-x-6">
             <AboutMe />

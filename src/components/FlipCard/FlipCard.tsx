@@ -99,14 +99,15 @@ export function FlipCard({
             onClick={onFlip}
             inert={isFlipped}
           >
-            <p className="text-base md:text-lg text-center font-medium px-2 text-balance">
+            {/* A button only allows phrasing content, so spans, not p/div */}
+            <span className="block text-base md:text-lg text-center font-medium px-2 text-balance">
               <span className="sr-only">Question: </span>
               {funFact.question}
-            </p>
-            <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
+            </span>
+            <span className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
               <MousePointerClick size={18} aria-hidden="true" />
               <span>Click to reveal</span>
-            </div>
+            </span>
           </button>
         </Card>
 

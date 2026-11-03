@@ -10,7 +10,7 @@ export function Header(): React.JSX.Element {
     <header
       className={cn(
         'w-full pt-12 pb-8 gap-x-8 self-center relative',
-        'flex flex-col lg:flex-row items-center justify-center lg:justify-space-between',
+        'flex flex-col lg:flex-row items-center justify-center',
       )}
     >
       <div

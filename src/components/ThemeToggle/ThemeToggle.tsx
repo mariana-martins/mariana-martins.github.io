@@ -15,7 +15,7 @@ export function ThemeToggle(): React.JSX.Element {
       onClick={toggleTheme}
       aria-pressed={isDark}
       className={cn(
-        'absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 transition-colors cursor-pointer',
+        'absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 cursor-pointer',
         'flex items-center justify-center',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         'bg-pink text-text-primary',
@@ -27,7 +27,7 @@ export function ThemeToggle(): React.JSX.Element {
         'z-50',
         'min-w-[44px] min-h-[44px]',
         'touch-manipulation',
-        'active:scale-[0.96] transition-transform duration-300',
+        'active:scale-[0.96] transition-[background-color,color,transform] duration-300',
       )}
     >
       <span className="sr-only">Toggle theme</span>

@@ -89,7 +89,7 @@ export const ExperienceCard = ({
         )}
       </p>
 
-      <p className="hidden md:block mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
+      <p className="mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
         {experience.description}
       </p>
 
