@@ -23,9 +23,10 @@ export function Header(): React.JSX.Element {
           'dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_8px_var(--color-blue-100),0_0_15px_var(--color-blue-100),0_0_30px_var(--color-blue-100)]',
         )}
       >
+        {/* Decorative: the h1 beside it already says the name */}
         <img
           src={logo}
-          alt="Mariana Martins Logo"
+          alt=""
           width={272}
           height={197}
           className="w-fit object-scale-down"

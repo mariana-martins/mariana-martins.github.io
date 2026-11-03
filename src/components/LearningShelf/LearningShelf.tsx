@@ -63,7 +63,7 @@ export function LearningShelf(): React.JSX.Element {
               'hover:border-pink dark:hover:border-blue-100',
               'hover:bg-warm-100/50 dark:hover:bg-indigo-50/30',
               'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
-              'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+              'focus-visible:ring-focus',
               'transition-colors duration-300 ease-out touch-manipulation',
             )}
           >

@@ -22,15 +22,14 @@ export function ThemeToggle(): React.JSX.Element {
         'hover:bg-pink/70',
         'dark:bg-blue-100 dark:text-blue-300',
         'dark:hover:bg-blue-100/90',
-        'focus-visible:ring-pink',
-        'dark:focus-visible:ring-blue-100',
+        'focus-visible:ring-focus',
         'z-50',
         'min-w-[44px] min-h-[44px]',
         'touch-manipulation',
         'active:scale-[0.96] transition-[background-color,color,transform] duration-300',
       )}
     >
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">Dark mode</span>
       <div className="relative w-6 h-6 flex items-center justify-center">
         <Sun
           size={24}

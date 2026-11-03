@@ -103,7 +103,7 @@ function PickTitle({ item }: { item: PickItem }): React.JSX.Element {
             'dark:focus:decoration-blue-100',
             'focus:outline-none',
             'focus-visible:ring-2 focus-visible:ring-offset-2',
-            'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+            'focus-visible:ring-focus',
             'transition-colors duration-200',
           )}
         >
@@ -143,7 +143,7 @@ export function PickCard({
         'grow flex flex-col @container rounded-2xl ticket-lift',
         'motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-        'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+        'focus-visible:ring-focus',
       )}
     >
       <div
@@ -157,7 +157,7 @@ export function PickCard({
 
         <div className="flex-1 flex flex-col gap-1 min-w-0 p-4 @sm:pl-[18px]">
           <PickTitle item={item} />
-          <p className="text-sm text-text-primary/70 dark:text-text-primary-dark/70">
+          <p className="text-sm text-text-primary/80 dark:text-text-primary-dark/80">
             {getPickSubtitle(item)}
           </p>
           {rating !== undefined && (

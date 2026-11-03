@@ -35,7 +35,7 @@ describe('FlipCard', () => {
     );
 
     expect(screen.getByText(mockFunFact.question)).toBeInTheDocument();
-    expect(screen.getByText('Click to reveal')).toBeInTheDocument();
+    expect(screen.getByText('Reveal the answer')).toBeInTheDocument();
   });
 
   it('calls onFlip when question card is clicked', () => {

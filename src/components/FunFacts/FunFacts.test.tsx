@@ -28,7 +28,7 @@ describe('FunFacts', () => {
   it('renders first question card with click hint', () => {
     render(<FunFacts />);
 
-    expect(screen.getByText('Click to reveal')).toBeInTheDocument();
+    expect(screen.getByText('Reveal the answer')).toBeInTheDocument();
   });
 
   it('flips card and reveals answer when clicked', async () => {
@@ -36,7 +36,7 @@ describe('FunFacts', () => {
     render(<FunFacts />);
 
     const card = screen.getByRole('button', {
-      name: /Question:.*Click to reveal/i,
+      name: /Question:.*Reveal the answer/i,
     });
     await user.click(card);
 
@@ -49,7 +49,7 @@ describe('FunFacts', () => {
     render(<FunFacts />);
 
     const card = screen.getByRole('button', {
-      name: /Question:.*Click to reveal/i,
+      name: /Question:.*Reveal the answer/i,
     });
     await user.click(card);
 
@@ -76,7 +76,7 @@ describe('FunFacts', () => {
     render(<FunFacts />);
 
     const card = screen.getByRole('button', {
-      name: /Question:.*Click to reveal/i,
+      name: /Question:.*Reveal the answer/i,
     });
 
     // Focus the card

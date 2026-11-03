@@ -49,6 +49,14 @@
   --color-text-primary: var(--color-blue-300);
   --color-text-primary-dark: var(--color-warm-50);
 
+  /*
+   * Focus indicator. WCAG 2.2 asks for 3:1 against what surrounds it; the
+   * brand pink reaches only ~2:1 on the light background, so light mode uses
+   * the navy text colour (5.5:1 or better on every surface) and dark mode
+   * the neon blue (5.4:1 or better). Swapped in `.dark` below.
+   */
+  --color-focus: var(--color-blue-300);
+
   /* Rainbow Highlight Colors - Light Theme */
   --color-highlight-red: hsl(356 75% 55%);
   --color-highlight-orange: hsl(25 85% 55%);
@@ -216,6 +224,7 @@
 
   .dark {
     --divider-color: var(--color-blue-100);
+    --color-focus: var(--color-blue-100);
 
     /* Rainbow Highlight Colors - Dark Theme */
     --color-highlight-red: hsl(356 80% 45%);
@@ -634,9 +643,13 @@
     @apply text-pink dark:text-blue-100;
   }
 
-  /* Muted Text - Reduced opacity for secondary text */
+  /*
+   * Muted Text - secondary text, still 4.5:1 for small sizes. 80% is the
+   * lowest step that clears it on the lightest glass surface (4.7:1) and on
+   * the dark panel (5.4:1); 60% fell to 3:1.
+   */
   .text-muted {
-    @apply text-text-primary/60 dark:text-text-primary-dark/60;
+    @apply text-text-primary/80 dark:text-text-primary-dark/80;
   }
 
   /*
