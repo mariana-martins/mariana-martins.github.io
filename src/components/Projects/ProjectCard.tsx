@@ -54,7 +54,7 @@ export function ProjectCard({
         // driven by it rather than by the card itself.
         'has-[a:hover]:scale-[1.02] has-[a:active]:scale-[0.98]',
         'has-[a:focus-visible]:ring-4 has-[a:focus-visible]:ring-offset-2',
-        'has-[a:focus-visible]:ring-pink dark:has-[a:focus-visible]:ring-blue-100',
+        'has-[a:focus-visible]:ring-focus',
         'motion-reduce:transition-none',
         'motion-reduce:has-[a:hover]:scale-100 motion-reduce:has-[a:active]:scale-100',
       )}
@@ -100,7 +100,12 @@ export function ProjectCard({
         title. The Card is a flex container, so z-index still stacks this
         above the other sections without positioning it.
       */}
-      <CardHeader className={cn('z-20', isFeatured && 'pt-10')}>
+      {/*
+        Right padding keeps the title out from under the decoration in the
+        corner (w-24, md:w-32, less the card's own padding): over its
+        gradient a long title wrapping on mobile fell below 4.5:1.
+      */}
+      <CardHeader className={cn('z-20 pr-20 md:pr-28', isFeatured && 'pt-10')}>
         <h3
           id={`project-${project.id}-title`}
           className={cn(

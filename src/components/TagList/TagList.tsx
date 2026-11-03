@@ -52,8 +52,10 @@ export function TagList({
           className={cn(
             // Same 24px box as Tag, so the chip sits on the same baseline
             'inline-flex items-center h-6 px-2.5 rounded-md text-xs',
-            'bg-pink/20 dark:bg-blue-100/20',
-            'text-text-primary/70 dark:text-text-primary-dark/70',
+            // Faint wash in dark: a stronger blue lifts the background towards
+            // the light text and drops it below 4.5:1
+            'bg-pink/20 dark:bg-blue-100/10',
+            'text-text-primary dark:text-text-primary-dark',
           )}
         >
           <span aria-hidden="true">+{hidden.length}</span>

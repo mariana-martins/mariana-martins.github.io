@@ -67,7 +67,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
             'transition-colors duration-300 ease-out',
             // Focus styles
             'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
-            'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+            'focus-visible:ring-focus',
             // Variant and size
             cardVariants[variant],
             cardSizes[size],

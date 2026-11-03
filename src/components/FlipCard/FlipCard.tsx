@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import { Card } from '@components/Card/Card';
-import { ArrowRight, MousePointerClick, RotateCcw } from 'lucide-react';
+import { ArrowRight, Eye, RotateCcw } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
@@ -99,14 +99,15 @@ export function FlipCard({
             onClick={onFlip}
             inert={isFlipped}
           >
-            <p className="text-base md:text-lg text-center font-medium px-2 text-balance">
+            {/* A button only allows phrasing content, so spans, not p/div */}
+            <span className="block text-base md:text-lg text-center font-medium px-2 text-balance">
               <span className="sr-only">Question: </span>
               {funFact.question}
-            </p>
-            <div className="flex items-center gap-2 text-sm text-text-primary/60 dark:text-text-primary-dark/60">
-              <MousePointerClick size={18} aria-hidden="true" />
-              <span>Click to reveal</span>
-            </div>
+            </span>
+            <span className="flex items-center gap-2 text-sm text-muted">
+              <Eye size={18} aria-hidden="true" />
+              <span>Reveal the answer</span>
+            </span>
           </button>
         </Card>
 
@@ -136,7 +137,7 @@ export function FlipCard({
               'hover:bg-pink/30 dark:hover:bg-blue-100/30',
               'text-sm font-medium',
               'transition-colors duration-200',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-focus',
             )}
             onClick={allRevealed ? onReset : onNext}
           >

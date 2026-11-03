@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { data } from '@/data';
 import type { FunFact } from '@/types';
@@ -21,6 +21,10 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
   const [revealedIds, setRevealedIds] = useState<string[]>([]);
   const [isFlipped, setIsFlipped] = useState(false);
   const [shouldAutoFocus, setShouldAutoFocus] = useState(false);
+  // Pending "next fact" swap; cleared on unmount so it never sets state late
+  const nextTimeoutRef = useRef<number | undefined>(undefined);
+
+  useEffect(() => () => window.clearTimeout(nextTimeoutRef.current), []);
 
   const totalFacts = data.funFacts.length;
   const currentFact = data.funFacts[currentIndex];
@@ -35,13 +39,15 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
 
   const handleNext = useCallback(() => {
     setIsFlipped(false);
-    window.setTimeout(() => {
+    window.clearTimeout(nextTimeoutRef.current);
+    nextTimeoutRef.current = window.setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % totalFacts);
       setShouldAutoFocus(true);
     }, 100);
   }, [totalFacts]);
 
   const handleReset = useCallback(() => {
+    window.clearTimeout(nextTimeoutRef.current);
     setRevealedIds([]);
     setIsFlipped(false);
     setCurrentIndex(0);

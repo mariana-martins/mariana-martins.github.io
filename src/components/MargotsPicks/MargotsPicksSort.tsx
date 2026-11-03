@@ -54,7 +54,7 @@ export function MargotsPicksSort({
               'border-l-2 first:border-l-0 border-pink/30 dark:border-blue-100/30',
               'hover:bg-warm-100 dark:hover:bg-indigo-50/60',
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-              'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+              'focus-visible:ring-focus',
               'transition-colors duration-200 touch-manipulation',
               'data-[state=on]:bg-pink/40 dark:data-[state=on]:bg-blue-100/30',
             )}

@@ -18,6 +18,19 @@ describe('ThemeToggle', () => {
     expect(button).toBeInTheDocument();
   });
 
+  it('names the setting, not the action, so aria-pressed reads correctly', () => {
+    render(
+      <ThemeProvider>
+        <ThemeToggle />
+      </ThemeProvider>,
+    );
+
+    // "Dark mode, toggle button, pressed" - the name stays put, the state changes
+    expect(screen.getByRole('button', { name: 'Dark mode' })).toHaveAttribute(
+      'aria-pressed',
+    );
+  });
+
   it('toggles theme when clicked', async () => {
     const user = userEvent.setup();
     render(

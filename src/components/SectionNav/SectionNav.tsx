@@ -63,7 +63,7 @@ export function SectionNav(): React.JSX.Element {
                 'text-text-primary',
                 'hover:bg-pink/20 dark:hover:bg-blue-100/20',
                 'focus:outline-none focus-visible:ring-2',
-                'focus-visible:ring-pink dark:focus-visible:ring-blue-300',
+                'focus-visible:ring-blue-300',
                 'transition-colors duration-150',
               )}
             >

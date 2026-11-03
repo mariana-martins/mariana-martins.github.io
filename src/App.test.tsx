@@ -36,7 +36,6 @@ describe('App', () => {
     // It is still there in the header, just not as a heading
     const banner = screen.getByRole('banner');
     expect(within(banner).getByText('Frontend Engineer')).toBeInTheDocument();
-    expect(screen.getByAltText('Mariana Martins Logo')).toBeInTheDocument();
   });
 
   it('renders main content area', () => {

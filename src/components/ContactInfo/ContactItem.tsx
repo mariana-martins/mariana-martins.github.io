@@ -19,7 +19,7 @@ const itemClasses = cn(
   'bg-transparent hover:bg-warm-100/50 dark:hover:bg-white/5',
   'text-text-primary dark:text-text-primary-dark',
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+  'focus-visible:ring-focus',
   'group cursor-pointer',
 );
 

@@ -50,8 +50,8 @@ export const ExperienceCard = ({
             aria-hidden="true"
             className={cn(
               'px-2 py-0.5 rounded-full text-[11px] font-medium',
-              'bg-pink/25 dark:bg-blue-100/25',
-              'text-text-primary dark:text-text-primary-dark',
+              'bg-pink/25 text-text-primary',
+              'dark:bg-blue-100 dark:text-blue-300',
             )}
           >
             Current
@@ -76,7 +76,7 @@ export const ExperienceCard = ({
               'focus:outline-none focus-visible:underline',
               'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
               'focus-visible:ring-2 focus-visible:ring-offset-2',
-              'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+              'focus-visible:ring-focus',
               'transition-colors',
             )}
           >
@@ -89,7 +89,7 @@ export const ExperienceCard = ({
         )}
       </p>
 
-      <p className="hidden md:block mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
+      <p className="mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
         {experience.description}
       </p>
 

@@ -19,7 +19,7 @@ import { MargotsPicksSort } from './MargotsPicksSort';
 
 const focusRing = cn(
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+  'focus-visible:ring-focus',
 );
 
 function EmptyState(): React.JSX.Element {
@@ -140,7 +140,7 @@ function MargotsPicksContent(): React.JSX.Element {
               <Dialog.Title className="text-xl font-semibold font-heading">
                 {MARGOTS_PICKS.label}
               </Dialog.Title>
-              <Dialog.Description className="text-sm text-text-primary/70 dark:text-text-primary-dark/70">
+              <Dialog.Description className="text-sm text-text-primary/80 dark:text-text-primary-dark/80">
                 Books, audiobooks, courses, films and TV shows, rated by Margot.
               </Dialog.Description>
             </div>

@@ -17,7 +17,7 @@ const chipClasses = cn(
   'bg-warm-100/50 dark:bg-indigo-50/30',
   'hover:border-pink/70 dark:hover:border-blue-100/70',
   'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-  'focus-visible:ring-pink dark:focus-visible:ring-blue-100',
+  'focus-visible:ring-focus',
   'transition-colors duration-200 touch-manipulation',
   'aria-pressed:bg-pink/40 aria-pressed:border-pink',
   'dark:aria-pressed:bg-blue-100/30 dark:aria-pressed:border-blue-100',

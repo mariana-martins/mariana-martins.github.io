@@ -11,12 +11,14 @@ describe('Header', () => {
     expect(header).toBeInTheDocument();
   });
 
-  it('renders logo image with alt text', () => {
-    render(<Header />);
+  it('renders the logo as a decorative image', () => {
+    const { container } = render(<Header />);
 
-    const logo = screen.getByAltText('Mariana Martins Logo');
-    expect(logo).toBeInTheDocument();
+    // The h1 beside it carries the name, so the logo stays silent
+    const logo = container.querySelector('img');
+    expect(logo).toHaveAttribute('alt', '');
     expect(logo).toHaveAttribute('src');
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   it('renders name heading', () => {
