@@ -19,6 +19,8 @@ export const MARGOTS_PICKS = {
   label: "Margot's Picks",
   /** URL hash that opens the drawer, so it is linkable and survives reload */
   hash: '#shelf',
+  /** The Learning Shelf button; focus returns to it when the drawer closes */
+  triggerId: 'margots-picks-trigger',
   /** How many picks the drawer reveals per "Show more" */
   pageSize: 24,
 } as const;

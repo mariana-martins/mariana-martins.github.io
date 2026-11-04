@@ -25,9 +25,12 @@ jest.mock('@/constants', () => {
   };
 });
 
-function renderOpen(): ReturnType<typeof render> {
+/** The drawer's code is loaded on first open, so wait for it to arrive */
+async function renderOpen(): Promise<ReturnType<typeof render>> {
   window.location.hash = MARGOTS_PICKS.hash;
-  return render(<MargotsPicks />);
+  const result = render(<MargotsPicks />);
+  await screen.findByRole('dialog');
+  return result;
 }
 
 function getDialog(): HTMLElement {
@@ -58,8 +61,8 @@ describe('MargotsPicks', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('opens when the page loads with the hash', () => {
-    renderOpen();
+  it('opens when the page loads with the hash', async () => {
+    await renderOpen();
     expect(getDialog()).toBeInTheDocument();
     expect(
       within(getDialog()).getByRole('heading', { name: "Margot's Picks" }),
@@ -67,7 +70,7 @@ describe('MargotsPicks', () => {
   });
 
   it('lists the first page, recent first, with ratings and notes', async () => {
-    renderOpen();
+    await renderOpen();
     expect(visibleTitles()).toEqual([
       'React Testing Library',
       'The Courage to Be Disliked',
@@ -83,7 +86,7 @@ describe('MargotsPicks', () => {
 
   it('reveals more on "Show more" and focuses the first new card', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Show more' }));
     expect(visibleTitles()).toHaveLength(5);
     // Fourth in "recent" order is Clean Code, which has no link: the card itself takes focus
@@ -93,7 +96,7 @@ describe('MargotsPicks', () => {
 
   it('hides "Show more" once everything is visible', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Show more' }));
     expect(
       screen.queryByRole('button', { name: 'Show more' }),
@@ -102,7 +105,7 @@ describe('MargotsPicks', () => {
 
   it('filters by type and updates the count', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Book' }));
     expect(visibleTitles()).toEqual(['Clean Code']);
     expect(screen.getByText('1 pick')).toBeInTheDocument();
@@ -114,14 +117,14 @@ describe('MargotsPicks', () => {
 
   it('filters by status', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Planned' }));
     expect(visibleTitles()).toEqual(['Severance']);
   });
 
   it('shows an empty state when nothing matches', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Audiobook' }));
     await user.click(screen.getByRole('button', { name: 'Completed' }));
     expect(
@@ -134,7 +137,7 @@ describe('MargotsPicks', () => {
 
   it('re-sorts alphabetically', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.click(screen.getByRole('radio', { name: 'A to Z' }));
     expect(visibleTitles()).toEqual([
       'Arrival',
@@ -153,7 +156,7 @@ describe('MargotsPicks', () => {
 
   it('closes on Escape and clears the hash', async () => {
     const user = userEvent.setup();
-    renderOpen();
+    await renderOpen();
     await user.keyboard('{Escape}');
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(window.location.hash).toBe('');
@@ -173,7 +176,7 @@ describe('MargotsPicks', () => {
       window.location.hash = MARGOTS_PICKS.hash;
       window.dispatchEvent(new HashChangeEvent('hashchange'));
     });
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
 
     await user.click(
       screen.getByRole('button', { name: "Close Margot's Picks" }),
@@ -183,7 +186,7 @@ describe('MargotsPicks', () => {
   });
 
   it('has no accessibility violations while open', async () => {
-    renderOpen();
+    await renderOpen();
     expect(await axe(document.body)).toHaveNoViolations();
   });
 });

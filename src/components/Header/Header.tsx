@@ -37,7 +37,7 @@ export function Header(): React.JSX.Element {
         <h1
           className={cn(
             'text-2xl lg:text-5xl font-medium font-heading',
-            'tracking-[0.25rem] text-heading uppercase',
+            'tracking-[0.25rem] uppercase',
             'lg:text-left text-center',
             'max-w-[300px] md:max-w-[900px]',
           )}

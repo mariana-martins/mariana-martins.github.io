@@ -50,10 +50,11 @@ export function AboutMe(): React.JSX.Element {
         <div className="order-1 md:order-2 self-center md:self-auto">
           <div className="animate-fade-in-scale">
             {/*
-              Served from public/ under a stable URL so index.html can
-              preload it. Imported through the bundler, the browser could
-              not discover this request until the JS had parsed - and this
-              is the LCP element.
+              The LCP element. It is in the prerendered HTML, and React's
+              server render emits a <link rel="preload"> for it, so the
+              request starts while the HTML is still arriving. Served from
+              public/ under a stable URL, which og:image and the JSON-LD
+              also point at.
             */}
             <img
               src="/avatar.webp"

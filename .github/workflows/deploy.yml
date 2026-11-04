@@ -32,6 +32,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check initial download size
+        run: npm run size
+
       # Contrast and focus visibility need a real browser; jsdom cannot see them
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium

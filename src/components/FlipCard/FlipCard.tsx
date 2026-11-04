@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from 'react';
 
 import { Card } from '@components/Card/Card';
 import { ArrowRight, Eye, RotateCcw } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
+import { prefersReducedMotion } from '@/lib/reducedMotion';
 import type { FunFact } from '@/types';
+
+/** Matches `duration-500` on the rotating wrapper */
+const FLIP_DURATION_MS = 500;
 
 export interface FlipCardProps {
   funFact: FunFact;
@@ -28,7 +31,6 @@ export function FlipCard({
   shouldAutoFocus = false,
   onAutoFocusComplete,
 }: FlipCardProps): React.JSX.Element {
-  const prefersReducedMotion = useReducedMotion();
   const nextButtonRef = useRef<HTMLButtonElement>(null);
   const frontCardRef = useRef<HTMLButtonElement>(null);
 
@@ -50,11 +52,11 @@ export function FlipCard({
         () => {
           nextButtonRef.current?.focus();
         },
-        prefersReducedMotion ? 0 : 300,
+        prefersReducedMotion() ? 0 : FLIP_DURATION_MS * 0.6,
       );
       return () => window.clearTimeout(timeoutId);
     }
-  }, [isFlipped, prefersReducedMotion]);
+  }, [isFlipped]);
 
   // Effect 2: Move focus to the new question card after navigation
   // The parent sets `shouldAutoFocus` AFTER mounting the new card to avoid race conditions
@@ -66,22 +68,21 @@ export function FlipCard({
           frontCardRef.current?.focus();
           onAutoFocusComplete?.(); // Clear the flag to prevent re-triggering
         },
-        prefersReducedMotion ? 0 : 100,
+        prefersReducedMotion() ? 0 : 100,
       );
       return () => window.clearTimeout(timeoutId);
     }
-  }, [shouldAutoFocus, isFlipped, prefersReducedMotion, onAutoFocusComplete]);
+  }, [shouldAutoFocus, isFlipped, onAutoFocusComplete]);
 
   return (
     <div className="relative w-full min-h-[230px] perspective-1000">
-      <motion.div
-        className="relative w-full h-full preserve-3d will-change-transform"
-        initial={false}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{
-          duration: prefersReducedMotion ? 0 : 0.5,
-          ease: 'easeInOut',
-        }}
+      {/* A plain CSS transition: the browser runs it on the compositor */}
+      <div
+        className={cn(
+          'relative w-full h-full preserve-3d will-change-transform',
+          'transition-transform duration-500 ease-in-out motion-reduce:transition-none',
+          isFlipped && 'rotate-y-180',
+        )}
       >
         {/* Front - Question */}
         <Card
@@ -154,7 +155,7 @@ export function FlipCard({
             )}
           </button>
         </Card>
-      </motion.div>
+      </div>
 
       {/* Screen reader announcement */}
       <div aria-live="polite" className="sr-only">

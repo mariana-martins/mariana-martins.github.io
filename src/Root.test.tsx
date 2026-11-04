@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, jest } from '@jest/globals';
-import { act } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 import { hydrateRoot, type Root as ReactRoot } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 
@@ -76,14 +76,15 @@ describe('prerendered page', () => {
     );
   });
 
-  it('opens the drawer after hydrating when the link targets #shelf', () => {
+  it('opens the drawer after hydrating when the link targets #shelf', async () => {
     const container = prerenderInto();
     window.location.hash = '#shelf';
 
     const hydrationProblems = hydrate(container);
 
     expect(hydrationProblems).not.toHaveBeenCalled();
-    expect(document.querySelector('[role="dialog"]')).not.toBeNull();
+    // The drawer's code is fetched on first open
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
   });
 
   it('adds the ongoing role duration only once hydrated', () => {

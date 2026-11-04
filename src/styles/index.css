@@ -1,3 +1,10 @@
+/*
+ * Self-hosted variable fonts: one file per family covers every weight in
+ * use (300-700), served from this origin with the rest of the site. The
+ * unicode-range in each @font-face means only the Latin file downloads.
+ */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/fredoka/wght.css';
 @import 'tailwindcss';
 
 /* Configure class-based dark mode */
@@ -8,8 +15,8 @@
    ============================================ */
 @theme {
   /* Typography */
-  --font-heading: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Fredoka Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
   /* Color Palette - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
@@ -68,7 +75,7 @@
 
   /* Entrance Animations */
   --animate-fade-in-up: fade-in-up 1.2s ease-out both;
-  --animate-fade-in-scale: fade-in-scale 1.2s ease-out both;
+  --animate-fade-in-scale: fade-in-scale 0.8s ease-out both;
 
   /* Drawer Animations (Margot's Picks) */
   --animate-fade-in: fade-in 0.3s ease-out both;
@@ -87,13 +94,18 @@
     }
   }
 
+  /*
+   * Despite the name, no fade: this runs on the avatar, the page's largest
+   * contentful paint, and the browser does not count an element as painted
+   * while it is fully transparent. Starting from opacity 0 delayed LCP by
+   * the length of the animation; a scale alone keeps the entrance and
+   * paints on the first frame.
+   */
   @keyframes fade-in-scale {
     from {
-      opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.92);
     }
     to {
-      opacity: 1;
       transform: scale(1);
     }
   }

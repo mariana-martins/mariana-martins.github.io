@@ -1,7 +1,6 @@
 import React from 'react';
 
 import type { LucideIcon } from 'lucide-react';
-import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
 
@@ -37,8 +36,6 @@ export const ContactItem = ({
   isExternal = false,
   valueClassName,
 }: ContactItemProps): React.JSX.Element => {
-  const prefersReducedMotion = useReducedMotion();
-
   // Static item (no link)
   if (!href) {
     return (
@@ -66,13 +63,16 @@ export const ContactItem = ({
   // Interactive link item
   return (
     <li>
-      <motion.a
+      <a
         href={href}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener noreferrer' : undefined}
-        className={itemClasses}
-        whileHover={prefersReducedMotion ? {} : { x: 4 }}
-        whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
+        className={cn(
+          itemClasses,
+          // A small nudge towards the destination; skipped for reduced motion
+          'motion-safe:transition-[color,background-color,transform]',
+          'motion-safe:hover:translate-x-1 motion-safe:active:scale-[0.98]',
+        )}
       >
         <div className={iconContainerClasses}>
           <Icon size={22} className="icon-accent" aria-hidden="true" />
@@ -84,7 +84,7 @@ export const ContactItem = ({
           </span>
           {isExternal && <span className="sr-only"> (opens in new tab)</span>}
         </div>
-      </motion.a>
+      </a>
     </li>
   );
 };

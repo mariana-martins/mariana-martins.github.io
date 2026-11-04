@@ -31,15 +31,14 @@ const LIGHT_GRADIENT = `
     hsl(352 100% 86% / 0.5) 50%, hsl(60 100% 94% / 0.4) 75%, hsl(300 47% 75% / 0.5) 100%),
   white`;
 
-const FONTS =
-  'https://fonts.googleapis.com/css2?family=Fredoka:wght@500&family=Inter:wght@400;500&display=block';
-
-function ogImageHtml({ avatar, logo }) {
+function ogImageHtml({ avatar, logo, inter, fredoka }) {
   return `<!doctype html>
 <html>
 <head>
-<link rel="stylesheet" href="${FONTS}" />
 <style>
+  /* The same self-hosted variable fonts the site uses */
+  @font-face { font-family: Inter; font-weight: 100 900; src: url(${inter}) format('woff2'); }
+  @font-face { font-family: Fredoka; font-weight: 300 700; src: url(${fredoka}) format('woff2'); }
   * { box-sizing: border-box; margin: 0; }
   body {
     width: 1200px; height: 630px; padding: 48px;
@@ -116,10 +115,18 @@ function touchIconHtml({ favicon }) {
 </html>`;
 }
 
-const [avatar, logo, favicon] = await Promise.all([
+const [avatar, logo, favicon, inter, fredoka] = await Promise.all([
   dataUri('public/avatar.webp', 'image/webp'),
   dataUri('src/assets/logo.webp', 'image/webp'),
   dataUri('public/favicon.svg', 'image/svg+xml'),
+  dataUri(
+    'node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2',
+    'font/woff2',
+  ),
+  dataUri(
+    'node_modules/@fontsource-variable/fredoka/files/fredoka-latin-wght-normal.woff2',
+    'font/woff2',
+  ),
 ]);
 
 const browser = await chromium.launch();
@@ -127,8 +134,8 @@ try {
   const page = await browser.newPage({ deviceScaleFactor: 1 });
 
   await page.setViewportSize({ width: 1200, height: 630 });
-  await page.setContent(ogImageHtml({ avatar, logo }), {
-    waitUntil: 'networkidle',
+  await page.setContent(ogImageHtml({ avatar, logo, inter, fredoka }), {
+    waitUntil: 'load',
   });
   await page.evaluate(() => document.fonts.ready);
   // JPEG: a photo and gradients compress to a fraction of the PNG size,

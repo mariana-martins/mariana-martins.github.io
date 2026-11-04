@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { FlipCard } from '@components/FlipCard/FlipCard';
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 
 import { SECTIONS } from '@/constants';
 import { useFunFactsTrivia } from '@/hooks/useFunFactsTrivia';
+import { useSequentialSwap } from '@/hooks/useSequentialSwap';
 import { cn } from '@/lib/cn';
 
 export function FunFacts(): React.JSX.Element {
@@ -20,7 +20,8 @@ export function FunFacts(): React.JSX.Element {
     handleReset,
     clearAutoFocus,
   } = useFunFactsTrivia();
-  const prefersReducedMotion = useReducedMotion();
+  // The old card plays out before the new one comes in
+  const { shown, isLeaving, ref } = useSequentialSwap(currentFact);
 
   return (
     <section
@@ -46,32 +47,25 @@ export function FunFacts(): React.JSX.Element {
 
       {/* Card container */}
       <div className="relative w-full">
-        <div className="relative z-30">
-          {/*
-            initial={false}: the first card renders in place instead of
-            fading in, so the prerendered HTML shows it rather than an
-            invisible opacity-0 card waiting for JavaScript
-          */}
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={currentFact.id}
-              initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: prefersReducedMotion ? 0 : -20 }}
-              transition={{ duration: prefersReducedMotion ? 0.1 : 0.3 }}
-            >
-              <FlipCard
-                funFact={currentFact}
-                isFlipped={isFlipped}
-                onFlip={handleFlip}
-                onNext={handleNext}
-                onReset={handleReset}
-                allRevealed={allRevealed && isFlipped}
-                shouldAutoFocus={shouldAutoFocus}
-                onAutoFocusComplete={clearAutoFocus}
-              />
-            </motion.div>
-          </AnimatePresence>
+        {/* Keyed so each fact gets a fresh, unrotated card */}
+        <div
+          key={shown.id}
+          ref={ref}
+          // The leaving card is on its way out: not clickable or focusable
+          inert={isLeaving}
+          className="relative z-30"
+        >
+          <FlipCard
+            funFact={shown}
+            isFlipped={isFlipped}
+            onFlip={handleFlip}
+            onNext={handleNext}
+            onReset={handleReset}
+            allRevealed={allRevealed && isFlipped}
+            // Focus goes to the incoming card, never the leaving one
+            shouldAutoFocus={shouldAutoFocus && !isLeaving}
+            onAutoFocusComplete={clearAutoFocus}
+          />
         </div>
       </div>
     </section>
