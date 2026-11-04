@@ -1,14 +1,6 @@
 /**
- * Fails the build when what a first visit downloads grows past its budget.
- *
- * Reads dist/index.html for the files the page requests up front (the app
- * script, the stylesheet, preloaded fonts) and measures them as they travel:
- * gzipped. Lazy chunks, like Margot's Picks, are not counted - only visitors
- * who open them pay for them.
- *
- * A budget is a tripwire, not a target: when one trips, either the growth is
- * worth it and the number goes up in review, or it is not and the change
- * goes back.
+ * Fails when the files a first visit downloads (read from dist/index.html)
+ * grow past their gzipped budget. Lazy chunks are not counted.
  */
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -21,7 +13,6 @@ const BUDGETS_KB = {
   html: 12,
   script: 110,
   style: 14,
-  // woff2 is already compressed, so this is close to the file size
   font: 85,
 };
 

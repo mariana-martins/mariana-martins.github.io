@@ -3,20 +3,13 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite';
 
-/**
- * Fonts the first paint needs. Matched against the emitted file names, which
- * carry a content hash, so the preload always points at the deployed file.
- */
+/** Matched against emitted (hashed) file names */
 const CRITICAL_FONTS = [
   /inter-latin-wght-normal-[\w-]+\.woff2$/,
   /fredoka-latin-wght-normal-[\w-]+\.woff2$/,
 ];
 
-/**
- * Adds <link rel="preload"> for the critical fonts. Without it the browser
- * only finds them after downloading and parsing the stylesheet, and the text
- * swaps font visibly once they land.
- */
+/** Preloads the critical fonts, which the browser would otherwise find late in the CSS */
 function preloadFonts(): Plugin {
   return {
     name: 'preload-fonts',
@@ -35,8 +28,7 @@ function preloadFonts(): Plugin {
             as: 'font',
             type: 'font/woff2',
             href: `/${file}`,
-            // Fonts are always fetched in CORS mode; a preload without this
-            // is a separate request the browser cannot reuse
+            // Fonts are fetched in CORS mode; without this the preload is wasted
             crossorigin: '',
           },
           injectTo: 'head',

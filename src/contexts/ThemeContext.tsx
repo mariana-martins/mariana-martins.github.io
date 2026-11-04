@@ -17,12 +17,12 @@ export const ThemeContext = createContext<ThemeContextValue | undefined>(
   undefined,
 );
 
-/** Also read by the inline script in index.html; keep the two in step */
+/** Also read by the inline script in index.html */
 export const THEME_STORAGE_KEY = 'theme';
 const DARK_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
 /**
- * The theme to show: a stored choice wins, otherwise the system preference.
+ * A stored choice wins, otherwise the system preference.
  * @returns The theme to use
  */
 export function getInitialTheme(): Theme {
@@ -52,14 +52,9 @@ export function applyTheme(theme: Theme): void {
   }, 500);
 }
 
-/** Components to re-render after a toggle in this tab */
 const toggleListeners = new Set<() => void>();
 
-/**
- * Re-renders on a toggle here, a toggle in another tab (`storage`), or a
- * system change while nothing is stored. The `<html>` class is updated in
- * the same handler, never in an effect: see ThemeProvider.
- */
+/** Toggles here, in another tab (`storage`), or a system change */
 function subscribe(onStoreChange: () => void): () => void {
   const media = window.matchMedia(DARK_SCHEME_QUERY);
   const handleExternalChange = (): void => {
@@ -78,7 +73,6 @@ function subscribe(onStoreChange: () => void): () => void {
   };
 }
 
-/** What the prerendered HTML is built with; there is no visitor at build time */
 function getServerTheme(): Theme {
   return 'light';
 }
@@ -86,13 +80,9 @@ function getServerTheme(): Theme {
 /**
  * ThemeProvider component that provides theme state and controls to the app.
  *
- * The page is prerendered, so the first client render must match HTML built
- * in light mode. `useSyncExternalStore` does exactly that: it hydrates with
- * the server value and re-renders with the real one straight after. The
- * correct colours are never in doubt meanwhile, because the inline script in
- * index.html put the `dark` class on `<html>` before the first paint - which
- * is also why nothing here syncs the class in an effect: an effect would run
- * with the light hydration value and flash the page.
+ * Hydrates as 'light' to match the prerendered HTML, then re-renders with the
+ * real theme. Never sync the `dark` class in an effect: it would run with
+ * 'light' first and flash the page. The inline script in index.html sets it.
  *
  * @param children - React children components
  * @returns JSX element wrapping children with theme context

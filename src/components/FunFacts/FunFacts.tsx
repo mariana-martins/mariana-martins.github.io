@@ -20,7 +20,6 @@ export function FunFacts(): React.JSX.Element {
     handleReset,
     clearAutoFocus,
   } = useFunFactsTrivia();
-  // The old card plays out before the new one comes in
   const { shown, isLeaving, ref } = useSequentialSwap(currentFact);
 
   return (
@@ -51,7 +50,6 @@ export function FunFacts(): React.JSX.Element {
         <div
           key={shown.id}
           ref={ref}
-          // The leaving card is on its way out: not clickable or focusable
           inert={isLeaving}
           className="relative z-30"
         >
@@ -62,7 +60,6 @@ export function FunFacts(): React.JSX.Element {
             onNext={handleNext}
             onReset={handleReset}
             allRevealed={allRevealed && isFlipped}
-            // Focus goes to the incoming card, never the leaving one
             shouldAutoFocus={shouldAutoFocus && !isLeaving}
             onAutoFocusComplete={clearAutoFocus}
           />

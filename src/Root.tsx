@@ -3,10 +3,7 @@ import React from 'react';
 import { App } from '@/App';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
-/**
- * The whole tree, shared by the browser entry (main.tsx) and the prerender
- * entry (entry-server.tsx) so both render exactly the same thing.
- */
+/** Rendered by both main.tsx and entry-server.tsx, so the two trees match */
 export function Root(): React.JSX.Element {
   return (
     <React.StrictMode>

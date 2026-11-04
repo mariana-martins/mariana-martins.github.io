@@ -217,10 +217,7 @@ export interface MargotsPicksDrawerProps {
   onClose: () => void;
 }
 
-/**
- * The drawer itself. Loaded on demand by MargotsPicks, so Radix Dialog, the
- * filters and the full list stay out of the bundle every visitor downloads.
- */
+/** Lazy-loaded by MargotsPicks */
 export default function MargotsPicksDrawer({
   isOpen,
   onClose,

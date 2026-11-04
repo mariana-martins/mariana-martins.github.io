@@ -2,11 +2,6 @@ import ReactDOM from 'react-dom/client';
 
 import { Root } from '@/Root';
 
-/*
- * The theme class is already on <html>: an inline script in index.html sets
- * it before the first paint, so there is no flash of the wrong theme.
- */
-
 /**
  * Displays an error message if the root element is not found.
  */
@@ -31,8 +26,7 @@ if (!rootElement) {
   showRootElementError();
 }
 
-// The production build ships prerendered HTML to hydrate; the dev server
-// serves an empty root, so it renders from scratch
+// Production HTML is prerendered; the dev server serves an empty root
 if (rootElement.hasChildNodes()) {
   ReactDOM.hydrateRoot(rootElement, <Root />);
 } else {

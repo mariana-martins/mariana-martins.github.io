@@ -16,10 +16,7 @@ function Probe({ item }: { item: Item }): React.JSX.Element {
   );
 }
 
-/**
- * jsdom has no Web Animations API. This stands in for element.animate and
- * lets each test decide when an animation finishes.
- */
+/** jsdom has no element.animate; each test decides when animations finish */
 function stubAnimate(): {
   calls: Keyframe[][];
   finishCurrent: () => Promise<void>;

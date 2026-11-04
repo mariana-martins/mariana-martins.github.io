@@ -1,10 +1,6 @@
 /**
- * Renders the link-preview image (public/og-image.jpg, 1200x630) and the
- * home-screen icon (public/apple-touch-icon.png, 180x180) from HTML, using
- * the site's own palette, fonts, logo and photo.
- *
- * The output is committed, so this only needs re-running when the name,
- * title or artwork change:  npm run social-images
+ * Renders public/og-image.jpg and public/apple-touch-icon.png. The output is
+ * committed; re-run when the name, title or artwork change.
  */
 import { chromium } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
@@ -36,7 +32,6 @@ function ogImageHtml({ avatar, logo, inter, fredoka }) {
 <html>
 <head>
 <style>
-  /* The same self-hosted variable fonts the site uses */
   @font-face { font-family: Inter; font-weight: 100 900; src: url(${inter}) format('woff2'); }
   @font-face { font-family: Fredoka; font-weight: 300 700; src: url(${fredoka}) format('woff2'); }
   * { box-sizing: border-box; margin: 0; }
@@ -97,8 +92,7 @@ function ogImageHtml({ avatar, logo, inter, fredoka }) {
 }
 
 function touchIconHtml({ favicon }) {
-  // iOS rounds the corners itself and turns transparency black, so the
-  // icon is a full square of the favicon's own background colour
+  // iOS turns transparency black, so fill the square
   return `<!doctype html>
 <html>
 <head>
@@ -138,8 +132,6 @@ try {
     waitUntil: 'load',
   });
   await page.evaluate(() => document.fonts.ready);
-  // JPEG: a photo and gradients compress to a fraction of the PNG size,
-  // and previews are fetched by every app a link is pasted into
   await page.screenshot({
     path: path.join(publicDir, 'og-image.jpg'),
     type: 'jpeg',

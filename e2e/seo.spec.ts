@@ -1,12 +1,5 @@
 import { expect, type Page, test } from '@playwright/test';
 
-/**
- * What a crawler, a link preview or a visitor on a slow connection gets:
- * prerendered content before any JavaScript, the right theme on the first
- * paint, a clean hydration, and the metadata that previews are built from.
- */
-
-/** The app bundle; blocking it shows the page exactly as first painted */
 const APP_SCRIPT = /\/assets\/.*\.js$/;
 
 function collectConsoleErrors(page: Page): string[] {
@@ -43,7 +36,6 @@ test.describe('before JavaScript runs', () => {
     test('the first paint is already dark', async ({ page }) => {
       await page.goto('/');
 
-      // Set by the inline script in <head>, not by React
       await expect(page.locator('html')).toHaveClass(/\bdark\b/);
     });
   });
@@ -59,7 +51,6 @@ for (const theme of ['light', 'dark'] as const) {
       const errors = collectConsoleErrors(page);
       await page.goto('/');
 
-      // Interactive only once React has hydrated the prerendered markup
       const toggle = page.getByRole('button', { name: 'Dark mode' });
       await expect(toggle).toHaveAttribute(
         'aria-pressed',

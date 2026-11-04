@@ -49,13 +49,7 @@ export function AboutMe(): React.JSX.Element {
         {/* Image Content */}
         <div className="order-1 md:order-2 self-center md:self-auto">
           <div className="animate-fade-in-scale">
-            {/*
-              The LCP element. It is in the prerendered HTML, and React's
-              server render emits a <link rel="preload"> for it, so the
-              request starts while the HTML is still arriving. Served from
-              public/ under a stable URL, which og:image and the JSON-LD
-              also point at.
-            */}
+            {/* Stable public/ URL: og:image and the JSON-LD point at it too */}
             <img
               src="/avatar.webp"
               alt="Me and my dog, Margot, a very fluffy white dog!"

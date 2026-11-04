@@ -12,12 +12,11 @@ function hashIsOpen(): boolean {
   return window.location.hash === MARGOTS_PICKS.hash;
 }
 
-/** The prerendered page is built with the drawer closed */
 function hashIsOpenOnServer(): boolean {
   return false;
 }
 
-/** `close` uses replaceState, which fires no event, so it notifies these */
+/** replaceState fires no event, so `close` notifies these itself */
 const closeListeners = new Set<() => void>();
 
 function subscribe(onStoreChange: () => void): () => void {
@@ -33,9 +32,6 @@ function subscribe(onStoreChange: () => void): () => void {
  * The URL hash is the drawer's only source of truth: any component can open
  * it by setting `#shelf`, a shared link opens it on load, and the browser's
  * back button closes it.
- *
- * Read through `useSyncExternalStore` so the prerendered (closed) markup
- * hydrates cleanly; a `#shelf` link then opens the drawer right after.
  */
 export function useShelfHash(): UseShelfHashReturn {
   const isOpen = useSyncExternalStore(

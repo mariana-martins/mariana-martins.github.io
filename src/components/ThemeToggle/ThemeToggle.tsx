@@ -30,10 +30,7 @@ export function ThemeToggle(): React.JSX.Element {
       )}
     >
       <span className="sr-only">Dark mode</span>
-      {/*
-        Icons follow the `dark` class on <html>, not React state, so the
-        prerendered markup is right for every visitor before hydration.
-      */}
+      {/* Driven by the dark class, not state, so prerendered HTML is right */}
       <div className="relative w-6 h-6 flex items-center justify-center">
         <Sun
           size={24}
@@ -50,8 +47,7 @@ export function ThemeToggle(): React.JSX.Element {
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
             'opacity-0 scale-[0.25] blur-xs',
-            // blur-none, not blur-0: v4 has no blur-0, so it would silently
-            // generate nothing and leave the visible moon blurred
+            // blur-none: Tailwind v4 has no blur-0
             'dark:opacity-100 dark:scale-100 dark:blur-none',
           )}
         />

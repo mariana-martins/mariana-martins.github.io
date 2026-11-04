@@ -7,18 +7,13 @@ import { loadDrawer } from './loadDrawer';
 const MargotsPicksDrawer = lazy(loadDrawer);
 
 /**
- * Margot's Picks, opened by the `#shelf` hash.
- *
- * Renders nothing until the first open, so the drawer's code - Radix Dialog,
- * the filters, the whole list - is only downloaded by visitors who want it.
- * After that it stays mounted, so closing can animate out.
+ * Renders nothing until first opened, so the drawer's chunk only loads when
+ * wanted. Stays mounted afterwards so closing can animate out.
  */
 export function MargotsPicks(): React.JSX.Element | null {
   const { isOpen, close } = useShelfHash();
   const [hasOpened, setHasOpened] = useState(isOpen);
 
-  // Derived during render rather than in an effect: React re-renders
-  // straight away, before painting
   if (isOpen && !hasOpened) {
     setHasOpened(true);
   }

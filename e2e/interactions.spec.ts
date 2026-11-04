@@ -1,11 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-/**
- * Behaviour that only a real browser runs: the Web Animations API, CSS 3D
- * flips, and code split into chunks that load on demand.
- */
-
-/** The lazily loaded drawer chunk, e.g. /assets/MargotsPicksDrawer-abc123.js */
 const DRAWER_CHUNK = /\/assets\/MargotsPicksDrawer-[\w-]+\.js$/;
 
 test.describe('fun facts with motion on', () => {
@@ -27,8 +21,6 @@ test.describe('fun facts with motion on', () => {
     await expect(next).toBeFocused();
     await next.click();
 
-    // The old card leaves first; until then it is inert, so the only
-    // question button is the incoming one
     const secondQuestion = page.getByRole('button', { name: /Question:/ });
     await expect(secondQuestion).toBeFocused();
     await expect(secondQuestion).not.toHaveText(firstText ?? '');
@@ -53,7 +45,6 @@ test.describe("Margot's Picks code", () => {
     expect(drawerRequests).toEqual([]);
 
     const trigger = page.getByRole('button', { name: /Margot's Picks/ });
-    // Hovering signals intent: the chunk starts loading before the click
     await trigger.hover();
     await expect.poll(() => drawerRequests.length).toBe(1);
 

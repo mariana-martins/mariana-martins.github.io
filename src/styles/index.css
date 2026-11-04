@@ -1,8 +1,4 @@
-/*
- * Self-hosted variable fonts: one file per family covers every weight in
- * use (300-700), served from this origin with the rest of the site. The
- * unicode-range in each @font-face means only the Latin file downloads.
- */
+/* Self-hosted variable fonts: one file per family covers every weight */
 @import '@fontsource-variable/inter/wght.css';
 @import '@fontsource-variable/fredoka/wght.css';
 @import 'tailwindcss';
@@ -94,13 +90,7 @@
     }
   }
 
-  /*
-   * Despite the name, no fade: this runs on the avatar, the page's largest
-   * contentful paint, and the browser does not count an element as painted
-   * while it is fully transparent. Starting from opacity 0 delayed LCP by
-   * the length of the animation; a scale alone keeps the entrance and
-   * paints on the first frame.
-   */
+  /* No fade despite the name: it runs on the LCP image, and opacity 0 delays LCP */
   @keyframes fade-in-scale {
     from {
       transform: scale(0.92);
@@ -234,7 +224,7 @@
     --dashed-border-spacing: 2rem;
   }
 
-  /* Scrollbars and form controls follow the site's theme, not just the OS */
+  /* Scrollbars and form controls follow the site theme */
   :root {
     color-scheme: light;
   }

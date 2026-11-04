@@ -54,7 +54,6 @@ export function LearningShelf(): React.JSX.Element {
             id={MARGOTS_PICKS.triggerId}
             type="button"
             onClick={openMargotsPicks}
-            // Fetch the drawer's code on intent, so it is ready by the click
             onPointerEnter={preloadMargotsPicks}
             onFocus={preloadMargotsPicks}
             className={cn(

@@ -4,20 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-      Runs before the first paint so the page never flashes the wrong theme.
-      Same rule as getInitialTheme() in src/contexts/ThemeContext.tsx: a
-      stored choice wins, otherwise the system preference. Kept inline and
-      tiny on purpose; anything external would arrive after the paint.
-    -->
+    <!-- Sets the theme before first paint. Mirrors getInitialTheme() in ThemeContext.tsx -->
     <script>
       (function () {
         var theme = null;
         try {
           theme = localStorage.getItem('theme');
-        } catch (error) {
-          // Storage can be blocked; fall through to the system preference
-        }
+        } catch (error) {}
         if (theme !== 'light' && theme !== 'dark') {
           theme = matchMedia('(prefers-color-scheme: dark)').matches
             ? 'dark'
@@ -50,7 +43,6 @@
       media="(prefers-color-scheme: dark)"
     />
 
-    <!-- Link previews: LinkedIn, Slack, iMessage and friends read these -->
     <meta property="og:type" content="profile" />
     <meta property="og:site_name" content="Mariana Martins Menezes" />
     <meta
@@ -78,7 +70,6 @@
     <meta property="profile:last_name" content="Martins Menezes" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Who this page is about, for search engines -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -110,8 +101,6 @@
         ]
       }
     </script>
-
-    <!-- Font preloads are added at build time; see preloadFonts in vite.config.ts -->
   </head>
   <body>
     <!-- Filled at build time by scripts/prerender.mjs -->

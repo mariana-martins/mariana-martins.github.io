@@ -69,7 +69,6 @@ export const ContactItem = ({
         rel={isExternal ? 'noopener noreferrer' : undefined}
         className={cn(
           itemClasses,
-          // A small nudge towards the destination; skipped for reduced motion
           'motion-safe:transition-[color,background-color,transform]',
           'motion-safe:hover:translate-x-1 motion-safe:active:scale-[0.98]',
         )}

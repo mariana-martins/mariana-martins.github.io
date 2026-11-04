@@ -76,7 +76,6 @@ export function FlipCard({
 
   return (
     <div className="relative w-full min-h-[230px] perspective-1000">
-      {/* A plain CSS transition: the browser runs it on the compositor */}
       <div
         className={cn(
           'relative w-full h-full preserve-3d will-change-transform',

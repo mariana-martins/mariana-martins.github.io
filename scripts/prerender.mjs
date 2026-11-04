@@ -1,10 +1,4 @@
-/**
- * Puts the server-rendered page into dist/index.html.
- *
- * Runs after `vite build` (the client) and `vite build --ssr` (the render
- * function). Without it the HTML is an empty <div id="root">: link previews,
- * crawlers and anyone without JavaScript would see nothing.
- */
+/** Puts the server-rendered page into dist/index.html; runs after both Vite builds */
 import { readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -29,7 +23,6 @@ await writeFile(
   template.replace(ROOT_MARKER, `<div id="root">${appHtml}</div>`),
 );
 
-// The server bundle only exists to produce the HTML; it is not deployed
 await rm(serverDir, { recursive: true, force: true });
 
 console.log(

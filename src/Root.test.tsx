@@ -6,11 +6,8 @@ import { renderToString } from 'react-dom/server';
 import { Root } from '@/Root';
 
 /**
- * The production page is prerendered at build time and hydrated in the
- * browser. Hydration only works if the first client render produces exactly
- * the server markup, so anything read from the browser during render
- * (storage, media queries, the URL hash, today's date) has to wait until
- * after hydration. These tests catch a component that forgets.
+ * Catches components that read the browser (storage, hash, date) during
+ * render, which breaks hydration of the prerendered HTML.
  */
 describe('prerendered page', () => {
   let root: ReactRoot | undefined;
@@ -32,11 +29,7 @@ describe('prerendered page', () => {
     return container;
   }
 
-  /**
-   * Returns every hydration problem React reported: thrown mismatches go to
-   * onRecoverableError, attribute mismatches only to console.error - and an
-   * attribute mismatch is never patched, so it would stay wrong on screen.
-   */
+  // Attribute mismatches only reach console.error, and React never patches them
   function hydrate(container: HTMLElement): jest.Mock {
     const problems = jest.fn();
     const consoleError = jest
@@ -83,7 +76,6 @@ describe('prerendered page', () => {
     const hydrationProblems = hydrate(container);
 
     expect(hydrationProblems).not.toHaveBeenCalled();
-    // The drawer's code is fetched on first open
     expect(await screen.findByRole('dialog')).toBeInTheDocument();
   });
 
@@ -92,7 +84,6 @@ describe('prerendered page', () => {
     const currentRole = (): Element | null =>
       container.querySelector('[data-current="true"]');
 
-    // Built at deploy time, the HTML cannot know how long the role has run
     expect(currentRole()?.textContent).not.toMatch(/\d+ (yr|mo)/);
 
     hydrate(container);

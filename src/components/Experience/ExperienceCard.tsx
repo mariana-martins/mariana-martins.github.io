@@ -21,8 +21,7 @@ export const ExperienceCard = ({
   const isCurrent = !experience.endDate;
   const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
   const hasHydrated = useHasHydrated();
-  // An ongoing role's length depends on today, which prerendered HTML built
-  // at deploy time cannot know; it appears once the page has hydrated
+  // Depends on today's date, so the prerendered HTML cannot include it
   const duration =
     isCurrent && !hasHydrated
       ? null
