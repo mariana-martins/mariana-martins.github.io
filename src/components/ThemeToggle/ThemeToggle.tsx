@@ -30,15 +30,18 @@ export function ThemeToggle(): React.JSX.Element {
       )}
     >
       <span className="sr-only">Dark mode</span>
+      {/*
+        Icons follow the `dark` class on <html>, not React state, so the
+        prerendered markup is right for every visitor before hydration.
+      */}
       <div className="relative w-6 h-6 flex items-center justify-center">
         <Sun
           size={24}
           aria-hidden="true"
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
-            isDark
-              ? 'opacity-0 scale-[0.25] blur-xs'
-              : 'opacity-100 scale-100 blur-0',
+            'opacity-100 scale-100 blur-0',
+            'dark:opacity-0 dark:scale-[0.25] dark:blur-xs',
           )}
         />
         <Moon
@@ -46,9 +49,8 @@ export function ThemeToggle(): React.JSX.Element {
           aria-hidden="true"
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
-            isDark
-              ? 'opacity-100 scale-100 blur-0'
-              : 'opacity-0 scale-[0.25] blur-xs',
+            'opacity-0 scale-[0.25] blur-xs',
+            'dark:opacity-100 dark:scale-100 dark:blur-0',
           )}
         />
       </div>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useSyncExternalStore } from 'react';
 
 import { MARGOTS_PICKS } from '@/constants';
 
@@ -12,19 +12,37 @@ function hashIsOpen(): boolean {
   return window.location.hash === MARGOTS_PICKS.hash;
 }
 
+/** The prerendered page is built with the drawer closed */
+function hashIsOpenOnServer(): boolean {
+  return false;
+}
+
+/** `close` uses replaceState, which fires no event, so it notifies these */
+const closeListeners = new Set<() => void>();
+
+function subscribe(onStoreChange: () => void): () => void {
+  closeListeners.add(onStoreChange);
+  window.addEventListener('hashchange', onStoreChange);
+  return () => {
+    closeListeners.delete(onStoreChange);
+    window.removeEventListener('hashchange', onStoreChange);
+  };
+}
+
 /**
  * The URL hash is the drawer's only source of truth: any component can open
  * it by setting `#shelf`, a shared link opens it on load, and the browser's
  * back button closes it.
+ *
+ * Read through `useSyncExternalStore` so the prerendered (closed) markup
+ * hydrates cleanly; a `#shelf` link then opens the drawer right after.
  */
 export function useShelfHash(): UseShelfHashReturn {
-  const [isOpen, setIsOpen] = useState(hashIsOpen);
-
-  useEffect(() => {
-    const sync = (): void => setIsOpen(hashIsOpen());
-    window.addEventListener('hashchange', sync);
-    return () => window.removeEventListener('hashchange', sync);
-  }, []);
+  const isOpen = useSyncExternalStore(
+    subscribe,
+    hashIsOpen,
+    hashIsOpenOnServer,
+  );
 
   const open = useCallback(() => {
     // Assigning the hash pushes a history entry, so "back" closes the drawer
@@ -38,7 +56,9 @@ export function useShelfHash(): UseShelfHashReturn {
       '',
       window.location.pathname + window.location.search,
     );
-    setIsOpen(false);
+    for (const listener of closeListeners) {
+      listener();
+    }
   }, []);
 
   return { isOpen, open, close };

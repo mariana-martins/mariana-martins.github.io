@@ -47,7 +47,12 @@ export function FunFacts(): React.JSX.Element {
       {/* Card container */}
       <div className="relative w-full">
         <div className="relative z-30">
-          <AnimatePresence mode="wait">
+          {/*
+            initial={false}: the first card renders in place instead of
+            fading in, so the prerendered HTML shows it rather than an
+            invisible opacity-0 card waiting for JavaScript
+          */}
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentFact.id}
               initial={{ opacity: 0, x: prefersReducedMotion ? 0 : 20 }}

@@ -222,7 +222,13 @@
     --dashed-border-spacing: 2rem;
   }
 
+  /* Scrollbars and form controls follow the site's theme, not just the OS */
+  :root {
+    color-scheme: light;
+  }
+
   .dark {
+    color-scheme: dark;
     --divider-color: var(--color-blue-100);
     --color-focus: var(--color-blue-100);
 

@@ -1,23 +1,11 @@
-import React from 'react';
-
-import '@styles/index.css';
 import ReactDOM from 'react-dom/client';
 
-import { App } from '@/App';
-import {
-  applyTheme,
-  getInitialTheme,
-  ThemeProvider,
-} from '@/contexts/ThemeContext';
+import { Root } from '@/Root';
 
-/**
- * Initializes the theme before React renders to prevent flash of unstyled content.
- * This ensures the correct theme class is applied immediately.
+/*
+ * The theme class is already on <html>: an inline script in index.html sets
+ * it before the first paint, so there is no flash of the wrong theme.
  */
-function initializeTheme(): void {
-  const theme = getInitialTheme();
-  applyTheme(theme);
-}
 
 /**
  * Displays an error message if the root element is not found.
@@ -37,21 +25,16 @@ function showRootElementError(): never {
   );
 }
 
-// Initialize theme early to prevent flash
-initializeTheme();
-
-// Get root element and validate it exists
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
   showRootElementError();
 }
 
-// Render the application
-ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
-);
+// The production build ships prerendered HTML to hydrate; the dev server
+// serves an empty root, so it renders from scratch
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, <Root />);
+} else {
+  ReactDOM.createRoot(rootElement).render(<Root />);
+}
