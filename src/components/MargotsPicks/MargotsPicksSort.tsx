@@ -13,11 +13,7 @@ export interface MargotsPicksSortProps {
   onSortChange: (sort: PickSort) => void;
 }
 
-/**
- * Deliberately not a chip row: filters narrow the list, this reorders it, so
- * it gets a different shape (segmented) and Radix handles the roving focus
- * and arrow-key semantics.
- */
+/** Segmented, not chips: filters narrow the list, this reorders it */
 export function MargotsPicksSort({
   sort,
   onSortChange,
@@ -33,7 +29,7 @@ export function MargotsPicksSort({
         type="single"
         value={sort}
         onValueChange={(next: PickSort | '') => {
-          // Clicking the active segment reports "" (deselect); keep a sort always on
+          // Clicking the active segment reports ""; always keep a sort
           if (next) {
             onSortChange(next);
           }

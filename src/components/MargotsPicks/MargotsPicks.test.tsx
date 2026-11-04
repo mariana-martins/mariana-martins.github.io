@@ -25,7 +25,7 @@ jest.mock('@/constants', () => {
   };
 });
 
-/** The drawer's code is loaded on first open, so wait for it to arrive */
+/** The drawer's code loads on first open */
 async function renderOpen(): Promise<ReturnType<typeof render>> {
   window.location.hash = MARGOTS_PICKS.hash;
   const result = render(<MargotsPicks />);
@@ -89,7 +89,7 @@ describe('MargotsPicks', () => {
     await renderOpen();
     await user.click(screen.getByRole('button', { name: 'Show more' }));
     expect(visibleTitles()).toHaveLength(5);
-    // Fourth in "recent" order is Clean Code, which has no link: the card itself takes focus
+    // Clean Code has no link, so the card itself takes focus
     expect(document.activeElement?.tagName).toBe('LI');
     expect(document.activeElement).toHaveTextContent('Clean Code');
   });

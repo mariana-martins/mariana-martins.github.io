@@ -1,4 +1,4 @@
-/** Puts the server-rendered page into dist/index.html; runs after both Vite builds */
+// Runs after both Vite builds (see the build script)
 import { readFile, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';

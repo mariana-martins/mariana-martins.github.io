@@ -18,13 +18,11 @@ export function SectionNav(): React.JSX.Element {
         event.preventDefault();
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          // Ensure element is focusable
           if (!targetElement.hasAttribute('tabindex')) {
             targetElement.setAttribute('tabindex', '-1');
           }
           targetElement.focus();
-          // Smooth scrolling is motion, and the explicit `behavior` option
-          // overrides the CSS `scroll-behavior` property.
+          // An explicit `behavior` overrides CSS scroll-behavior, so check here
           targetElement.scrollIntoView({
             behavior: prefersReducedMotion() ? 'auto' : 'smooth',
             block: 'start',

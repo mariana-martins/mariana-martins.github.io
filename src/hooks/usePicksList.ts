@@ -14,9 +14,7 @@ interface UsePicksListReturn {
   category: PickCategoryFilter;
   status: PickStatusFilter;
   sort: PickSort;
-  /** Everything matching the filters, in order */
   filtered: PickItem[];
-  /** The slice currently on screen */
   visible: PickItem[];
   hasMore: boolean;
   setCategory: (category: PickCategoryFilter) => void;
@@ -40,7 +38,6 @@ export function usePicksList(
   );
   const visible = filtered.slice(0, visibleCount);
 
-  // Any change to what is listed starts the pagination over
   const setCategory = useCallback(
     (next: PickCategoryFilter) => {
       setCategoryState(next);

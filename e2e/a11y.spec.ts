@@ -4,16 +4,7 @@ import { expect, type Page, test } from '@playwright/test';
 import { findLowContrastText } from './contrast';
 import { findWeakFocusIndicators } from './focus';
 
-/**
- * jest-axe runs in jsdom, which has no layout and no computed colours, so
- * it skips colour contrast entirely. These run in a real browser, in both
- * themes, where contrast and focus visibility can actually be measured.
- *
- * axe still leaves most text here unjudged (gradients, backdrop blur and
- * pseudo-element borders make it give up), and it does not judge focus
- * indicators at all, so both are also measured on rendered pixels - see
- * ./contrast.ts and ./focus.ts.
- */
+// jsdom has no layout or colours, so contrast and focus are checked here
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
@@ -23,7 +14,6 @@ function scan(page: Page): AxeBuilder {
 
 for (const theme of ['light', 'dark'] as const) {
   test.describe(`${theme} theme`, () => {
-    // A fresh context has no stored theme, so the system preference decides
     test.use({ colorScheme: theme });
 
     test.beforeEach(async ({ page }) => {

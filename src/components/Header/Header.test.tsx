@@ -14,7 +14,6 @@ describe('Header', () => {
   it('renders the logo as a decorative image', () => {
     const { container } = render(<Header />);
 
-    // The h1 beside it carries the name, so the logo stays silent
     const logo = container.querySelector('img');
     expect(logo).toHaveAttribute('alt', '');
     expect(logo).toHaveAttribute('src');
@@ -24,10 +23,8 @@ describe('Header', () => {
   it('renders name heading', () => {
     render(<Header />);
 
-    // The name is split into characters with spaces, so we need to query differently
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
-    // Normalize all whitespace (including non-breaking spaces) and remove spaces between characters
     const normalizedText = heading.textContent
       ?.replace(/\s+/g, ' ')
       .replace(/\s/g, '')

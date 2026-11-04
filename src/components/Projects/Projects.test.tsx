@@ -3,7 +3,6 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-// Mock the data module
 jest.mock('@/data', () => {
   const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
@@ -28,7 +27,6 @@ describe('Projects', () => {
   it('renders featured project description', () => {
     render(<Projects />);
 
-    // Only the featured (first) project shows its description
     expect(
       screen.getByText('A single-page contact list application.'),
     ).toBeInTheDocument();
@@ -82,7 +80,6 @@ describe('Projects', () => {
   it('renders technologies/Tags for each project', () => {
     render(<Projects />);
 
-    // Use getAllByText since React appears multiple times
     const reactTags = screen.getAllByText('React');
     expect(reactTags.length).toBeGreaterThan(0);
     expect(screen.getByText('JavaScript')).toBeInTheDocument();

@@ -18,12 +18,11 @@ export function Header(): React.JSX.Element {
           'relative max-w-24 max-h-24 md:max-w-36 md:max-h-36',
           'bg-warm-300 border-4 border-pink rounded-md',
           'px-1 py-4 mb-8 lg:mb-0',
-          // Dark mode neon glow effect
           'dark:bg-transparent dark:border-blue-100',
           'dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_8px_var(--color-blue-100),0_0_15px_var(--color-blue-100),0_0_30px_var(--color-blue-100)]',
         )}
       >
-        {/* Decorative: the h1 beside it already says the name */}
+        {/* Decorative: the h1 says the name */}
         <img
           src={logo}
           alt=""
@@ -44,7 +43,6 @@ export function Header(): React.JSX.Element {
         >
           {name}
         </h1>
-        {/* A job title under the name, not a section of the page */}
         <p
           className={cn(
             'mt-2 text-xl lg:text-2xl tracking-widest',

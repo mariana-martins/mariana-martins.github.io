@@ -8,15 +8,9 @@ import type {
   Skill,
 } from '@/types';
 
-/**
- * Mock introduction text for testing
- */
 export const mockIntroduction =
   "Hello, I'm Mariana Martins Menezes, but you can call me Mari! I'm a Frontend Engineer with a passion for building user-friendly and efficient web applications.";
 
-/**
- * Mock contact information for testing
- */
 export const mockContact: Contact = {
   address: 'Melbourne, Australia',
   email: 'mariana@example.com',
@@ -25,9 +19,6 @@ export const mockContact: Contact = {
   name: 'Mariana Martins Menezes',
 };
 
-/**
- * Mock experience array for testing
- */
 export const mockExperience: Experience[] = [
   {
     id: 'test-1',
@@ -49,9 +40,6 @@ export const mockExperience: Experience[] = [
   },
 ];
 
-/**
- * Mock projects array for testing
- */
 export const mockProjects: Project[] = [
   {
     id: 'project-1',
@@ -69,9 +57,6 @@ export const mockProjects: Project[] = [
   },
 ];
 
-/**
- * Mock skills array for testing
- */
 export const mockSkills: Skill[] = [
   {
     name: 'JavaScript',
@@ -100,9 +85,6 @@ export const mockSkills: Skill[] = [
   },
 ];
 
-/**
- * Mock fun facts array for testing
- */
 export const mockFunFacts: FunFact[] = [
   {
     id: 'fact-1',
@@ -121,9 +103,6 @@ export const mockFunFacts: FunFact[] = [
   },
 ];
 
-/**
- * Mock learning shelf items for testing
- */
 export const mockPicks: PickItem[] = [
   {
     id: 'pick-book',
@@ -172,9 +151,6 @@ export const mockPicks: PickItem[] = [
   },
 ];
 
-/**
- * Complete mock portfolio data for testing
- */
 export const mockPortfolioData: PortfolioData = {
   introduction: mockIntroduction,
   contact: mockContact,
@@ -184,39 +160,3 @@ export const mockPortfolioData: PortfolioData = {
   funFacts: mockFunFacts,
   picks: mockPicks,
 };
-
-/**
- * Helper function to create mock data with optional overrides
- * @param overrides - Partial portfolio data to override default values
- * @returns Complete PortfolioData object with defaults merged with overrides
- * @example
- * ```ts
- * // Use default mock data
- * const data = createMockData();
- *
- * // Override only introduction
- * const data = createMockData({ introduction: "Custom intro" });
- *
- * // Override multiple fields
- * const data = createMockData({
- *   introduction: "Custom intro",
- *   contact: { ...mockContact, email: "custom@example.com" }
- * });
- * ```
- */
-export function createMockData(
-  overrides?: Partial<PortfolioData>,
-): PortfolioData {
-  return {
-    ...mockPortfolioData,
-    ...overrides,
-    // Deep merge for nested objects
-    contact: overrides?.contact
-      ? { ...mockContact, ...overrides.contact }
-      : mockContact,
-    experience: overrides?.experience ?? mockExperience,
-    projects: overrides?.projects ?? mockProjects,
-    skills: overrides?.skills ?? mockSkills,
-    funFacts: overrides?.funFacts ?? mockFunFacts,
-  };
-}

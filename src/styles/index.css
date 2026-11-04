@@ -3,32 +3,24 @@
 @import '@fontsource-variable/fredoka/wght.css';
 @import 'tailwindcss';
 
-/* Configure class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ============================================
-   DESIGN TOKENS
-   ============================================ */
+/* --- Design tokens --- */
 @theme {
-  /* Typography */
   --font-heading: 'Fredoka Variable', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-  /* Color Palette - Blue Scale */
   --color-blue-50: hsl(205 36% 87%);
   --color-blue-100: hsl(200 57% 84%);
   --color-blue-200: hsl(205 92% 36%);
   --color-blue-300: hsl(223 33% 26%);
 
-  /* Color Palette - Indigo Scale */
   --color-indigo-50: hsl(227 20% 26%);
   --color-indigo-100: hsl(224 33% 26%);
   --color-indigo-200: hsl(224 16% 32%);
 
-  /* Color Palette - Pink */
   --color-pink: hsl(356 75% 78%);
 
-  /* Color Palette - Warm Tones */
   --color-warm-50: hsl(47 64% 96%);
   --color-warm-100: hsl(19 100% 96%);
   --color-warm-200: hsl(6 100% 92%);
@@ -37,43 +29,31 @@
   --color-warm-500: hsl(35 86% 69%);
   --color-warm-600: hsl(38 90% 30%);
 
-  /* Color Palette - Green Scale */
   --color-green-50: hsl(168 37% 85%);
   --color-green-100: hsl(168 45% 65%);
   --color-green-200: hsl(168 60% 50%);
   --color-green-300: hsl(168 70% 34%);
   --color-green-400: hsl(168 70% 27%);
 
-  /* Color Palette - Accent Colors */
   --color-purple-50: hsl(325 34% 87%);
   --color-purple-200: hsl(325 74% 42%);
 
-  /* Semantic Text Colors */
   --color-text-primary: var(--color-blue-300);
   --color-text-primary-dark: var(--color-warm-50);
 
-  /*
-   * Focus indicator. WCAG 2.2 asks for 3:1 against what surrounds it; the
-   * brand pink reaches only ~2:1 on the light background, so light mode uses
-   * the navy text colour (5.5:1 or better on every surface) and dark mode
-   * the neon blue (5.4:1 or better). Swapped in `.dark` below.
-   */
+  /* Not pink: it reaches only ~2:1 on the light background (WCAG asks 3:1) */
   --color-focus: var(--color-blue-300);
 
-  /* Rainbow Highlight Colors - Light Theme */
+  /* Highlight colours; darker values in .dark */
   --color-highlight-red: hsl(356 75% 55%);
-  --color-highlight-orange: hsl(25 85% 55%);
   --color-highlight-yellow: hsl(47 85% 60%);
   --color-highlight-green: hsl(168 60% 50%);
   --color-highlight-blue: hsl(200 70% 55%);
-  --color-highlight-indigo: hsl(240 65% 55%);
   --color-highlight-violet: hsl(300 55% 60%);
 
-  /* Entrance Animations */
   --animate-fade-in-up: fade-in-up 1.2s ease-out both;
   --animate-fade-in-scale: fade-in-scale 0.8s ease-out both;
 
-  /* Drawer Animations (Margot's Picks) */
   --animate-fade-in: fade-in 0.3s ease-out both;
   --animate-fade-out: fade-out 0.2s ease-in both;
   --animate-slide-in-right: slide-in-right 0.3s ease-out both;
@@ -137,12 +117,9 @@
   }
 }
 
-/* ============================================
-   BASE STYLES
-   ============================================ */
+/* --- Base --- */
 @layer base {
   :root {
-    /* Light Mode Gradient */
     --bg-gradient-light:
       radial-gradient(
         circle at 30% 20%,
@@ -173,7 +150,6 @@
         hsl(300 47% 75% / 0.5) 100%
       );
 
-    /* Dark Mode Gradient */
     --bg-gradient-dark:
       radial-gradient(
         circle at 25% 15%,
@@ -216,7 +192,6 @@
 
     --divider-color: var(--color-pink);
 
-    /* Dashed Border Configuration */
     --dashed-border-segment-length: 8px;
     --dashed-border-gap-length: 6px;
     --dashed-border-opacity: 0.6;
@@ -234,17 +209,14 @@
     --divider-color: var(--color-blue-100);
     --color-focus: var(--color-blue-100);
 
-    /* Rainbow Highlight Colors - Dark Theme */
     --color-highlight-red: hsl(356 80% 45%);
-    --color-highlight-orange: hsl(25 90% 45%);
     --color-highlight-yellow: hsl(47 90% 50%);
     --color-highlight-green: hsl(168 70% 40%);
     --color-highlight-blue: hsl(200 75% 45%);
-    --color-highlight-indigo: hsl(240 70% 45%);
     --color-highlight-violet: hsl(300 65% 50%);
   }
 
-  /* Theme Color Transitions - only active during theme toggles for scroll performance */
+  /* Only during a toggle, so scrolling never pays for transitions */
   @media (prefers-reduced-motion: no-preference) {
     .theme-transitioning *,
     .theme-transitioning {
@@ -255,22 +227,8 @@
   }
 
   /*
-   * Respect the user's reduced motion preference.
-   *
-   * Every animation utility resolves through its own theme variable -
-   * `.animate-fade-in-up` compiles to `animation: var(--animate-fade-in-up)` -
-   * so blanking the variable here switches the animation off at the source.
-   * The utility class still applies; its value simply resolves to `none`.
-   * That needs no `!important` and no global `*` override: the variables live
-   * in `@layer theme` and this rule is in `@layer base`, which wins.
-   *
-   * The trade-off is that this only covers token-driven animation. Any motion
-   * declared outside the theme - a hand-written keyframe rule, a scroll
-   * timeline, a transform transition - has to carry its own guard. The two
-   * patterns in use here are wrapping the rule in
-   * `@media (prefers-reduced-motion: no-preference)` (see `.theme-transitioning`
-   * and `.scroll-reveal`) or Tailwind's `motion-reduce:` variant at the
-   * component (see ProjectCard's hover scale).
+   * Blanking the tokens turns token-driven animations off. Motion declared
+   * elsewhere needs its own guard (motion-reduce: or a media query).
    */
   @media (prefers-reduced-motion: reduce) {
     :root {
@@ -283,7 +241,6 @@
     }
   }
 
-  /* Base Body Styles with Light Gradient */
   body {
     background: var(--bg-gradient-light);
     position: relative;
@@ -299,7 +256,6 @@
     }
   }
 
-  /* Dark Mode Background */
   .dark body {
     background: var(--bg-gradient-dark);
   }
@@ -331,10 +287,7 @@
   }
 }
 
-/* ============================================
-   CUSTOM UTILITIES
-   ============================================ */
-/* Frosted panel shared by <main> and the Margot's Picks drawer */
+/* --- Utilities --- */
 @utility glass-panel {
   @apply bg-white/50 backdrop-blur-md supports-backdrop-filter:bg-white/40;
   @apply ring-1 ring-slate-900/10 shadow-lg;
@@ -343,8 +296,7 @@
   }
 }
 
-/* Rating glow: soft pink by day, the logo's neon blue by night.
-   drop-shadow follows the SVG outline where box-shadow would draw a box. */
+/* drop-shadow follows the SVG outline; box-shadow would draw a box */
 @utility margot-glow {
   filter: drop-shadow(
     0 0 3px color-mix(in srgb, var(--color-pink) 80%, transparent)
@@ -359,11 +311,7 @@
   }
 }
 
-/*
- * Lift for the ticket. A drop-shadow on the unmasked wrapper follows the
- * notched outline of the masked card inside it, where a box-shadow would
- * draw a plain rectangle - or, on the card itself, be masked away.
- */
+/* On the wrapper: inside the mask a shadow would be clipped away */
 @utility ticket-lift {
   filter: drop-shadow(
     0 2px 6px color-mix(in srgb, var(--color-blue-300) 14%, transparent)
@@ -386,17 +334,11 @@
   }
 }
 
-/*
- * Ticket stub: two semicircle notches where the category spine meets the
- * body, like a torn cinema ticket. Masking only paints - DOM, focus and
- * reading order are untouched - and a browser without mask support just
- * draws a plain rounded card. The notches follow the spine: along the top
- * edge when the card stacks, down the left when it sits side by side.
- */
+/* Notches where the spine meets the body: top edge when stacked, left when side by side */
 @utility ticket-card {
   --ticket-notch: 9px;
   --ticket-edge: calc(var(--ticket-notch) + 1px);
-  /* Spine height when stacked; matches `h-14` on the spine */
+  /* Matches h-14 on the spine */
   --ticket-seam: 3.5rem;
   mask:
     radial-gradient(
@@ -411,9 +353,8 @@
     );
   mask-composite: intersect;
 
-  /* Same breakpoint as the `@sm:` container variant */
   @container (min-width: 24rem) {
-    /* Spine width side by side; matches `@sm:w-18` on the spine */
+    /* Matches @sm:w-18 on the spine */
     --ticket-seam: 4.5rem;
     mask:
       radial-gradient(
@@ -426,11 +367,10 @@
         transparent var(--ticket-notch),
         black var(--ticket-edge)
       );
-    /* The shorthand above resets this to `add`, which fills the notches back in */
+    /* The mask shorthand resets this */
     mask-composite: intersect;
   }
 
-  /* Chrome 139+ only for now; everyone else keeps the plain rounded corners */
   @supports (corner-shape: squircle) {
     corner-shape: squircle;
     border-radius: 1.375rem;
@@ -438,15 +378,12 @@
 }
 
 @layer utilities {
-  /* Shared dashed border base styles */
   .border-b-dashed-custom,
-  .border-r-dashed-custom,
-  .border-t-dashed-custom {
+  .md\:border-r-dashed-custom {
     --dashed-border-color: var(--divider-color);
     position: relative;
   }
 
-  /* Bottom dashed border */
   .border-b-dashed-custom {
     --dashed-border-bottom-left-offset: 0;
   }
@@ -470,14 +407,12 @@
     pointer-events: none;
   }
 
-  /* Hide bottom dashed border on md+ screens */
   @media (width >= 768px) {
     .md\:border-b-0-dashed-custom::after {
       display: none;
     }
   }
 
-  /* Right dashed border - only on md+ screens */
   @media (width >= 768px) {
     .md\:border-r-dashed-custom {
       padding-right: var(--dashed-border-spacing);
@@ -504,108 +439,6 @@
     }
   }
 
-  /* Top dashed border */
-  .border-t-dashed-custom::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: var(--dashed-border-width);
-    background: repeating-linear-gradient(
-      to right,
-      var(--dashed-border-color) 0,
-      var(--dashed-border-color) var(--dashed-border-segment-length),
-      transparent var(--dashed-border-segment-length),
-      transparent
-        calc(
-          var(--dashed-border-segment-length) + var(--dashed-border-gap-length)
-        )
-    );
-    opacity: var(--dashed-border-opacity);
-    pointer-events: none;
-  }
-
-  /* Combined top and right dashed borders */
-  .border-t-dashed-custom.border-r-dashed-custom::before {
-    inset: 0;
-    width: auto;
-    height: auto;
-    background:
-      repeating-linear-gradient(
-        to right,
-        var(--dashed-border-color) 0,
-        var(--dashed-border-color) var(--dashed-border-segment-length),
-        transparent var(--dashed-border-segment-length),
-        transparent
-          calc(
-            var(--dashed-border-segment-length) +
-              var(--dashed-border-gap-length)
-          )
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        var(--dashed-border-color) 0,
-        var(--dashed-border-color) var(--dashed-border-segment-length),
-        transparent var(--dashed-border-segment-length),
-        transparent
-          calc(
-            var(--dashed-border-segment-length) +
-              var(--dashed-border-gap-length)
-          )
-      );
-    background-position:
-      top left,
-      top right;
-    background-size:
-      100% var(--dashed-border-width),
-      var(--dashed-border-width) 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-  }
-
-  /* Support for responsive right border combined with top border */
-  @media (width >= 768px) {
-    .border-t-dashed-custom.md\:border-r-dashed-custom::before {
-      inset: 0;
-      width: auto;
-      height: auto;
-      background:
-        repeating-linear-gradient(
-          to right,
-          var(--dashed-border-color) 0,
-          var(--dashed-border-color) var(--dashed-border-segment-length),
-          transparent var(--dashed-border-segment-length),
-          transparent
-            calc(
-              var(--dashed-border-segment-length) +
-                var(--dashed-border-gap-length)
-            )
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          var(--dashed-border-color) 0,
-          var(--dashed-border-color) var(--dashed-border-segment-length),
-          transparent var(--dashed-border-segment-length),
-          transparent
-            calc(
-              var(--dashed-border-segment-length) +
-                var(--dashed-border-gap-length)
-            )
-        );
-      background-position:
-        top left,
-        top right;
-      background-size:
-        100% var(--dashed-border-width),
-        var(--dashed-border-width) 100%;
-      background-repeat: no-repeat;
-    }
-
-    .border-t-dashed-custom.md\:border-r-dashed-custom {
-      padding-right: var(--dashed-border-spacing);
-    }
-  }
-
-  /* Abstract Clip-Path Shapes for Card Decorations */
   .clip-path-blob {
     clip-path: path(
       'M120,20 C140,0 160,10 150,40 C145,60 160,80 140,100 C120,105 100,95 80,100 C60,105 40,90 30,70 C20,50 10,30 30,15 C50,0 80,5 100,10 C110,15 115,25 120,20 Z'
@@ -624,7 +457,6 @@
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 
-  /* 3D Transform Utilities for Flip Cards */
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -641,30 +473,15 @@
     transform: rotateY(180deg);
   }
 
-  /* GPU Acceleration Hints */
-  .will-change-bg {
-    will-change: background-color;
-  }
-
-  /* Icon Accent Colors - Pink in light, Blue in dark */
   .icon-accent {
     @apply text-pink dark:text-blue-100;
   }
 
-  /*
-   * Muted Text - secondary text, still 4.5:1 for small sizes. 80% is the
-   * lowest step that clears it on the lightest glass surface (4.7:1) and on
-   * the dark panel (5.4:1); 60% fell to 3:1.
-   */
+  /* 80% is the lowest opacity that keeps 4.5:1 on every surface */
   .text-muted {
     @apply text-text-primary/80 dark:text-text-primary-dark/80;
   }
 
-  /*
-   * Scroll-driven entrance. Runs entirely on the compositor via native
-   * CSS scroll timelines - no JS observer, no animation library.
-   * Browsers without support simply render the element in its final state.
-   */
   @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
       .scroll-reveal {

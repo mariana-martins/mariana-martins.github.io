@@ -1,7 +1,4 @@
-/**
- * Fails when the files a first visit downloads (read from dist/index.html)
- * grow past their gzipped budget. Lazy chunks are not counted.
- */
+// Gzipped budget for what a first visit downloads; lazy chunks are excluded
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';

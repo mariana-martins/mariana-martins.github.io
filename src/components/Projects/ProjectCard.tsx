@@ -13,7 +13,7 @@ import { ExternalLink, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
 
-/** Keeps the non-featured card's tag row to a single line. */
+/** One line of tags on the smaller cards */
 const MAX_VISIBLE_TECHNOLOGIES = 3;
 
 const projectDecorations: Record<
@@ -50,8 +50,7 @@ export function ProjectCard({
         'group h-full flex flex-col',
         isFeatured ? 'min-h-[280px]' : 'min-h-[120px]',
         'transition-transform duration-150 ease-out',
-        // The title link covers the card, so hover, active and focus are
-        // driven by it rather than by the card itself.
+        // The title link covers the card, so its states drive the card's
         'has-[a:hover]:scale-[1.02] has-[a:active]:scale-[0.98]',
         'has-[a:focus-visible]:ring-4 has-[a:focus-visible]:ring-offset-2',
         'has-[a:focus-visible]:ring-focus',
@@ -95,15 +94,8 @@ export function ProjectCard({
       </div>
 
       {/*
-        Deliberately not `relative`: the title link's overlay has to resolve
-        against the Card, not against this header, or it only covers the
-        title. The Card is a flex container, so z-index still stacks this
-        above the other sections without positioning it.
-      */}
-      {/*
-        Right padding keeps the title out from under the decoration in the
-        corner (w-24, md:w-32, less the card's own padding): over its
-        gradient a long title wrapping on mobile fell below 4.5:1.
+        Not `relative`, so the link overlay covers the whole Card. Right
+        padding keeps the title off the corner decoration (contrast).
       */}
       <CardHeader className={cn('z-20 pr-20 md:pr-28', isFeatured && 'pt-10')}>
         <h3
@@ -118,8 +110,6 @@ export function ProjectCard({
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              // Stretches the link's hit area over the whole card without
-              // putting the card's content inside the link
               "after:content-[''] after:absolute after:inset-0 after:z-20",
               'focus:outline-none',
             )}
@@ -142,7 +132,6 @@ export function ProjectCard({
         <TagList
           technologies={project.technologies}
           label={`Technologies used in ${project.title}`}
-          /* The featured card has the room to show everything */
           max={isFeatured ? undefined : MAX_VISIBLE_TECHNOLOGIES}
           className="w-full"
         />

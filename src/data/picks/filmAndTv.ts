@@ -1,6 +1,5 @@
 import type { PickOfCategory } from '@/types';
 
-/** Films and TV shows together; newest finish first, undated at the end */
 export const filmAndTv: Array<PickOfCategory<'movie' | 'series'>> = [
   {
     id: 'lotr-fellowship',

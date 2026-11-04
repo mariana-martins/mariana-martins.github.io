@@ -10,7 +10,6 @@ import { cn } from '@/lib/cn';
 import { getFeaturedPicks } from '@/lib/picks';
 
 function openMargotsPicks(): void {
-  // The drawer listens for hashchange, so the URL is the single source of truth
   window.location.hash = MARGOTS_PICKS.hash;
 }
 
@@ -48,7 +47,6 @@ export function LearningShelf(): React.JSX.Element {
           <PickCard key={item.id} item={item} />
         ))}
 
-        {/* Not hidden, not shouted: the quiet door to the full shelf */}
         <li className="flex flex-col">
           <button
             id={MARGOTS_PICKS.triggerId}

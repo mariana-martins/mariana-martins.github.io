@@ -5,10 +5,7 @@ import { renderToString } from 'react-dom/server';
 
 import { Root } from '@/Root';
 
-/**
- * Catches components that read the browser (storage, hash, date) during
- * render, which breaks hydration of the prerendered HTML.
- */
+/** Fails if a component reads the browser during render and breaks hydration */
 describe('prerendered page', () => {
   let root: ReactRoot | undefined;
 

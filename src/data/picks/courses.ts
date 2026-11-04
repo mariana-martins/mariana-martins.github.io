@@ -1,6 +1,5 @@
 import type { PickOfCategory } from '@/types';
 
-/** Newest finish first; undated entries sit at the end */
 export const courses: Array<PickOfCategory<'course'>> = [
   {
     id: 'subatomic',

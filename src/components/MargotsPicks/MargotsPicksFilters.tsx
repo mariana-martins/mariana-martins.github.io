@@ -59,7 +59,6 @@ function ChipGroup<T extends string>({
 }
 
 export interface MargotsPicksFiltersProps {
-  /** Only chips whose categories actually have picks */
   filters: PickCategoryFilterGroup[];
   category: PickCategoryFilter;
   status: PickStatusFilter;

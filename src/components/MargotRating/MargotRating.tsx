@@ -12,10 +12,7 @@ export interface MargotRatingProps {
   className?: string;
 }
 
-/**
- * Read-only 1-5 score. Five decorative icons plus one sr-only sentence, so
- * screen readers hear the number instead of five images.
- */
+/** Icons are decorative; screen readers get one sentence instead */
 export function MargotRating({
   rating,
   className,
@@ -32,7 +29,6 @@ export function MargotRating({
       </span>
       {Array.from({ length: MAX_RATING }, (_, index) => {
         const filled = index < rating;
-        // A perfect score earns sparkles on the last Margot
         const sparkles = rating === MAX_RATING && index === MAX_RATING - 1;
         return (
           <MargotIcon

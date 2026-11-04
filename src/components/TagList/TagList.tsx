@@ -5,24 +5,15 @@ import { Tag } from '@components/Tag/Tag';
 import { cn } from '@/lib/cn';
 
 export interface TagListProps {
-  /** Tags to render, in priority order */
+  /** In priority order */
   technologies: string[];
-  /** Accessible name for the list */
   label: string;
-  /**
-   * Maximum number of tags to render before the rest collapse into a "+N"
-   * chip. Omit to render every tag.
-   */
+  /** The rest collapse into a "+N" chip; omit to show all */
   max?: number;
   className?: string;
 }
 
-/**
- * Renders a wrapping row of technology tags, optionally truncated.
- *
- * The "+N" chip is presentational only: the names it stands for are still
- * exposed to assistive technology, so truncation never costs information.
- */
+/** Hidden tags stay readable by screen readers behind the "+N" chip */
 export function TagList({
   technologies,
   label,
@@ -50,10 +41,8 @@ export function TagList({
       {hidden.length > 0 && (
         <li
           className={cn(
-            // Same 24px box as Tag, so the chip sits on the same baseline
             'inline-flex items-center h-6 px-2.5 rounded-md text-xs',
-            // Faint wash in dark: a stronger blue lifts the background towards
-            // the light text and drops it below 4.5:1
+            // Stronger blue in dark drops the text below 4.5:1
             'bg-pink/20 dark:bg-blue-100/10',
             'text-text-primary dark:text-text-primary-dark',
           )}

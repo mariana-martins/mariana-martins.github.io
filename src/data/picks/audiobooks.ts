@@ -1,6 +1,5 @@
 import type { PickOfCategory } from '@/types';
 
-/** Newest finish first; undated entries sit at the end */
 export const audiobooks: Array<PickOfCategory<'audiobook'>> = [
   {
     id: 'all-the-way-to-the-river',

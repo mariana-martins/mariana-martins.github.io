@@ -1,11 +1,8 @@
 module.exports = {
-  // Test environment
   testEnvironment: 'jsdom',
 
-  // Setup files
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
 
-  // Module name mapping for path aliases
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|svg|webp)$': '<rootDir>/src/__mocks__/fileMock.js',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
@@ -17,10 +14,8 @@ module.exports = {
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
   },
 
-  // File extensions to consider
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
-  // Transform files
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': [
       'ts-jest',
@@ -33,13 +28,11 @@ module.exports = {
     ],
   },
 
-  // Test file patterns
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.(ts|tsx|js)',
     '<rootDir>/src/**/*.(test|spec).(ts|tsx|js)',
   ],
 
-  // Coverage configuration
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
@@ -50,7 +43,6 @@ module.exports = {
     '!src/**/index.{ts,tsx}',
   ],
 
-  // Coverage thresholds
   coverageThreshold: {
     global: {
       branches: 70,
@@ -60,18 +52,13 @@ module.exports = {
     },
   },
 
-  // Coverage directory
   coverageDirectory: 'coverage',
 
-  // Coverage reporters
   coverageReporters: ['text', 'lcov', 'html'],
 
-  // Clear mocks between tests
   clearMocks: true,
 
-  // Restore mocks after each test
   restoreMocks: true,
 
-  // Verbose output
   verbose: true,
 };

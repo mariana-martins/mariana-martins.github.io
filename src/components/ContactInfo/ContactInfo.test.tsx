@@ -3,7 +3,6 @@ import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-// Mock the data module
 jest.mock('@/data', () => {
   const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
@@ -67,8 +66,6 @@ describe('ContactInfo', () => {
   it('has icons with aria-hidden attribute', () => {
     const { container } = render(<ContactInfo />);
 
-    // Lucide React icons are SVGs, not images
-    // They should have aria-hidden="true" attribute
     const icons = container.querySelectorAll('[aria-hidden="true"]');
     expect(icons.length).toBeGreaterThan(0);
     icons.forEach((icon) => {

@@ -36,7 +36,6 @@ export const ContactItem = ({
   isExternal = false,
   valueClassName,
 }: ContactItemProps): React.JSX.Element => {
-  // Static item (no link)
   if (!href) {
     return (
       <li>
@@ -60,7 +59,6 @@ export const ContactItem = ({
     );
   }
 
-  // Interactive link item
   return (
     <li>
       <a

@@ -8,7 +8,7 @@ import { cn } from '@/lib/cn';
 import { formatDate, formatDuration } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
 
-/** Keeps the tag row to two lines in the narrow experience column. */
+/** Two lines of tags in the narrow column */
 const MAX_VISIBLE_TECHNOLOGIES = 5;
 
 export interface ExperienceCardProps {
@@ -34,13 +34,10 @@ export const ExperienceCard = ({
       className={cn(
         'scroll-reveal group',
         'pl-4 pt-5 first:pt-0 pb-5',
-        // Accent bar marks the ongoing role; the others keep the same
-        // indent with a transparent border.
         'border-l-2',
         isCurrent
           ? 'border-l-pink dark:border-l-blue-100'
           : 'border-l-transparent',
-        // Hairline between entries, none after the last one
         'border-b border-b-pink/20 dark:border-b-blue-100/20',
         'last:border-b-0 last:pb-0',
       )}

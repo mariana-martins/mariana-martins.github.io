@@ -11,8 +11,6 @@ import {
 } from '@/lib/picks';
 import type { PickCategory, PickItem, PickStatus } from '@/types';
 
-// One colour per status; the stamp's border and outline pick it up via
-// currentColor.
 const stampColors: Record<PickStatus, string> = {
   planned: 'text-blue-200 dark:text-blue-100',
   'in-progress': 'text-purple-200 dark:text-warm-400',
@@ -46,7 +44,6 @@ function PickSpine({
         'flex items-center gap-2.5 h-14 px-4',
         '@sm:flex-col @sm:justify-center @sm:gap-1.5 @sm:h-auto @sm:w-18 @sm:px-0 @sm:py-3',
         'text-text-primary',
-        // Perforation between stub and body
         'border-dashed border-text-primary/40 dark:border-indigo-50/50',
         'border-b-2 @sm:border-b-0 @sm:border-r-2',
         spineColors[category],
@@ -66,7 +63,6 @@ function PickSpine({
   );
 }
 
-/** Status as a rubber stamp: double border, a little crooked, never a pill */
 function PickStatusStamp({
   status,
 }: {

@@ -28,11 +28,7 @@ function subscribe(onStoreChange: () => void): () => void {
   };
 }
 
-/**
- * The URL hash is the drawer's only source of truth: any component can open
- * it by setting `#shelf`, a shared link opens it on load, and the browser's
- * back button closes it.
- */
+/** The `#shelf` hash is the drawer's state: linkable, and "back" closes it */
 export function useShelfHash(): UseShelfHashReturn {
   const isOpen = useSyncExternalStore(
     subscribe,
@@ -41,12 +37,11 @@ export function useShelfHash(): UseShelfHashReturn {
   );
 
   const open = useCallback(() => {
-    // Assigning the hash pushes a history entry, so "back" closes the drawer
     window.location.hash = MARGOTS_PICKS.hash;
   }, []);
 
   const close = useCallback(() => {
-    // replaceState avoids leaving a dangling "#" and does not fire hashchange
+    // replaceState avoids leaving a dangling "#"
     window.history.replaceState(
       null,
       '',

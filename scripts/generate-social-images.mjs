@@ -1,7 +1,4 @@
-/**
- * Renders public/og-image.jpg and public/apple-touch-icon.png. The output is
- * committed; re-run when the name, title or artwork change.
- */
+// Output is committed; re-run when the name, title or artwork change
 import { chromium } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';

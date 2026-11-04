@@ -23,7 +23,6 @@ export function AboutMe(): React.JSX.Element {
           'md:flex-row md:items-center',
         )}
       >
-        {/* Text Content */}
         <div className="flex-1 order-2 md:order-1 flex flex-col gap-4 animate-fade-in-up">
           <h2
             id="about-me-heading"
@@ -46,7 +45,6 @@ export function AboutMe(): React.JSX.Element {
           </p>
         </div>
 
-        {/* Image Content */}
         <div className="order-1 md:order-2 self-center md:self-auto">
           <div className="animate-fade-in-scale">
             {/* Stable public/ URL: og:image and the JSON-LD point at it too */}

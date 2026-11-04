@@ -1,23 +1,12 @@
 import type { Page } from '@playwright/test';
 
 /**
- * Pixel-based text contrast check.
+ * Text contrast measured on pixels: axe gives up on gradients, blur and
+ * pseudo-elements. Records each text run, hides all text, screenshots, and
+ * blends the text colour over the background pixels under it.
  *
- * axe cannot judge text over gradients, backdrop blur or pseudo-elements -
- * which is most of this site - and reports it as "incomplete" rather than
- * failing. This measures what is actually painted instead:
- *
- * 1. Record every visible text run: its box, its colour (including alpha and
- *    any ancestor opacity) and the WCAG threshold for its size.
- * 2. Make all text transparent and screenshot the viewport, so the pixels
- *    under each run are pure background.
- * 3. Blend the text colour over each background pixel and take the contrast;
- *    a low percentile stands for the run, so one stray pixel cannot fail it
- *    but a genuinely weak patch of background still does.
- *
- * The page is walked one viewport at a time rather than captured with a
- * full-page screenshot: that resizes the viewport, which reflows the layout
- * (vh units, the scrollbar) and leaves every measured box out of place.
+ * Walks one viewport at a time: a full-page screenshot resizes the viewport
+ * and reflows the layout, so the recorded boxes no longer line up.
  */
 
 export interface ContrastFailure {
@@ -28,19 +17,16 @@ export interface ContrastFailure {
 
 interface TextRun {
   text: string;
-  /** Position in the document, to recognise a run seen in two viewports */
   key: string;
-  /** In viewport (and so screenshot) coordinates, CSS pixels */
   x: number;
   y: number;
   width: number;
   height: number;
-  /** Resolved colour, 0-255 per channel, alpha 0-1 with ancestor opacity applied */
+  /** Alpha includes ancestor opacity */
   rgba: [number, number, number, number];
   required: number;
 }
 
-/** WCAG 1.4.3 thresholds */
 const NORMAL_TEXT_RATIO = 4.5;
 const LARGE_TEXT_RATIO = 3;
 /** "Large" is 18pt (24px), or 14pt (18.66px) when bold */
@@ -48,19 +34,13 @@ const LARGE_TEXT_PX = 24;
 const LARGE_BOLD_TEXT_PX = 18.66;
 const BOLD_WEIGHT = 700;
 
-/** Which slice of a run's pixels speaks for it; see the module comment */
+/** Low percentile: a stray pixel can't fail a run, a weak patch still does */
 const PERCENTILE = 0.05;
-/** Cap on pixels sampled per run, to keep big headings cheap */
 const MAX_SAMPLES_PER_RUN = 600;
 
-/** Consecutive viewports overlap, so a run cut by one edge is whole in the next */
 const VIEWPORT_OVERLAP_PX = 120;
 
-/*
- * Held for the whole walk: hiding and restoring the text would otherwise
- * start colour transitions, and the next viewport would read a half-faded
- * colour.
- */
+// Held for the whole walk, or restoring the text starts colour transitions
 const NO_TRANSITIONS_CSS = `
   *, *::before, *::after { transition: none !important; }
 `;
@@ -79,9 +59,8 @@ export async function findLowContrastText(
     scope = 'body',
     scrollPage = true,
   }: {
-    /** Only text inside this selector is checked */
     scope?: string;
-    /** Walk the whole window; off for content that scrolls on its own */
+    /** Off for content that scrolls on its own */
     scrollPage?: boolean;
   } = {},
 ): Promise<ContrastFailure[]> {
@@ -140,8 +119,7 @@ export async function findLowContrastText(
   return [...failures.values()];
 }
 
-// Everything below runs inside the browser, so it cannot use imports or
-// anything from module scope.
+// Runs inside the browser: no imports or module scope below
 
 function collectTextRuns({
   scope,
@@ -161,7 +139,6 @@ function collectTextRuns({
     return [];
   }
 
-  // Resolve any CSS colour (oklab, color-mix results...) to sRGB bytes
   const swatch = document.createElement('canvas').getContext('2d', {
     willReadFrequently: true,
   });
@@ -184,8 +161,7 @@ function collectTextRuns({
     return opacity;
   };
 
-  // sr-only and similar: the text lays out at full size, but an ancestor
-  // clips it to a pixel, so its own box says nothing about visibility
+  // sr-only text lays out full size; an ancestor clips it
   const isClippedAway = (element: Element): boolean => {
     for (let node: Element | null = element; node; node = node.parentElement) {
       const box = node.getBoundingClientRect();
@@ -210,7 +186,6 @@ function collectTextRuns({
     if (!text || !element) {
       continue;
     }
-    // Inert content is the flip card's hidden face: not on screen
     if (element.closest('[inert]')) {
       continue;
     }
@@ -226,7 +201,6 @@ function collectTextRuns({
     if (rect.width < 2 || rect.height < 2 || isClippedAway(element)) {
       continue;
     }
-    // Whole runs only; one cut by the edge is measured in the next viewport
     const inViewport =
       rect.top >= 0 &&
       rect.left >= 0 &&

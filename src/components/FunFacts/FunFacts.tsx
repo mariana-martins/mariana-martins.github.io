@@ -39,12 +39,10 @@ export function FunFacts(): React.JSX.Element {
         {SECTIONS.funFacts.label}
       </h2>
 
-      {/* Changes on interaction, so it has to announce itself */}
       <p role="status" className="text-sm text-muted">
         {revealedCount} of {totalFacts} revealed
       </p>
 
-      {/* Card container */}
       <div className="relative w-full">
         {/* Keyed so each fact gets a fresh, unrotated card */}
         <div

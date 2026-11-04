@@ -61,14 +61,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         <Comp
           ref={ref}
           className={cn(
-            // Base styles
             'relative overflow-hidden',
             'rounded-xl',
             'transition-colors duration-300 ease-out',
-            // Focus styles
             'focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2',
             'focus-visible:ring-focus',
-            // Variant and size
             cardVariants[variant],
             cardSizes[size],
             className,

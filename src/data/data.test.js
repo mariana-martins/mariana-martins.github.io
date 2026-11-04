@@ -60,7 +60,6 @@ describe('data object', () => {
         expect(project).toHaveProperty('technologies');
         expect(project).toHaveProperty('githubUrl');
 
-        // Type checks
         expect(typeof project.id).toBe('string');
         expect(typeof project.title).toBe('string');
         expect(typeof project.description).toBe('string');
@@ -122,7 +121,6 @@ describe('data object', () => {
         expect(exp).toHaveProperty('description');
         expect(exp).toHaveProperty('technologies');
 
-        // Type checks
         expect(typeof exp.id).toBe('string');
         expect(typeof exp.company).toBe('string');
         expect(typeof exp.position).toBe('string');
@@ -225,7 +223,6 @@ describe('data object', () => {
         expect(skill).toHaveProperty('level');
         expect(skill).toHaveProperty('category');
 
-        // Type checks
         expect(typeof skill.name).toBe('string');
         expect(typeof skill.level).toBe('string');
         expect(typeof skill.category).toBe('string');
@@ -323,7 +320,6 @@ describe('data object', () => {
         expect(funFact).toHaveProperty('id');
         expect(funFact).toHaveProperty('fact');
 
-        // Type checks
         expect(typeof funFact.id).toBe('string');
         expect(typeof funFact.fact).toBe('string');
       });

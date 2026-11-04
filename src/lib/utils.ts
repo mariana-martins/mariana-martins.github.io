@@ -1,8 +1,4 @@
-/**
- * Formats a date string from "YYYY-MM" format to "Mon YYYY" format.
- * @param dateString - Date string in "YYYY-MM" format
- * @returns Formatted date string (e.g., "Mar 2020")
- */
+/** "2020-03" -> "Mar 2020" */
 export function formatDate(dateString: string): string {
   const [year, month] = dateString.split('-');
   const date = new Date(parseInt(year, 10), parseInt(month, 10) - 1);
@@ -13,13 +9,7 @@ export function formatDate(dateString: string): string {
   });
 }
 
-/**
- * Formats the distance between two "YYYY-MM" dates as a human readable
- * duration, inclusive of both the start and the end month.
- * @param startDate - Start date in "YYYY-MM" format
- * @param endDate - End date in "YYYY-MM" format, omitted for an ongoing period
- * @returns Formatted duration (e.g., "2 yr 5 mo", "3 yr", "8 mo")
- */
+/** "2 yr 5 mo", counting both end months; no end date means today */
 export function formatDuration(startDate: string, endDate?: string): string {
   const [startYear, startMonth] = startDate.split('-').map(Number);
 

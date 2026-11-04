@@ -65,13 +65,11 @@ describe('useSequentialSwap', () => {
 
     rerender(<Probe item={{ id: 'second' }} />);
 
-    // Leaving: still the old item, fading towards opacity 0
     expect(screen.getByText('first')).toHaveAttribute('data-leaving', 'true');
     expect(calls[0][calls[0].length - 1]).toMatchObject({ opacity: 0 });
 
     await finishCurrent();
 
-    // Entering: the new item, starting from opacity 0
     expect(screen.getByText('second')).toHaveAttribute('data-leaving', 'false');
     expect(calls[1][0]).toMatchObject({ opacity: 0 });
   });

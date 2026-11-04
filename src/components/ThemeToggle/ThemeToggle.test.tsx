@@ -25,7 +25,6 @@ describe('ThemeToggle', () => {
       </ThemeProvider>,
     );
 
-    // "Dark mode, toggle button, pressed" - the name stays put, the state changes
     expect(screen.getByRole('button', { name: 'Dark mode' })).toHaveAttribute(
       'aria-pressed',
     );
@@ -49,7 +48,6 @@ describe('ThemeToggle', () => {
   });
 
   it('shows correct icon for light theme', () => {
-    // Mock localStorage to set light theme
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'light'),
@@ -70,7 +68,6 @@ describe('ThemeToggle', () => {
   });
 
   it('shows correct icon for dark theme', () => {
-    // Mock localStorage to set dark theme
     Object.defineProperty(window, 'localStorage', {
       value: {
         getItem: jest.fn(() => 'dark'),

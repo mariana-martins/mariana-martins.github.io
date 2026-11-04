@@ -19,17 +19,14 @@ describe('SectionNav', () => {
   const mockFocus = jest.fn();
 
   beforeEach(() => {
-    // Mock scrollIntoView method
     HTMLElement.prototype.scrollIntoView = mockScrollIntoView;
 
-    // Mock focus method
     Object.defineProperty(HTMLElement.prototype, 'focus', {
       value: mockFocus,
       writable: true,
       configurable: true,
     });
 
-    // Create target elements for each section
     Object.values(SECTIONS).forEach((section) => {
       const targetElement = document.createElement('h3');
       targetElement.id = section.id;
@@ -42,7 +39,6 @@ describe('SectionNav', () => {
   });
 
   afterEach(() => {
-    // Clean up target elements
     Object.values(SECTIONS).forEach((section) => {
       const element = document.getElementById(section.id);
       if (element) {

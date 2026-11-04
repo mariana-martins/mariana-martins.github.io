@@ -3,13 +3,12 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite';
 
-/** Matched against emitted (hashed) file names */
 const CRITICAL_FONTS = [
   /inter-latin-wght-normal-[\w-]+\.woff2$/,
   /fredoka-latin-wght-normal-[\w-]+\.woff2$/,
 ];
 
-/** Preloads the critical fonts, which the browser would otherwise find late in the CSS */
+/** Otherwise the browser finds the fonts only after parsing the CSS */
 function preloadFonts(): Plugin {
   return {
     name: 'preload-fonts',
@@ -28,7 +27,7 @@ function preloadFonts(): Plugin {
             as: 'font',
             type: 'font/woff2',
             href: `/${file}`,
-            // Fonts are fetched in CORS mode; without this the preload is wasted
+            // Fonts load in CORS mode; without this the preload goes unused
             crossorigin: '',
           },
           injectTo: 'head',
@@ -39,7 +38,6 @@ function preloadFonts(): Plugin {
   };
 }
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), preloadFonts()],
   resolve: {

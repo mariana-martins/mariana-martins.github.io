@@ -24,7 +24,6 @@ function EmptyState(): React.JSX.Element {
   return (
     <div className="flex flex-col items-center gap-6 py-8">
       <div className="relative size-52">
-        {/* Offset accent blob in the green scale, same in both themes */}
         <div
           aria-hidden="true"
           className={cn(
@@ -32,7 +31,6 @@ function EmptyState(): React.JSX.Element {
             'bg-gradient-to-br from-green-200 to-green-100',
           )}
         />
-        {/* Real photo, so the grass is the background: no cut-out fringe to hide */}
         <div className="absolute inset-0 shape-blob overflow-hidden">
           <img
             src={margotPark}
@@ -85,7 +83,6 @@ function MargotsPicksContent(): React.JSX.Element {
       link.focus();
       return;
     }
-    // A pick without a link has nothing focusable, so focus the card itself
     item.tabIndex = -1;
     item.focus();
   }, [visible.length]);
@@ -110,10 +107,7 @@ function MargotsPicksContent(): React.JSX.Element {
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-3">
-            {/* Decorative: the title already names her. The photo is a hard
-                cut-out, so the background lives on the wrapper and the image
-                gets a thin light halo that follows her outline and hides the
-                matting fringe */}
+            {/* Halo hides the cut-out's matting fringe */}
             <span
               className={cn(
                 'size-12 shrink-0 rounded-full overflow-hidden',
@@ -167,7 +161,6 @@ function MargotsPicksContent(): React.JSX.Element {
       </div>
 
       <div className="flex flex-col gap-4 px-6 py-6">
-        {/* Result line scrolls with the list: what matched, and in what order */}
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p aria-live="polite" className="text-sm text-muted">
             {countLabel}
@@ -235,7 +228,6 @@ export default function MargotsPicksDrawer({
         <Dialog.Overlay
           className={cn(
             'fixed inset-0 z-40 bg-blue-300/30 dark:bg-black/50 backdrop-blur-sm',
-            // Tokens resolve to `none` under prefers-reduced-motion (see index.css)
             'data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out',
           )}
         />

@@ -27,8 +27,6 @@ describe('Footer', () => {
   it('renders Radix Separator', () => {
     const { container } = render(<Footer />);
 
-    // Radix Separator with decorative prop doesn't have a role
-    // Check for the separator element by its data attribute or className
     const separator = container.querySelector(
       '[data-orientation="horizontal"]',
     );
