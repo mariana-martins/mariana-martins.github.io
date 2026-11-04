@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { preloadMargotsPicks } from '@components/MargotsPicks/loadDrawer';
 import { PickCard } from '@components/PickCard/PickCard';
 import { Library } from 'lucide-react';
 
@@ -7,8 +8,6 @@ import { LEARNING_SHELF_LIMIT, MARGOTS_PICKS, SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 import { getFeaturedPicks } from '@/lib/picks';
-
-export const MARGOTS_PICKS_TRIGGER_ID = 'margots-picks-trigger';
 
 function openMargotsPicks(): void {
   // The drawer listens for hashchange, so the URL is the single source of truth
@@ -52,9 +51,11 @@ export function LearningShelf(): React.JSX.Element {
         {/* Not hidden, not shouted: the quiet door to the full shelf */}
         <li className="flex flex-col">
           <button
-            id={MARGOTS_PICKS_TRIGGER_ID}
+            id={MARGOTS_PICKS.triggerId}
             type="button"
             onClick={openMargotsPicks}
+            onPointerEnter={preloadMargotsPicks}
+            onFocus={preloadMargotsPicks}
             className={cn(
               'w-full min-h-[44px] p-3 rounded-xl cursor-pointer',
               'flex items-center justify-center gap-2',

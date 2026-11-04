@@ -30,15 +30,15 @@ export function ThemeToggle(): React.JSX.Element {
       )}
     >
       <span className="sr-only">Dark mode</span>
+      {/* Driven by the dark class, not state, so prerendered HTML is right */}
       <div className="relative w-6 h-6 flex items-center justify-center">
         <Sun
           size={24}
           aria-hidden="true"
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
-            isDark
-              ? 'opacity-0 scale-[0.25] blur-xs'
-              : 'opacity-100 scale-100 blur-0',
+            'opacity-100 scale-100',
+            'dark:opacity-0 dark:scale-[0.25] dark:blur-xs',
           )}
         />
         <Moon
@@ -46,9 +46,9 @@ export function ThemeToggle(): React.JSX.Element {
           aria-hidden="true"
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
-            isDark
-              ? 'opacity-100 scale-100 blur-0'
-              : 'opacity-0 scale-[0.25] blur-xs',
+            'opacity-0 scale-[0.25] blur-xs',
+            // blur-none: Tailwind v4 has no blur-0
+            'dark:opacity-100 dark:scale-100 dark:blur-none',
           )}
         />
       </div>

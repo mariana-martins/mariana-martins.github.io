@@ -7,7 +7,7 @@ import { LEARNING_SHELF_LIMIT, MARGOTS_PICKS } from '@/constants';
 import { data } from '@/data';
 import { getFeaturedPicks, getPickSubtitle } from '@/lib/picks';
 
-import { LearningShelf, MARGOTS_PICKS_TRIGGER_ID } from './LearningShelf';
+import { LearningShelf } from './LearningShelf';
 
 const shelf = getFeaturedPicks(data.picks, LEARNING_SHELF_LIMIT);
 
@@ -78,7 +78,7 @@ describe('LearningShelf', () => {
     const trigger = screen.getByRole('button', {
       name: new RegExp(`and ${remaining} more in Margot's Picks`),
     });
-    expect(trigger).toHaveAttribute('id', MARGOTS_PICKS_TRIGGER_ID);
+    expect(trigger).toHaveAttribute('id', MARGOTS_PICKS.triggerId);
   });
 
   it('opens the drawer by setting the URL hash', async () => {

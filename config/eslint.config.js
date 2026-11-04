@@ -175,6 +175,27 @@ export default [
     },
   },
   {
-    ignores: ['dist', 'node_modules', '**/*.css', 'coverage'],
+    // Build scripts run in Node; page.evaluate callbacks run in the browser
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        console: 'readonly',
+        process: 'readonly',
+        document: 'readonly',
+      },
+    },
+  },
+  {
+    ignores: [
+      'dist',
+      'dist-ssr',
+      'node_modules',
+      '**/*.css',
+      'coverage',
+      'test-results',
+      'playwright-report',
+    ],
   },
 ];

@@ -3,6 +3,7 @@ import React from 'react';
 import { TagList } from '@components/TagList/TagList';
 import { ExternalLink } from 'lucide-react';
 
+import { useHasHydrated } from '@/hooks/useHasHydrated';
 import { cn } from '@/lib/cn';
 import { formatDate, formatDuration } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
@@ -19,7 +20,12 @@ export const ExperienceCard = ({
 }: ExperienceCardProps): React.JSX.Element => {
   const isCurrent = !experience.endDate;
   const dateRange = `${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : 'Present'}`;
-  const duration = formatDuration(experience.startDate, experience.endDate);
+  const hasHydrated = useHasHydrated();
+  // Depends on today's date, so the prerendered HTML cannot include it
+  const duration =
+    isCurrent && !hasHydrated
+      ? null
+      : formatDuration(experience.startDate, experience.endDate);
 
   return (
     <li
@@ -41,10 +47,14 @@ export const ExperienceCard = ({
     >
       <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
         <span className="tabular-nums text-muted">{dateRange}</span>
-        <span className="text-muted" aria-hidden="true">
-          &middot;
-        </span>
-        <span className="tabular-nums text-muted">{duration}</span>
+        {duration !== null && (
+          <>
+            <span className="text-muted" aria-hidden="true">
+              &middot;
+            </span>
+            <span className="tabular-nums text-muted">{duration}</span>
+          </>
+        )}
         {isCurrent && (
           <span
             aria-hidden="true"

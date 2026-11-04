@@ -15,7 +15,6 @@ module.exports = {
     '^@types/(.*)$': '<rootDir>/src/types/$1',
     '^@styles/(.*)$': '<rootDir>/src/styles/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
-    '^motion/react$': '<rootDir>/src/__mocks__/motionMock.js',
   },
 
   // File extensions to consider
@@ -45,6 +44,7 @@ module.exports = {
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
     '!src/main.tsx',
+    '!src/entry-server.tsx',
     '!src/setupTests.ts',
     '!src/**/*.stories.{ts,tsx}',
     '!src/**/index.{ts,tsx}',
