@@ -1,3 +1,4 @@
+import { ProjectCard } from '@components/Projects/ProjectCard';
 import { Projects } from '@components/Projects/Projects';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
@@ -98,5 +99,38 @@ describe('Projects', () => {
     const { container } = render(<Projects />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('opens the case study when a project has one, with the code as a second link', () => {
+    render(
+      <ProjectCard
+        project={{
+          id: 'case',
+          title: 'Case Project',
+          description: 'A project with a write-up.',
+          technologies: ['React'],
+          githubUrl: 'https://github.com/example/case',
+          caseStudyPath: '/projects/case/',
+        }}
+        isFeatured
+      />,
+    );
+
+    const title = screen.getByRole('link', {
+      name: /^Case Project\s*, case study$/,
+    });
+    expect(title).toHaveAttribute('href', '/projects/case/');
+    expect(title).not.toHaveAttribute('target');
+    expect(
+      screen.getByRole('link', { name: /Code on GitHub for Case Project/ }),
+    ).toHaveAttribute('href', 'https://github.com/example/case');
+  });
+
+  it('links to how this site was built', () => {
+    render(<Projects />);
+
+    expect(
+      screen.getByRole('link', { name: 'how it was built' }),
+    ).toHaveAttribute('href', '/how-this-site-was-built/');
   });
 });

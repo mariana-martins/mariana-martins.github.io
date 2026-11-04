@@ -70,31 +70,33 @@ export const ExperienceCard = ({
         {experience.position}
       </h3>
 
-      <p className="mt-0.5 text-sm text-muted">
-        {experience.website ? (
-          <a
-            href={experience.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'inline-flex items-center gap-1',
-              'hover:underline hover:decoration-pink decoration-2',
-              'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
-              'focus:outline-none focus-visible:underline',
-              'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
-              'focus-visible:ring-2 focus-visible:ring-offset-2',
-              'focus-visible:ring-focus',
-              'transition-colors',
-            )}
-          >
-            {experience.company}
-            <ExternalLink size={13} aria-hidden="true" className="shrink-0" />
-            <span className="sr-only">(opens in a new tab)</span>
-          </a>
-        ) : (
-          experience.company
-        )}
-      </p>
+      {experience.company && (
+        <p className="mt-0.5 text-sm text-muted">
+          {experience.website ? (
+            <a
+              href={experience.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex items-center gap-1',
+                'hover:underline hover:decoration-pink decoration-2',
+                'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
+                'focus:outline-none focus-visible:underline',
+                'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
+                'focus-visible:ring-2 focus-visible:ring-offset-2',
+                'focus-visible:ring-focus',
+                'transition-colors',
+              )}
+            >
+              {experience.company}
+              <ExternalLink size={13} aria-hidden="true" className="shrink-0" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          ) : (
+            experience.company
+          )}
+        </p>
+      )}
 
       <p className="mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
         {experience.description}

@@ -3,7 +3,9 @@ import { act, screen } from '@testing-library/react';
 import { hydrateRoot, type Root as ReactRoot } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 
+import { App } from '@/App';
 import { Root } from '@/Root';
+import { routes } from '@/routes';
 
 /** Fails if a component reads the browser during render and breaks hydration */
 describe('prerendered page', () => {
@@ -18,32 +20,37 @@ describe('prerendered page', () => {
     window.history.replaceState(null, '', window.location.pathname);
   });
 
-  function prerenderInto(): HTMLElement {
+  function prerenderInto(page: React.ComponentType = App): HTMLElement {
     const container = document.createElement('div');
     container.id = 'root';
-    container.innerHTML = renderToString(<Root />);
+    container.innerHTML = renderToString(<Root page={page} />);
     document.body.appendChild(container);
     return container;
   }
 
   // Attribute mismatches only reach console.error, and React never patches them
-  function hydrate(container: HTMLElement): jest.Mock {
+  function hydrate(
+    container: HTMLElement,
+    page: React.ComponentType = App,
+  ): jest.Mock {
     const problems = jest.fn();
     const consoleError = jest
       .spyOn(console, 'error')
       .mockImplementation((...args: unknown[]) => problems(...args));
     act(() => {
-      root = hydrateRoot(container, <Root />, { onRecoverableError: problems });
+      root = hydrateRoot(container, <Root page={page} />, {
+        onRecoverableError: problems,
+      });
     });
     consoleError.mockRestore();
     return problems;
   }
 
   it('renders the page content without a browser', () => {
-    const html = renderToString(<Root />);
+    const html = renderToString(<Root page={App} />);
 
     expect(html).toContain('Mariana Martins Menezes');
-    expect(html).toContain('Frontend Engineer');
+    expect(html).toContain('Frontend &amp; Design Engineer');
     expect(html).toContain('Fit My Space');
   });
 
@@ -87,4 +94,15 @@ describe('prerendered page', () => {
 
     expect(currentRole()?.textContent).toMatch(/\d+ (yr|mo)/);
   });
+
+  it.each(routes)(
+    '$path prerenders and hydrates without mismatches',
+    async (route) => {
+      const { default: Page } = await route.load();
+      const container = prerenderInto(Page);
+
+      expect(container.querySelector('h1')).not.toBeNull();
+      expect(hydrate(container, Page)).not.toHaveBeenCalled();
+    },
+  );
 });

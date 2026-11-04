@@ -2,30 +2,24 @@ import type { Experience } from '@/types';
 
 export const experience: Experience[] = [
   {
-    id: 'independent-design-systems-career-break',
-    company: 'Career Break',
-    position: 'Independent Design Systems & Frontend Work',
+    id: 'independent-product-design-systems',
+    position: 'Independent Product & Design Systems Work',
     startDate: '2024-05',
     endDate: undefined, // ongoing
     description:
-      'Stepped back from full-time work in May 2024 and moved from New Zealand to Melbourne in March 2026, using the time to go deep on design systems, accessibility and AI-assisted development. Designed and built FitMySpace end to end, from Penpot and Figma to Next.js, with a three-tier token architecture in Style Dictionary and custom components on Radix Primitives. Uses Claude Code and Cursor daily while owning the architecture and reviewing what ships.',
+      'Designed and built FitMySpace end to end, from problem framing and visual design in Figma to production in Next.js, with a three-tier token architecture automated with Style Dictionary and custom components on Radix UI primitives. Separately designed and built this portfolio. Works daily with AI-assisted development while directing the architecture and reviewing what ships. Stepped back from full-time work in May 2024 and moved from New Zealand to Australia in March 2026, working on these projects through that period.',
     technologies: [
+      'Next.js',
       'React',
       'TypeScript',
-      'Next.js',
-      'TanStack Query',
-      'Style Dictionary',
-      'Design Tokens',
-      'Radix UI',
-      'Storybook',
       'Tailwind CSS',
-      'CSS Modules',
+      'TanStack Query',
+      'Zod',
+      'Style Dictionary',
+      'Radix UI',
+      'Jest',
+      'jest-axe',
       'Vite',
-      'Motion',
-      'Penpot',
-      'Claude',
-      'Gemini',
-      'Atomic Design',
     ],
   },
   {

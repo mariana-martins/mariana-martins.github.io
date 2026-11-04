@@ -8,7 +8,7 @@ import {
   CardHeader,
 } from '@components/Card/Card';
 import { TagList } from '@components/TagList/TagList';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
@@ -41,6 +41,8 @@ export function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
+  const hasCaseStudy = project.caseStudyPath !== undefined;
+  const CornerIcon = hasCaseStudy ? ArrowRight : ExternalLink;
 
   return (
     <Card
@@ -51,11 +53,11 @@ export function ProjectCard({
         isFeatured ? 'min-h-[280px]' : 'min-h-[120px]',
         'transition-transform duration-150 ease-out',
         // The title link covers the card, so its states drive the card's
-        'has-[a:hover]:scale-[1.02] has-[a:active]:scale-[0.98]',
-        'has-[a:focus-visible]:ring-4 has-[a:focus-visible]:ring-offset-2',
-        'has-[a:focus-visible]:ring-focus',
+        'has-[[data-card-link]:hover]:scale-[1.02] has-[[data-card-link]:active]:scale-[0.98]',
+        'has-[[data-card-link]:focus-visible]:ring-4 has-[[data-card-link]:focus-visible]:ring-offset-2',
+        'has-[[data-card-link]:focus-visible]:ring-focus',
         'motion-reduce:transition-none',
-        'motion-reduce:has-[a:hover]:scale-100 motion-reduce:has-[a:active]:scale-100',
+        'motion-reduce:has-[[data-card-link]:hover]:scale-100 motion-reduce:has-[[data-card-link]:active]:scale-100',
       )}
     >
       <CardDecoration
@@ -87,7 +89,7 @@ export function ProjectCard({
         )}
         aria-hidden="true"
       >
-        <ExternalLink
+        <CornerIcon
           size={isFeatured ? 18 : 14}
           className="text-text-primary dark:text-text-primary-dark"
         />
@@ -106,16 +108,19 @@ export function ProjectCard({
           )}
         >
           <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            data-card-link
+            href={project.caseStudyPath ?? project.githubUrl}
+            target={hasCaseStudy ? undefined : '_blank'}
+            rel={hasCaseStudy ? undefined : 'noopener noreferrer'}
             className={cn(
               "after:content-[''] after:absolute after:inset-0 after:z-20",
               'focus:outline-none',
             )}
           >
             {project.title}
-            <span className="sr-only"> (opens in a new tab)</span>
+            <span className="sr-only">
+              {hasCaseStudy ? ', case study' : ' (opens in a new tab)'}
+            </span>
           </a>
         </h3>
       </CardHeader>
@@ -136,6 +141,29 @@ export function ProjectCard({
           className="w-full"
         />
       </CardFooter>
+
+      {hasCaseStudy && project.githubUrl && (
+        // Above the title link's overlay, so it stays clickable
+        <div className="relative z-30 pt-3">
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              'inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
+              'underline underline-offset-4 decoration-1 hover:decoration-2',
+              'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus rounded-sm',
+            )}
+          >
+            Code on GitHub
+            <ExternalLink size={14} aria-hidden="true" />
+            <span className="sr-only">
+              {' '}
+              for {project.title} (opens in a new tab)
+            </span>
+          </a>
+        </div>
+      )}
     </Card>
   );
 }

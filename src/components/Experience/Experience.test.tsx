@@ -1,4 +1,5 @@
 import { Experience } from '@components/Experience/Experience';
+import { ExperienceCard } from '@components/Experience/ExperienceCard';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen, within } from '@testing-library/react';
 import { axe } from 'jest-axe';
@@ -104,5 +105,27 @@ describe('Experience', () => {
     const { container } = render(<Experience />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('leaves out the company line for independent work', () => {
+    render(
+      <ul>
+        <ExperienceCard
+          experience={{
+            id: 'independent',
+            position: 'Independent Work',
+            startDate: '2024-05',
+            description: 'Own projects.',
+            technologies: [],
+          }}
+        />
+      </ul>,
+    );
+
+    const entry = screen.getByTestId('experience-entry');
+    expect(
+      within(entry).getByRole('heading', { name: 'Independent Work' }),
+    ).toBeInTheDocument();
+    expect(entry.querySelectorAll('p.text-muted')).toHaveLength(0);
   });
 });

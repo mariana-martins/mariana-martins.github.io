@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { SECTIONS } from '@/constants';
+import { ArrowRight } from 'lucide-react';
+
+import { PATHS, SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
@@ -41,6 +43,21 @@ export function Projects(): React.JSX.Element {
           );
         })}
       </div>
+
+      <p className="mt-6 text-base">
+        This site is a project too:{' '}
+        <a
+          href={PATHS.siteBuild}
+          className={cn(
+            'inline-flex items-center gap-1.5 min-h-[44px] rounded-sm',
+            'underline underline-offset-4 decoration-1 hover:decoration-2',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+          )}
+        >
+          how it was built
+          <ArrowRight size={16} aria-hidden="true" />
+        </a>
+      </p>
     </section>
   );
 }

@@ -1,3 +1,4 @@
+import { PATHS } from '@/constants';
 import type { Project } from '@/types';
 
 export const projects: Project[] = [
@@ -5,7 +6,7 @@ export const projects: Project[] = [
     id: 'fit-my-space',
     title: 'Fit My Space',
     description:
-      'A search engine for home organisation products, inspired by The Home Edit: find organisers across stores like IKEA and Target, filtered by room and store, with the search state kept in the URL. Designed end to end, from problem framing and visual design in Penpot and Figma to a Next.js App Router build. Underneath sits its own design system: a three-tier token architecture (primitive, semantic, component) generated with Style Dictionary, and custom components on Radix Primitives documented in Storybook, with accessibility enforced by the types and tested with jest-axe.',
+      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed end to end, from problem framing and visual design in Figma to a Next.js App Router build. Underneath sits its own design system: a three-tier token architecture (primitive, semantic, component) generated with Style Dictionary, and custom components on Radix Primitives documented in Storybook, with accessibility enforced by the types and tested with jest-axe.',
     technologies: [
       'React',
       'TypeScript',
@@ -24,6 +25,7 @@ export const projects: Project[] = [
       'Axe',
     ],
     githubUrl: 'https://github.com/mariana-martins/FitMySpace',
+    caseStudyPath: PATHS.fitMySpace,
   },
   {
     id: 'frontend-practice-abstract',

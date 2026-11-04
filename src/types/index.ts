@@ -4,11 +4,14 @@ export interface Project {
   description: string;
   technologies: string[];
   githubUrl?: string;
+  /** Site path; when set, the card opens the case study */
+  caseStudyPath?: string;
 }
 
 export interface Experience {
   id: string;
-  company: string;
+  /** Omitted for independent work */
+  company?: string;
   website?: string;
   position: string;
   /** "YYYY-MM" */

@@ -477,9 +477,9 @@
     @apply text-pink dark:text-blue-100;
   }
 
-  /* 80% is the lowest opacity that keeps 4.5:1 on every surface */
+  /* 80% sat right at 4.5:1 over the blurred glass; 85% leaves a margin */
   .text-muted {
-    @apply text-text-primary/80 dark:text-text-primary-dark/80;
+    @apply text-text-primary/85 dark:text-text-primary-dark/85;
   }
 
   @supports (animation-timeline: view()) {

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Separator } from '@radix-ui/react-separator';
 
+import { PATHS } from '@/constants';
 import { cn } from '@/lib/cn';
 
 export function Footer(): React.JSX.Element {
@@ -24,8 +25,20 @@ export function Footer(): React.JSX.Element {
         decorative
       />
       <p className="text-sm text-center">
-        © 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal
+        © 2026 Mariana Martins Menezes. Frontend & Design Engineer and eternal
         learner.
+      </p>
+      <p className="mt-2 text-sm text-center">
+        <a
+          href={PATHS.siteBuild}
+          className={cn(
+            'inline-flex items-center min-h-[44px] rounded-sm',
+            'underline underline-offset-4 decoration-1 hover:decoration-2',
+            'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+          )}
+        >
+          How this site was built
+        </a>
       </p>
     </footer>
   );

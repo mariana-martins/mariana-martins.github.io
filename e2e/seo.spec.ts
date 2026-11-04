@@ -24,9 +24,11 @@ test.describe('before JavaScript runs', () => {
     await expect(
       page.getByRole('heading', { level: 1, name: 'Mariana Martins Menezes' }),
     ).toBeVisible();
-    await expect(page.getByText('Frontend Engineer').first()).toBeVisible();
     await expect(
-      page.getByRole('link', { name: /Fit My Space/ }),
+      page.getByText('Frontend & Design Engineer').first(),
+    ).toBeVisible();
+    await expect(
+      page.getByRole('link', { name: /^Fit My Space/ }),
     ).toBeVisible();
   });
 
@@ -83,7 +85,7 @@ test.describe('metadata', () => {
     const head = page.locator('head');
 
     await expect(page).toHaveTitle(
-      'Mariana Martins Menezes | Frontend Engineer',
+      'Mariana Martins Menezes | Frontend & Design Engineer',
     );
     await expect(head.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
@@ -106,7 +108,7 @@ test.describe('metadata', () => {
     expect(JSON.parse(structuredData ?? '')).toMatchObject({
       '@type': 'Person',
       name: 'Mariana Martins Menezes',
-      jobTitle: 'Frontend Engineer',
+      jobTitle: 'Frontend & Design Engineer',
     });
   });
 
@@ -130,10 +132,56 @@ test.describe('metadata', () => {
       '/favicon.svg',
       '/robots.txt',
       '/sitemap.xml',
+      '/Mariana-Martins-Menezes-CV.pdf',
     ];
     for (const path of paths) {
       const response = await request.get(path);
       expect(response.status(), path).toBe(200);
     }
   });
+});
+
+test.describe('each page', () => {
+  const pages = [
+    {
+      path: '/',
+      title: 'Mariana Martins Menezes | Frontend & Design Engineer',
+    },
+    {
+      path: '/projects/fit-my-space/',
+      title: 'Fit My Space case study | Mariana Martins Menezes',
+    },
+    {
+      path: '/how-this-site-was-built/',
+      title: 'How this site was built | Mariana Martins Menezes',
+    },
+  ];
+
+  for (const { path, title } of pages) {
+    test(`${path} is prerendered with its own title and URL`, async ({
+      page,
+    }) => {
+      const errors: string[] = [];
+      page.on('pageerror', (error) => errors.push(error.message));
+      await page.route(/\/assets\/.*\.js$/, (route) => route.abort());
+      await page.goto(path);
+
+      await expect(page).toHaveTitle(title);
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+      const head = page.locator('head');
+      const url = `https://mariana-martins.github.io${path}`;
+      await expect(head.locator('link[rel="canonical"]')).toHaveAttribute(
+        'href',
+        url,
+      );
+      await expect(head.locator('meta[property="og:url"]')).toHaveAttribute(
+        'content',
+        url,
+      );
+      await expect(head.locator('meta[property="og:title"]')).toHaveAttribute(
+        'content',
+        title,
+      );
+    });
+  }
 });

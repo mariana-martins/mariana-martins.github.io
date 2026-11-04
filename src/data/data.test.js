@@ -114,7 +114,6 @@ describe('data object', () => {
     it('should have expected structure for each experience entry', () => {
       data.experience.forEach((exp) => {
         expect(exp).toHaveProperty('id');
-        expect(exp).toHaveProperty('company');
         expect(exp).toHaveProperty('position');
         expect(exp).toHaveProperty('startDate');
         expect(exp).toHaveProperty('endDate');
@@ -122,7 +121,9 @@ describe('data object', () => {
         expect(exp).toHaveProperty('technologies');
 
         expect(typeof exp.id).toBe('string');
-        expect(typeof exp.company).toBe('string');
+        if (exp.company !== undefined) {
+          expect(typeof exp.company).toBe('string');
+        }
         expect(typeof exp.position).toBe('string');
         expect(typeof exp.startDate).toBe('string');
         // endDate can be undefined for ongoing positions
@@ -137,7 +138,9 @@ describe('data object', () => {
     it('should have non-empty required string fields for each experience entry', () => {
       data.experience.forEach((exp) => {
         expect(exp.id.trim().length).toBeGreaterThan(0);
-        expect(exp.company.trim().length).toBeGreaterThan(0);
+        if (exp.company !== undefined) {
+          expect(exp.company.trim().length).toBeGreaterThan(0);
+        }
         expect(exp.position.trim().length).toBeGreaterThan(0);
         expect(exp.description.trim().length).toBeGreaterThan(0);
       });

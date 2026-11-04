@@ -28,10 +28,12 @@ describe('App', () => {
     const sectionHeadings = screen
       .getAllByRole('heading', { level: 2 })
       .map((h) => h.textContent);
-    expect(sectionHeadings).not.toContain('Frontend Engineer');
+    expect(sectionHeadings).not.toContain('Frontend & Design Engineer');
 
     const banner = screen.getByRole('banner');
-    expect(within(banner).getByText('Frontend Engineer')).toBeInTheDocument();
+    expect(
+      within(banner).getByText('Frontend & Design Engineer'),
+    ).toBeInTheDocument();
   });
 
   it('renders main content area', () => {
@@ -101,7 +103,7 @@ describe('App', () => {
       const entry = headings
         .map((heading) => heading.closest('[data-testid="experience-entry"]'))
         .find((candidate) =>
-          candidate?.textContent?.includes(experience.company),
+          candidate?.textContent?.includes(experience.company ?? ''),
         );
       expect(entry).toBeTruthy();
     });
@@ -116,7 +118,8 @@ describe('App', () => {
 
     const sayHiElements = screen.getAllByText('Say Hi!');
     expect(sayHiElements.length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(data.contact.address)).toBeInTheDocument();
+    const contact = screen.getByRole('region', { name: 'Say Hi!' });
+    expect(within(contact).getByText(data.contact.address)).toBeInTheDocument();
 
     const emailLink = screen.getByRole('link', {
       name: new RegExp(data.contact.email, 'i'),
@@ -172,7 +175,7 @@ describe('App', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        '© 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal learner.',
+        '© 2026 Mariana Martins Menezes. Frontend & Design Engineer and eternal learner.',
       ),
     ).toBeInTheDocument();
   });

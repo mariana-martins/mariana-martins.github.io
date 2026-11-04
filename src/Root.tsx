@@ -1,14 +1,17 @@
 import React from 'react';
 
-import { App } from '@/App';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
+interface RootProps {
+  page: React.ComponentType;
+}
+
 /** Rendered by both main.tsx and entry-server.tsx, so the two trees match */
-export function Root(): React.JSX.Element {
+export function Root({ page: Page }: RootProps): React.JSX.Element {
   return (
     <React.StrictMode>
       <ThemeProvider>
-        <App />
+        <Page />
       </ThemeProvider>
     </React.StrictMode>
   );

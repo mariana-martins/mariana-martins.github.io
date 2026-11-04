@@ -73,7 +73,7 @@ function ogImageHtml({ avatar, logo, inter, fredoka }) {
     <div class="text">
       <div class="logo"><img src="${logo}" alt="" /></div>
       <h1>Mariana Martins Menezes</h1>
-      <p class="title">Frontend Engineer</p>
+      <p class="title">Frontend &amp; Design Engineer</p>
       <p class="skills">
         <span>React &amp; TypeScript ·</span> <span>accessible interfaces ·</span>
         <span>design systems</span>

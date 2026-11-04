@@ -1,7 +1,18 @@
 import React from 'react';
 
+import { ButtonLink } from '@components/ButtonLink/ButtonLink';
+import { ArrowDown, Download, Mail } from 'lucide-react';
+
 import logo from '@/assets/logo.webp';
+import { CV, SECTIONS } from '@/constants';
+import { data } from '@/data';
 import { cn } from '@/lib/cn';
+
+const FACTS = [
+  'Melbourne, Australia',
+  'NZ citizen with full Australian work rights',
+  'Open to roles across Australia',
+];
 
 export function Header(): React.JSX.Element {
   const name = 'Mariana Martins Menezes';
@@ -32,7 +43,7 @@ export function Header(): React.JSX.Element {
         />
       </div>
 
-      <div className="text-text-primary dark:text-text-primary-dark">
+      <div className="flex flex-col items-center lg:items-start text-text-primary dark:text-text-primary-dark">
         <h1
           className={cn(
             'text-2xl lg:text-5xl font-medium font-heading',
@@ -49,8 +60,46 @@ export function Header(): React.JSX.Element {
             'lg:text-left text-center',
           )}
         >
-          Frontend Engineer
+          Frontend &amp; Design Engineer
         </p>
+        <p className="mt-5 max-w-[46ch] text-lg/8 text-balance lg:text-left text-center">
+          I build accessible, high-performance React and TypeScript interfaces,
+          and the design systems behind them.
+        </p>
+        <ul className="mt-3 flex flex-col items-center lg:flex-row lg:items-start gap-x-2 gap-y-1 text-sm">
+          {FACTS.map((fact, index) => (
+            <li key={fact} className="flex items-center gap-x-2">
+              {index > 0 && (
+                <span aria-hidden="true" className="hidden lg:inline">
+                  &middot;
+                </span>
+              )}
+              {fact}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
+          <ButtonLink href={`#${SECTIONS.projects.id}`} icon={ArrowDown}>
+            View projects
+          </ButtonLink>
+          <ButtonLink
+            href={CV.href}
+            download={CV.fileName}
+            variant="secondary"
+            icon={Download}
+          >
+            <span>
+              Download CV <span className="font-normal">(PDF)</span>
+            </span>
+          </ButtonLink>
+          <ButtonLink
+            href={`mailto:${data.contact.email}`}
+            variant="secondary"
+            icon={Mail}
+          >
+            Email me
+          </ButtonLink>
+        </div>
       </div>
     </header>
   );

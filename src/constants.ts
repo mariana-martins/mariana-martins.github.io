@@ -21,3 +21,14 @@ export const MARGOTS_PICKS = {
   triggerId: 'margots-picks-trigger',
   pageSize: 24,
 } as const;
+
+export const CV = {
+  href: '/Mariana-Martins-Menezes-CV.pdf',
+  fileName: 'Mariana-Martins-Menezes-CV.pdf',
+} as const;
+
+export const PATHS = {
+  home: '/',
+  fitMySpace: '/projects/fit-my-space/',
+  siteBuild: '/how-this-site-was-built/',
+} as const;

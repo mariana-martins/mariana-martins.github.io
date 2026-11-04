@@ -38,12 +38,39 @@ describe('Header', () => {
   it('renders title subtitle', () => {
     render(<Header />);
 
-    expect(screen.getByText('Frontend Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Frontend & Design Engineer')).toBeInTheDocument();
   });
 
   it('should have no accessibility violations', async () => {
     const { container } = render(<Header />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('offers projects, the CV and email as calls to action', () => {
+    render(<Header />);
+
+    expect(screen.getByRole('link', { name: 'View projects' })).toHaveAttribute(
+      'href',
+      '#projects-heading',
+    );
+    const cv = screen.getByRole('link', { name: 'Download CV (PDF)' });
+    expect(cv).toHaveAttribute('href', '/Mariana-Martins-Menezes-CV.pdf');
+    expect(cv).toHaveAttribute('download');
+    expect(screen.getByRole('link', { name: 'Email me' })).toHaveAttribute(
+      'href',
+      expect.stringMatching(/^mailto:/),
+    );
+  });
+
+  it('states work rights and where the roles can be', () => {
+    render(<Header />);
+
+    expect(
+      screen.getByText('NZ citizen with full Australian work rights'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Open to roles across Australia'),
+    ).toBeInTheDocument();
   });
 });

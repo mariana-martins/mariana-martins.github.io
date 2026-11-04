@@ -8,6 +8,8 @@ import { findWeakFocusIndicators } from './focus';
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
+const SUBPAGES = ['/projects/fit-my-space/', '/how-this-site-was-built/'];
+
 function scan(page: Page): AxeBuilder {
   return new AxeBuilder({ page }).withTags(WCAG_TAGS);
 }
@@ -75,5 +77,26 @@ for (const theme of ['light', 'dark'] as const) {
     }) => {
       expect(await findWeakFocusIndicators(page)).toEqual([]);
     });
+
+    for (const path of SUBPAGES) {
+      test.describe(path, () => {
+        test.beforeEach(async ({ page }) => {
+          await page.goto(path);
+        });
+
+        test('has no WCAG violations', async ({ page }) => {
+          const { violations } = await scan(page).analyze();
+          expect(violations).toEqual([]);
+        });
+
+        test('all visible text meets contrast', async ({ page }) => {
+          expect(await findLowContrastText(page)).toEqual([]);
+        });
+
+        test('every Tab stop shows a focus indicator', async ({ page }) => {
+          expect(await findWeakFocusIndicators(page)).toEqual([]);
+        });
+      });
+    }
   });
 }
