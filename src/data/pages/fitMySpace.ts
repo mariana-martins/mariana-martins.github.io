@@ -7,7 +7,11 @@ import type { FitMySpaceCaseStudy } from '@/types';
 export const fitMySpace: FitMySpaceCaseStudy = {
   eyebrow: 'Case study',
   title: 'Fit My Space',
-  lead: 'A search engine for home organisation products across stores, filtered by room and by store, and the design system I built underneath it.',
+  lead: 'A search engine for home organisation products across stores, filtered by room and by store, and the design system I am building for it.',
+  status: {
+    label: 'Work in progress',
+    text: 'The search app works end to end; the design system is what I am building now. Its tokens, typography and Button are done and documented in Storybook and Figma, and the app’s components move onto it next.',
+  },
   role: 'Design and frontend, end to end',
   builtWith:
     'Next.js, TypeScript, Tailwind CSS, TanStack Query, Zod, Radix Primitives, Style Dictionary, Storybook',
@@ -18,7 +22,7 @@ export const fitMySpace: FitMySpaceCaseStudy = {
     id: 'tokens',
     title: 'Three tiers of tokens',
     paragraphs: [
-      'Every visual decision lives in a token, and references only point one way. Primitives say which values exist, semantic tokens say what a value is for, and component tokens are the component’s own API: what the primary button uses when it is hovered, focused or disabled. I followed Brad Frost’s methodology for the split.',
+      'In the design system every visual decision lives in a token, and references only point one way. Primitives say which values exist, semantic tokens say what a value is for, and component tokens are the component’s own API: what the primary button uses when it is hovered, focused or disabled. I followed Brad Frost’s methodology for the split.',
       'Style Dictionary turns the three tiers of JSON into 477 CSS custom properties. Because it keeps each reference as a `var()`, changing what “brand” means is a one-line change in tier 2, and every component follows.',
     ],
     // Real names from the project's token files; their CSS is in ./snippets.generated.ts
@@ -51,11 +55,11 @@ export const fitMySpace: FitMySpaceCaseStudy = {
     id: 'types',
     title: 'Accessibility the compiler enforces',
     paragraphs: [
-      'Components are composed on Radix primitives rather than taken from a component library, so semantics, interaction states, dark mode and motion stay owned and consistent.',
+      'Components are composed on Radix primitives rather than taken from a component library. Radix brings the keyboard and screen reader behaviour; the markup, styling and states stay mine.',
       'The Button’s props are a discriminated union. Give it visible text and `aria-label` is optional; make it icon-only and `aria-label` becomes required. Forgetting it is a type error in the editor, not a finding in an audit months later.',
     ],
     codeCaption:
-      'From Button.types.ts, with two usages: the icon-only button without a label does not compile.',
+      'Simplified from Button.types.ts, with two usages: the icon-only button without a label does not compile.',
     states: {
       caption:
         'The Button in Storybook: six variants, fill and outline, and its interaction states.',
@@ -106,11 +110,11 @@ export const fitMySpace: FitMySpaceCaseStudy = {
     id: 'quality',
     title: 'Tested like a product',
     paragraphs: [
-      'Atoms, molecules, organisms and pages each have jest-axe checks alongside their unit tests, with MSW standing in for the API. Storybook documents the tokens (colour, spacing, radii), the typography and the Button.',
+      'jest-axe checks cover the atoms, molecules and organisms, and the not-found and error pages, alongside unit and integration tests with MSW standing in for the API. Storybook documents the tokens (colour, spacing, radii), the typography and the Button, and runs interaction tests on the Button.',
     ],
     stats: [
-      { value: '292', label: 'tests' },
-      { value: '34', label: 'test suites' },
+      { value: '421', label: 'unit and integration tests' },
+      { value: '41', label: 'test suites' },
       { value: '477', label: 'generated CSS tokens' },
       { value: '3', label: 'token tiers' },
     ],

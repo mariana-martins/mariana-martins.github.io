@@ -72,6 +72,17 @@ export default function FitMySpacePage(): React.JSX.Element {
           title={fitMySpace.title}
           lead={fitMySpace.lead}
         >
+          <p
+            className={cn(
+              'max-w-[65ch] p-4 rounded-xl text-base/7 text-pretty',
+              'border-2 border-dashed border-pink/60 dark:border-blue-100/50',
+            )}
+          >
+            <strong className="font-semibold">
+              {fitMySpace.status.label}.
+            </strong>{' '}
+            {fitMySpace.status.text}
+          </p>
           <dl className="grid gap-x-8 gap-y-3 sm:grid-cols-[auto_1fr] text-base">
             <dt className="font-medium">Role</dt>
             <dd>{fitMySpace.role}</dd>
@@ -95,10 +106,7 @@ export default function FitMySpacePage(): React.JSX.Element {
               variant="secondary"
               icon={ExternalLink}
             >
-              <span>
-                Design system in Figma{' '}
-                <span className="font-normal">(work in progress)</span>
-              </span>
+              Design system in Figma
               <span className="sr-only"> (opens in a new tab)</span>
             </ButtonLink>
           </div>

@@ -104,3 +104,15 @@ describe('Fit My Space case study', () => {
     );
   });
 });
+
+describe('Fit My Space status', () => {
+  it('says the project is still in progress', () => {
+    render(
+      <ThemeProvider>
+        <FitMySpacePage />
+      </ThemeProvider>,
+    );
+
+    expect(screen.getByText('Work in progress.')).toBeInTheDocument();
+  });
+});

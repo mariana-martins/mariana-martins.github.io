@@ -131,7 +131,7 @@ test.describe('stat cards', () => {
       await expect(number).toHaveText('0');
 
       await number.scrollIntoViewIfNeeded();
-      await expect(number).toHaveText('34');
+      await expect(number).toHaveText('41');
     });
   });
 });

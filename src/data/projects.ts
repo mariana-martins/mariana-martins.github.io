@@ -6,7 +6,7 @@ export const projects: Project[] = [
     id: 'fit-my-space',
     title: 'Fit My Space',
     description:
-      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed in Figma and built on the Next.js App Router, on top of its own design system: three tiers of tokens generated with Style Dictionary, and components on Radix Primitives documented in Storybook, with accessibility enforced by the types.',
+      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed in Figma and built on the Next.js App Router. Its design system is in progress: three tiers of tokens generated with Style Dictionary, and components on Radix Primitives documented in Storybook, with accessibility enforced by the types.',
     technologies: [
       'React',
       'TypeScript',

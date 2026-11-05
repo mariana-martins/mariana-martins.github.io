@@ -147,6 +147,7 @@ export interface FitMySpaceCaseStudy {
   eyebrow: string;
   title: string;
   lead: string;
+  status: { label: string; text: string };
   role: string;
   builtWith: string;
   githubUrl: string;
