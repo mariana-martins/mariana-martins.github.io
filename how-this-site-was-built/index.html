@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Sets the theme before first paint. Mirrors getInitialTheme() in ThemeContext.tsx -->
+    <script>
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (error) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <title>How this site was built | Mariana Martins Menezes</title>
+    <meta name="description" content="Ten years of one portfolio, from a Bootstrap page in 2016 to a prerendered React site whose accessibility is measured on its rendered pixels." />
+    <meta name="author" content="Mariana Martins Menezes" />
+    <link rel="canonical" href="https://mariana-martins.github.io/how-this-site-was-built/" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta
+      name="theme-color"
+      content="#fbf8ee"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#191e28"
+      media="(prefers-color-scheme: dark)"
+    />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Mariana Martins Menezes" />
+    <meta property="og:title" content="How this site was built | Mariana Martins Menezes" />
+    <meta property="og:description" content="Ten years of one portfolio, from a Bootstrap page in 2016 to a prerendered React site whose accessibility is measured on its rendered pixels." />
+    <meta property="og:url" content="https://mariana-martins.github.io/how-this-site-was-built/" />
+    <meta
+      property="og:image"
+      content="https://mariana-martins.github.io/og-image.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Mariana Martins Menezes, Frontend &amp; Design Engineer, holding Margot, a fluffy white Japanese Spitz"
+    />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="profile:first_name" content="Mariana" />
+    <meta property="profile:last_name" content="Martins Menezes" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mariana Martins Menezes",
+        "alternateName": "Mari",
+        "jobTitle": "Frontend & Design Engineer",
+        "url": "https://mariana-martins.github.io/",
+        "image": "https://mariana-martins.github.io/avatar.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Melbourne",
+          "addressRegion": "VIC",
+          "addressCountry": "AU"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/marianamenezes/",
+          "https://github.com/mariana-martins"
+        ],
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "Accessibility",
+          "WCAG",
+          "Design systems",
+          "Design tokens",
+          "UI/UX design"
+        ]
+      }
+    </script>
+    <!-- GoatCounter: no cookies; ignores localhost. Versioned file, pinned by its hash -->
+    <script
+      data-goatcounter="https://mariana-martins-menezes.goatcounter.com/count"
+      async
+      src="https://gc.zgo.at/count.v5.js"
+      crossorigin="anonymous"
+      integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYElFmeR6EmLP5bYeoRVQ"
+    ></script>
+    <script type="module" crossorigin src="/assets/index-C3wTr4oW.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BUxpXB-m.css">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/inter-latin-wght-normal-Dx4kXJAl.woff2" crossorigin="">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fredoka-latin-wght-normal-DM6njrJ3.woff2" crossorigin="">
+  </head>
+  <body>
+    <!-- Filled at build time by scripts/prerender.mjs -->
+    <div id="root"><link rel="preload" as="image" href="/assets/logo-BU_CIx4I.webp"/><div class="relative min-h-screen max-w-4xl mx-3 sm:mx-6 md:mx-auto md:px-12 flex flex-col gap-4"><a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-warm-100 focus:text-text-primary focus:outline-none focus:ring-2 focus:ring-blue-300">Skip to content</a><button type="button" aria-pressed="false" class="absolute top-0 right-0 rounded-b-md pt-8 px-2 pb-2 cursor-pointer flex items-center justify-center focus-ring bg-pink text-text-primary hover:bg-pink/70 dark:bg-blue-100 dark:text-blue-300 dark:hover:bg-blue-100/90 z-50 min-w-[44px] min-h-[44px] touch-manipulation active:scale-[0.96] transition-[background-color,color,transform] duration-300 md:right-12"><span class="sr-only">Dark mode</span><div class="relative w-6 h-6 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] opacity-100 scale-100 dark:opacity-0 dark:scale-[0.25] dark:blur-xs" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] opacity-0 scale-[0.25] blur-xs dark:opacity-100 dark:scale-100 dark:blur-none" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg></div></button><header class="pt-6 pr-16"><a href="/" class="inline-flex items-center gap-3 rounded-md min-h-[44px] text-body focus-ring"><span class="flex items-center justify-center size-12 shrink-0 p-1 rounded-md bg-warm-300 border-2 border-pink dark:bg-transparent dark:border-blue-100 dark:shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_6px_var(--color-blue-100),0_0_12px_var(--color-blue-100)]"><img src="/assets/logo-BU_CIx4I.webp" alt="" width="272" height="197" class="w-full object-contain"/></span><span class="font-heading text-base md:text-lg tracking-[0.15rem] uppercase">Mariana Martins Menezes<span class="sr-only">, home</span></span></a></header><main id="main-content" tabindex="-1" class="glass-panel rounded-2xl px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-14 focus:outline-none text-body"><div class="mb-8"><nav aria-label="Breadcrumb"><ol class="flex flex-wrap items-center gap-x-1 gap-y-1 text-sm"><li class="flex items-center gap-x-1"><a href="/" class="inline-flex items-center min-h-[44px] px-1 rounded-sm link-underline focus-ring">Home</a></li><li class="flex items-center gap-x-1"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right shrink-0" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span aria-current="page" class="px-1 font-medium">How this site was built</span></li></ol></nav></div><article><div class="flex flex-col gap-4 pb-10"><p class="text-sm font-medium tracking-widest uppercase">Since 2016</p><h1 class="font-heading text-4xl md:text-5xl font-medium text-balance">How this site was built</h1><p class="text-lg/8 md:text-xl/9 max-w-[60ch] text-pretty">This portfolio has grown alongside my career. Every version is still in its Git history, so here they all are: what I was learning at the time, and what changed.</p></div><ol class="flex flex-col"><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>2016</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">A Bootstrap page and a PDF</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>I started studying software development in Brazil between 2015 and 2016. The first version of this site was a single Bootstrap 3 page: a photo, the online courses I had taken, and my résumé as a PDF. A few months later, in May 2016, I moved to New Zealand barely speaking English.</p></div><figure class="flex flex-col gap-2"><div class="overflow-hidden rounded-xl shadow-lg border border-text-primary/15 dark:border-white/15"><div aria-hidden="true" class="flex gap-1.5 px-3 py-2 bg-warm-100 dark:bg-indigo-50"><span class="size-2.5 rounded-full bg-highlight-red"></span><span class="size-2.5 rounded-full bg-highlight-yellow"></span><span class="size-2.5 rounded-full bg-highlight-green"></span></div><img src="/assets/2016-DHNI8PsI.webp" alt="The 2016 version: a teal banner with a round photo of me and the tagline “Front-End Developer, Historian, Freelancer”, above a list of online courses." width="960" height="600" loading="lazy" class="block w-full h-auto"/></div><figcaption class="text-sm">The site in <!-- -->2016</figcaption></figure></li><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>2017</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">jQuery, bundled with webpack</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>After three months of English classes I started a frontend nanodegree at Udacity, and began choosing a direction. The site was rebuilt with jQuery and webpack: a full-screen gradient, a navigation bar for every section and a big “Let’s talk!” button.</p></div><figure class="flex flex-col gap-2"><div class="overflow-hidden rounded-xl shadow-lg border border-text-primary/15 dark:border-white/15"><div aria-hidden="true" class="flex gap-1.5 px-3 py-2 bg-warm-100 dark:bg-indigo-50"><span class="size-2.5 rounded-full bg-highlight-red"></span><span class="size-2.5 rounded-full bg-highlight-yellow"></span><span class="size-2.5 rounded-full bg-highlight-green"></span></div><img src="/assets/2017-CSMnBhNi.webp" alt="The 2017 version: a bright blue gradient with “Mariana” in large white letters, a navigation bar and two buttons, “Learn more” and “Let’s talk!”." width="960" height="600" loading="lazy" class="block w-full h-auto"/></div><figcaption class="text-sm">The site in <!-- -->2017</figcaption></figure></li><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>2019 – 2022</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">Gatsby and React</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>My first frontend job, at Kathmandu, made me sure frontend was what I wanted. At Phocas I chose React and fell in love with designing interfaces and working closely with designers. The site moved to Gatsby in 2019 and was updated with each new role until 2022. It also introduced the light-blue “M” that still sits behind Margot in today’s logo.</p></div><figure class="flex flex-col gap-2"><div class="overflow-hidden rounded-xl shadow-lg border border-text-primary/15 dark:border-white/15"><div aria-hidden="true" class="flex gap-1.5 px-3 py-2 bg-warm-100 dark:bg-indigo-50"><span class="size-2.5 rounded-full bg-highlight-red"></span><span class="size-2.5 rounded-full bg-highlight-yellow"></span><span class="size-2.5 rounded-full bg-highlight-green"></span></div><img src="/assets/2022-CG03NFcH.webp" alt="The Gatsby version: a purple gradient with a round “M” logo, the title “Frontend Developer”, tabs for introduction, projects, experience and skills, and a photo of me." width="960" height="600" loading="lazy" class="block w-full h-auto"/></div><figcaption class="text-sm">The site in <!-- -->2019 – 2022</figcaption></figure></li><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>2025</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">Starting again from scratch</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>In September 2025 I started again with Vite, React, TypeScript and Tailwind CSS. The “M” became a logo with Margot at a laptop, and the site found the soft gradients, glass panels and dashed dividers it still has.</p></div><figure class="flex flex-col gap-2"><div class="overflow-hidden rounded-xl shadow-lg border border-text-primary/15 dark:border-white/15"><div aria-hidden="true" class="flex gap-1.5 px-3 py-2 bg-warm-100 dark:bg-indigo-50"><span class="size-2.5 rounded-full bg-highlight-red"></span><span class="size-2.5 rounded-full bg-highlight-yellow"></span><span class="size-2.5 rounded-full bg-highlight-green"></span></div><img src="/assets/2025-CzfP-0pj.webp" alt="December 2025: the logo of Margot at a laptop beside my name, and a glass panel with About Me, Experience and Contact Info sections." width="960" height="600" loading="lazy" class="block w-full h-auto"/></div><figcaption class="text-sm">The site in <!-- -->2025</figcaption></figure></li><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>2025 – 2026</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">Edited, not just added to</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>Most of the work since has been changing my mind, one commit at a time:</p></div><ul class="flex flex-col gap-2 max-w-[65ch] text-base/7 md:text-lg/8 list-disc pl-6 marker:text-pink dark:marker:text-blue-100"><li>The colour system was reorganised three times: functional names, then HSL with a dark theme, then a numbered scale.</li><li>Tailwind CSS moved to version 4, with the design tokens defined in CSS.</li><li>A Skills section arrived in November 2025 and was gone early in 2026.</li><li>Experience went into an accordion, then back out, with every role open.</li><li>The Learning Shelf grew into Margot’s Picks: more than a hundred books, courses and films, rated in Margots.</li><li>An animation library came in for scroll and hover effects, and later made way for CSS and the browser’s Web Animations API.</li></ul></li><li class="relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10 border-l-2 border-dashed border-accent"><p class="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase"><span aria-hidden="true" class="absolute -left-[33px] sm:-left-[41px] md:-left-[49px] top-1/2 -translate-y-1/2 size-4 rounded-full bg-pink dark:bg-blue-100"></span>Today</p><h2 class="font-heading text-2xl md:text-3xl font-medium text-balance">Measured, not assumed</h2><div class="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty"><p>The latest chapter is about checking the work rather than trusting it. Contrast and focus are measured on the rendered pixels in a real browser, in both themes and on mobile, because automated checks in jsdom never see colour at all. Every page is prerendered to HTML and hydrated without mismatches, and a first visit downloads a third less JavaScript than before.</p></div><ul class="grid grid-cols-2 md:grid-cols-4 gap-3"><li class="flex flex-col items-center justify-center gap-1 p-4 rounded-xl text-center bg-soft border border-soft"><span class="font-heading text-xl sm:text-2xl md:text-3xl font-medium tabular-nums whitespace-nowrap"><span class="inline-grid"><span aria-hidden="true" class="invisible col-start-1 row-start-1">100 kB</span><span class="col-start-1 row-start-1">100 kB</span></span></span> <span class="text-xs sm:text-sm text-pretty">of JavaScript on a first visit, gzipped (was 163)</span></li><li class="flex flex-col items-center justify-center gap-1 p-4 rounded-xl text-center bg-soft border border-soft"><span class="font-heading text-xl sm:text-2xl md:text-3xl font-medium tabular-nums whitespace-nowrap"><span class="inline-grid"><span aria-hidden="true" class="invisible col-start-1 row-start-1">97+</span><span class="col-start-1 row-start-1">97+</span></span></span> <span class="text-xs sm:text-sm text-pretty">Lighthouse performance on mobile</span></li><li class="flex flex-col items-center justify-center gap-1 p-4 rounded-xl text-center bg-soft border border-soft"><span class="font-heading text-xl sm:text-2xl md:text-3xl font-medium tabular-nums whitespace-nowrap"><span class="inline-grid"><span aria-hidden="true" class="invisible col-start-1 row-start-1">5.5:1</span><span class="col-start-1 row-start-1">5.5:1</span></span></span> <span class="text-xs sm:text-sm text-pretty">focus ring contrast (was 2.1:1)</span></li><li class="flex flex-col items-center justify-center gap-1 p-4 rounded-xl text-center bg-soft border border-soft"><span class="font-heading text-xl sm:text-2xl md:text-3xl font-medium tabular-nums whitespace-nowrap"><span class="inline-grid"><span aria-hidden="true" class="invisible col-start-1 row-start-1">0</span><span class="col-start-1 row-start-1">0</span></span></span> <span class="text-xs sm:text-sm text-pretty">cookies, analytics included</span></li></ul><figure class="flex flex-col gap-2"><div class="overflow-hidden rounded-xl shadow-lg border border-text-primary/15 dark:border-white/15"><div aria-hidden="true" class="flex gap-1.5 px-3 py-2 bg-warm-100 dark:bg-indigo-50"><span class="size-2.5 rounded-full bg-highlight-red"></span><span class="size-2.5 rounded-full bg-highlight-yellow"></span><span class="size-2.5 rounded-full bg-highlight-green"></span></div><img src="/assets/2026-Cgcqvcmf.webp" alt="Today: my name and title centred above buttons for projects, the CV and email, with the About section below." width="960" height="600" loading="lazy" class="block w-full h-auto"/></div><figcaption class="text-sm">The site in <!-- -->November 2026</figcaption></figure></li></ol><section aria-labelledby="details-heading" class="flex flex-col gap-5 py-10 border-b-dashed-custom last:after:hidden last:pb-0"><h2 id="details-heading" class="font-heading text-2xl md:text-3xl font-medium text-balance">The small things</h2><ul class="flex flex-col gap-3 max-w-[65ch] text-base/7 md:text-lg/8 list-disc pl-6 marker:text-pink dark:marker:text-blue-100"><li>The Learning Shelf cards are cut like cinema tickets with a CSS mask, and the notches move when the card changes layout.</li><li>Ratings are counted in Margots: an “M” with her paw on it, and sparkles for a perfect five.</li><li>Where the browser supports it, the ticket corners use corner-shape: squircle.</li><li>Every animation respects reduced motion, from the scroll reveals to the fun fact cards.</li></ul><div class="flex flex-wrap gap-3 pt-2"><a class="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 rounded-full text-sm font-medium transition-colors duration-200 touch-manipulation focus-ring bg-pink text-text-primary hover:bg-pink/80 dark:bg-blue-100 dark:text-blue-300 dark:hover:bg-blue-100/85" href="https://github.com/mariana-martins/mariana-martins.github.io" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Browse the code and its history on GitHub<span class="sr-only"> (opens in a new tab)</span></a></div></section></article></main><footer class="col-start-1 h-fit py-17 text-body"><p class="text-lg mb-4 text-center">Not all those who wander are lost. Some are just debugging.</p><div data-orientation="horizontal" role="none" class="my-4 opacity-30 bg-current data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px"></div><p class="text-sm text-center">© 2026 Mariana Martins Menezes. Frontend &amp; Design Engineer and eternal learner.</p><p class="mt-2 text-sm text-center"><a href="/how-this-site-was-built/" class="inline-flex items-center min-h-[44px] rounded-sm link-underline focus-ring">How this site was built</a></p></footer></div></div>
+  </body>
+</html>
