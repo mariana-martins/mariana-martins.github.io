@@ -13,10 +13,10 @@ export function Projects(): React.JSX.Element {
   return (
     <section
       className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12 border-b-dashed-custom"
-      aria-labelledby="projects-heading"
+      aria-labelledby={SECTIONS.projects.id}
     >
       <h2
-        id="projects-heading"
+        id={SECTIONS.projects.id}
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >

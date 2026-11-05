@@ -29,10 +29,10 @@ export function FunFacts(): React.JSX.Element {
         'text-text-primary dark:text-text-primary-dark',
         'border-b-dashed-custom',
       )}
-      aria-labelledby="fun-facts-heading"
+      aria-labelledby={SECTIONS.funFacts.id}
     >
       <h2
-        id="fun-facts-heading"
+        id={SECTIONS.funFacts.id}
         tabIndex={-1}
         className="text-xl font-semibold"
       >

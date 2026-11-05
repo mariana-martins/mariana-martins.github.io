@@ -19,12 +19,12 @@ export function LearningShelf(): React.JSX.Element {
   return (
     <section
       className="w-full flex flex-col gap-6 px-2 py-12 items-center text-text-primary dark:text-text-primary-dark"
-      aria-labelledby="learning-shelf-heading"
+      aria-labelledby={SECTIONS.learningShelf.id}
       aria-describedby="learning-shelf-description"
     >
       <div className="flex items-center gap-2">
         <h2
-          id="learning-shelf-heading"
+          id={SECTIONS.learningShelf.id}
           tabIndex={-1}
           className="text-xl font-semibold"
         >

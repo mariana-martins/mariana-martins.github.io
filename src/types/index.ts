@@ -31,6 +31,8 @@ export interface Contact {
   linkedIn: string;
   github: string;
   address: string;
+  /** Closing line of the home page, above the contact links */
+  invitation: string;
 }
 
 export interface FunFact {
@@ -69,7 +71,14 @@ export type PickOfCategory<C extends PickCategory> = Extract<
   { category: C }
 >;
 
+export interface Profile {
+  title: string;
+  pitch: string;
+  facts: string[];
+}
+
 export interface PortfolioData {
+  profile: Profile;
   introduction: string;
   projects: Project[];
   experience: Experience[];
@@ -78,5 +87,79 @@ export interface PortfolioData {
   funFacts: FunFact[];
   picks: PickItem[];
 }
+export interface Section {
+  id: string;
+  label: string;
+}
 
 export type CodeLine = Array<[text: string, color: string]>;
+
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+export interface FigureImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export type Paragraph = string;
+
+export interface Era {
+  id: string;
+  when: string;
+  title: string;
+  paragraphs: Paragraph[];
+  list?: string[];
+  stats?: Stat[];
+  screenshot?: { src: string; alt: string; when: string };
+}
+
+export interface SiteHistory {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  eras: Era[];
+  details: { title: string; items: string[] };
+  repoUrl: string;
+}
+
+export interface TokenStep {
+  tier: string;
+  token: string;
+}
+
+export interface RenderingMode {
+  page: string;
+  how: string;
+}
+
+export interface CaseStudySection {
+  id: string;
+  title: string;
+  paragraphs: Paragraph[];
+}
+
+export interface FitMySpaceCaseStudy {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  role: string;
+  builtWith: string;
+  githubUrl: string;
+  figmaUrl: string;
+  tokens: CaseStudySection & {
+    steps: TokenStep[];
+    flowCaption: Paragraph;
+    palette: { caption: string; image: FigureImage };
+  };
+  types: CaseStudySection & {
+    codeCaption: string;
+    states: { caption: string; images: FigureImage[] };
+  };
+  rendering: CaseStudySection & { modes: RenderingMode[] };
+  quality: CaseStudySection & { stats: Stat[] };
+}

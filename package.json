@@ -14,7 +14,7 @@
     "test:ci": "jest --ci --coverage --watchAll=false",
     "test:e2e": "npm run build && playwright test",
     "social-images": "node scripts/generate-social-images.mjs",
-    "snippets": "node scripts/highlight-snippets.mjs && prettier --write src/pages/snippets.generated.ts --config config/.prettierrc",
+    "snippets": "node scripts/highlight-snippets.mjs && prettier --write src/data/pages/snippets.generated.ts --config config/.prettierrc",
     "size": "node scripts/check-bundle-size.mjs",
     "lint": "eslint . --config config/eslint.config.js --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --config config/eslint.config.js --fix",

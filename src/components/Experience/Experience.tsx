@@ -12,10 +12,10 @@ export function Experience(): React.JSX.Element {
   return (
     <section
       className="w-full flex flex-col px-2 py-12 text-text-primary dark:text-text-primary-dark border-b-dashed-custom md:border-b-0-dashed-custom md:border-r-dashed-custom"
-      aria-labelledby="experience-heading"
+      aria-labelledby={SECTIONS.experience.id}
     >
       <h2
-        id="experience-heading"
+        id={SECTIONS.experience.id}
         tabIndex={-1}
         className="text-xl font-semibold mb-6"
       >

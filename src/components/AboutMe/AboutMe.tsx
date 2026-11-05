@@ -14,7 +14,7 @@ export function AboutMe(): React.JSX.Element {
         'text-text-primary dark:text-text-primary-dark',
         'border-b-dashed-custom',
       )}
-      aria-labelledby="about-me-heading"
+      aria-labelledby={SECTIONS.about.id}
     >
       <div
         className={cn(
@@ -24,7 +24,7 @@ export function AboutMe(): React.JSX.Element {
       >
         <div className="flex-1 order-2 md:order-1 flex flex-col gap-4 animate-fade-in-up">
           <h2
-            id="about-me-heading"
+            id={SECTIONS.about.id}
             tabIndex={-1}
             className={cn(
               'text-2xl md:text-3xl font-bold font-heading',

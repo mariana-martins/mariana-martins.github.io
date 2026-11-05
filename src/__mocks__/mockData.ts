@@ -17,6 +17,7 @@ export const mockContact: Contact = {
   linkedIn: 'https://linkedin.com/in/mariana-martins',
   github: 'https://github.com/mariana-martins',
   name: 'Mariana Martins Menezes',
+  invitation: 'Email is the quickest way to reach me.',
 };
 
 export const mockExperience: Experience[] = [
@@ -152,6 +153,11 @@ export const mockPicks: PickItem[] = [
 ];
 
 export const mockPortfolioData: PortfolioData = {
+  profile: {
+    title: 'Frontend & Design Engineer',
+    pitch: 'I build accessible interfaces.',
+    facts: ['Melbourne, Australia'],
+  },
   introduction: mockIntroduction,
   contact: mockContact,
   experience: mockExperience,

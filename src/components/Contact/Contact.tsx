@@ -21,8 +21,7 @@ export function Contact(): React.JSX.Element {
         {SECTIONS.contact.label}
       </h2>
       <p className="max-w-[52ch] text-base/7 md:text-lg/8 text-balance">
-        I&rsquo;m looking for Frontend and Design Engineer roles across
-        Australia. Email is the quickest way to reach me.
+        {data.contact.invitation}
       </p>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <ButtonLink href={`mailto:${data.contact.email}`} icon={Mail}>

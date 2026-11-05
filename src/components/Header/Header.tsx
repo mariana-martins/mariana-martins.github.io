@@ -8,12 +8,6 @@ import { CV, SECTIONS } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 
-const FACTS = [
-  'Melbourne, Australia',
-  'NZ citizen with full Australian work rights',
-  'Open to roles across Australia',
-];
-
 export function Header(): React.JSX.Element {
   return (
     <header
@@ -31,14 +25,13 @@ export function Header(): React.JSX.Element {
         Mariana Martins Menezes
       </h1>
       <p className="mt-2 text-xl lg:text-2xl tracking-widest">
-        Frontend &amp; Design Engineer
+        {data.profile.title}
       </p>
       <p className="mt-5 max-w-[46ch] text-lg/8 text-balance">
-        I build accessible, high-performance React and TypeScript interfaces,
-        and the design systems behind them.
+        {data.profile.pitch}
       </p>
       <ul className="mt-3 flex flex-col items-center lg:flex-row gap-x-2 gap-y-1 text-sm">
-        {FACTS.map((fact, index) => (
+        {data.profile.facts.map((fact, index) => (
           <li key={fact} className="flex items-center gap-x-2">
             {index > 0 && (
               <span aria-hidden="true" className="hidden lg:inline">

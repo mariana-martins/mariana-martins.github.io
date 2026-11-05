@@ -1,7 +1,4 @@
-export interface Section {
-  id: string;
-  label: string;
-}
+import type { Section } from '@/types';
 
 export const SECTIONS: Record<string, Section> = {
   // In page order: the skip navigation lists them as they appear
@@ -12,6 +9,9 @@ export const SECTIONS: Record<string, Section> = {
   learningShelf: { id: 'learning-shelf-heading', label: 'The Learning Shelf' },
   contact: { id: 'contact-heading', label: 'Let’s talk' },
 };
+
+/** The skip link's target on every page */
+export const MAIN_CONTENT_ID = 'main-content';
 
 export const LEARNING_SHELF_LIMIT = 5;
 

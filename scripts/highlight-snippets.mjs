@@ -7,7 +7,7 @@ import { codeToTokens } from 'shiki';
 
 const OUTPUT = path.resolve(
   import.meta.dirname,
-  '../src/pages/snippets.generated.ts',
+  '../src/data/pages/snippets.generated.ts',
 );
 // Code always sits on the dark --color-code-bg, so one dark theme serves both
 // site themes; every colour in it clears 4.5:1 on that background

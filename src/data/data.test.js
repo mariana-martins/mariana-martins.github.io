@@ -19,6 +19,7 @@ describe('data object', () => {
 
     it('should have all required top-level keys and no extra keys', () => {
       const expectedKeys = [
+        'profile',
         'introduction',
         'projects',
         'experience',

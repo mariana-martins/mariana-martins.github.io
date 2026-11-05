@@ -13,6 +13,8 @@ import { SectionNav } from '@components/SectionNav/SectionNav';
 import { ThemeToggle } from '@components/ThemeToggle/ThemeToggle';
 import '@styles/index.css';
 
+import { MAIN_CONTENT_ID } from '@/constants';
+
 export function App(): React.JSX.Element {
   return (
     <div className="relative min-h-screen max-w-6xl mx-8 md:mx-auto flex flex-col gap-2 md:gap-4 md:px-16 justify-center items-center">
@@ -20,7 +22,7 @@ export function App(): React.JSX.Element {
       <ThemeToggle className="md:right-16" />
       <Header />
       <main
-        id="main-content"
+        id={MAIN_CONTENT_ID}
         className="w-full h-full py-10 px-8 rounded-2xl glass-panel"
       >
         <AboutMe />

@@ -1,7 +1,7 @@
 import { describe, expect, it } from '@jest/globals';
 import { render } from '@testing-library/react';
 
-import { buttonTypes, tokenOutputs } from '@/pages/snippets.generated';
+import { buttonTypes, tokenOutputs } from '@/data/pages/snippets.generated';
 
 import { HighlightedCode } from './Article';
 

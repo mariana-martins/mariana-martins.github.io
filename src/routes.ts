@@ -2,6 +2,7 @@ import type React from 'react';
 
 import { App } from '@/App';
 import { PATHS } from '@/constants';
+import { contact } from '@/data/contact';
 
 export interface Route {
   path: string;
@@ -10,7 +11,7 @@ export interface Route {
   load: () => Promise<{ default: React.ComponentType }>;
 }
 
-const SITE_NAME = 'Mariana Martins Menezes';
+const SITE_NAME = contact.name;
 
 export const routes: Route[] = [
   {

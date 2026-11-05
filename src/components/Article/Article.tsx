@@ -3,7 +3,7 @@ import React from 'react';
 import { CountUp } from '@components/CountUp/CountUp';
 
 import { cn } from '@/lib/cn';
-import type { CodeLine } from '@/types';
+import type { CodeLine, FigureImage, Paragraph, Stat } from '@/types';
 
 export function ArticleHeader({
   eyebrow,
@@ -61,21 +61,12 @@ export function ArticleSection({
   );
 }
 
-export function Prose({
-  children,
-}: {
-  children: React.ReactNode;
-}): React.JSX.Element {
+function Prose({ children }: { children: React.ReactNode }): React.JSX.Element {
   return (
     <div className="flex flex-col gap-4 max-w-[65ch] text-base/7 md:text-lg/8 text-pretty">
       {children}
     </div>
   );
-}
-
-export interface Stat {
-  value: string;
-  label: string;
 }
 
 export function StatList({ stats }: { stats: Stat[] }): React.JSX.Element {
@@ -162,13 +153,6 @@ export function CodeBlock({
   );
 }
 
-export interface FigureImage {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-}
-
 export function ImageFigure({
   images,
   caption,
@@ -204,7 +188,42 @@ export function ImageFigure({
   );
 }
 
-export function Code({ children }: { children: string }): React.JSX.Element {
+/** Text with `backticked` spans rendered as inline code, keyed by offset */
+export function InlineText({ text }: { text: Paragraph }): React.JSX.Element {
+  let offset = 0;
+  return (
+    <>
+      {text.split('`').map((part, index) => {
+        const key = offset;
+        offset += part.length + 1;
+        return index % 2 === 1 ? (
+          <Code key={key}>{part}</Code>
+        ) : (
+          <React.Fragment key={key}>{part}</React.Fragment>
+        );
+      })}
+    </>
+  );
+}
+
+/** Each paragraph in a <p>, inside the article's text column */
+export function Paragraphs({
+  paragraphs,
+}: {
+  paragraphs: Paragraph[];
+}): React.JSX.Element {
+  return (
+    <Prose>
+      {paragraphs.map((paragraph) => (
+        <p key={paragraph}>
+          <InlineText text={paragraph} />
+        </p>
+      ))}
+    </Prose>
+  );
+}
+
+function Code({ children }: { children: string }): React.JSX.Element {
   return (
     <code className="px-1.5 py-0.5 rounded-md text-[0.9em] break-words bg-warm-100 dark:bg-indigo-50/60">
       {children}
