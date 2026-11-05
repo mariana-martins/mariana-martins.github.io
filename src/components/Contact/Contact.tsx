@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { CopyText } from '@components/CopyText/CopyText';
 import { SocialLinks } from '@components/SocialLinks/SocialLinks';
 
 import { SECTIONS } from '@/constants';
@@ -19,7 +20,7 @@ export function Contact(): React.JSX.Element {
         {SECTIONS.contact.label}
       </h2>
       <p className="max-w-[52ch] text-base/7 md:text-lg/8 text-balance">
-        {data.contact.invitation}
+        {data.contact.invitation} <CopyText text={data.contact.email} />
       </p>
       <SocialLinks email />
     </section>

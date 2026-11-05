@@ -135,3 +135,23 @@ test.describe('stat cards', () => {
     });
   });
 });
+
+test('the email in "Let’s talk" copies itself on click', async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/');
+  const email = page.getByRole('button', { name: /copy to clipboard/ });
+  const address = (await email.locator('span').first().textContent()) ?? '';
+  expect(address).toMatch(/^\S+@\S+$/);
+
+  await email.click();
+
+  await expect(
+    page.locator('[aria-live="polite"]', { hasText: 'Copied' }),
+  ).toHaveCount(1);
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(
+    address,
+  );
+});
