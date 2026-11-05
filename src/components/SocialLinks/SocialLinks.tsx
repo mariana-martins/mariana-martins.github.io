@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Mail } from 'lucide-react';
+
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
 
@@ -16,13 +18,35 @@ const LINKS = [
   },
 ];
 
+const iconLinkClassName = cn(
+  'flex items-center justify-center size-11 rounded-full',
+  'border-2 border-text-primary/70 text-text-primary hover:bg-warm-100/60',
+  'dark:border-text-primary-dark/70 dark:text-text-primary-dark dark:hover:bg-white/10',
+  'transition-colors duration-200',
+  'focus-ring',
+);
+
 export function SocialLinks({
+  email = false,
   className,
 }: {
+  /** Adds an email icon first, for places with no other email link */
+  email?: boolean;
   className?: string;
 }): React.JSX.Element {
   return (
     <ul className={cn('flex gap-3', className)}>
+      {email && (
+        <li>
+          <a
+            href={`mailto:${data.contact.email}`}
+            aria-label={`Email ${data.contact.email}`}
+            className={iconLinkClassName}
+          >
+            <Mail size={18} aria-hidden="true" />
+          </a>
+        </li>
+      )}
       {LINKS.map(({ label, href, path }) => (
         <li key={label}>
           <a
@@ -30,13 +54,7 @@ export function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${label} (opens in a new tab)`}
-            className={cn(
-              'flex items-center justify-center size-11 rounded-full',
-              'border-2 border-text-primary/70 text-text-primary hover:bg-warm-100/60',
-              'dark:border-text-primary-dark/70 dark:text-text-primary-dark dark:hover:bg-white/10',
-              'transition-colors duration-200',
-              'focus-ring',
-            )}
+            className={iconLinkClassName}
           >
             <svg
               viewBox="0 0 24 24"

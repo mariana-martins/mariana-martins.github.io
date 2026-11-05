@@ -117,9 +117,11 @@ describe('App', () => {
     );
 
     const contact = screen.getByRole('region', { name: 'Let’s talk' });
-    expect(
-      within(contact).getByRole('link', { name: data.contact.email }),
-    ).toHaveAttribute('href', `mailto:${data.contact.email}`);
+    const email = within(contact).getByRole('link', {
+      name: `Email ${data.contact.email}`,
+    });
+    expect(email).toHaveAttribute('href', `mailto:${data.contact.email}`);
+    expect(email).not.toHaveAttribute('target');
     expect(
       within(contact).getByRole('link', { name: /LinkedIn/ }),
     ).toHaveAttribute('href', data.contact.linkedIn);

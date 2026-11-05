@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { ButtonLink } from '@components/ButtonLink/ButtonLink';
 import { SocialLinks } from '@components/SocialLinks/SocialLinks';
-import { Mail } from 'lucide-react';
 
 import { SECTIONS } from '@/constants';
 import { data } from '@/data';
@@ -23,12 +21,7 @@ export function Contact(): React.JSX.Element {
       <p className="max-w-[52ch] text-base/7 md:text-lg/8 text-balance">
         {data.contact.invitation}
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        <ButtonLink href={`mailto:${data.contact.email}`} icon={Mail}>
-          {data.contact.email}
-        </ButtonLink>
-        <SocialLinks />
-      </div>
+      <SocialLinks email />
     </section>
   );
 }
