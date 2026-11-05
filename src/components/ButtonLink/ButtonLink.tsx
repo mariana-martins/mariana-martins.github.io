@@ -36,7 +36,7 @@ export function ButtonLink({
       className={cn(
         'inline-flex items-center justify-center gap-2 min-h-[44px] px-5 rounded-full',
         'text-sm font-medium transition-colors duration-200 touch-manipulation',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+        'focus-ring',
         variants[variant],
         className,
       )}

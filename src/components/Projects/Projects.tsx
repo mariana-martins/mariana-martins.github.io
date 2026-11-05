@@ -12,7 +12,7 @@ import { ProjectCard } from './ProjectCard';
 export function Projects(): React.JSX.Element {
   return (
     <section
-      className="w-full text-text-primary dark:text-text-primary-dark px-2 py-12 border-b-dashed-custom"
+      className="w-full text-body px-2 py-12 border-b-dashed-custom"
       aria-labelledby={SECTIONS.projects.id}
     >
       <h2
@@ -50,8 +50,8 @@ export function Projects(): React.JSX.Element {
           href={PATHS.siteBuild}
           className={cn(
             'inline-flex items-center gap-1.5 min-h-[44px] rounded-sm',
-            'underline underline-offset-4 decoration-1 hover:decoration-2',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+            'link-underline',
+            'focus-ring',
           )}
         >
           how it was built

@@ -15,10 +15,7 @@ import { getAvailableFilters } from '@/lib/picks';
 import { MargotsPicksFilters } from './MargotsPicksFilters';
 import { MargotsPicksSort } from './MargotsPicksSort';
 
-const focusRing = cn(
-  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-  'focus-visible:ring-focus',
-);
+const focusRing = cn('focus-ring');
 
 function EmptyState(): React.JSX.Element {
   return (
@@ -102,7 +99,7 @@ function MargotsPicksContent(): React.JSX.Element {
           'sticky top-0 z-10 flex flex-col gap-4 px-6 pt-6 pb-4',
           // Opaque so scrolled cards never bleed through the header
           'bg-warm-50 dark:bg-blue-300',
-          'border-b border-pink/30 dark:border-blue-100/30',
+          'border-b border-soft',
         )}
       >
         <div className="flex items-start justify-between gap-4">
@@ -240,7 +237,7 @@ export default function MargotsPicksDrawer({
           className={cn(
             'fixed inset-y-0 right-0 z-50 w-full sm:max-w-md overflow-y-auto',
             'glass-panel',
-            'text-text-primary dark:text-text-primary-dark',
+            'text-body',
             'data-[state=open]:animate-slide-in-right',
             'data-[state=closed]:animate-slide-out-right',
           )}

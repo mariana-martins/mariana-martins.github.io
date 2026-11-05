@@ -89,10 +89,7 @@ export function ProjectCard({
         )}
         aria-hidden="true"
       >
-        <CornerIcon
-          size={isFeatured ? 18 : 14}
-          className="text-text-primary dark:text-text-primary-dark"
-        />
+        <CornerIcon size={isFeatured ? 18 : 14} className="text-body" />
       </div>
 
       {/*
@@ -103,7 +100,7 @@ export function ProjectCard({
         <h3
           id={`project-${project.id}-title`}
           className={cn(
-            'font-bold text-text-primary dark:text-text-primary-dark text-balance',
+            'font-bold text-body text-balance',
             isFeatured ? 'text-xl md:text-2xl' : 'text-base md:text-lg',
           )}
         >
@@ -156,8 +153,8 @@ export function ProjectCard({
             rel="noopener noreferrer"
             className={cn(
               'pointer-events-auto inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
-              'underline underline-offset-4 decoration-1 hover:decoration-2',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus rounded-sm',
+              'link-underline',
+              'focus-ring rounded-sm',
             )}
           >
             Code on GitHub

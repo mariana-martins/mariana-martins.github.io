@@ -24,12 +24,12 @@ export class ErrorBoundary extends React.Component<
     }
     const linkClass = cn(
       'min-h-[44px] underline underline-offset-4 rounded-sm',
-      'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+      'focus-ring',
     );
     return (
       <main
         id={MAIN_CONTENT_ID}
-        className="max-w-xl mx-auto my-24 px-6 flex flex-col gap-4 text-center text-text-primary dark:text-text-primary-dark"
+        className="max-w-xl mx-auto my-24 px-6 flex flex-col gap-4 text-center text-body"
       >
         <h1 className="font-heading text-3xl font-medium">
           Something went wrong

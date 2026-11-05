@@ -11,7 +11,7 @@ export function Contact(): React.JSX.Element {
   return (
     <section
       aria-labelledby={SECTIONS.contact.id}
-      className="w-full flex flex-col items-center gap-5 px-2 pt-12 text-center text-text-primary dark:text-text-primary-dark"
+      className="w-full flex flex-col items-center gap-5 px-2 pt-12 text-center text-body"
     >
       <h2
         id={SECTIONS.contact.id}

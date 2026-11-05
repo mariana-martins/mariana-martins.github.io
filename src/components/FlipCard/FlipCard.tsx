@@ -121,7 +121,7 @@ export function FlipCard({
               'hover:bg-pink/30 dark:hover:bg-blue-100/30',
               'text-sm font-medium',
               'transition-colors duration-200',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-focus',
+              'focus-ring',
             )}
             onClick={allRevealed ? onReset : onNext}
           >

@@ -37,8 +37,8 @@ export function MargotsPicksSort({
         aria-label="Sort by"
         className={cn(
           'inline-flex rounded-lg border-2 overflow-hidden',
-          'border-pink/30 dark:border-blue-100/30',
-          'bg-warm-100/50 dark:bg-indigo-50/30',
+          'border-soft',
+          'bg-soft',
         )}
       >
         {SORT_ORDER.map((value) => (
@@ -47,7 +47,7 @@ export function MargotsPicksSort({
             value={value}
             className={cn(
               'px-2.5 min-h-[30px] text-xs font-medium cursor-pointer',
-              'border-l-2 first:border-l-0 border-pink/30 dark:border-blue-100/30',
+              'border-l-2 first:border-l-0 border-soft',
               'hover:bg-warm-100 dark:hover:bg-indigo-50/60',
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
               'focus-visible:ring-focus',

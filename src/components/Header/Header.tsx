@@ -13,7 +13,7 @@ export function Header(): React.JSX.Element {
     <header
       className={cn(
         'w-full pt-16 md:pt-20 pb-10 flex flex-col items-center text-center',
-        'text-text-primary dark:text-text-primary-dark',
+        'text-body',
       )}
     >
       <h1

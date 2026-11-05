@@ -13,11 +13,10 @@ const STATUS_ORDER: PickStatus[] = ['in-progress', 'completed', 'planned'];
 
 const chipClasses = cn(
   'px-3 py-1.5 min-h-[36px] rounded-full text-xs font-medium border-2 cursor-pointer',
-  'border-pink/30 dark:border-blue-100/30',
-  'bg-warm-100/50 dark:bg-indigo-50/30',
+  'border-soft',
+  'bg-soft',
   'hover:border-pink/70 dark:hover:border-blue-100/70',
-  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-  'focus-visible:ring-focus',
+  'focus-ring',
   'transition-colors duration-200 touch-manipulation',
   'aria-pressed:bg-pink/40 aria-pressed:border-pink',
   'dark:aria-pressed:bg-blue-100/30 dark:aria-pressed:border-blue-100',

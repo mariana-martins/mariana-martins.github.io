@@ -9,11 +9,7 @@ export function AboutMe(): React.JSX.Element {
 
   return (
     <section
-      className={cn(
-        'w-full px-2 py-12',
-        'text-text-primary dark:text-text-primary-dark',
-        'border-b-dashed-custom',
-      )}
+      className={cn('w-full px-2 py-12', 'text-body', 'border-b-dashed-custom')}
       aria-labelledby={SECTIONS.about.id}
     >
       <div

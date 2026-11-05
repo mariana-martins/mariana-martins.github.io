@@ -32,7 +32,7 @@ export const ExperienceCard = ({
       data-current={isCurrent || undefined}
       className={cn(
         'scroll-reveal relative pl-6 pb-9 last:pb-0',
-        'border-l-2 border-dashed border-pink/60 dark:border-blue-100/50 last:border-transparent',
+        'border-l-2 border-dashed border-accent last:border-transparent',
       )}
     >
       <p className="relative flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
@@ -84,10 +84,8 @@ export const ExperienceCard = ({
                 'inline-flex items-center gap-1',
                 'hover:underline hover:decoration-pink decoration-2',
                 'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
-                'focus:outline-none focus-visible:underline',
+                'focus-ring focus-visible:underline',
                 'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
-                'focus-visible:ring-2 focus-visible:ring-offset-2',
-                'focus-visible:ring-focus',
                 'transition-colors',
               )}
             >

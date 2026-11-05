@@ -37,7 +37,7 @@ export function PageShell({
         tabIndex={-1}
         className={cn(
           'glass-panel rounded-2xl px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-14 focus:outline-none',
-          'text-text-primary dark:text-text-primary-dark',
+          'text-body',
         )}
       >
         <div className="mb-8">

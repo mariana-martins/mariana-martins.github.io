@@ -10,8 +10,8 @@ export function SiteMark(): React.JSX.Element {
       href={PATHS.home}
       className={cn(
         'inline-flex items-center gap-3 rounded-md min-h-[44px]',
-        'text-text-primary dark:text-text-primary-dark',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+        'text-body',
+        'focus-ring',
       )}
     >
       <span

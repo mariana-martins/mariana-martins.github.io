@@ -77,8 +77,8 @@ export function StatList({ stats }: { stats: Stat[] }): React.JSX.Element {
           key={stat.label}
           className={cn(
             'flex flex-col items-center justify-center gap-1 p-4 rounded-xl text-center',
-            'bg-warm-100/50 dark:bg-indigo-50/30',
-            'border border-pink/30 dark:border-blue-100/30',
+            'bg-soft',
+            'border border-soft',
           )}
         >
           <span className="font-heading text-xl sm:text-2xl md:text-3xl font-medium tabular-nums whitespace-nowrap">
@@ -141,7 +141,7 @@ export function CodeBlock({
         className={cn(
           'overflow-x-auto p-5 rounded-xl text-sm/6',
           'bg-code-bg text-code-text',
-          'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+          'focus-ring',
         )}
       >
         <code>

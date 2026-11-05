@@ -23,8 +23,8 @@ export function Breadcrumb({ items }: { items: Crumb[] }): React.JSX.Element {
                 href={item.href}
                 className={cn(
                   'inline-flex items-center min-h-[44px] px-1 rounded-sm',
-                  'underline underline-offset-4 decoration-1 hover:decoration-2',
-                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-focus',
+                  'link-underline',
+                  'focus-ring',
                 )}
               >
                 {item.label}

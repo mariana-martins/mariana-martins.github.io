@@ -18,7 +18,7 @@ export function LearningShelf(): React.JSX.Element {
 
   return (
     <section
-      className="w-full flex flex-col gap-6 px-2 py-12 items-center text-text-primary dark:text-text-primary-dark"
+      className="w-full flex flex-col gap-6 px-2 py-12 items-center text-body"
       aria-labelledby={SECTIONS.learningShelf.id}
       aria-describedby="learning-shelf-description"
     >

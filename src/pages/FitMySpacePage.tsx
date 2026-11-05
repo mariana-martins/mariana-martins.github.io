@@ -75,7 +75,7 @@ export default function FitMySpacePage(): React.JSX.Element {
           <p
             className={cn(
               'max-w-[65ch] p-4 rounded-xl text-base/7 text-pretty',
-              'border-2 border-dashed border-pink/60 dark:border-blue-100/50',
+              'border-2 border-dashed border-accent',
             )}
           >
             <strong className="font-semibold">
@@ -138,8 +138,8 @@ export default function FitMySpacePage(): React.JSX.Element {
                 key={page}
                 className={cn(
                   'flex flex-col gap-1 p-4 rounded-xl',
-                  'bg-warm-100/50 dark:bg-indigo-50/30',
-                  'border border-pink/30 dark:border-blue-100/30',
+                  'bg-soft',
+                  'border border-soft',
                 )}
               >
                 <p className="font-medium">{page}</p>

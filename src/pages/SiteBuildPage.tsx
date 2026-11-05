@@ -66,7 +66,7 @@ export default function SiteBuildPage(): React.JSX.Element {
               key={era.id}
               className={cn(
                 'relative flex flex-col gap-5 py-10 pl-6 sm:pl-8 md:pl-10',
-                'border-l-2 border-dashed border-pink/60 dark:border-blue-100/50',
+                'border-l-2 border-dashed border-accent',
               )}
             >
               <p className="relative flex items-center min-h-4 text-sm font-medium tracking-widest uppercase">

@@ -44,7 +44,7 @@ export function TagList({
             'inline-flex items-center h-6 px-2.5 rounded-md text-xs',
             // Stronger blue in dark drops the text below 4.5:1
             'bg-pink/20 dark:bg-blue-100/10',
-            'text-text-primary dark:text-text-primary-dark',
+            'text-body',
           )}
         >
           <span aria-hidden="true">+{hidden.length}</span>

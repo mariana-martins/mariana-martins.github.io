@@ -26,7 +26,7 @@ export function FunFacts(): React.JSX.Element {
     <section
       className={cn(
         'w-full h-fit flex flex-col items-center gap-4 px-4 py-12',
-        'text-text-primary dark:text-text-primary-dark',
+        'text-body',
         'border-b-dashed-custom',
       )}
       aria-labelledby={SECTIONS.funFacts.id}

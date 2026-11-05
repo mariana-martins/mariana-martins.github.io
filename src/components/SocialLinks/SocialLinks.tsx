@@ -35,7 +35,7 @@ export function SocialLinks({
               'border-2 border-text-primary/70 text-text-primary hover:bg-warm-100/60',
               'dark:border-text-primary-dark/70 dark:text-text-primary-dark dark:hover:bg-white/10',
               'transition-colors duration-200',
-              'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
+              'focus-ring',
             )}
           >
             <svg

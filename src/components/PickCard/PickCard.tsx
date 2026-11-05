@@ -97,9 +97,7 @@ function PickTitle({ item }: { item: PickItem }): React.JSX.Element {
             'hover:decoration-pink focus:decoration-pink',
             'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
             'dark:focus:decoration-blue-100',
-            'focus:outline-none',
-            'focus-visible:ring-2 focus-visible:ring-offset-2',
-            'focus-visible:ring-focus',
+            'focus-ring',
             'transition-colors duration-200',
           )}
         >
@@ -138,8 +136,7 @@ export function PickCard({
       className={cn(
         'grow flex flex-col @container rounded-2xl ticket-lift',
         'motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-        'focus-visible:ring-focus',
+        'focus-ring',
       )}
     >
       <div

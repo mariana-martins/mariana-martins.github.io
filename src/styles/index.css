@@ -292,6 +292,33 @@
 }
 
 /* --- Utilities --- */
+@utility text-body {
+  @apply text-text-primary dark:text-text-primary-dark;
+}
+
+/* The ring meets 3:1 in both themes (measured in e2e/focus.ts) */
+@utility focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus;
+}
+
+@utility link-underline {
+  @apply underline underline-offset-4 decoration-1 hover:decoration-2;
+}
+
+/* Soft card fill and hairline, used together with `border` */
+@utility bg-soft {
+  @apply bg-warm-100/50 dark:bg-indigo-50/30;
+}
+
+@utility border-soft {
+  @apply border-pink/30 dark:border-blue-100/30;
+}
+
+/* The dashed timeline rail and accent outlines */
+@utility border-accent {
+  @apply border-pink/60 dark:border-blue-100/50;
+}
+
 @utility glass-panel {
   @apply bg-white/50 backdrop-blur-md supports-backdrop-filter:bg-white/40;
   @apply ring-1 ring-slate-900/10 shadow-lg;
@@ -305,8 +332,7 @@
   @apply flex w-full min-h-[44px] items-center justify-center gap-2 p-3 rounded-xl;
   @apply border-2 border-dashed border-pink/50 text-sm text-text-primary/80;
   @apply cursor-pointer touch-manipulation transition-colors duration-300 ease-out;
-  @apply hover:border-pink hover:bg-warm-100/50;
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus;
+  @apply hover:border-pink hover:bg-warm-100/50 focus-ring;
   @variant dark {
     @apply border-blue-100/50 text-text-primary-dark/80;
     @apply hover:border-blue-100 hover:bg-indigo-50/30;
