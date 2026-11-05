@@ -51,6 +51,22 @@ describe.each(pages)('$name', ({ Page, h1 }) => {
     ).toHaveAttribute('href', '#main-content');
   });
 
+  it('shows where the page sits with a breadcrumb', () => {
+    renderPage();
+
+    const breadcrumb = screen.getByRole('navigation', { name: 'Breadcrumb' });
+    const items = within(breadcrumb).getAllByRole('listitem');
+    expect(
+      within(items[0]).getByRole('link', { name: 'Home' }),
+    ).toHaveAttribute('href', '/');
+    const current = items[items.length - 1];
+    expect(within(current).queryByRole('link')).toBeNull();
+    expect(within(current).getByText(h1)).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+  });
+
   it('says when a link opens a new tab', () => {
     renderPage();
 

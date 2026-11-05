@@ -6,7 +6,7 @@ export const projects: Project[] = [
     id: 'fit-my-space',
     title: 'Fit My Space',
     description:
-      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed end to end, from problem framing and visual design in Figma to a Next.js App Router build. Underneath sits its own design system: a three-tier token architecture (primitive, semantic, component) generated with Style Dictionary, and custom components on Radix Primitives documented in Storybook, with accessibility enforced by the types and tested with jest-axe.',
+      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed in Figma and built on the Next.js App Router, on top of its own design system: three tiers of tokens generated with Style Dictionary, and components on Radix Primitives documented in Storybook, with accessibility enforced by the types.',
     technologies: [
       'React',
       'TypeScript',
@@ -32,6 +32,8 @@ export const projects: Project[] = [
     title: 'Frontend Practice Abstract',
     description:
       'A responsive, pixel-perfect recreation of the Abstract help centre design from Frontend Practice, with a modular component architecture and a working search interface with validation, from a five-column desktop layout down to a single-column mobile one.',
+    summary:
+      'A pixel-perfect, responsive recreation of the Abstract help centre, with a working search.',
     technologies: [
       'React',
       'JavaScript',
@@ -48,6 +50,8 @@ export const projects: Project[] = [
     title: 'Contact App',
     description:
       'An accessible address book: add and edit contacts with real-time validation, mark favourites and filter by them, and keep everything in local storage. The layout switches from a data table on larger screens to a card list on mobile, and destructive actions confirm through a Radix AlertDialog that restores focus afterwards.',
+    summary:
+      'An accessible address book with favourites, live validation, and a table that turns into cards on mobile.',
     technologies: [
       'React',
       'JavaScript',

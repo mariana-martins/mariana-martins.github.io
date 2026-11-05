@@ -5,7 +5,6 @@ import { PATHS } from '@/constants';
 
 export interface Route {
   path: string;
-  /** Page-specific first, site name last */
   title: string;
   description: string;
   load: () => Promise<{ default: React.ComponentType }>;
@@ -19,7 +18,6 @@ export const routes: Route[] = [
     title: `${SITE_NAME} | Frontend & Design Engineer`,
     description:
       'Mariana Martins Menezes, Frontend & Design Engineer in Melbourne. Accessible, high-performance React and TypeScript interfaces, design systems and a UI/UX design background.',
-    // Eager: the home page is in the main bundle
     load: () => Promise.resolve({ default: App }),
   },
   {
@@ -33,7 +31,7 @@ export const routes: Route[] = [
     path: PATHS.siteBuild,
     title: `How this site was built | ${SITE_NAME}`,
     description:
-      'Accessibility measured on rendered pixels, React prerendered without a framework, and a third less to download: the engineering behind this portfolio.',
+      'Ten years of one portfolio, from a Bootstrap page in 2016 to a prerendered React site whose accessibility is measured on its rendered pixels.',
     load: () => import('@/pages/SiteBuildPage'),
   },
 ];

@@ -5,6 +5,8 @@ import {
   ArticleSection,
   Code,
   CodeBlock,
+  HighlightedCode,
+  ImageFigure,
   Prose,
   type Stat,
   StatList,
@@ -13,65 +15,46 @@ import { ButtonLink } from '@components/ButtonLink/ButtonLink';
 import { PageShell } from '@components/PageShell/PageShell';
 import { ArrowDown, ExternalLink } from 'lucide-react';
 
-import { SECTIONS } from '@/constants';
+import fillVariants from '@/assets/fitmyspace/fill-variants.webp';
+import outlineVariants from '@/assets/fitmyspace/outline-variants.webp';
+import pseudoStates from '@/assets/fitmyspace/pseudo-states.webp';
+import sagePalette from '@/assets/fitmyspace/sage.webp';
+import { PROJECTS_CRUMB } from '@/constants';
 import { data } from '@/data';
 import { cn } from '@/lib/cn';
+
+import { buttonTypes, tokenOutputs } from './snippets.generated';
 
 const project = data.projects.find(({ id }) => id === 'fit-my-space');
 const GITHUB_URL =
   project?.githubUrl ?? 'https://github.com/mariana-martins/FitMySpace';
+const FIGMA_URL =
+  'https://www.figma.com/design/2vgKu1CEc6b79vwFHLYcFM/FitMySpace-Design-System?node-id=0-1';
 
 interface TokenStep {
   tier: string;
   token: string;
-  output: string;
 }
 
-// Real names and values from the project's token files and generated CSS
+// Real names from the project's token files; their CSS is in snippets.generated.ts
 const TOKEN_STEPS: TokenStep[] = [
   {
     tier: 'Tier 1 · Primitive',
     token: 'color.sage.700',
-    output: '--ds-color-sage-700: #335f3f;',
   },
   {
     tier: 'Tier 2 · Semantic',
     token: 'semantic.color.background.brand.base',
-    output:
-      '--ds-semantic-color-background-brand-base: var(--ds-color-sage-700);',
   },
   {
     tier: 'Tier 3 · Component',
     token: 'component.button.primary.fill.background.default',
-    output:
-      '--ds-component-button-primary-fill-background-default: var(--ds-semantic-color-background-brand-base);',
   },
   {
     tier: 'In use',
     token: 'Button.module.css',
-    output:
-      '.fill-primary { background-color: var(--ds-component-button-primary-fill-background-default); }',
   },
 ];
-
-const BUTTON_TYPES = `type ButtonWithChildren = ButtonBaseProps & {
-  children: ReactNode;
-  'aria-label'?: string;
-};
-
-type ButtonIconOnly = ButtonBaseProps & {
-  children?: never;
-  'aria-label': string; // required: nothing else names the button
-};
-
-export type ButtonProps = ButtonWithChildren | ButtonIconOnly;
-
-// ✗ Type error: property 'aria-label' is missing
-<Button variant="secondary" appearance="outline" size="sm" icon={<Trash2 />} />
-
-// ✓ Compiles
-<Button variant="secondary" appearance="outline" size="sm" icon={<Trash2 />}
-  aria-label="Remove from list" />`;
 
 const QUALITY_STATS: Stat[] = [
   { value: '292', label: 'tests' },
@@ -108,7 +91,9 @@ function TokenFlow(): React.JSX.Element {
                 )}
                 {step.token}
               </p>
-              <code className="text-sm break-all">{step.output}</code>
+              <code className="block px-3 py-2 rounded-md text-sm break-all bg-code-bg text-code-text">
+                <HighlightedCode lines={[tokenOutputs[index]]} />
+              </code>
             </div>
           </li>
         ))}
@@ -124,7 +109,7 @@ function TokenFlow(): React.JSX.Element {
 
 export default function FitMySpacePage(): React.JSX.Element {
   return (
-    <PageShell>
+    <PageShell breadcrumbs={[PROJECTS_CRUMB, { label: 'Fit My Space' }]}>
       <article>
         <ArticleHeader
           eyebrow="Case study"
@@ -150,6 +135,19 @@ export default function FitMySpacePage(): React.JSX.Element {
               View the code on GitHub
               <span className="sr-only"> (opens in a new tab)</span>
             </ButtonLink>
+            <ButtonLink
+              href={FIGMA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="secondary"
+              icon={ExternalLink}
+            >
+              <span>
+                Design system in Figma{' '}
+                <span className="font-normal">(work in progress)</span>
+              </span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </ButtonLink>
           </div>
         </ArticleHeader>
 
@@ -171,6 +169,17 @@ export default function FitMySpacePage(): React.JSX.Element {
             </p>
           </Prose>
           <TokenFlow />
+          <ImageFigure
+            caption="Tier 1 in Storybook: the Sage palette, with the 700 that brand points at."
+            images={[
+              {
+                src: sagePalette,
+                alt: 'Storybook page for the Sage brand palette: ten swatches from Sage 50 to Sage 900, light to dark green, each labelled with its CSS variable, from var(--ds-color-sage-50) to var(--ds-color-sage-900).',
+                width: 640,
+                height: 352,
+              },
+            ]}
+          />
         </ArticleSection>
 
         <ArticleSection id="types" title="Accessibility the compiler enforces">
@@ -190,7 +199,30 @@ export default function FitMySpacePage(): React.JSX.Element {
           </Prose>
           <CodeBlock
             caption="From Button.types.ts, with two usages: the icon-only button without a label does not compile."
-            code={BUTTON_TYPES}
+            lines={buttonTypes}
+          />
+          <ImageFigure
+            caption="The Button in Storybook: six variants, fill and outline, and its interaction states."
+            images={[
+              {
+                src: fillVariants,
+                alt: 'Fill buttons in six variants: Primary, Secondary, Error, Success, Warning and Information.',
+                width: 680,
+                height: 73,
+              },
+              {
+                src: outlineVariants,
+                alt: 'The same six variants as outline buttons.',
+                width: 680,
+                height: 73,
+              },
+              {
+                src: pseudoStates,
+                alt: 'A primary button in four states: default, hover, active, and focus visible with an outer ring.',
+                width: 446,
+                height: 73,
+              },
+            ]}
           />
         </ArticleSection>
 
@@ -242,11 +274,6 @@ export default function FitMySpacePage(): React.JSX.Element {
               typography and the Button.
             </p>
           </Prose>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <ButtonLink href={`/#${SECTIONS.projects.id}`} variant="secondary">
-              Back to projects
-            </ButtonLink>
-          </div>
         </ArticleSection>
       </article>
     </PageShell>

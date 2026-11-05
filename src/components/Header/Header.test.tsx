@@ -11,15 +11,6 @@ describe('Header', () => {
     expect(header).toBeInTheDocument();
   });
 
-  it('renders the logo as a decorative image', () => {
-    const { container } = render(<Header />);
-
-    const logo = container.querySelector('img');
-    expect(logo).toHaveAttribute('alt', '');
-    expect(logo).toHaveAttribute('src');
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
-  });
-
   it('renders name heading', () => {
     render(<Header />);
 

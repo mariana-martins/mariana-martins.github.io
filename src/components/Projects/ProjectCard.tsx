@@ -126,10 +126,16 @@ export function ProjectCard({
       </CardHeader>
 
       <CardContent className="relative z-10">
-        {isFeatured && (
-          <p className="text-sm md:text-base/6 text-text-primary/80 dark:text-text-primary-dark/80 mt-2 text-pretty">
+        {isFeatured ? (
+          <p className="text-sm md:text-base/6 text-text-primary/85 dark:text-text-primary-dark/85 mt-2 text-pretty">
             {project.description}
           </p>
+        ) : (
+          project.summary && (
+            <p className="mt-2 pr-20 md:pr-28 text-sm/6 text-text-primary/85 dark:text-text-primary-dark/85 text-pretty">
+              {project.summary}
+            </p>
+          )
         )}
       </CardContent>
 
@@ -143,14 +149,13 @@ export function ProjectCard({
       </CardFooter>
 
       {hasCaseStudy && project.githubUrl && (
-        // Above the title link's overlay, so it stays clickable
-        <div className="relative z-30 pt-3">
+        <div className="relative z-30 pt-3 pointer-events-none">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-              'inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
+              'pointer-events-auto inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
               'underline underline-offset-4 decoration-1 hover:decoration-2',
               'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus rounded-sm',
             )}

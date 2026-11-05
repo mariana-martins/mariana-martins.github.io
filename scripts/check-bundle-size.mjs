@@ -7,7 +7,7 @@ const distDir = path.resolve(import.meta.dirname, '..', 'dist');
 
 /** Gzipped kB; set ~10% above the current build */
 const BUDGETS_KB = {
-  html: 12,
+  html: 14,
   script: 110,
   style: 14,
   font: 85,

@@ -41,6 +41,10 @@
   --color-text-primary: var(--color-blue-300);
   --color-text-primary-dark: var(--color-warm-50);
 
+  /* Code blocks in both themes; every github-dark colour clears 4.5:1 on it */
+  --color-code-bg: #161b22;
+  --color-code-text: #e6edf3;
+
   /* Not pink: it reaches only ~2:1 on the light background (WCAG asks 3:1) */
   --color-focus: var(--color-blue-300);
 
@@ -293,6 +297,19 @@
   @apply ring-1 ring-slate-900/10 shadow-lg;
   @variant dark {
     @apply bg-white/10 ring-white/10 shadow-black/20;
+  }
+}
+
+/* The dashed "more" box: the Margot's Picks button and the CV link */
+@utility dashed-action {
+  @apply flex w-full min-h-[44px] items-center justify-center gap-2 p-3 rounded-xl;
+  @apply border-2 border-dashed border-pink/50 text-sm text-text-primary/80;
+  @apply cursor-pointer touch-manipulation transition-colors duration-300 ease-out;
+  @apply hover:border-pink hover:bg-warm-100/50;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus;
+  @variant dark {
+    @apply border-blue-100/50 text-text-primary-dark/80;
+    @apply hover:border-blue-100 hover:bg-indigo-50/30;
   }
 }
 

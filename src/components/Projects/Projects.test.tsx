@@ -133,4 +133,23 @@ describe('Projects', () => {
       screen.getByRole('link', { name: 'how it was built' }),
     ).toHaveAttribute('href', '/how-this-site-was-built/');
   });
+
+  it('shows the one-line summary, not the full description, on smaller cards', () => {
+    render(
+      <ProjectCard
+        project={{
+          id: 'small',
+          title: 'Small Project',
+          description: 'The long description.',
+          summary: 'The one-line summary.',
+          technologies: ['React'],
+          githubUrl: 'https://github.com/example/small',
+        }}
+        isFeatured={false}
+      />,
+    );
+
+    expect(screen.getByText('The one-line summary.')).toBeInTheDocument();
+    expect(screen.queryByText('The long description.')).not.toBeInTheDocument();
+  });
 });

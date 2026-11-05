@@ -109,22 +109,23 @@ describe('App', () => {
     });
   });
 
-  it('renders ContactInfo section with contact details', () => {
+  it('closes with a way to get in touch', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    const sayHiElements = screen.getAllByText('Say Hi!');
-    expect(sayHiElements.length).toBeGreaterThanOrEqual(1);
-    const contact = screen.getByRole('region', { name: 'Say Hi!' });
-    expect(within(contact).getByText(data.contact.address)).toBeInTheDocument();
-
-    const emailLink = screen.getByRole('link', {
-      name: new RegExp(data.contact.email, 'i'),
-    });
-    expect(emailLink).toBeInTheDocument();
+    const contact = screen.getByRole('region', { name: 'Let’s talk' });
+    expect(
+      within(contact).getByRole('link', { name: data.contact.email }),
+    ).toHaveAttribute('href', `mailto:${data.contact.email}`);
+    expect(
+      within(contact).getByRole('link', { name: /LinkedIn/ }),
+    ).toHaveAttribute('href', data.contact.linkedIn);
+    expect(
+      within(contact).getByRole('link', { name: /GitHub/ }),
+    ).toHaveAttribute('href', data.contact.github);
   });
 
   it('renders FunFacts section with trivia game', () => {

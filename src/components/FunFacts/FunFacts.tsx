@@ -43,7 +43,7 @@ export function FunFacts(): React.JSX.Element {
         {revealedCount} of {totalFacts} revealed
       </p>
 
-      <div className="relative w-full">
+      <div className="relative w-full max-w-md">
         {/* Keyed so each fact gets a fresh, unrotated card */}
         <div
           key={shown.id}

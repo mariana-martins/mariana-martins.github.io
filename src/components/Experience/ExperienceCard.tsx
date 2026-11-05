@@ -8,8 +8,7 @@ import { cn } from '@/lib/cn';
 import { formatDate, formatDuration } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
 
-/** Two lines of tags in the narrow column */
-const MAX_VISIBLE_TECHNOLOGIES = 5;
+const MAX_VISIBLE_TECHNOLOGIES = 3;
 
 export interface ExperienceCardProps {
   experience: ExperienceType;
@@ -32,17 +31,21 @@ export const ExperienceCard = ({
       data-testid="experience-entry"
       data-current={isCurrent || undefined}
       className={cn(
-        'scroll-reveal group',
-        'pl-4 pt-5 first:pt-0 pb-5',
-        'border-l-2',
-        isCurrent
-          ? 'border-l-pink dark:border-l-blue-100'
-          : 'border-l-transparent',
-        'border-b border-b-pink/20 dark:border-b-blue-100/20',
-        'last:border-b-0 last:pb-0',
+        'scroll-reveal relative pl-6 pb-9 last:pb-0',
+        'border-l-2 border-dashed border-pink/60 dark:border-blue-100/50 last:border-transparent',
       )}
     >
-      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+      <p className="relative flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+        <span
+          aria-hidden="true"
+          className={cn(
+            'absolute -left-[31px] top-1/2 -translate-y-1/2 size-3 rounded-full',
+            'border-2 border-pink dark:border-blue-100',
+            isCurrent
+              ? 'bg-pink dark:bg-blue-100'
+              : 'bg-warm-50 dark:bg-indigo-200',
+          )}
+        />
         <span className="tabular-nums text-muted">{dateRange}</span>
         {duration !== null && (
           <>

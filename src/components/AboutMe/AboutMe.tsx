@@ -10,9 +10,8 @@ export function AboutMe(): React.JSX.Element {
   return (
     <section
       className={cn(
-        'col-start-1 h-full px-2 py-12',
+        'w-full px-2 py-12',
         'text-text-primary dark:text-text-primary-dark',
-        'md:col-span-full md:row-start-1',
         'border-b-dashed-custom',
       )}
       aria-labelledby="about-me-heading"

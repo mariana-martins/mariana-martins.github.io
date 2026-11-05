@@ -162,12 +162,22 @@ function collectTextRuns({
   };
 
   // sr-only text lays out full size; an ancestor clips it
-  const isClippedAway = (element: Element): boolean => {
+  // Also skips text cut off by a scrolling container, like the end of a long
+  // line in a code block: it is not on screen, whatever its box says
+  const isClippedAway = (element: Element, run: DOMRect): boolean => {
     for (let node: Element | null = element; node; node = node.parentElement) {
       const box = node.getBoundingClientRect();
       const style = window.getComputedStyle(node);
       const clipsOverflow = style.overflow !== 'visible';
       if (clipsOverflow && (box.width <= 1 || box.height <= 1)) {
+        return true;
+      }
+      const outside =
+        run.left < box.left - 1 ||
+        run.right > box.right + 1 ||
+        run.top < box.top - 1 ||
+        run.bottom > box.bottom + 1;
+      if (clipsOverflow && outside) {
         return true;
       }
       if (style.clipPath === 'inset(50%)') {
@@ -198,7 +208,7 @@ function collectTextRuns({
     const range = document.createRange();
     range.selectNodeContents(node);
     const rect = range.getBoundingClientRect();
-    if (rect.width < 2 || rect.height < 2 || isClippedAway(element)) {
+    if (rect.width < 2 || rect.height < 2 || isClippedAway(element, rect)) {
       continue;
     }
     const inViewport =

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AboutMe } from '@components/AboutMe/AboutMe';
-import { ContactInfo } from '@components/ContactInfo/ContactInfo';
+import { Contact } from '@components/Contact/Contact';
 import { Experience } from '@components/Experience/Experience';
 import { Footer } from '@components/Footer/Footer';
 import { FunFacts } from '@components/FunFacts/FunFacts';
@@ -17,22 +17,22 @@ export function App(): React.JSX.Element {
   return (
     <div className="relative min-h-screen max-w-6xl mx-8 md:mx-auto flex flex-col gap-2 md:gap-4 md:px-16 justify-center items-center">
       <SectionNav />
-      <ThemeToggle />
+      <ThemeToggle className="md:right-16" />
       <Header />
       <main
         id="main-content"
         className="w-full h-full py-10 px-8 rounded-2xl glass-panel"
       >
-        <div className="grid grid-cols-1 items-center w-full h-full border-b-dashed-custom md:grid-cols-2 md:gap-x-6">
-          <AboutMe />
+        <AboutMe />
+        <Projects />
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-6 border-b-dashed-custom">
           <Experience />
-          <div className="md:col-start-2 md:row-start-2 self-stretch flex flex-col h-full">
-            <ContactInfo />
+          <div className="flex flex-col">
             <FunFacts />
             <LearningShelf />
           </div>
         </div>
-        <Projects />
+        <Contact />
       </main>
       <MargotsPicks />
       <Footer />

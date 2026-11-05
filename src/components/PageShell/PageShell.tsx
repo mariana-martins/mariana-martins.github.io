@@ -1,22 +1,25 @@
 import React from 'react';
 
+import { Breadcrumb, type Crumb } from '@components/Breadcrumb/Breadcrumb';
 import { Footer } from '@components/Footer/Footer';
+import { SiteMark } from '@components/SiteMark/SiteMark';
 import { ThemeToggle } from '@components/ThemeToggle/ThemeToggle';
-import { ArrowLeft } from 'lucide-react';
 
 import { PATHS } from '@/constants';
 import { cn } from '@/lib/cn';
 
 const MAIN_ID = 'main-content';
 
-/** Layout for every page except home, which has its own */
 export function PageShell({
+  breadcrumbs,
   children,
 }: {
+  /** Home is added first */
+  breadcrumbs: Crumb[];
   children: React.ReactNode;
 }): React.JSX.Element {
   return (
-    <div className="relative min-h-screen max-w-4xl mx-6 md:mx-auto md:px-12 flex flex-col gap-4">
+    <div className="relative min-h-screen max-w-4xl mx-3 sm:mx-6 md:mx-auto md:px-12 flex flex-col gap-4">
       <a
         href={`#${MAIN_ID}`}
         className={cn(
@@ -27,30 +30,23 @@ export function PageShell({
       >
         Skip to content
       </a>
-      <ThemeToggle />
-      <header className="pt-10 pr-16 text-text-primary dark:text-text-primary-dark">
-        <a
-          href={PATHS.home}
-          className={cn(
-            'inline-flex items-center gap-2 min-h-[44px] rounded-md',
-            'font-heading text-lg tracking-[0.15rem] uppercase',
-            'underline decoration-2 underline-offset-4 decoration-transparent hover:decoration-current',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-focus',
-          )}
-        >
-          <ArrowLeft size={18} aria-hidden="true" />
-          Mariana Martins Menezes
-          <span className="sr-only">, home</span>
-        </a>
+      <ThemeToggle className="md:right-12" />
+      <header className="pt-6 pr-16">
+        <SiteMark />
       </header>
       <main
         id={MAIN_ID}
         tabIndex={-1}
         className={cn(
-          'glass-panel rounded-2xl px-6 py-10 md:px-12 md:py-14 focus:outline-none',
+          'glass-panel rounded-2xl px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-14 focus:outline-none',
           'text-text-primary dark:text-text-primary-dark',
         )}
       >
+        <div className="mb-8">
+          <Breadcrumb
+            items={[{ label: 'Home', href: PATHS.home }, ...breadcrumbs]}
+          />
+        </div>
         {children}
       </main>
       <Footer />

@@ -2,21 +2,18 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  summary?: string;
   technologies: string[];
   githubUrl?: string;
-  /** Site path; when set, the card opens the case study */
   caseStudyPath?: string;
 }
 
 export interface Experience {
   id: string;
-  /** Omitted for independent work */
   company?: string;
   website?: string;
   position: string;
-  /** "YYYY-MM" */
   startDate: string;
-  /** "YYYY-MM"; undefined for the current role */
   endDate?: string;
   description: string;
   technologies: string[];
@@ -49,13 +46,10 @@ interface PickBase {
   id: string;
   title: string;
   status: PickStatus;
-  /** Only meaningful when status === 'completed' */
   rating?: PickRating;
-  /** "YYYY-MM" when finished; drives the "recent first" sort */
   finishedAt?: string;
   note?: string;
   link?: string;
-  /** Shown on the Learning Shelf, up to LEARNING_SHELF_LIMIT */
   featured?: boolean;
 }
 
@@ -84,3 +78,5 @@ export interface PortfolioData {
   funFacts: FunFact[];
   picks: PickItem[];
 }
+
+export type CodeLine = Array<[text: string, color: string]>;
