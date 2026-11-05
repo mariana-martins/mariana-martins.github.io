@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
 
 import { Root } from '@/Root';
+import { findRoute } from '@/routes';
 
 /**
  * Displays an error message if the root element is not found.
@@ -26,9 +27,16 @@ if (!rootElement) {
   showRootElementError();
 }
 
-// Production HTML is prerendered; the dev server serves an empty root
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrateRoot(rootElement, <Root />);
-} else {
-  ReactDOM.createRoot(rootElement).render(<Root />);
+async function start(root: HTMLElement): Promise<void> {
+  // Load the page before hydrating, so the first render matches the HTML
+  const { default: Page } = await findRoute(window.location.pathname).load();
+
+  // Production HTML is prerendered; the dev server serves an empty root
+  if (root.hasChildNodes()) {
+    ReactDOM.hydrateRoot(root, <Root page={Page} />);
+  } else {
+    ReactDOM.createRoot(root).render(<Root page={Page} />);
+  }
 }
+
+void start(rootElement);

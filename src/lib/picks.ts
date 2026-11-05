@@ -26,7 +26,6 @@ export const PICK_SORT_LABELS: Record<PickSort, string> = {
   alpha: 'A to Z',
 };
 
-/** Separator between a creator and a platform or year in the credit line */
 const CREDIT_SEPARATOR = ' · ';
 
 export interface PickCategoryFilterGroup {
@@ -35,7 +34,7 @@ export interface PickCategoryFilterGroup {
   categories: PickCategory[];
 }
 
-/** Chips in display order; each one may cover more than one category */
+/** In display order */
 export const PICK_CATEGORY_FILTERS: PickCategoryFilterGroup[] = [
   { value: 'book', label: 'Book', categories: ['book'] },
   { value: 'audiobook', label: 'Audiobook', categories: ['audiobook'] },
@@ -50,16 +49,10 @@ function categoriesFor(
   return group === undefined ? [] : group.categories;
 }
 
-/** Sentinel for picks with no rating; sorts below every real score */
 const NO_RATING = 0;
-/** Sentinel for picks with no finish date; sorts below every real date */
 const NO_DATE = '';
 
-/**
- * Who gets the credit line under the title. Each category names its
- * creator differently, so the switch is exhaustive on purpose: adding a
- * category without a subtitle fails to compile.
- */
+/** Exhaustive on purpose: a new category without a subtitle fails to compile */
 export function getPickSubtitle(item: PickItem): string {
   switch (item.category) {
     case 'book':
@@ -101,11 +94,7 @@ export function filterPicks(
   return result;
 }
 
-/**
- * Returns a new sorted array; never mutates the input.
- * Picks missing the sort key (no date, no rating) sink to the bottom so the
- * list never leads with blanks.
- */
+/** Returns a new array. Picks missing the sort key sink to the bottom. */
 export function sortPicks(picks: PickItem[], sort: PickSort): PickItem[] {
   const sorted = [...picks];
 
@@ -136,10 +125,7 @@ function byRatingDescending(first: PickItem, second: PickItem): number {
   return secondRating - firstRating;
 }
 
-/**
- * "Recent first" reads as a timeline: what is being read now, then what was
- * finished (newest first), then what is still to come.
- */
+/** In progress, then completed (newest first), then planned */
 const RECENT_STATUS_ORDER: Record<PickStatus, number> = {
   'in-progress': 0,
   completed: 1,
@@ -162,7 +148,6 @@ function byFinishDateDescending(first: PickItem, second: PickItem): number {
   return secondDate.localeCompare(firstDate);
 }
 
-/** The picks flagged for the main page, in data order, capped at `limit` */
 export function getFeaturedPicks(picks: PickItem[], limit: number): PickItem[] {
   const featured: PickItem[] = [];
   for (const pick of picks) {
@@ -176,7 +161,6 @@ export function getFeaturedPicks(picks: PickItem[], limit: number): PickItem[] {
   return featured;
 }
 
-/** Chips whose categories actually have picks, in display order */
 export function getAvailableFilters(
   picks: PickItem[],
 ): PickCategoryFilterGroup[] {

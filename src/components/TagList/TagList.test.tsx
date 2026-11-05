@@ -33,7 +33,6 @@ describe('TagList', () => {
       <TagList technologies={technologies} label="Technologies used" max={2} />,
     );
 
-    // The "+3" is decorative; the names it stands for are still readable
     const list = screen.getByRole('list', { name: 'Technologies used' });
     expect(list).toHaveTextContent('Vite, Jest, Axe');
     expect(screen.getByText('+3')).toHaveAttribute('aria-hidden', 'true');

@@ -2,30 +2,24 @@ import type { Experience } from '@/types';
 
 export const experience: Experience[] = [
   {
-    id: 'independent-design-systems-career-break',
-    company: 'Career Break',
-    position: 'Independent Design Systems & Frontend Work',
+    id: 'independent-product-design-systems',
+    position: 'Independent Product & Design Systems Work',
     startDate: '2024-05',
     endDate: undefined, // ongoing
     description:
-      'Stepped back from full-time work in May 2024 and moved from New Zealand to Melbourne in March 2026, using the time to go deep on design systems, accessibility and AI-assisted development. Designed and built FitMySpace end to end, from Penpot and Figma to Next.js, with a three-tier token architecture in Style Dictionary and custom components on Radix Primitives. Uses Claude Code and Cursor daily while owning the architecture and reviewing what ships.',
+      'Designed and built FitMySpace end to end, with a three-tier token pipeline in Style Dictionary and components on Radix primitives. Also designed and built this site.',
     technologies: [
+      'Next.js',
       'React',
       'TypeScript',
-      'Next.js',
-      'TanStack Query',
-      'Style Dictionary',
-      'Design Tokens',
-      'Radix UI',
-      'Storybook',
       'Tailwind CSS',
-      'CSS Modules',
+      'TanStack Query',
+      'Zod',
+      'Style Dictionary',
+      'Radix UI',
+      'Jest',
+      'jest-axe',
       'Vite',
-      'Motion',
-      'Penpot',
-      'Claude',
-      'Gemini',
-      'Atomic Design',
     ],
   },
   {
@@ -36,7 +30,7 @@ export const experience: Experience[] = [
     startDate: '2021-07',
     endDate: '2024-04',
     description:
-      "Built B2B onboarding flows for Remote's global Employer of Record platform with React, TypeScript, Next.js, and TanStack Query. Migrated legislation-aware forms from Formik to a backend-owned JSON Schema architecture, root-caused production incidents in Sentry and Datadog, and worked on the Accessibility team toward WCAG 2.1 compliance.",
+      'Built onboarding flows for a global Employer of Record platform, moved legislation-aware forms to a JSON Schema architecture, and audited components for WCAG 2.1 on the Accessibility team.',
     technologies: [
       'React',
       'TypeScript',
@@ -63,7 +57,7 @@ export const experience: Experience[] = [
     startDate: '2021-01',
     endDate: '2021-06',
     description:
-      "Promoted to Frontend Developer within ten months, recognised for the interface and user experience work on the new flagship product. Led the frontend side of the company's first Design System alongside the lead designer, deciding which components to rebuild, in what order and how each was structured, and acted as the bridge between design and engineering, designing components in Figma and architecting them in code.",
+      'Promoted after ten months. Led the frontend side of the company’s first design system, designing components in Figma and then building them.',
     technologies: [
       'React',
       'TypeScript',
@@ -87,7 +81,7 @@ export const experience: Experience[] = [
     startDate: '2020-03',
     endDate: '2021-01',
     description:
-      "Helped build the new flagship Budgeting & Forecasting product from the ground up, developing reusable React components from scratch. Led frontend experience and layout decisions for the module, pairing with the product designer and design lead and presenting the interface directly to the company's founders, and contributed to a testing suite that measurably reduced production defects.",
+      'Helped build the Budgeting & Forecasting product from scratch, leading its frontend layout and presenting the interface to the company’s founders.',
     technologies: [
       'React',
       'TypeScript',
@@ -109,7 +103,7 @@ export const experience: Experience[] = [
     startDate: '2018-10',
     endDate: '2020-03',
     description:
-      'Translated high-fidelity Figma designs into polished, brand-consistent, responsive e-commerce interfaces on Magento 2, for a high-traffic retail platform serving Australia, the UK and New Zealand. Worked across a large, established front end in JavaScript, Less and Jasmine, with regular exposure to the PHP backend and small backend changes where a task needed them.',
+      'Turned Figma designs into responsive e-commerce interfaces on Magento 2, for a retail platform serving Australia, the UK and New Zealand.',
     technologies: [
       'Magento 2',
       'JavaScript',
@@ -122,16 +116,5 @@ export const experience: Experience[] = [
       'CSS3',
       'Google Tag Manager',
     ],
-  },
-  {
-    id: 'chingu-frontend',
-    company: 'Chingu',
-    website: 'https://www.chingu.io/',
-    position: 'Frontend Developer',
-    startDate: '2017-12',
-    endDate: '2018-01',
-    description:
-      'Built a responsive web application for a non-profit, Husky Rescue, with React and Sass, as part of a remote, cross-functional cohort team.',
-    technologies: ['React', 'Sass', 'Responsive Design'],
   },
 ];

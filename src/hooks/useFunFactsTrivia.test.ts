@@ -3,7 +3,6 @@ import { act, renderHook } from '@testing-library/react';
 
 import { useFunFactsTrivia } from './useFunFactsTrivia';
 
-// Mock the data module
 jest.mock('@/data', () => {
   return {
     data: {
@@ -61,7 +60,6 @@ describe('useFunFactsTrivia', () => {
   it('does not duplicate revealed id when revisiting a revealed fact', () => {
     const { result } = renderHook(() => useFunFactsTrivia());
 
-    // Reveal first fact
     act(() => {
       result.current.handleFlip();
     });
@@ -117,10 +115,8 @@ describe('useFunFactsTrivia', () => {
       result.current.handleNext();
     });
 
-    // Before timeout, shouldAutoFocus is still false
     expect(result.current.shouldAutoFocus).toBe(false);
 
-    // Advance timer past the 100ms delay
     act(() => {
       jest.advanceTimersByTime(150);
     });
@@ -144,7 +140,6 @@ describe('useFunFactsTrivia', () => {
   it('handleNext wraps around to first fact', () => {
     const { result } = renderHook(() => useFunFactsTrivia());
 
-    // Navigate through all facts
     act(() => {
       result.current.handleNext();
       jest.advanceTimersByTime(150);
@@ -158,14 +153,12 @@ describe('useFunFactsTrivia', () => {
       jest.advanceTimersByTime(150);
     });
 
-    // Should wrap back to first fact
     expect(result.current.currentFact.id).toBe('fact-1');
   });
 
   it('handleReset resets all state', () => {
     const { result } = renderHook(() => useFunFactsTrivia());
 
-    // Set up some state
     act(() => {
       result.current.handleFlip();
       result.current.handleNext();

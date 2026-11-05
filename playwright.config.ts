@@ -2,11 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 const PORT = 4173;
 
-/**
- * Browser checks that jsdom cannot do: colour contrast, real layout and
- * focus visibility. Runs against the production build (`vite preview`), so
- * build first - `npm run test:e2e` does both.
- */
+// Runs against the production build: use `npm run test:e2e`, which builds first
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -15,7 +11,7 @@ export default defineConfig({
   reporter: process.env.CI ? 'github' : 'list',
   use: {
     baseURL: `http://localhost:${PORT}`,
-    // Entrance animations start at opacity 0; contrast must be read at rest
+    // Read contrast at rest, not mid-animation
     reducedMotion: 'reduce',
     trace: 'retain-on-failure',
   },

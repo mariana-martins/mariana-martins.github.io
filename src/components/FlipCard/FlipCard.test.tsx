@@ -114,7 +114,6 @@ describe('FlipCard', () => {
       />,
     );
 
-    // The answer should be in the document
     expect(screen.getByText(mockFunFact.fact)).toBeInTheDocument();
   });
 
@@ -213,7 +212,6 @@ describe('FlipCard', () => {
     });
     expect(questionButton).not.toHaveAttribute('inert');
 
-    // The live region should exist for screen reader announcements
     const liveRegion = container.querySelector('[aria-live="polite"]');
     expect(liveRegion).toBeInTheDocument();
   });
@@ -246,8 +244,7 @@ describe('FlipCard', () => {
       />,
     );
 
-    // The question is turned away: out of the accessibility tree and out
-    // of keyboard reach, which CSS backface visibility alone cannot do
+    // backface-visibility hides it visually; inert hides it from AT and keyboard
     const question = screen.getByText(/What is your favorite color\?/i);
     expect(question.closest('button')).toHaveAttribute('inert');
 
@@ -326,7 +323,6 @@ describe('FlipCard', () => {
         />,
       );
 
-      // Advance timers to trigger the focus effect
       jest.advanceTimersByTime(150);
 
       expect(mockOnAutoFocusComplete).toHaveBeenCalledTimes(1);

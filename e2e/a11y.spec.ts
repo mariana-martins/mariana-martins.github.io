@@ -1,21 +1,19 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, type Page, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 import { findLowContrastText } from './contrast';
+import { expect, test } from './fixtures';
 import { findWeakFocusIndicators } from './focus';
 
-/**
- * jest-axe runs in jsdom, which has no layout and no computed colours, so
- * it skips colour contrast entirely. These run in a real browser, in both
- * themes, where contrast and focus visibility can actually be measured.
- *
- * axe still leaves most text here unjudged (gradients, backdrop blur and
- * pseudo-element borders make it give up), and it does not judge focus
- * indicators at all, so both are also measured on rendered pixels - see
- * ./contrast.ts and ./focus.ts.
- */
+// jsdom has no layout or colours, so contrast and focus are checked here
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
+
+const SUBPAGES = [
+  '/projects/fit-my-space/',
+  '/how-this-site-was-built/',
+  '/a-page-that-does-not-exist/',
+];
 
 function scan(page: Page): AxeBuilder {
   return new AxeBuilder({ page }).withTags(WCAG_TAGS);
@@ -23,7 +21,6 @@ function scan(page: Page): AxeBuilder {
 
 for (const theme of ['light', 'dark'] as const) {
   test.describe(`${theme} theme`, () => {
-    // A fresh context has no stored theme, so the system preference decides
     test.use({ colorScheme: theme });
 
     test.beforeEach(async ({ page }) => {
@@ -85,5 +82,26 @@ for (const theme of ['light', 'dark'] as const) {
     }) => {
       expect(await findWeakFocusIndicators(page)).toEqual([]);
     });
+
+    for (const path of SUBPAGES) {
+      test.describe(path, () => {
+        test.beforeEach(async ({ page }) => {
+          await page.goto(path);
+        });
+
+        test('has no WCAG violations', async ({ page }) => {
+          const { violations } = await scan(page).analyze();
+          expect(violations).toEqual([]);
+        });
+
+        test('all visible text meets contrast', async ({ page }) => {
+          expect(await findLowContrastText(page)).toEqual([]);
+        });
+
+        test('every Tab stop shows a focus indicator', async ({ page }) => {
+          expect(await findWeakFocusIndicators(page)).toEqual([]);
+        });
+      });
+    }
   });
 }

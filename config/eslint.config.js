@@ -9,7 +9,6 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-// Read Prettier config
 const prettierConfigPath = join(import.meta.dirname, '.prettierrc');
 const prettierOptions = JSON.parse(readFileSync(prettierConfigPath, 'utf-8'));
 
@@ -43,16 +42,13 @@ export default [
       prettier,
     },
     rules: {
-      // Prettier integration
       'prettier/prettier': ['error', prettierOptions],
 
-      // React Refresh
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
 
-      // TypeScript rules
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/explicit-function-return-type': [
@@ -81,7 +77,6 @@ export default [
       '@typescript-eslint/await-thenable': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
 
-      // General rules
       'no-console': 'warn',
       'no-debugger': 'error',
       'no-unused-vars': 'off',
@@ -90,7 +85,6 @@ export default [
       eqeqeq: ['error', 'always'],
       curly: ['error', 'all'],
 
-      // React rules
       'react/prop-types': 'off',
       'react/jsx-key': 'error',
       'react/jsx-no-duplicate-props': 'error',
@@ -101,7 +95,6 @@ export default [
       'react/no-unescaped-entities': 'error',
       'react/self-closing-comp': 'error',
 
-      // React Hooks rules
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
     },
@@ -175,7 +168,7 @@ export default [
     },
   },
   {
-    // Build scripts run in Node; page.evaluate callbacks run in the browser
+    // `document` is for page.evaluate callbacks
     files: ['scripts/**/*.mjs'],
     languageOptions: {
       ecmaVersion: 'latest',

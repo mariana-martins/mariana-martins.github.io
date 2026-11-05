@@ -4,7 +4,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
-// Mock the data module
 jest.mock('@/data', () => {
   const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
@@ -40,7 +39,6 @@ describe('FunFacts', () => {
     });
     await user.click(card);
 
-    // After flip, progress should update
     expect(screen.getByText(/1 of \d+ revealed/)).toBeInTheDocument();
   });
 
@@ -79,11 +77,9 @@ describe('FunFacts', () => {
       name: /Question:.*Reveal the answer/i,
     });
 
-    // Focus the card
     card.focus();
     expect(card).toHaveFocus();
 
-    // Press Enter to flip
     await user.keyboard('{Enter}');
     expect(screen.getByText(/1 of \d+ revealed/)).toBeInTheDocument();
   });

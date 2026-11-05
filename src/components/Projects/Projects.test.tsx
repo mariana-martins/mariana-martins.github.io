@@ -1,9 +1,9 @@
+import { ProjectCard } from '@components/Projects/ProjectCard';
 import { Projects } from '@components/Projects/Projects';
 import { describe, expect, it } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-// Mock the data module
 jest.mock('@/data', () => {
   const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
@@ -28,7 +28,6 @@ describe('Projects', () => {
   it('renders featured project description', () => {
     render(<Projects />);
 
-    // Only the featured (first) project shows its description
     expect(
       screen.getByText('A single-page contact list application.'),
     ).toBeInTheDocument();
@@ -82,7 +81,6 @@ describe('Projects', () => {
   it('renders technologies/Tags for each project', () => {
     render(<Projects />);
 
-    // Use getAllByText since React appears multiple times
     const reactTags = screen.getAllByText('React');
     expect(reactTags.length).toBeGreaterThan(0);
     expect(screen.getByText('JavaScript')).toBeInTheDocument();
@@ -101,5 +99,57 @@ describe('Projects', () => {
     const { container } = render(<Projects />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+
+  it('opens the case study when a project has one, with the code as a second link', () => {
+    render(
+      <ProjectCard
+        project={{
+          id: 'case',
+          title: 'Case Project',
+          description: 'A project with a write-up.',
+          technologies: ['React'],
+          githubUrl: 'https://github.com/example/case',
+          caseStudyPath: '/projects/case/',
+        }}
+        isFeatured
+      />,
+    );
+
+    const title = screen.getByRole('link', {
+      name: /^Case Project\s*, case study$/,
+    });
+    expect(title).toHaveAttribute('href', '/projects/case/');
+    expect(title).not.toHaveAttribute('target');
+    expect(
+      screen.getByRole('link', { name: /Code on GitHub for Case Project/ }),
+    ).toHaveAttribute('href', 'https://github.com/example/case');
+  });
+
+  it('links to how this site was built', () => {
+    render(<Projects />);
+
+    expect(
+      screen.getByRole('link', { name: 'how it was built' }),
+    ).toHaveAttribute('href', '/how-this-site-was-built/');
+  });
+
+  it('shows the one-line summary, not the full description, on smaller cards', () => {
+    render(
+      <ProjectCard
+        project={{
+          id: 'small',
+          title: 'Small Project',
+          description: 'The long description.',
+          summary: 'The one-line summary.',
+          technologies: ['React'],
+          githubUrl: 'https://github.com/example/small',
+        }}
+        isFeatured={false}
+      />,
+    );
+
+    expect(screen.getByText('The one-line summary.')).toBeInTheDocument();
+    expect(screen.queryByText('The long description.')).not.toBeInTheDocument();
   });
 });

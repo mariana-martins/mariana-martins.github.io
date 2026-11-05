@@ -21,7 +21,6 @@ export function useFunFactsTrivia(): UseFunFactsTriviaReturn {
   const [revealedIds, setRevealedIds] = useState<string[]>([]);
   const [isFlipped, setIsFlipped] = useState(false);
   const [shouldAutoFocus, setShouldAutoFocus] = useState(false);
-  // Pending "next fact" swap; cleared on unmount so it never sets state late
   const nextTimeoutRef = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(nextTimeoutRef.current), []);

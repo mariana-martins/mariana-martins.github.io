@@ -14,10 +14,8 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // The name is split into characters with spaces, so we need to query differently
     const heading = screen.getByRole('heading', { level: 1 });
     expect(heading).toBeInTheDocument();
-    // Normalize all whitespace (including non-breaking spaces) and remove spaces between characters
     const normalizedText = heading.textContent
       ?.replace(/\s+/g, ' ')
       .replace(/\s/g, '')
@@ -26,16 +24,16 @@ describe('App', () => {
       .replace(/\s/g, '')
       .toLowerCase();
     expect(normalizedText).toContain(expectedText);
-    // The job title is not a heading: it labels no section. Every level 2
-    // heading belongs to a real section of the page.
+    // The job title is not a heading: it labels no section
     const sectionHeadings = screen
       .getAllByRole('heading', { level: 2 })
       .map((h) => h.textContent);
-    expect(sectionHeadings).not.toContain('Frontend Engineer');
+    expect(sectionHeadings).not.toContain('Frontend & Design Engineer');
 
-    // It is still there in the header, just not as a heading
     const banner = screen.getByRole('banner');
-    expect(within(banner).getByText('Frontend Engineer')).toBeInTheDocument();
+    expect(
+      within(banner).getByText('Frontend & Design Engineer'),
+    ).toBeInTheDocument();
   });
 
   it('renders main content area', () => {
@@ -56,7 +54,6 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // Find the paragraph in the AboutMe section and check its textContent
     const aboutMeSection = container.querySelector(
       'section[aria-labelledby="about-me-heading"]',
     );
@@ -88,18 +85,15 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // Section label appears twice (in SectionNav and in section heading)
     const pastChaptersElements = screen.getAllByText('Past Chapters');
     expect(pastChaptersElements.length).toBeGreaterThanOrEqual(1);
 
     data.experience.forEach((experience) => {
-      // Escape special regex characters in position and company
       const escapedPosition = experience.position.replace(
         /[.*+?^${}()|[\]\\]/g,
         '\\$&',
       );
-      // Each entry renders its position as a heading, with the company below it.
-      // Use ^ and $ to avoid partial matches (e.g., "Junior Frontend Developer" matching "Frontend Developer")
+      // Anchored, or "Frontend Developer" also matches the Junior role
       const headings = screen.getAllByRole('heading', {
         level: 3,
         name: new RegExp(`^${escapedPosition}$`, 'i'),
@@ -109,30 +103,29 @@ describe('App', () => {
       const entry = headings
         .map((heading) => heading.closest('[data-testid="experience-entry"]'))
         .find((candidate) =>
-          candidate?.textContent?.includes(experience.company),
+          candidate?.textContent?.includes(experience.company ?? ''),
         );
       expect(entry).toBeTruthy();
     });
   });
 
-  it('renders ContactInfo section with contact details', () => {
+  it('closes with a way to get in touch', () => {
     render(
       <ThemeProvider>
         <App />
       </ThemeProvider>,
     );
 
-    // Verify section exists and has key elements
-    // Section label appears twice (in SectionNav and in section heading)
-    const sayHiElements = screen.getAllByText('Say Hi!');
-    expect(sayHiElements.length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText(data.contact.address)).toBeInTheDocument();
-
-    // Verify at least one contact link exists (detailed checks in ContactInfo.test.tsx)
-    const emailLink = screen.getByRole('link', {
-      name: new RegExp(data.contact.email, 'i'),
-    });
-    expect(emailLink).toBeInTheDocument();
+    const contact = screen.getByRole('region', { name: 'Let’s talk' });
+    expect(
+      within(contact).getByRole('link', { name: data.contact.email }),
+    ).toHaveAttribute('href', `mailto:${data.contact.email}`);
+    expect(
+      within(contact).getByRole('link', { name: /LinkedIn/ }),
+    ).toHaveAttribute('href', data.contact.linkedIn);
+    expect(
+      within(contact).getByRole('link', { name: /GitHub/ }),
+    ).toHaveAttribute('href', data.contact.github);
   });
 
   it('renders FunFacts section with trivia game', () => {
@@ -142,14 +135,11 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // Section label appears twice (in SectionNav and in section heading)
     const triviaElements = screen.getAllByText('A Bit of Trivia');
     expect(triviaElements.length).toBeGreaterThanOrEqual(1);
 
-    // The trivia game shows one question at a time, so check for the first question
     expect(screen.getByText(data.funFacts[0].question)).toBeInTheDocument();
 
-    // Verify the progress counter is present
     expect(screen.getByText(/0 of \d+ revealed/)).toBeInTheDocument();
   });
 
@@ -160,16 +150,12 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // Section label appears twice (in SectionNav and in section heading)
     const craftedElements = screen.getAllByText('Crafted with Care');
     expect(craftedElements.length).toBeGreaterThanOrEqual(1);
 
     data.projects.forEach((project) => {
       expect(screen.getByText(project.title)).toBeInTheDocument();
-      // Project descriptions are hidden on smaller screens (lg:block)
-      // So we check if it exists in the DOM, not necessarily visible
       const descriptionElement = screen.queryByText(project.description);
-      // Description might be hidden but should exist in DOM
       if (descriptionElement) {
         expect(descriptionElement).toBeInTheDocument();
       }
@@ -190,7 +176,7 @@ describe('App', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        '© 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal learner.',
+        '© 2026 Mariana Martins Menezes. Frontend & Design Engineer and eternal learner.',
       ),
     ).toBeInTheDocument();
   });
@@ -206,7 +192,6 @@ describe('App', () => {
   });
 
   it('handles reduced motion preference', () => {
-    // Mock matchMedia for reduced motion
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => {
@@ -241,7 +226,6 @@ describe('App', () => {
       </ThemeProvider>,
     );
 
-    // App should render without errors when reduced motion is preferred
     expect(screen.getByRole('main')).toBeInTheDocument();
   });
 });

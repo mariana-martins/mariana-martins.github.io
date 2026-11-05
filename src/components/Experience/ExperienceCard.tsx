@@ -8,8 +8,7 @@ import { cn } from '@/lib/cn';
 import { formatDate, formatDuration } from '@/lib/utils';
 import type { Experience as ExperienceType } from '@/types';
 
-/** Keeps the tag row to two lines in the narrow experience column. */
-const MAX_VISIBLE_TECHNOLOGIES = 5;
+const MAX_VISIBLE_TECHNOLOGIES = 3;
 
 export interface ExperienceCardProps {
   experience: ExperienceType;
@@ -32,20 +31,21 @@ export const ExperienceCard = ({
       data-testid="experience-entry"
       data-current={isCurrent || undefined}
       className={cn(
-        'scroll-reveal group',
-        'pl-4 pt-5 first:pt-0 pb-5',
-        // Accent bar marks the ongoing role; the others keep the same
-        // indent with a transparent border.
-        'border-l-2',
-        isCurrent
-          ? 'border-l-pink dark:border-l-blue-100'
-          : 'border-l-transparent',
-        // Hairline between entries, none after the last one
-        'border-b border-b-pink/20 dark:border-b-blue-100/20',
-        'last:border-b-0 last:pb-0',
+        'scroll-reveal relative pl-6 pb-9 last:pb-0',
+        'border-l-2 border-dashed border-accent last:border-transparent',
       )}
     >
-      <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+      <p className="relative flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+        <span
+          aria-hidden="true"
+          className={cn(
+            'absolute -left-[31px] top-1/2 -translate-y-1/2 size-3 rounded-full',
+            'border-2 border-pink dark:border-blue-100',
+            isCurrent
+              ? 'bg-pink dark:bg-blue-100'
+              : 'bg-warm-50 dark:bg-indigo-200',
+          )}
+        />
         <span className="tabular-nums text-muted">{dateRange}</span>
         {duration !== null && (
           <>
@@ -73,31 +73,31 @@ export const ExperienceCard = ({
         {experience.position}
       </h3>
 
-      <p className="mt-0.5 text-sm text-muted">
-        {experience.website ? (
-          <a
-            href={experience.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'inline-flex items-center gap-1',
-              'hover:underline hover:decoration-pink decoration-2',
-              'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
-              'focus:outline-none focus-visible:underline',
-              'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
-              'focus-visible:ring-2 focus-visible:ring-offset-2',
-              'focus-visible:ring-focus',
-              'transition-colors',
-            )}
-          >
-            {experience.company}
-            <ExternalLink size={13} aria-hidden="true" className="shrink-0" />
-            <span className="sr-only">(opens in a new tab)</span>
-          </a>
-        ) : (
-          experience.company
-        )}
-      </p>
+      {experience.company && (
+        <p className="mt-0.5 text-sm text-muted">
+          {experience.website ? (
+            <a
+              href={experience.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex items-center gap-1',
+                'hover:underline hover:decoration-pink decoration-2',
+                'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
+                'focus-ring focus-visible:underline',
+                'focus-visible:decoration-pink dark:focus-visible:decoration-blue-100',
+                'transition-colors',
+              )}
+            >
+              {experience.company}
+              <ExternalLink size={13} aria-hidden="true" className="shrink-0" />
+              <span className="sr-only">(opens in a new tab)</span>
+            </a>
+          ) : (
+            experience.company
+          )}
+        </p>
+      )}
 
       <p className="mt-2.5 text-sm/6 text-pretty text-text-primary/90 dark:text-text-primary-dark/90">
         {experience.description}

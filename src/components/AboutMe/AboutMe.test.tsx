@@ -5,7 +5,6 @@ import { axe } from 'jest-axe';
 
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
-// Mock the data module
 jest.mock('@/data', () => {
   const { mockPortfolioData } = require('@/__mocks__/mockData');
   return {
@@ -25,7 +24,6 @@ describe('AboutMe', () => {
       </ThemeProvider>,
     );
 
-    // Find the paragraph element and check its textContent
     const paragraph = container.querySelector('p');
     expect(paragraph).toBeInTheDocument();
 
@@ -69,7 +67,6 @@ describe('AboutMe', () => {
   });
 
   it('handles reduced motion preference', () => {
-    // Mock matchMedia for reduced motion
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: jest.fn().mockImplementation((query) => {
@@ -104,7 +101,6 @@ describe('AboutMe', () => {
       </ThemeProvider>,
     );
 
-    // Component should render without errors when reduced motion is preferred
     const section = screen.getByRole('region');
     expect(section).toBeInTheDocument();
   });

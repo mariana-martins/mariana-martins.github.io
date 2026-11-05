@@ -1,7 +1,4 @@
-/**
- * Fails when the files a first visit downloads (read from dist/index.html)
- * grow past their gzipped budget. Lazy chunks are not counted.
- */
+// Gzipped budget for what a first visit downloads; lazy chunks are excluded
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
@@ -10,7 +7,7 @@ const distDir = path.resolve(import.meta.dirname, '..', 'dist');
 
 /** Gzipped kB; set ~10% above the current build */
 const BUDGETS_KB = {
-  html: 12,
+  html: 14,
   script: 110,
   style: 14,
   font: 85,
@@ -32,6 +29,11 @@ const totals = { html: gzippedKb(html), script: 0, style: 0, font: 0 };
 
 for (const [kind, matches] of Object.entries(references)) {
   for (const [, url] of matches) {
+    // Third-party files (analytics) are not in dist/; they load async
+    if (/^(https?:)?\/\//.test(url)) {
+      console.log(`  (not counted: ${url})`);
+      continue;
+    }
     const bytes = await readFile(path.join(distDir, url));
     totals[kind] += gzippedKb(bytes);
   }

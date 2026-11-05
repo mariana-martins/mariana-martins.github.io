@@ -19,7 +19,7 @@ describe('Footer', () => {
 
     expect(
       screen.getByText(
-        '© 2026 Mariana Martins Menezes. Frontend & Design engineer and eternal learner.',
+        '© 2026 Mariana Martins Menezes. Frontend & Design Engineer and eternal learner.',
       ),
     ).toBeInTheDocument();
   });
@@ -27,8 +27,6 @@ describe('Footer', () => {
   it('renders Radix Separator', () => {
     const { container } = render(<Footer />);
 
-    // Radix Separator with decorative prop doesn't have a role
-    // Check for the separator element by its data attribute or className
     const separator = container.querySelector(
       '[data-orientation="horizontal"]',
     );

@@ -1,59 +1,40 @@
-/**
- * Global type definitions for the portfolio project
- */
-
-/**
- * Represents a portfolio project.
- */
 export interface Project {
   id: string;
   title: string;
   description: string;
+  summary?: string;
   technologies: string[];
   githubUrl?: string;
+  caseStudyPath?: string;
 }
 
-/**
- * Represents a work experience entry.
- * Date strings are in "YYYY-MM" format.
- */
 export interface Experience {
   id: string;
-  company: string;
+  company?: string;
   website?: string;
   position: string;
-  /** Start date in "YYYY-MM" format */
   startDate: string;
-  /** End date in "YYYY-MM" format, undefined if current position */
   endDate?: string;
-  /** Short summary of the role, 5-6 lines when rendered */
   description: string;
   technologies: string[];
 }
 
-/**
- * Represents a skill with proficiency level.
- */
 export interface Skill {
   name: string;
   level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
   category: 'frontend' | 'backend' | 'tools' | 'design';
 }
 
-/**
- * Contact information for the portfolio.
- */
 export interface Contact {
   name: string;
   email: string;
   linkedIn: string;
   github: string;
   address: string;
+  /** Closing line of the home page, above the contact links */
+  invitation: string;
 }
 
-/**
- * Fun fact trivia item.
- */
 export interface FunFact {
   id: string;
   question: string;
@@ -63,28 +44,18 @@ export interface FunFact {
 export type PickStatus = 'planned' | 'in-progress' | 'completed';
 export type PickRating = 1 | 2 | 3 | 4 | 5;
 
-/**
- * Fields shared by every pick, regardless of category.
- */
 interface PickBase {
   id: string;
   title: string;
   status: PickStatus;
-  /** Only meaningful when status === 'completed' */
   rating?: PickRating;
-  /** "YYYY-MM" when finished; drives the "recent first" sort */
   finishedAt?: string;
-  /** One-liner opinion, shown in the drawer only */
   note?: string;
   link?: string;
-  /** Shown on the main page's Learning Shelf, up to LEARNING_SHELF_LIMIT */
   featured?: boolean;
 }
 
-/**
- * A pick on Margot's shelf: books, audiobooks, courses, movies and series.
- * `category` discriminates which credit fields exist.
- */
+/** `category` decides which credit fields exist */
 export type PickItem =
   | (PickBase & { category: 'book'; author: string })
   | (PickBase & { category: 'audiobook'; author: string })
@@ -100,10 +71,14 @@ export type PickOfCategory<C extends PickCategory> = Extract<
   { category: C }
 >;
 
-/**
- * Complete portfolio data structure.
- */
+export interface Profile {
+  title: string;
+  pitch: string;
+  facts: string[];
+}
+
 export interface PortfolioData {
+  profile: Profile;
   introduction: string;
   projects: Project[];
   experience: Experience[];
@@ -111,4 +86,87 @@ export interface PortfolioData {
   contact: Contact;
   funFacts: FunFact[];
   picks: PickItem[];
+}
+export interface Section {
+  id: string;
+  label: string;
+}
+
+export type CodeLine = Array<[text: string, color: string]>;
+
+export interface Stat {
+  value: string;
+  label: string;
+}
+
+export interface FigureImage {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+export type Paragraph = string;
+
+export interface Era {
+  id: string;
+  when: string;
+  title: string;
+  paragraphs: Paragraph[];
+  list?: string[];
+  stats?: Stat[];
+  screenshot?: { src: string; alt: string; when: string };
+}
+
+export interface SiteHistory {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  eras: Era[];
+  details: { title: string; items: string[] };
+  repoUrl: string;
+}
+
+export interface TokenStep {
+  tier: string;
+  token: string;
+}
+
+export interface RenderingMode {
+  page: string;
+  how: string;
+}
+
+export interface CaseStudySection {
+  id: string;
+  title: string;
+  paragraphs: Paragraph[];
+}
+
+export interface FitMySpaceCaseStudy {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  status: { label: string; text: string };
+  role: string;
+  builtWith: string;
+  githubUrl: string;
+  figmaUrl: string;
+  tokens: CaseStudySection & {
+    steps: TokenStep[];
+    flowCaption: Paragraph;
+    palette: { caption: string; image: FigureImage };
+  };
+  types: CaseStudySection & {
+    codeCaption: string;
+    states: { caption: string; images: FigureImage[] };
+  };
+  rendering: CaseStudySection & { modes: RenderingMode[] };
+  quality: CaseStudySection & { stats: Stat[] };
+}
+
+export interface NotFoundContent {
+  eyebrow: string;
+  title: string;
+  lead: string;
 }

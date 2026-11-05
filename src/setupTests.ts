@@ -1,41 +1,24 @@
 import '@testing-library/jest-dom/jest-globals';
 import { toHaveNoViolations } from 'jest-axe';
 
-// Extend Jest matchers with jest-axe
 expect.extend(toHaveNoViolations);
 
-// ============================================================================
-// Browser API Mocks
-// ============================================================================
-
-/**
- * Mock IntersectionObserver API
- * Required for components that use intersection-based features (e.g., lazy loading)
- */
+// jsdom lacks IntersectionObserver
 globalThis.IntersectionObserver = class IntersectionObserver {
   root = null;
   rootMargin = '';
   readonly thresholds: readonly number[] = [];
 
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _callback?: IntersectionObserverCallback,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _options?: IntersectionObserverInit,
-  ) {
-    // Mock implementation - empty constructor required for IntersectionObserver mock
-  }
-
   observe(): void {
-    // Mock implementation
+    // no-op
   }
 
   disconnect(): void {
-    // Mock implementation
+    // no-op
   }
 
   unobserve(): void {
-    // Mock implementation
+    // no-op
   }
 
   takeRecords(): IntersectionObserverEntry[] {
@@ -43,36 +26,22 @@ globalThis.IntersectionObserver = class IntersectionObserver {
   }
 } as unknown as typeof IntersectionObserver;
 
-/**
- * Mock ResizeObserver API
- * Required for components that observe element size changes
- */
+// jsdom lacks ResizeObserver
 globalThis.ResizeObserver = class ResizeObserver {
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    _callback?: ResizeObserverCallback,
-  ) {
-    // Mock implementation - empty constructor required for ResizeObserver mock
-  }
-
   observe(): void {
-    // Mock implementation
+    // no-op
   }
 
   disconnect(): void {
-    // Mock implementation
+    // no-op
   }
 
   unobserve(): void {
-    // Mock implementation
+    // no-op
   }
 };
 
-/**
- * Mock window.matchMedia API
- * Required for media query-based features (e.g., responsive design, dark mode)
- * Uses modern EventTarget-based API (addEventListener/removeEventListener)
- */
+// jsdom lacks matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   configurable: true,
@@ -115,10 +84,7 @@ Object.defineProperty(window, 'matchMedia', {
   }),
 });
 
-/**
- * Mock window.scrollTo API
- * Required for components that programmatically scroll
- */
+// jsdom does not implement scrollTo
 Object.defineProperty(window, 'scrollTo', {
   writable: true,
   configurable: true,

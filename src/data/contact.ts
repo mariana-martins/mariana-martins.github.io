@@ -6,4 +6,6 @@ export const contact: Contact = {
   linkedIn: 'https://www.linkedin.com/in/marianamenezes/',
   github: 'https://github.com/mariana-martins',
   address: 'Melbourne, Australia',
+  invitation:
+    'I’m looking for Frontend and Design Engineer roles across Australia. Email is the quickest way to reach me.',
 };

@@ -15,13 +15,11 @@ describe('Tag', () => {
     const firstTag = screen.getByText('React');
     const firstClass = firstTag.className;
 
-    // Index 1 should have different color
     rerender(<Tag name="TypeScript" index={1} />);
     const secondTag = screen.getByText('TypeScript');
     const secondClass = secondTag.className;
     expect(secondClass).not.toBe(firstClass);
 
-    // Index 2 should have different color
     rerender(<Tag name="JavaScript" index={2} />);
     const thirdTag = screen.getByText('JavaScript');
     const thirdClass = thirdTag.className;
@@ -30,7 +28,7 @@ describe('Tag', () => {
   });
 
   it('wraps around color options when index exceeds available colors', () => {
-    // There are 5 color options, so index 5 should cycle back to index 0
+    // Five colours, so index 5 wraps to 0
     const { rerender } = render(<Tag name="React" index={0} />);
     const firstTag = screen.getByText('React');
     const firstClass = firstTag.className;

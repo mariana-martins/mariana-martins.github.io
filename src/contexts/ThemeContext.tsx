@@ -21,10 +21,7 @@ export const ThemeContext = createContext<ThemeContextValue | undefined>(
 export const THEME_STORAGE_KEY = 'theme';
 const DARK_SCHEME_QUERY = '(prefers-color-scheme: dark)';
 
-/**
- * A stored choice wins, otherwise the system preference.
- * @returns The theme to use
- */
+/** A stored choice wins, otherwise the system preference */
 export function getInitialTheme(): Theme {
   const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
 
@@ -35,18 +32,12 @@ export function getInitialTheme(): Theme {
   return window.matchMedia(DARK_SCHEME_QUERY).matches ? 'dark' : 'light';
 }
 
-/**
- * Applies the theme to the document element.
- * @param theme - The theme to apply
- */
 export function applyTheme(theme: Theme): void {
   const root = document.documentElement;
 
-  // Enable transitions only during theme change
   root.classList.add('theme-transitioning');
   root.classList.toggle('dark', theme === 'dark');
 
-  // Remove transition class after animations complete
   window.setTimeout(() => {
     root.classList.remove('theme-transitioning');
   }, 500);
@@ -78,14 +69,9 @@ function getServerTheme(): Theme {
 }
 
 /**
- * ThemeProvider component that provides theme state and controls to the app.
- *
  * Hydrates as 'light' to match the prerendered HTML, then re-renders with the
- * real theme. Never sync the `dark` class in an effect: it would run with
- * 'light' first and flash the page. The inline script in index.html sets it.
- *
- * @param children - React children components
- * @returns JSX element wrapping children with theme context
+ * real theme. Don't sync the `dark` class in an effect: it would run with
+ * 'light' first and flash the page.
  */
 export function ThemeProvider({
   children,

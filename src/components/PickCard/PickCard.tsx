@@ -11,8 +11,6 @@ import {
 } from '@/lib/picks';
 import type { PickCategory, PickItem, PickStatus } from '@/types';
 
-// One colour per status; the stamp's border and outline pick it up via
-// currentColor.
 const stampColors: Record<PickStatus, string> = {
   planned: 'text-blue-200 dark:text-blue-100',
   'in-progress': 'text-purple-200 dark:text-warm-400',
@@ -46,7 +44,6 @@ function PickSpine({
         'flex items-center gap-2.5 h-14 px-4',
         '@sm:flex-col @sm:justify-center @sm:gap-1.5 @sm:h-auto @sm:w-18 @sm:px-0 @sm:py-3',
         'text-text-primary',
-        // Perforation between stub and body
         'border-dashed border-text-primary/40 dark:border-indigo-50/50',
         'border-b-2 @sm:border-b-0 @sm:border-r-2',
         spineColors[category],
@@ -66,7 +63,6 @@ function PickSpine({
   );
 }
 
-/** Status as a rubber stamp: double border, a little crooked, never a pill */
 function PickStatusStamp({
   status,
 }: {
@@ -101,9 +97,7 @@ function PickTitle({ item }: { item: PickItem }): React.JSX.Element {
             'hover:decoration-pink focus:decoration-pink',
             'dark:hover:text-blue-100 dark:hover:decoration-blue-100',
             'dark:focus:decoration-blue-100',
-            'focus:outline-none',
-            'focus-visible:ring-2 focus-visible:ring-offset-2',
-            'focus-visible:ring-focus',
+            'focus-ring',
             'transition-colors duration-200',
           )}
         >
@@ -142,8 +136,7 @@ export function PickCard({
       className={cn(
         'grow flex flex-col @container rounded-2xl ticket-lift',
         'motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-0.5',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-        'focus-visible:ring-focus',
+        'focus-ring',
       )}
     >
       <div

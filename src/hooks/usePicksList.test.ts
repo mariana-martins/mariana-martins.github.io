@@ -10,7 +10,6 @@ describe('usePicksList', () => {
     expect(result.current.filtered).toHaveLength(mockPicks.length);
     expect(result.current.visible).toHaveLength(2);
     expect(result.current.hasMore).toBe(true);
-    // In progress comes before anything finished
     expect(result.current.visible[0].id).toBe('pick-course');
   });
 

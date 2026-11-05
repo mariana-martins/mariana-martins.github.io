@@ -5,7 +5,11 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/cn';
 
-export function ThemeToggle(): React.JSX.Element {
+export function ThemeToggle({
+  className,
+}: {
+  className?: string;
+}): React.JSX.Element {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
@@ -15,22 +19,21 @@ export function ThemeToggle(): React.JSX.Element {
       onClick={toggleTheme}
       aria-pressed={isDark}
       className={cn(
-        'absolute top-0 right-0 md:right-1.5 lg:right-0 rounded-b-md pt-8 px-2 pb-2 cursor-pointer',
+        'absolute top-0 right-0 rounded-b-md pt-8 px-2 pb-2 cursor-pointer',
         'flex items-center justify-center',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+        'focus-ring',
         'bg-pink text-text-primary',
         'hover:bg-pink/70',
         'dark:bg-blue-100 dark:text-blue-300',
         'dark:hover:bg-blue-100/90',
-        'focus-visible:ring-focus',
         'z-50',
         'min-w-[44px] min-h-[44px]',
         'touch-manipulation',
         'active:scale-[0.96] transition-[background-color,color,transform] duration-300',
+        className,
       )}
     >
       <span className="sr-only">Dark mode</span>
-      {/* Driven by the dark class, not state, so prerendered HTML is right */}
       <div className="relative w-6 h-6 flex items-center justify-center">
         <Sun
           size={24}
@@ -47,7 +50,6 @@ export function ThemeToggle(): React.JSX.Element {
           className={cn(
             'absolute transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]',
             'opacity-0 scale-[0.25] blur-xs',
-            // blur-none: Tailwind v4 has no blur-0
             'dark:opacity-100 dark:scale-100 dark:blur-none',
           )}
         />

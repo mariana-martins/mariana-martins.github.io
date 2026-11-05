@@ -8,12 +8,12 @@ import {
   CardHeader,
 } from '@components/Card/Card';
 import { TagList } from '@components/TagList/TagList';
-import { ExternalLink, Sparkles } from 'lucide-react';
+import { ArrowRight, ExternalLink, Sparkles } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import type { Project } from '@/types';
 
-/** Keeps the non-featured card's tag row to a single line. */
+/** One line of tags on the smaller cards */
 const MAX_VISIBLE_TECHNOLOGIES = 3;
 
 const projectDecorations: Record<
@@ -41,6 +41,8 @@ export function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
+  const hasCaseStudy = project.caseStudyPath !== undefined;
+  const CornerIcon = hasCaseStudy ? ArrowRight : ExternalLink;
 
   return (
     <Card
@@ -50,13 +52,12 @@ export function ProjectCard({
         'group h-full flex flex-col',
         isFeatured ? 'min-h-[280px]' : 'min-h-[120px]',
         'transition-transform duration-150 ease-out',
-        // The title link covers the card, so hover, active and focus are
-        // driven by it rather than by the card itself.
-        'has-[a:hover]:scale-[1.02] has-[a:active]:scale-[0.98]',
-        'has-[a:focus-visible]:ring-4 has-[a:focus-visible]:ring-offset-2',
-        'has-[a:focus-visible]:ring-focus',
+        // The title link covers the card, so its states drive the card's
+        'has-[[data-card-link]:hover]:scale-[1.02] has-[[data-card-link]:active]:scale-[0.98]',
+        'has-[[data-card-link]:focus-visible]:ring-4 has-[[data-card-link]:focus-visible]:ring-offset-2',
+        'has-[[data-card-link]:focus-visible]:ring-focus',
         'motion-reduce:transition-none',
-        'motion-reduce:has-[a:hover]:scale-100 motion-reduce:has-[a:active]:scale-100',
+        'motion-reduce:has-[[data-card-link]:hover]:scale-100 motion-reduce:has-[[data-card-link]:active]:scale-100',
       )}
     >
       <CardDecoration
@@ -88,53 +89,50 @@ export function ProjectCard({
         )}
         aria-hidden="true"
       >
-        <ExternalLink
-          size={isFeatured ? 18 : 14}
-          className="text-text-primary dark:text-text-primary-dark"
-        />
+        <CornerIcon size={isFeatured ? 18 : 14} className="text-body" />
       </div>
 
       {/*
-        Deliberately not `relative`: the title link's overlay has to resolve
-        against the Card, not against this header, or it only covers the
-        title. The Card is a flex container, so z-index still stacks this
-        above the other sections without positioning it.
-      */}
-      {/*
-        Right padding keeps the title out from under the decoration in the
-        corner (w-24, md:w-32, less the card's own padding): over its
-        gradient a long title wrapping on mobile fell below 4.5:1.
+        Not `relative`, so the link overlay covers the whole Card. Right
+        padding keeps the title off the corner decoration (contrast).
       */}
       <CardHeader className={cn('z-20 pr-20 md:pr-28', isFeatured && 'pt-10')}>
         <h3
           id={`project-${project.id}-title`}
           className={cn(
-            'font-bold text-text-primary dark:text-text-primary-dark text-balance',
+            'font-bold text-body text-balance',
             isFeatured ? 'text-xl md:text-2xl' : 'text-base md:text-lg',
           )}
         >
           <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            data-card-link
+            href={project.caseStudyPath ?? project.githubUrl}
+            target={hasCaseStudy ? undefined : '_blank'}
+            rel={hasCaseStudy ? undefined : 'noopener noreferrer'}
             className={cn(
-              // Stretches the link's hit area over the whole card without
-              // putting the card's content inside the link
               "after:content-[''] after:absolute after:inset-0 after:z-20",
               'focus:outline-none',
             )}
           >
             {project.title}
-            <span className="sr-only"> (opens in a new tab)</span>
+            <span className="sr-only">
+              {hasCaseStudy ? ', case study' : ' (opens in a new tab)'}
+            </span>
           </a>
         </h3>
       </CardHeader>
 
       <CardContent className="relative z-10">
-        {isFeatured && (
-          <p className="text-sm md:text-base/6 text-text-primary/80 dark:text-text-primary-dark/80 mt-2 text-pretty">
+        {isFeatured ? (
+          <p className="text-sm md:text-base/6 text-text-primary/85 dark:text-text-primary-dark/85 mt-2 text-pretty">
             {project.description}
           </p>
+        ) : (
+          project.summary && (
+            <p className="mt-2 pr-20 md:pr-28 text-sm/6 text-text-primary/85 dark:text-text-primary-dark/85 text-pretty">
+              {project.summary}
+            </p>
+          )
         )}
       </CardContent>
 
@@ -142,11 +140,32 @@ export function ProjectCard({
         <TagList
           technologies={project.technologies}
           label={`Technologies used in ${project.title}`}
-          /* The featured card has the room to show everything */
           max={isFeatured ? undefined : MAX_VISIBLE_TECHNOLOGIES}
           className="w-full"
         />
       </CardFooter>
+
+      {hasCaseStudy && project.githubUrl && (
+        <div className="relative z-30 pt-3 pointer-events-none">
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              'pointer-events-auto inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
+              'link-underline',
+              'focus-ring rounded-sm',
+            )}
+          >
+            Code on GitHub
+            <ExternalLink size={14} aria-hidden="true" />
+            <span className="sr-only">
+              {' '}
+              for {project.title} (opens in a new tab)
+            </span>
+          </a>
+        </div>
+      )}
     </Card>
   );
 }

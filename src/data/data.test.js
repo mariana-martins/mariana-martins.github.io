@@ -19,6 +19,7 @@ describe('data object', () => {
 
     it('should have all required top-level keys and no extra keys', () => {
       const expectedKeys = [
+        'profile',
         'introduction',
         'projects',
         'experience',
@@ -60,7 +61,6 @@ describe('data object', () => {
         expect(project).toHaveProperty('technologies');
         expect(project).toHaveProperty('githubUrl');
 
-        // Type checks
         expect(typeof project.id).toBe('string');
         expect(typeof project.title).toBe('string');
         expect(typeof project.description).toBe('string');
@@ -115,16 +115,16 @@ describe('data object', () => {
     it('should have expected structure for each experience entry', () => {
       data.experience.forEach((exp) => {
         expect(exp).toHaveProperty('id');
-        expect(exp).toHaveProperty('company');
         expect(exp).toHaveProperty('position');
         expect(exp).toHaveProperty('startDate');
         expect(exp).toHaveProperty('endDate');
         expect(exp).toHaveProperty('description');
         expect(exp).toHaveProperty('technologies');
 
-        // Type checks
         expect(typeof exp.id).toBe('string');
-        expect(typeof exp.company).toBe('string');
+        if (exp.company !== undefined) {
+          expect(typeof exp.company).toBe('string');
+        }
         expect(typeof exp.position).toBe('string');
         expect(typeof exp.startDate).toBe('string');
         // endDate can be undefined for ongoing positions
@@ -139,7 +139,9 @@ describe('data object', () => {
     it('should have non-empty required string fields for each experience entry', () => {
       data.experience.forEach((exp) => {
         expect(exp.id.trim().length).toBeGreaterThan(0);
-        expect(exp.company.trim().length).toBeGreaterThan(0);
+        if (exp.company !== undefined) {
+          expect(exp.company.trim().length).toBeGreaterThan(0);
+        }
         expect(exp.position.trim().length).toBeGreaterThan(0);
         expect(exp.description.trim().length).toBeGreaterThan(0);
       });
@@ -225,7 +227,6 @@ describe('data object', () => {
         expect(skill).toHaveProperty('level');
         expect(skill).toHaveProperty('category');
 
-        // Type checks
         expect(typeof skill.name).toBe('string');
         expect(typeof skill.level).toBe('string');
         expect(typeof skill.category).toBe('string');
@@ -323,7 +324,6 @@ describe('data object', () => {
         expect(funFact).toHaveProperty('id');
         expect(funFact).toHaveProperty('fact');
 
-        // Type checks
         expect(typeof funFact.id).toBe('string');
         expect(typeof funFact.fact).toBe('string');
       });

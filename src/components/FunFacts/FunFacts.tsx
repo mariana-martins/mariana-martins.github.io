@@ -26,26 +26,24 @@ export function FunFacts(): React.JSX.Element {
     <section
       className={cn(
         'w-full h-fit flex flex-col items-center gap-4 px-4 py-12',
-        'text-text-primary dark:text-text-primary-dark',
+        'text-body',
         'border-b-dashed-custom',
       )}
-      aria-labelledby="fun-facts-heading"
+      aria-labelledby={SECTIONS.funFacts.id}
     >
       <h2
-        id="fun-facts-heading"
+        id={SECTIONS.funFacts.id}
         tabIndex={-1}
         className="text-xl font-semibold"
       >
         {SECTIONS.funFacts.label}
       </h2>
 
-      {/* Changes on interaction, so it has to announce itself */}
       <p role="status" className="text-sm text-muted">
         {revealedCount} of {totalFacts} revealed
       </p>
 
-      {/* Card container */}
-      <div className="relative w-full">
+      <div className="relative w-full max-w-md">
         {/* Keyed so each fact gets a fresh, unrotated card */}
         <div
           key={shown.id}

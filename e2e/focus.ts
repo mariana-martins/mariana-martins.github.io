@@ -1,29 +1,19 @@
 import type { Page } from '@playwright/test';
 
 /**
- * Focus indicator check, measured on pixels.
- *
- * Walks the page with Tab and, at every stop, screenshots the viewport with
- * the element focused and again with it blurred. The indicator is whatever
- * changed between the two; it counts only where the change reaches 3:1,
- * which is how WCAG 2.4.13 (Focus Appearance) defines a visible indicator.
- * A ring that merely exists - a pale pink one on a pale background - does
- * not pass.
+ * Tabs through the page and diffs focused vs blurred screenshots; only pixels
+ * that change by 3:1 count as the indicator (WCAG 2.4.13).
  */
 
 export interface WeakFocusIndicator {
   element: string;
-  /** Pixels whose colour changed by at least 3:1 on focus */
   changedPixels: number;
-  /** A 1px outline of the element's box */
   requiredPixels: number;
 }
 
 const FOCUS_CHANGE_RATIO = 3;
-/** Safety stop for the walk; the page has well under this many stops */
 const MAX_TAB_STOPS = 80;
 
-/** Rings are drawn instantly, so a screenshot never catches one mid-fade */
 const NO_TRANSITIONS_CSS = `
   *, *::before, *::after { transition: none !important; }
 `;
@@ -53,7 +43,6 @@ export async function findWeakFocusIndicators(
       };
     });
 
-    // Focus left the document: the walk is complete
     if (target === null) {
       break;
     }
@@ -68,7 +57,6 @@ export async function findWeakFocusIndicators(
       scale: 'css',
       animations: 'disabled',
     });
-    // Put focus back so the next Tab continues from here
     await active.evaluate((element) => (element as HTMLElement).focus());
     await active.dispose();
 
@@ -87,7 +75,7 @@ export async function findWeakFocusIndicators(
   return weak;
 }
 
-// Runs inside the browser: no imports, nothing from module scope.
+// Runs inside the browser: no imports or module scope
 async function countChangedPixels({
   focused,
   blurred,

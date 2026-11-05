@@ -1,122 +1,101 @@
-# Mariana Martins - Portfolio
+# Mariana Martins Menezes — Portfolio
 
-A modern, accessible portfolio website built with React, TypeScript, and Tailwind CSS.
+Personal site of a Frontend & Design Engineer in Melbourne.
 
-🌐 **Live:** [mariana-martins.github.io](https://mariana-martins.github.io)
+**Live:** [mariana-martins.github.io](https://mariana-martins.github.io) ·
+**How it was built:** [mariana-martins.github.io/how-this-site-was-built/](https://mariana-martins.github.io/how-this-site-was-built/)
 
-## ✨ Features
+![Link preview of the site](public/og-image.jpg)
 
-- **Responsive Design** - Fully responsive layout with mobile-first approach
-- **Dark/Light Mode** - Theme toggle with persistent user preference
-- **Accessibility First** - WCAG compliant with keyboard navigation, and Axe accessibility tests
-- **Smooth Animations** - Motion effects with reduced motion support
-- **Interactive Components** - FlipCard trivia, accordion sections, and more
+## Highlights
 
-## 🛠️ Tech Stack
+- **Prerendered React without a framework.** Every route is rendered to HTML
+  at build time and hydrated in the browser. Browser-only values (theme, URL
+  hash, today's date) go through `useSyncExternalStore`, and a test fails on
+  any hydration mismatch.
+- **Accessibility measured, not assumed.** Playwright checks every page in
+  light and dark mode, on desktop and mobile: axe, text contrast measured on
+  the rendered pixels, and a 3:1 change for every focus indicator.
+- **Small first visit.** About 100 kB of JavaScript (gzipped), self-hosted
+  variable fonts, Margot's Picks loaded on demand, and a size budget in CI.
+- **No animation library.** CSS transitions and the Web Animations API, all
+  respecting `prefers-reduced-motion`.
+- **Analytics without cookies.** GoatCounter, loaded async and pinned by its
+  integrity hash; it ignores localhost, and the tests never reach it.
+- **Code highlighted at build time.** Shiki runs in a script, so no highlighter
+  ships to the browser.
 
-| Category         | Technologies                    |
-| ---------------- | ------------------------------- |
-| **Frontend**     | React 19, TypeScript            |
-| **Styling**      | Tailwind CSS 4, CSS Variables   |
-| **Animations**   | Motion (Framer Motion)          |
-| **Components**   | Radix UI (Accordion, Slot)      |
-| **Icons**        | Lucide React                    |
-| **Build**        | Vite 7                          |
-| **Testing**      | Jest, Testing Library, jest-axe |
-| **Code Quality** | ESLint, Prettier, Husky         |
+## Stack
 
-## 🚀 Getting Started
+| Area    | Tools                                                    |
+| ------- | -------------------------------------------------------- |
+| UI      | React 19, TypeScript 6, Tailwind CSS 4, Radix Primitives |
+| Build   | Vite 8, prerendering with `react-dom/server`             |
+| Tests   | Jest, Testing Library, jest-axe, Playwright, axe-core    |
+| Quality | ESLint, Prettier, Husky                                  |
+| Hosting | GitHub Pages, deployed by GitHub Actions                 |
 
-### Prerequisites
+## Getting started
 
-- Node.js >= 18.0.0
-- npm >= 8.0.0
-
-### Installation
+Requires Node.js 22 or later.
 
 ```bash
-# Clone the repository
-git clone https://github.com/mariana-martins/mariana-martins.github.io.git
-cd mariana-martins.github.io
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
-### Available Scripts
+## Scripts
 
-| Command                 | Description               |
-| ----------------------- | ------------------------- |
-| `npm run dev`           | Start development server  |
-| `npm run build`         | Build for production      |
-| `npm run preview`       | Preview production build  |
-| `npm test`              | Run tests                 |
-| `npm run test:watch`    | Run tests in watch mode   |
-| `npm run test:coverage` | Run tests with coverage   |
-| `npm run lint`          | Run ESLint                |
-| `npm run lint:fix`      | Fix ESLint issues         |
-| `npm run format`        | Format code with Prettier |
-| `npm run type-check`    | TypeScript type checking  |
+| Command                 | What it does                                             |
+| ----------------------- | -------------------------------------------------------- |
+| `npm run dev`           | Development server (client-rendered)                     |
+| `npm run build`         | Type-check, build, then prerender every route to `dist/` |
+| `npm run preview`       | Serve the production build                               |
+| `npm test`              | Unit and component tests                                 |
+| `npm run test:e2e`      | Build, then run the Playwright suite                     |
+| `npm run build:check`   | Type-check, lint and unit tests                          |
+| `npm run size`          | Gzipped size budget for a first visit (run after build)  |
+| `npm run snippets`      | Regenerate the highlighted code samples (Shiki)          |
+| `npm run social-images` | Regenerate the link preview and home-screen icon         |
+| `npm run lint`          | ESLint                                                   |
+| `npm run format`        | Prettier                                                 |
 
-### Deployment
-
-Every push to `master` runs `.github/workflows/deploy.yml`, which tests, builds
-and publishes `dist` to the `gh-pages` branch served by GitHub Pages. There is
-no manual deploy command.
-
-## 📁 Project Structure
+## How it fits together
 
 ```
 src/
-├── components/       # React components
-│   ├── AboutMe/      # About section
-│   ├── Card/         # Reusable card component
-│   ├── ContactInfo/  # Contact information
-│   ├── Experience/   # Work experience accordion
-│   ├── FlipCard/     # Interactive flip card
-│   ├── FunFacts/     # Trivia game section
-│   ├── Header/       # Header with animated name
-│   ├── Projects/     # Projects grid
-│   └── ...
-├── hooks/            # Custom React hooks
-├── contexts/         # React contexts (Theme)
-├── styles/           # Global CSS and Tailwind config
-├── types/            # TypeScript type definitions
-├── data.ts           # Portfolio content data
-└── App.tsx           # Main application
+├── routes.ts            # paths, titles and descriptions for every page
+├── main.tsx             # client entry: hydrates the prerendered HTML
+├── entry-server.tsx     # build-time render, used by scripts/prerender.mjs
+├── Root.tsx             # theme provider and error boundary around each page
+├── App.tsx              # home page
+├── pages/               # other pages, each loaded as its own chunk
+├── components/          # one folder per component, tests alongside
+├── data/                # content: experience, projects, picks…
+│   └── pages/           # content for the other pages, kept in their chunks
+├── types/               # types for the content
+├── constants.ts         # values shared across files: section ids, paths
+├── hooks/  lib/         # shared logic
+└── styles/index.css     # design tokens and utilities
+e2e/                     # Playwright: accessibility, SEO, responsive, interactions
+scripts/                 # prerender, size budget, code highlighting, social images
 ```
 
-## 🎨 Design System
+Content lives in `src/data/` and its types in `src/types/`; components only
+lay it out, so most updates never touch a component. To add a page, add it to
+`src/routes.ts` and `PATHS` in `src/constants.ts`; the build prerenders it with
+its own title and link preview. Unknown addresses get a prerendered
+`404.html`, which GitHub Pages serves with a 404 status.
 
-The project uses a custom design system with:
+Conventions for people and coding agents are in [AGENTS.md](AGENTS.md)
+(`CLAUDE.md` imports it).
 
-- **Colors**: Warm tones, blue/indigo scale, accent colors
-- **Typography**: Fredoka (headings), Inter (body)
-- **Gradients**: Custom radial gradients for light/dark themes
-- **Animations**: Spring-based transitions with reduced motion support
+## Deployment
 
-## 🧪 Testing
+Every push to `master` runs `.github/workflows/deploy.yml`: checks, build,
+size budget and the Playwright suite, then publishes `dist/` to the
+`gh-pages` branch.
 
-```bash
-# Run all tests
-npm test
+## License
 
-# Run with coverage
-npm run test:coverage
-
-# Run accessibility tests (included in test suite)
-npm test
-```
-
-Tests include:
-
-- Unit tests for components and hooks
-- Accessibility tests with jest-axe
-- User interaction tests with Testing Library
-
-## 📝 License
-
-ISC © Mariana Martins
+ISC © Mariana Martins Menezes
