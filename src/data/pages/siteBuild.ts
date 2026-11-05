@@ -93,7 +93,7 @@ export const siteBuild: SiteHistory = {
         },
         { value: '97+', label: 'Lighthouse performance on mobile' },
         { value: '5.5:1', label: 'focus ring contrast (was 2.1:1)' },
-        { value: '0', label: 'requests to third-party servers' },
+        { value: '0', label: 'cookies, analytics included' },
       ],
       screenshot: {
         src: shot2026,

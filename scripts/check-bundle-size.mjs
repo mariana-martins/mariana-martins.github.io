@@ -29,6 +29,11 @@ const totals = { html: gzippedKb(html), script: 0, style: 0, font: 0 };
 
 for (const [kind, matches] of Object.entries(references)) {
   for (const [, url] of matches) {
+    // Third-party files (analytics) are not in dist/; they load async
+    if (/^(https?:)?\/\//.test(url)) {
+      console.log(`  (not counted: ${url})`);
+      continue;
+    }
     const bytes = await readFile(path.join(distDir, url));
     totals[kind] += gzippedKb(bytes);
   }

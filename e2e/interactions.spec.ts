@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 const DRAWER_CHUNK = /\/assets\/MargotsPicksDrawer-[\w-]+\.js$/;
 

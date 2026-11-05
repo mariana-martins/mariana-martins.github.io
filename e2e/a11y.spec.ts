@@ -1,7 +1,8 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, type Page, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 import { findLowContrastText } from './contrast';
+import { expect, test } from './fixtures';
 import { findWeakFocusIndicators } from './focus';
 
 // jsdom has no layout or colours, so contrast and focus are checked here

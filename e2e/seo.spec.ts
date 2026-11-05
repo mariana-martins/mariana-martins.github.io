@@ -1,11 +1,17 @@
-import { expect, type Page, test } from '@playwright/test';
+import type { Page } from '@playwright/test';
+
+import { ANALYTICS_HOST, expect, test } from './fixtures';
 
 const APP_SCRIPT = /\/assets\/.*\.js$/;
 
 function collectConsoleErrors(page: Page): string[] {
   const errors: string[] = [];
   page.on('console', (message) => {
-    if (message.type() === 'error') {
+    // The blocked analytics request is expected (see fixtures.ts)
+    if (
+      message.type() === 'error' &&
+      !message.location().url.includes(ANALYTICS_HOST)
+    ) {
       errors.push(message.text());
     }
   });
@@ -211,4 +217,19 @@ test.describe('an unknown address', () => {
     // The 404 response itself is logged as a console error
     expect(problems.filter((text) => !/404/.test(text))).toEqual([]);
   });
+});
+
+test('every page loads the analytics script, pinned by its hash', async ({
+  page,
+}) => {
+  for (const path of ['/', '/projects/fit-my-space/', '/404.html']) {
+    await page.goto(path);
+    const script = page.locator('script[data-goatcounter]');
+    await expect(script, path).toHaveAttribute(
+      'src',
+      'https://gc.zgo.at/count.v5.js',
+    );
+    await expect(script, path).toHaveAttribute('integrity', /^sha384-/);
+    await expect(script, path).toHaveAttribute('async', '');
+  }
 });
