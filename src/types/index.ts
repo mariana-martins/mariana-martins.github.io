@@ -164,3 +164,9 @@ export interface FitMySpaceCaseStudy {
   rendering: CaseStudySection & { modes: RenderingMode[] };
   quality: CaseStudySection & { stats: Stat[] };
 }
+
+export interface NotFoundContent {
+  eyebrow: string;
+  title: string;
+  lead: string;
+}

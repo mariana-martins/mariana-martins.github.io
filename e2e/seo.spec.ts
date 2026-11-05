@@ -185,3 +185,30 @@ test.describe('each page', () => {
     });
   }
 });
+
+test.describe('an unknown address', () => {
+  test('gets the not-found page, kept out of search, and hydrates cleanly', async ({
+    page,
+  }) => {
+    const problems = collectConsoleErrors(page);
+
+    const response = await page.goto('/projects/fit-my-spcae/');
+
+    expect(response?.status()).toBe(404);
+    await expect(page).toHaveTitle('Page not found | Mariana Martins Menezes');
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Page not found' }),
+    ).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex',
+    );
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+    // Hydrated: the theme toggle responds
+    const toggle = page.getByRole('button', { name: /dark mode/i });
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    // The 404 response itself is logged as a console error
+    expect(problems.filter((text) => !/404/.test(text))).toEqual([]);
+  });
+});

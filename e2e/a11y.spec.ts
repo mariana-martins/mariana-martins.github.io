@@ -8,7 +8,11 @@ import { findWeakFocusIndicators } from './focus';
 
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'];
 
-const SUBPAGES = ['/projects/fit-my-space/', '/how-this-site-was-built/'];
+const SUBPAGES = [
+  '/projects/fit-my-space/',
+  '/how-this-site-was-built/',
+  '/a-page-that-does-not-exist/',
+];
 
 function scan(page: Page): AxeBuilder {
   return new AxeBuilder({ page }).withTags(WCAG_TAGS);

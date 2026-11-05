@@ -31,6 +31,7 @@ export const PATHS = {
   home: '/',
   fitMySpace: '/projects/fit-my-space/',
   siteBuild: '/how-this-site-was-built/',
+  notFound: '/404.html',
 } as const;
 
 export const PROJECTS_CRUMB = {

@@ -9,6 +9,7 @@ export interface Route {
   title: string;
   description: string;
   load: () => Promise<{ default: React.ComponentType }>;
+  notFound?: boolean;
 }
 
 const SITE_NAME = contact.name;
@@ -37,8 +38,20 @@ export const routes: Route[] = [
   },
 ];
 
-/** Unknown paths fall back to the home page */
+const notFoundRoute: Route = {
+  path: PATHS.notFound,
+  title: `Page not found | ${SITE_NAME}`,
+  description: 'There is no page at this address.',
+  load: () => import('@/pages/NotFoundPage'),
+  notFound: true,
+};
+
+export const prerenderedRoutes: Route[] = [...routes, notFoundRoute];
+
 export function findRoute(pathname: string): Route {
-  const normalised = pathname.endsWith('/') ? pathname : `${pathname}/`;
-  return routes.find((route) => route.path === normalised) ?? routes[0];
+  const withoutIndex = pathname.replace(/index\.html$/, '');
+  const normalised = withoutIndex.endsWith('/')
+    ? withoutIndex
+    : `${withoutIndex}/`;
+  return routes.find((route) => route.path === normalised) ?? notFoundRoute;
 }

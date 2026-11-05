@@ -1,12 +1,11 @@
 import { renderToString } from 'react-dom/server';
 
 import { Root } from '@/Root';
-import { findRoute } from '@/routes';
+import type { Route } from '@/routes';
 
-export { routes } from '@/routes';
+export { prerenderedRoutes as routes } from '@/routes';
 
-/** Used at build time by scripts/prerender.mjs */
-export async function render(path: string): Promise<string> {
-  const { default: Page } = await findRoute(path).load();
+export async function render(route: Route): Promise<string> {
+  const { default: Page } = await route.load();
   return renderToString(<Root page={Page} />);
 }

@@ -52,24 +52,36 @@ function withMeta(html, route) {
     result,
     ...meta('property', 'og:description', description),
   );
-  result = replaceTag(result, ...meta('property', 'og:url', url));
-  result = replaceTag(
-    result,
+  const ogUrl = meta('property', 'og:url', url);
+  const canonical = [
     /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/,
     `<link rel="canonical" href="${url}" />`,
-  );
-  return result;
+  ];
+  if (route.notFound) {
+    // Served at any unknown URL: keep it out of search results
+    result = replaceTag(result, ogUrl[0], '');
+    return replaceTag(
+      result,
+      canonical[0],
+      '<meta name="robots" content="noindex" />',
+    );
+  }
+  result = replaceTag(result, ...ogUrl);
+  return replaceTag(result, ...canonical);
 }
 
 for (const route of routes) {
-  const appHtml = await render(route.path);
+  const appHtml = await render(route);
   const html = withMeta(template, route).replace(
     ROOT_MARKER,
     `<div id="root">${appHtml}</div>`,
   );
-  const outDir = path.join(distDir, route.path);
-  await mkdir(outDir, { recursive: true });
-  await writeFile(path.join(outDir, 'index.html'), html);
+  // Page paths end in a slash and become folders; 404.html stays a file
+  const outFile = route.path.endsWith('/')
+    ? path.join(distDir, route.path, 'index.html')
+    : path.join(distDir, route.path);
+  await mkdir(path.dirname(outFile), { recursive: true });
+  await writeFile(outFile, html);
   console.log(`Prerendered ${route.path}`);
 }
 

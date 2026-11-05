@@ -5,7 +5,7 @@ import { renderToString } from 'react-dom/server';
 
 import { App } from '@/App';
 import { Root } from '@/Root';
-import { routes } from '@/routes';
+import { findRoute, prerenderedRoutes } from '@/routes';
 
 /** Fails if a component reads the browser during render and breaks hydration */
 describe('prerendered page', () => {
@@ -95,7 +95,7 @@ describe('prerendered page', () => {
     expect(currentRole()?.textContent).toMatch(/\d+ (yr|mo)/);
   });
 
-  it.each(routes)(
+  it.each(prerenderedRoutes)(
     '$path prerenders and hydrates without mismatches',
     async (route) => {
       const { default: Page } = await route.load();
@@ -105,4 +105,19 @@ describe('prerendered page', () => {
       expect(hydrate(container, Page)).not.toHaveBeenCalled();
     },
   );
+});
+
+describe('findRoute', () => {
+  it.each([
+    ['/', '/'],
+    ['/index.html', '/'],
+    ['/projects/fit-my-space', '/projects/fit-my-space/'],
+    ['/projects/fit-my-space/index.html', '/projects/fit-my-space/'],
+  ])('matches %s to %s', (pathname, path) => {
+    expect(findRoute(pathname).path).toBe(path);
+  });
+
+  it('gives an unknown address the not-found page', () => {
+    expect(findRoute('/projects/fit-my-spcae/').notFound).toBe(true);
+  });
 });

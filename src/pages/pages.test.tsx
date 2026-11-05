@@ -5,6 +5,7 @@ import { axe } from 'jest-axe';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
 import FitMySpacePage from './FitMySpacePage';
+import NotFoundPage from './NotFoundPage';
 import SiteBuildPage from './SiteBuildPage';
 
 const pages = [
@@ -114,5 +115,34 @@ describe('Fit My Space status', () => {
     );
 
     expect(screen.getByText('Work in progress.')).toBeInTheDocument();
+  });
+});
+
+describe('Not found page', () => {
+  function renderNotFound(): ReturnType<typeof render> {
+    return render(
+      <ThemeProvider>
+        <NotFoundPage />
+      </ThemeProvider>,
+    );
+  }
+
+  it('names the problem and offers a way back', () => {
+    renderNotFound();
+
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Page not found' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'Go to the home page' }),
+    ).toHaveAttribute('href', '/');
+    expect(
+      screen.getByRole('link', { name: 'See the projects' }),
+    ).toHaveAttribute('href', '/#projects-heading');
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = renderNotFound();
+    expect(await axe(container)).toHaveNoViolations();
   });
 });

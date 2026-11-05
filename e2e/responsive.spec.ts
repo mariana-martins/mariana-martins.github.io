@@ -1,6 +1,11 @@
 import { expect, test } from '@playwright/test';
 
-const PAGES = ['/', '/projects/fit-my-space/', '/how-this-site-was-built/'];
+const PAGES = [
+  '/',
+  '/projects/fit-my-space/',
+  '/how-this-site-was-built/',
+  '/a-page-that-does-not-exist/',
+];
 const WIDTHS = [320, 375, 768, 1024, 1440];
 
 for (const path of PAGES) {
