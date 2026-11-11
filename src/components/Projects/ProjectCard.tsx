@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { ButtonLink } from '@components/ButtonLink/ButtonLink';
 import {
   Card,
   CardContent,
@@ -28,6 +29,34 @@ const projectDecorations: Record<
   'contact-app': { shape: 'diagonal', color: 'green' },
 };
 
+interface ExternalCardLinkProps {
+  href: string;
+  label: string;
+  projectTitle: string;
+}
+
+function ExternalCardLink({
+  href,
+  label,
+  projectTitle,
+}: ExternalCardLinkProps): React.JSX.Element {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(
+        'inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium text-body',
+        'link-underline focus-ring rounded-sm',
+      )}
+    >
+      {label}
+      <ExternalLink size={14} aria-hidden="true" />
+      <span className="sr-only"> for {projectTitle} (opens in a new tab)</span>
+    </a>
+  );
+}
+
 export interface ProjectCardProps {
   project: Project;
   isFeatured: boolean;
@@ -41,23 +70,17 @@ export function ProjectCard({
     shape: 'blob' as const,
     color: 'violet' as const,
   };
-  const hasCaseStudy = project.caseStudyPath !== undefined;
-  const CornerIcon = hasCaseStudy ? ArrowRight : ExternalLink;
+  const { caseStudyPath } = project;
 
   return (
     <Card
       variant="interactive"
       size={isFeatured ? 'lg' : 'md'}
       className={cn(
-        'group h-full flex flex-col',
+        'h-full flex flex-col',
         isFeatured ? 'min-h-[280px]' : 'min-h-[120px]',
         'transition-transform duration-150 ease-out',
-        // The title link covers the card, so its states drive the card's
-        'has-[[data-card-link]:hover]:scale-[1.02] has-[[data-card-link]:active]:scale-[0.98]',
-        'has-[[data-card-link]:focus-visible]:ring-4 has-[[data-card-link]:focus-visible]:ring-offset-2',
-        'has-[[data-card-link]:focus-visible]:ring-focus',
-        'motion-reduce:transition-none',
-        'motion-reduce:has-[[data-card-link]:hover]:scale-100 motion-reduce:has-[[data-card-link]:active]:scale-100',
+        'motion-safe:hover:scale-[1.02]',
       )}
     >
       <CardDecoration
@@ -79,24 +102,9 @@ export function ProjectCard({
         </div>
       )}
 
-      <div
-        className={cn(
-          'absolute z-10 p-2 rounded-full',
-          'bg-pink/20 dark:bg-blue-100/20',
-          'opacity-60 hover:opacity-100',
-          'transition-opacity duration-300',
-          isFeatured ? 'bottom-4 right-4' : 'top-3 right-3',
-        )}
-        aria-hidden="true"
+      <CardHeader
+        className={cn('relative z-10 pr-20 md:pr-28', isFeatured && 'pt-10')}
       >
-        <CornerIcon size={isFeatured ? 18 : 14} className="text-body" />
-      </div>
-
-      {/*
-        Not `relative`, so the link overlay covers the whole Card. Right
-        padding keeps the title off the corner decoration (contrast).
-      */}
-      <CardHeader className={cn('z-20 pr-20 md:pr-28', isFeatured && 'pt-10')}>
         <h3
           id={`project-${project.id}-title`}
           className={cn(
@@ -104,21 +112,7 @@ export function ProjectCard({
             isFeatured ? 'text-xl md:text-2xl' : 'text-base md:text-lg',
           )}
         >
-          <a
-            data-card-link
-            href={project.caseStudyPath ?? project.githubUrl}
-            target={hasCaseStudy ? undefined : '_blank'}
-            rel={hasCaseStudy ? undefined : 'noopener noreferrer'}
-            className={cn(
-              "after:content-[''] after:absolute after:inset-0 after:z-20",
-              'focus:outline-none',
-            )}
-          >
-            {project.title}
-            <span className="sr-only">
-              {hasCaseStudy ? ', case study' : ' (opens in a new tab)'}
-            </span>
-          </a>
+          {project.title}
         </h3>
       </CardHeader>
 
@@ -145,27 +139,35 @@ export function ProjectCard({
         />
       </CardFooter>
 
-      {hasCaseStudy && project.githubUrl && (
-        <div className="relative z-30 pt-3 pointer-events-none">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              'pointer-events-auto inline-flex items-center gap-1.5 min-h-[44px] text-sm font-medium',
-              'link-underline',
-              'focus-ring rounded-sm',
-            )}
-          >
-            Code on GitHub
-            <ExternalLink size={14} aria-hidden="true" />
-            <span className="sr-only">
-              {' '}
-              for {project.title} (opens in a new tab)
-            </span>
-          </a>
+      <div className="relative z-10 flex flex-col items-start gap-1 pt-4 mt-auto">
+        {caseStudyPath !== undefined && (
+          <ButtonLink href={caseStudyPath} className="group/cta">
+            Read the case study
+            <ArrowRight
+              size={16}
+              aria-hidden="true"
+              className="transition-transform duration-200 ease-out motion-safe:group-hover/cta:translate-x-1"
+            />
+            <span className="sr-only"> of {project.title}</span>
+          </ButtonLink>
+        )}
+        <div className="flex flex-wrap gap-x-4">
+          {project.storybookUrl && (
+            <ExternalCardLink
+              href={project.storybookUrl}
+              label="Live Storybook"
+              projectTitle={project.title}
+            />
+          )}
+          {project.githubUrl && (
+            <ExternalCardLink
+              href={project.githubUrl}
+              label="Code on GitHub"
+              projectTitle={project.title}
+            />
+          )}
         </div>
-      )}
+      </div>
     </Card>
   );
 }

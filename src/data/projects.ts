@@ -6,7 +6,7 @@ export const projects: Project[] = [
     id: 'fit-my-space',
     title: 'Fit My Space',
     description:
-      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed in Figma and built on the Next.js App Router. Its design system is in progress: three tiers of tokens generated with Style Dictionary, and components on Radix Primitives documented in Storybook, with accessibility enforced by the types.',
+      'A search engine for home organisation products: find organisers across stores like IKEA and Target, filtered by room and store. Designed in Figma and built on the Next.js App Router. Its design system is in progress: three tiers of tokens generated with Style Dictionary, and components on Radix Primitives documented in Storybook, with accessibility enforced by the types and by contrast and axe checks in CI.',
     technologies: [
       'React',
       'TypeScript',
@@ -25,6 +25,8 @@ export const projects: Project[] = [
       'Axe',
     ],
     githubUrl: 'https://github.com/mariana-martins/FitMySpace',
+    storybookUrl:
+      'https://mariana-martins.github.io/FitMySpace/?path=/story/design-system-introduction--welcome',
     caseStudyPath: PATHS.fitMySpace,
   },
   {

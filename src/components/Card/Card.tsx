@@ -22,7 +22,6 @@ const cardVariants: Record<CardVariant, string> = {
   interactive: cn(
     'bg-soft',
     'border border-soft',
-    'cursor-pointer',
     'hover:border-pink/70 dark:hover:border-blue-100/70',
     'hover:bg-warm-100/70 dark:hover:bg-indigo-50/40',
     'hover:shadow-[0_4px_20px] hover:shadow-pink/20',

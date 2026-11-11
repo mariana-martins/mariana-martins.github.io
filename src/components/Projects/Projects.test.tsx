@@ -36,18 +36,14 @@ describe('Projects', () => {
   it('renders project links with correct hrefs', () => {
     render(<Projects />);
 
-    const contactAppLink = screen.getByRole('link', {
-      name: /^Contact App/i,
-    });
-    expect(contactAppLink).toHaveAttribute(
-      'href',
-      'https://github.com/mariana-martins/contact-app',
-    );
-
-    const huskyRescueLink = screen.getByRole('link', {
-      name: /^Husky Rescue Org\. Website/i,
-    });
-    expect(huskyRescueLink).toHaveAttribute(
+    expect(
+      screen.getByRole('link', { name: /^Code on GitHub for Contact App/ }),
+    ).toHaveAttribute('href', 'https://github.com/mariana-martins/contact-app');
+    expect(
+      screen.getByRole('link', {
+        name: /^Code on GitHub for Husky Rescue Org\. Website/,
+      }),
+    ).toHaveAttribute(
       'href',
       'https://github.com/mariana-martins/husky-rescue',
     );
@@ -65,17 +61,25 @@ describe('Projects', () => {
     });
   });
 
-  it('names each project link after its title', () => {
+  it('starts each link name with its visible label, then the project', () => {
     render(<Projects />);
 
     expect(
-      screen.getByRole('link', { name: /^Contact App/i }),
-    ).toBeInTheDocument();
-    expect(
       screen.getByRole('link', {
-        name: /^Husky Rescue Org\. Website/i,
+        name: 'Code on GitHub for Contact App (opens in a new tab)',
       }),
     ).toBeInTheDocument();
+  });
+
+  it('leaves the title as a heading, not a link', () => {
+    render(<Projects />);
+
+    expect(
+      screen.getByRole('heading', { level: 3, name: 'Contact App' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: /^Contact App/ }),
+    ).not.toBeInTheDocument();
   });
 
   it('renders technologies/Tags for each project', () => {
@@ -101,7 +105,40 @@ describe('Projects', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('opens the case study when a project has one, with the code as a second link', () => {
+  it('says "Read the case study" when a project has one, with Storybook and code as extra links', () => {
+    render(
+      <ProjectCard
+        project={{
+          id: 'case',
+          title: 'Case Project',
+          description: 'A project with a write-up.',
+          technologies: ['React'],
+          githubUrl: 'https://github.com/example/case',
+          storybookUrl: 'https://example.github.io/case/',
+          caseStudyPath: '/projects/case/',
+        }}
+        isFeatured
+      />,
+    );
+
+    const cta = screen.getByRole('link', {
+      name: 'Read the case study of Case Project',
+    });
+    expect(cta).toHaveAttribute('href', '/projects/case/');
+    expect(cta).not.toHaveAttribute('target');
+    expect(
+      screen.getByRole('link', {
+        name: 'Live Storybook for Case Project (opens in a new tab)',
+      }),
+    ).toHaveAttribute('href', 'https://example.github.io/case/');
+    expect(
+      screen.getByRole('link', {
+        name: 'Code on GitHub for Case Project (opens in a new tab)',
+      }),
+    ).toHaveAttribute('href', 'https://github.com/example/case');
+  });
+
+  it('leaves out the Storybook link when a project has none', () => {
     render(
       <ProjectCard
         project={{
@@ -116,14 +153,9 @@ describe('Projects', () => {
       />,
     );
 
-    const title = screen.getByRole('link', {
-      name: /^Case Project\s*, case study$/,
-    });
-    expect(title).toHaveAttribute('href', '/projects/case/');
-    expect(title).not.toHaveAttribute('target');
     expect(
-      screen.getByRole('link', { name: /Code on GitHub for Case Project/ }),
-    ).toHaveAttribute('href', 'https://github.com/example/case');
+      screen.queryByRole('link', { name: /Live Storybook/ }),
+    ).not.toBeInTheDocument();
   });
 
   it('links to how this site was built', () => {

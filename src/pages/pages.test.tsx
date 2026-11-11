@@ -106,6 +106,61 @@ describe('Fit My Space case study', () => {
   });
 });
 
+describe('Fit My Space links', () => {
+  it('opens the live Storybook in a new tab', () => {
+    render(
+      <ThemeProvider>
+        <FitMySpacePage />
+      </ThemeProvider>,
+    );
+
+    const link = screen.getByRole('link', {
+      name: 'Explore the live Storybook (opens in a new tab)',
+    });
+    expect(link).toHaveAttribute(
+      'href',
+      expect.stringContaining('mariana-martins.github.io/FitMySpace/'),
+    );
+    expect(link).toHaveAttribute('target', '_blank');
+  });
+});
+
+describe('Fit My Space guardrails', () => {
+  it('pairs each design system rule with the check that enforces it', () => {
+    render(
+      <ThemeProvider>
+        <FitMySpacePage />
+      </ThemeProvider>,
+    );
+
+    const section = screen
+      .getByRole('heading', { name: 'Rules the pipeline enforces' })
+      .closest('section');
+    expect(section).not.toBeNull();
+    const rules = within(section as HTMLElement).getAllByRole('heading', {
+      level: 3,
+    });
+    expect(rules).toHaveLength(4);
+  });
+});
+
+describe('Fit My Space last updated', () => {
+  it('prints the date as day, month and year, with a machine-readable copy', () => {
+    render(
+      <ThemeProvider>
+        <FitMySpacePage />
+      </ThemeProvider>,
+    );
+
+    const date = screen.getByText(/^\d{1,2} [A-Z][a-z]+ \d{4}$/);
+    expect(date.tagName).toBe('TIME');
+    expect(date).toHaveAttribute(
+      'dateTime',
+      expect.stringMatching(/^\d{4}-\d{2}-\d{2}$/),
+    );
+  });
+});
+
 describe('Fit My Space status', () => {
   it('says the project is still in progress', () => {
     render(

@@ -34,7 +34,7 @@ test.describe('before JavaScript runs', () => {
       page.getByText('Frontend & Design Engineer').first(),
     ).toBeVisible();
     await expect(
-      page.getByRole('link', { name: /^Fit My Space/ }),
+      page.getByRole('link', { name: 'Read the case study of Fit My Space' }),
     ).toBeVisible();
   });
 
