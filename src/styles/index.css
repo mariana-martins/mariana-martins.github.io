@@ -201,10 +201,7 @@
     --dashed-border-opacity: 0.6;
     --dashed-border-width: 3px;
     --dashed-border-spacing: 2rem;
-  }
-
-  /* Scrollbars and form controls follow the site theme */
-  :root {
+    /* Scrollbars and form controls follow the site theme */
     color-scheme: light;
   }
 

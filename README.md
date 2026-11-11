@@ -32,7 +32,7 @@ Personal site of a Frontend & Design Engineer in Melbourne.
 | UI      | React 19, TypeScript 6, Tailwind CSS 4, Radix Primitives |
 | Build   | Vite 8, prerendering with `react-dom/server`             |
 | Tests   | Jest, Testing Library, jest-axe, Playwright, axe-core    |
-| Quality | ESLint, Prettier, Husky                                  |
+| Quality | ESLint, Stylelint, Prettier, Husky                       |
 | Hosting | GitHub Pages, deployed by GitHub Actions                 |
 
 ## Getting started
@@ -53,11 +53,12 @@ npm run dev
 | `npm run preview`       | Serve the production build                               |
 | `npm test`              | Unit and component tests                                 |
 | `npm run test:e2e`      | Build, then run the Playwright suite                     |
-| `npm run build:check`   | Type-check, lint and unit tests                          |
+| `npm run build:check`   | Type-check, lint (TS and CSS) and unit tests             |
 | `npm run size`          | Gzipped size budget for a first visit (run after build)  |
 | `npm run snippets`      | Regenerate the highlighted code samples (Shiki)          |
 | `npm run social-images` | Regenerate the link preview and home-screen icon         |
 | `npm run lint`          | ESLint                                                   |
+| `npm run lint:css`      | Stylelint                                                |
 | `npm run format`        | Prettier                                                 |
 
 ## How it fits together
@@ -92,9 +93,11 @@ Conventions for people and coding agents are in [AGENTS.md](AGENTS.md)
 
 ## Deployment
 
-Every push to `master` runs `.github/workflows/deploy.yml`: checks, build,
-size budget and the Playwright suite, then publishes `dist/` to the
-`gh-pages` branch.
+Every pull request and every push to `master` runs `.github/workflows/ci.yml`:
+formatting, ESLint, Stylelint, types and unit tests in one job; build, size
+budgets and the Playwright suite in another. When CI passes on `master`,
+`.github/workflows/deploy.yml` builds that commit and publishes `dist/` to the
+`gh-pages` branch. It can also be run by hand to republish.
 
 ## License
 

@@ -45,9 +45,9 @@ updates:
   # ----------------------------------------------------------------------
   # GitHub Actions
   #
-  # deploy.yml pins actions/checkout, actions/setup-node and
-  # peaceiris/actions-gh-pages. Nothing watched these before, so a pinned
-  # major could go stale without anything saying so.
+  # ci.yml and deploy.yml pin actions/checkout, actions/setup-node,
+  # actions/upload-artifact and peaceiris/actions-gh-pages. Nothing watched
+  # these before, so a pinned major could go stale without anything saying so.
   # ----------------------------------------------------------------------
   - package-ecosystem: github-actions
     directory: /

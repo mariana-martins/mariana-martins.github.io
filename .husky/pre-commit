@@ -21,6 +21,15 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# Run Stylelint on the CSS
+echo "🎨 Running Stylelint to check the CSS..."
+npm run lint:css
+
+if [ $? -ne 0 ]; then
+  echo "❌ Stylelint found errors. Please fix them before committing."
+  exit 1
+fi
+
 # Run tests
 echo "🧪 Running tests..."
 npm run test:ci

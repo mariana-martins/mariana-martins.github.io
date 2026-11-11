@@ -90,11 +90,13 @@ Playwright specs import `test` from `e2e/fixtures.ts`, which blocks it.
 
 ## Checks
 
-- `npm run build:check`: types, lint and unit tests.
+- `npm run build:check`: types, ESLint, Stylelint and unit tests.
 - `npm run test:e2e`: builds, then measures contrast, focus, overflow and
   hydration in a real browser, on desktop and mobile. Run it for any visual or
   accessibility change: jsdom never sees colour.
 - `npm run size`: the gzipped budgets for HTML, JavaScript, CSS and fonts.
+- CI (`.github/workflows/ci.yml`) runs all of the above on every pull request;
+  the site deploys only after CI passes on `master`.
 
 ## Git
 
