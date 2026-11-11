@@ -18,10 +18,11 @@
     "size": "node scripts/check-bundle-size.mjs",
     "lint": "eslint . --config config/eslint.config.js --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --config config/eslint.config.js --fix",
+    "lint:css": "stylelint \"src/**/*.css\" --config config/stylelint.config.mjs",
     "format": "prettier --write . --config config/.prettierrc",
     "format:check": "prettier --check . --config config/.prettierrc",
     "type-check": "tsc --noEmit",
-    "build:check": "npm run type-check && npm run lint && npm run test:ci",
+    "build:check": "npm run type-check && npm run lint && npm run lint:css && npm run test:ci",
     "prepare": "husky"
   },
   "repository": {
@@ -75,6 +76,9 @@
     "jest-environment-jsdom": "^30.5.2",
     "prettier": "^3.9.10",
     "shiki": "^4.6.0",
+    "stylelint": "^18.0.0",
+    "stylelint-config-recommended": "^19.0.0",
+    "stylelint-value-no-unknown-custom-properties": "^6.1.1",
     "tailwindcss": "^4.3.3",
     "ts-jest": "^29.4.15",
     "typescript": "^6.0.3",

@@ -1,61 +1,44 @@
 name: Deploy to GitHub Pages
 
+# Starts when CI finishes on master and publishes only if every CI job passed.
+# Run it by hand to republish master without a new commit.
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [master]
-  pull_request:
-    branches: [master]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write # push the build to the gh-pages branch
+
+# One deployment at a time. A newer run waits instead of cancelling one that is mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUSKY: 0
 
 jobs:
-  build-and-deploy:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push')
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v7
+        with:
+          # The commit CI tested, not whatever master points to now
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check types, lint and unit tests
-        run: npm run build:check
-
-      - name: Check formatting
-        run: npm run format:check
-
-      - name: Build
-        run: npm run build
-
-      - name: Check initial download size
-        run: npm run size
-
-      # Contrast and focus visibility need a real browser; jsdom cannot see them
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
-
-      - name: Run accessibility tests in the browser
-        run: npx playwright test
-
-      - name: Upload Playwright traces
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-results
-          path: test-results
-          retention-days: 7
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/master'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
