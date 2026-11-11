@@ -5,6 +5,7 @@ export interface Project {
   summary?: string;
   technologies: string[];
   githubUrl?: string;
+  storybookUrl?: string;
   caseStudyPath?: string;
 }
 
@@ -137,6 +138,14 @@ export interface RenderingMode {
   how: string;
 }
 
+export type GuardrailId = 'tiers' | 'contrast' | 'tokens' | 'axe';
+
+export interface Guardrail {
+  id: GuardrailId;
+  rule: string;
+  check: Paragraph;
+}
+
 export interface CaseStudySection {
   id: string;
   title: string;
@@ -150,7 +159,10 @@ export interface FitMySpaceCaseStudy {
   status: { label: string; text: string };
   role: string;
   builtWith: string;
+  /** ISO date, e.g. 2026-11-11 */
+  updated: string;
   githubUrl: string;
+  storybookUrl: string;
   figmaUrl: string;
   tokens: CaseStudySection & {
     steps: TokenStep[];
@@ -160,7 +172,9 @@ export interface FitMySpaceCaseStudy {
   types: CaseStudySection & {
     codeCaption: string;
     states: { caption: string; images: FigureImage[] };
+    field: { paragraphs: Paragraph[]; caption: string; image: FigureImage };
   };
+  guardrails: CaseStudySection & { checks: Guardrail[] };
   rendering: CaseStudySection & { modes: RenderingMode[] };
   quality: CaseStudySection & { stats: Stat[] };
 }

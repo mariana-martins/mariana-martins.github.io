@@ -12,14 +12,99 @@ import {
 } from '@components/Article/Article';
 import { ButtonLink } from '@components/ButtonLink/ButtonLink';
 import { PageShell } from '@components/PageShell/PageShell';
-import { ArrowDown, ExternalLink } from 'lucide-react';
+import {
+  Accessibility,
+  ArrowDown,
+  Braces,
+  Contrast,
+  ExternalLink,
+  Layers,
+  type LucideIcon,
+} from 'lucide-react';
 
 import { PROJECTS_CRUMB } from '@/constants';
 import { fitMySpace } from '@/data/pages/fitMySpace';
 import { buttonTypes, tokenOutputs } from '@/data/pages/snippets.generated';
 import { cn } from '@/lib/cn';
+import type { Guardrail, GuardrailId } from '@/types';
 
-const { tokens, types, rendering, quality } = fitMySpace;
+const { tokens, types, guardrails, rendering, quality } = fitMySpace;
+
+// UTC, so the server and the browser print the same day
+const UPDATED_FORMAT = new Intl.DateTimeFormat('en-AU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const guardrailIcons: Record<GuardrailId, { icon: LucideIcon; tile: string }> =
+  {
+    tiers: { icon: Layers, tile: 'bg-blue-50' },
+    contrast: { icon: Contrast, tile: 'bg-warm-400' },
+    tokens: { icon: Braces, tile: 'bg-green-50' },
+    axe: { icon: Accessibility, tile: 'bg-purple-50' },
+  };
+
+function GuardrailCards({
+  checks,
+}: {
+  checks: Guardrail[];
+}): React.JSX.Element {
+  return (
+    <ul className="grid gap-3 md:grid-cols-2">
+      {checks.map(({ id, rule, check }) => {
+        const { icon: Icon, tile } = guardrailIcons[id];
+        return (
+          <li
+            key={id}
+            className="flex flex-col gap-3 p-5 rounded-xl bg-soft border border-soft"
+          >
+            <div className="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                className={cn(
+                  'grid place-items-center size-11 shrink-0 rounded-xl text-text-primary',
+                  tile,
+                )}
+              >
+                <Icon size={22} strokeWidth={1.75} />
+              </span>
+              <h3 className="font-semibold text-base/6 text-balance">{rule}</h3>
+            </div>
+            <p className="text-sm/6">
+              <InlineText text={check} />
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function NoteCards({
+  notes,
+  className,
+}: {
+  notes: Array<{ title: string; text: string }>;
+  className?: string;
+}): React.JSX.Element {
+  return (
+    <ul className={cn('grid gap-3', className)}>
+      {notes.map(({ title, text }) => (
+        <li
+          key={title}
+          className="flex flex-col gap-1 p-4 rounded-xl bg-soft border border-soft"
+        >
+          <p className="font-medium">{title}</p>
+          <p className="text-sm/6">
+            <InlineText text={text} />
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 function TokenFlow(): React.JSX.Element {
   return (
@@ -88,12 +173,28 @@ export default function FitMySpacePage(): React.JSX.Element {
             <dd>{fitMySpace.role}</dd>
             <dt className="font-medium">Built with</dt>
             <dd>{fitMySpace.builtWith}</dd>
+            <dt className="font-medium">Last updated</dt>
+            <dd>
+              <time dateTime={fitMySpace.updated}>
+                {UPDATED_FORMAT.format(new Date(fitMySpace.updated))}
+              </time>
+            </dd>
           </dl>
           <div className="flex flex-wrap gap-3 pt-2">
+            <ButtonLink
+              href={fitMySpace.storybookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              icon={ExternalLink}
+            >
+              Explore the live Storybook
+              <span className="sr-only"> (opens in a new tab)</span>
+            </ButtonLink>
             <ButtonLink
               href={fitMySpace.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
+              variant="secondary"
               icon={ExternalLink}
             >
               View the code on GitHub
@@ -128,25 +229,27 @@ export default function FitMySpacePage(): React.JSX.Element {
             caption={types.states.caption}
             images={types.states.images}
           />
+          <Paragraphs paragraphs={types.field.paragraphs} />
+          <ImageFigure
+            caption={types.field.caption}
+            images={[types.field.image]}
+          />
+        </ArticleSection>
+
+        <ArticleSection id={guardrails.id} title={guardrails.title}>
+          <Paragraphs paragraphs={guardrails.paragraphs} />
+          <GuardrailCards checks={guardrails.checks} />
         </ArticleSection>
 
         <ArticleSection id={rendering.id} title={rendering.title}>
           <Paragraphs paragraphs={rendering.paragraphs} />
-          <ul className="grid gap-3 md:grid-cols-3">
-            {rendering.modes.map(({ page, how }) => (
-              <li
-                key={page}
-                className={cn(
-                  'flex flex-col gap-1 p-4 rounded-xl',
-                  'bg-soft',
-                  'border border-soft',
-                )}
-              >
-                <p className="font-medium">{page}</p>
-                <p className="text-sm/6">{how}</p>
-              </li>
-            ))}
-          </ul>
+          <NoteCards
+            notes={rendering.modes.map(({ page, how }) => ({
+              title: page,
+              text: how,
+            }))}
+            className="md:grid-cols-3"
+          />
         </ArticleSection>
 
         <ArticleSection id={quality.id} title={quality.title}>

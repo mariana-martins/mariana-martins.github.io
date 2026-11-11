@@ -74,7 +74,7 @@ export function FlipCard({
           asChild
           variant="interactive"
           className={cn(
-            'absolute inset-0 w-full min-h-[230px]',
+            'absolute inset-0 w-full min-h-[230px] cursor-pointer',
             'flex flex-col items-center justify-center gap-4',
             'backface-hidden',
           )}

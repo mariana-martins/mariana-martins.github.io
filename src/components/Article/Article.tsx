@@ -176,10 +176,7 @@ export function ImageFigure({
             width={image.width}
             height={image.height}
             loading="lazy"
-            className={cn(
-              'block max-w-full h-auto',
-              images.length === 1 && 'w-full',
-            )}
+            className="block max-w-full h-auto"
           />
         ))}
       </div>

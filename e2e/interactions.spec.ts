@@ -54,9 +54,7 @@ test.describe("Margot's Picks code", () => {
 });
 
 test.describe('featured project card', () => {
-  test('opens the case study from anywhere on the card, the arrow included', async ({
-    page,
-  }) => {
+  test('only navigates from its links, not the card', async ({ page }) => {
     await page.goto('/');
     const title = page.locator('#project-fit-my-space-title');
     const card = title.locator(
@@ -68,9 +66,31 @@ test.describe('featured project card', () => {
       throw new Error('Featured card is not on screen');
     }
 
-    // Bottom-right corner, where the arrow sits beside "Code on GitHub"
-    await page.mouse.click(box.x + box.width - 30, box.y + box.height - 30);
+    // The description, away from the links
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 3);
+    await expect(page).toHaveURL(/\/$/);
+    expect(await card.evaluate((el) => getComputedStyle(el).cursor)).toBe(
+      'auto',
+    );
+  });
+
+  test('opens the case study from its button', async ({ page }) => {
+    await page.goto('/');
+    await page
+      .getByRole('link', { name: 'Read the case study of Fit My Space' })
+      .click();
     await expect(page).toHaveURL(/\/projects\/fit-my-space\/$/);
+  });
+
+  test('opens the live Storybook from its own link', async ({ page }) => {
+    await page.goto('/');
+    const popup = page.waitForEvent('popup');
+    await page
+      .getByRole('link', { name: /Live Storybook for Fit My Space/ })
+      .click();
+    expect((await popup).url()).toContain(
+      'mariana-martins.github.io/FitMySpace/',
+    );
   });
 
   test('still opens GitHub from its own link', async ({ page }) => {
@@ -131,7 +151,7 @@ test.describe('stat cards', () => {
       await expect(number).toHaveText('0');
 
       await number.scrollIntoViewIfNeeded();
-      await expect(number).toHaveText('41');
+      await expect(number).toHaveText('49');
     });
   });
 });
