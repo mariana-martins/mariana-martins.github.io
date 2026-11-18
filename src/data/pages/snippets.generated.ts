@@ -98,11 +98,8 @@ export const buttonTypes: CodeLine[] = [
     ['"sm"', '#A5D6FF'],
     [' ', '#E6EDF3'],
     ['icon', '#79C0FF'],
-    ['={', '#FF7B72'],
-    ['<', '#E6EDF3'],
-    ['Trash2', '#7EE787'],
-    [' />', '#E6EDF3'],
-    ['}', '#FF7B72'],
+    ['=', '#FF7B72'],
+    ['"trash-2"', '#A5D6FF'],
     [' />', '#E6EDF3'],
   ],
   [],
@@ -124,11 +121,8 @@ export const buttonTypes: CodeLine[] = [
     ['"sm"', '#A5D6FF'],
     [' ', '#E6EDF3'],
     ['icon', '#79C0FF'],
-    ['={', '#FF7B72'],
-    ['<', '#E6EDF3'],
-    ['Trash2', '#7EE787'],
-    [' />', '#E6EDF3'],
-    ['}', '#FF7B72'],
+    ['=', '#FF7B72'],
+    ['"trash-2"', '#A5D6FF'],
   ],
   [
     ['  ', '#E6EDF3'],
@@ -141,17 +135,17 @@ export const buttonTypes: CodeLine[] = [
 
 export const tokenOutputs: CodeLine[] = [
   [
-    ['--ds-color-sage-700', '#FFA657'],
+    ['--ds-colour-sage-700', '#FFA657'],
     [': ', '#E6EDF3'],
     ['#335f3f', '#79C0FF'],
     [';', '#E6EDF3'],
   ],
   [
-    ['--ds-semantic-color-background-brand-base', '#FFA657'],
+    ['--ds-semantic-colour-background-brand-base', '#FFA657'],
     [': ', '#E6EDF3'],
     ['var', '#79C0FF'],
     ['(', '#E6EDF3'],
-    ['--ds-color-sage-700', '#FFA657'],
+    ['--ds-colour-sage-700', '#FFA657'],
     [');', '#E6EDF3'],
   ],
   [
@@ -159,7 +153,7 @@ export const tokenOutputs: CodeLine[] = [
     [': ', '#E6EDF3'],
     ['var', '#79C0FF'],
     ['(', '#E6EDF3'],
-    ['--ds-semantic-color-background-brand-base', '#FFA657'],
+    ['--ds-semantic-colour-background-brand-base', '#FFA657'],
     [');', '#E6EDF3'],
   ],
   [

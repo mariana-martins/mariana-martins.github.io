@@ -27,17 +27,17 @@ type ButtonIconOnly = ButtonBaseProps & {
 export type ButtonProps = ButtonWithChildren | ButtonIconOnly;
 
 // ✗ Type error: property 'aria-label' is missing
-<Button variant="secondary" appearance="outline" size="sm" icon={<Trash2 />} />
+<Button variant="secondary" appearance="outline" size="sm" icon="trash-2" />
 
 // ✓ Compiles
-<Button variant="secondary" appearance="outline" size="sm" icon={<Trash2 />}
+<Button variant="secondary" appearance="outline" size="sm" icon="trash-2"
   aria-label="Remove from list" />`;
 
 // From FitMySpace: the generated tokens.css and Button.module.css
 const TOKEN_OUTPUTS = [
-  '--ds-color-sage-700: #335f3f;',
-  '--ds-semantic-color-background-brand-base: var(--ds-color-sage-700);',
-  '--ds-component-button-primary-fill-background-default: var(--ds-semantic-color-background-brand-base);',
+  '--ds-colour-sage-700: #335f3f;',
+  '--ds-semantic-colour-background-brand-base: var(--ds-colour-sage-700);',
+  '--ds-component-button-primary-fill-background-default: var(--ds-semantic-colour-background-brand-base);',
   '.fill-primary { background-color: var(--ds-component-button-primary-fill-background-default); }',
 ];
 

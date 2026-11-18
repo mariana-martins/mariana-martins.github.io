@@ -13,10 +13,10 @@ import {
 import { ButtonLink } from '@components/ButtonLink/ButtonLink';
 import { PageShell } from '@components/PageShell/PageShell';
 import {
-  Accessibility,
   ArrowDown,
   Braces,
   Contrast,
+  DoorClosed,
   ExternalLink,
   Layers,
   type LucideIcon,
@@ -26,9 +26,9 @@ import { PROJECTS_CRUMB } from '@/constants';
 import { fitMySpace } from '@/data/pages/fitMySpace';
 import { buttonTypes, tokenOutputs } from '@/data/pages/snippets.generated';
 import { cn } from '@/lib/cn';
-import type { Guardrail, GuardrailId } from '@/types';
+import type { CaseStudyNote, Guardrail, GuardrailId } from '@/types';
 
-const { tokens, types, guardrails, rendering, quality } = fitMySpace;
+const { decisions, tokens, types, guardrails, quality } = fitMySpace;
 
 // UTC, so the server and the browser print the same day
 const UPDATED_FORMAT = new Intl.DateTimeFormat('en-AU', {
@@ -43,7 +43,7 @@ const guardrailIcons: Record<GuardrailId, { icon: LucideIcon; tile: string }> =
     tiers: { icon: Layers, tile: 'bg-blue-50' },
     contrast: { icon: Contrast, tile: 'bg-warm-400' },
     tokens: { icon: Braces, tile: 'bg-green-50' },
-    axe: { icon: Accessibility, tile: 'bg-purple-50' },
+    imports: { icon: DoorClosed, tile: 'bg-purple-50' },
   };
 
 function GuardrailCards({
@@ -82,15 +82,9 @@ function GuardrailCards({
   );
 }
 
-function NoteCards({
-  notes,
-  className,
-}: {
-  notes: Array<{ title: string; text: string }>;
-  className?: string;
-}): React.JSX.Element {
+function NoteCards({ notes }: { notes: CaseStudyNote[] }): React.JSX.Element {
   return (
-    <ul className={cn('grid gap-3', className)}>
+    <ul className="grid gap-3 md:grid-cols-2">
       {notes.map(({ title, text }) => (
         <li
           key={title}
@@ -213,6 +207,11 @@ export default function FitMySpacePage(): React.JSX.Element {
           </div>
         </ArticleHeader>
 
+        <ArticleSection id={decisions.id} title={decisions.title}>
+          <Paragraphs paragraphs={decisions.paragraphs} />
+          <NoteCards notes={decisions.records} />
+        </ArticleSection>
+
         <ArticleSection id={tokens.id} title={tokens.title}>
           <Paragraphs paragraphs={tokens.paragraphs} />
           <TokenFlow />
@@ -239,17 +238,6 @@ export default function FitMySpacePage(): React.JSX.Element {
         <ArticleSection id={guardrails.id} title={guardrails.title}>
           <Paragraphs paragraphs={guardrails.paragraphs} />
           <GuardrailCards checks={guardrails.checks} />
-        </ArticleSection>
-
-        <ArticleSection id={rendering.id} title={rendering.title}>
-          <Paragraphs paragraphs={rendering.paragraphs} />
-          <NoteCards
-            notes={rendering.modes.map(({ page, how }) => ({
-              title: page,
-              text: how,
-            }))}
-            className="md:grid-cols-3"
-          />
         </ArticleSection>
 
         <ArticleSection id={quality.id} title={quality.title}>

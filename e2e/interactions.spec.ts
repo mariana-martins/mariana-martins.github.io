@@ -143,7 +143,7 @@ test.describe('stat cards', () => {
       await page.goto('/projects/fit-my-space/');
       // The visible number sits beside the hidden copy that holds its width
       const number = page
-        .getByText('test suites', { exact: true })
+        .getByText('unit and integration tests', { exact: true })
         .locator('xpath=ancestor::li[1]')
         .locator('[aria-hidden="true"] + span');
 
@@ -151,7 +151,7 @@ test.describe('stat cards', () => {
       await expect(number).toHaveText('0');
 
       await number.scrollIntoViewIfNeeded();
-      await expect(number).toHaveText('49');
+      await expect(number).toHaveText('1,287');
     });
   });
 });

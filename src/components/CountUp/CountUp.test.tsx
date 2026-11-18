@@ -7,10 +7,26 @@ import { formatCountValue, parseCountValue } from './countValue';
 
 describe('parseCountValue', () => {
   it.each([
-    ['100 kB', { prefix: '', target: 100, decimals: 0, suffix: ' kB' }],
-    ['97+', { prefix: '', target: 97, decimals: 0, suffix: '+' }],
-    ['5.5:1', { prefix: '', target: 5.5, decimals: 1, suffix: ':1' }],
-    ['292', { prefix: '', target: 292, decimals: 0, suffix: '' }],
+    [
+      '100 kB',
+      { prefix: '', target: 100, decimals: 0, grouped: false, suffix: ' kB' },
+    ],
+    [
+      '97+',
+      { prefix: '', target: 97, decimals: 0, grouped: false, suffix: '+' },
+    ],
+    [
+      '5.5:1',
+      { prefix: '', target: 5.5, decimals: 1, grouped: false, suffix: ':1' },
+    ],
+    [
+      '292',
+      { prefix: '', target: 292, decimals: 0, grouped: false, suffix: '' },
+    ],
+    [
+      '1,287',
+      { prefix: '', target: 1287, decimals: 0, grouped: true, suffix: '' },
+    ],
   ])('splits %s into number and text', (value, expected) => {
     expect(parseCountValue(value)).toEqual(expected);
   });
@@ -23,6 +39,12 @@ describe('parseCountValue', () => {
   it('formats with the original decimals', () => {
     const parsed = parseCountValue('5.5:1');
     expect(parsed && formatCountValue(parsed, 2.345)).toBe('2.3:1');
+  });
+
+  it('keeps the thousands separator while counting', () => {
+    const parsed = parseCountValue('1,287');
+    expect(parsed && formatCountValue(parsed, 1050.4)).toBe('1,050');
+    expect(parsed && formatCountValue(parsed, 999)).toBe('999');
   });
 });
 
