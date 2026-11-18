@@ -98,7 +98,7 @@ describe('Fit My Space case study', () => {
       .getAllByRole('listitem')
       .map((item) => item.textContent);
     expect(steps).toHaveLength(4);
-    expect(steps[0]).toContain('color.sage.700');
+    expect(steps[0]).toContain('colour.sage.700');
     expect(steps[0]).toContain('#335f3f');
     expect(steps[2]).toContain(
       'component.button.primary.fill.background.default',

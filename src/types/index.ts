@@ -133,12 +133,12 @@ export interface TokenStep {
   token: string;
 }
 
-export interface RenderingMode {
-  page: string;
-  how: string;
+export interface CaseStudyNote {
+  title: string;
+  text: Paragraph;
 }
 
-export type GuardrailId = 'tiers' | 'contrast' | 'tokens' | 'axe';
+export type GuardrailId = 'tiers' | 'contrast' | 'tokens' | 'imports';
 
 export interface Guardrail {
   id: GuardrailId;
@@ -164,6 +164,7 @@ export interface FitMySpaceCaseStudy {
   githubUrl: string;
   storybookUrl: string;
   figmaUrl: string;
+  decisions: CaseStudySection & { records: CaseStudyNote[] };
   tokens: CaseStudySection & {
     steps: TokenStep[];
     flowCaption: Paragraph;
@@ -175,7 +176,6 @@ export interface FitMySpaceCaseStudy {
     field: { paragraphs: Paragraph[]; caption: string; image: FigureImage };
   };
   guardrails: CaseStudySection & { checks: Guardrail[] };
-  rendering: CaseStudySection & { modes: RenderingMode[] };
   quality: CaseStudySection & { stats: Stat[] };
 }
 

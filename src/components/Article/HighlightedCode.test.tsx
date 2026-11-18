@@ -45,6 +45,6 @@ describe('HighlightedCode', () => {
       lines.map((line) => line.map(([part]) => part).join('')).join('\n');
 
     expect(text(buttonTypes)).toContain("'aria-label': string;");
-    expect(text(tokenOutputs)).toContain('--ds-color-sage-700: #335f3f;');
+    expect(text(tokenOutputs)).toContain('--ds-colour-sage-700: #335f3f;');
   });
 });

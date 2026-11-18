@@ -11,30 +11,56 @@ export const fitMySpace: FitMySpaceCaseStudy = {
   lead: 'A search engine for home organisation products across stores, filtered by room and by store, and the design system I am building for it.',
   status: {
     label: 'Work in progress',
-    text: 'The search app works end to end; the design system is what I am building now. Its tokens, typography and first components (Button, Input, TextField) are live in Storybook and Figma, more arrive with each release, and the app’s components move onto it next.',
+    text: 'The search app works end to end; the design system is what I am building now. At v0.7.0 it has 32 components and 22 patterns in Storybook, which is its source of truth; Figma holds the brand, the Button and the icons. Nothing in the app uses it yet: its components move onto it next, one at a time, in an order already written down.',
   },
   role: 'Design and frontend, end to end',
   builtWith:
     'Next.js, TypeScript, Tailwind CSS, TanStack Query, Zod, Radix Primitives, Style Dictionary, Storybook, Stylelint, GitHub Actions',
-  updated: '2026-11-11',
+  updated: '2026-11-18',
   githubUrl: 'https://github.com/mariana-martins/FitMySpace',
   storybookUrl:
     'https://mariana-martins.github.io/FitMySpace/?path=/story/design-system-introduction--welcome',
   figmaUrl:
     'https://www.figma.com/design/2vgKu1CEc6b79vwFHLYcFM/FitMySpace-Design-System?node-id=0-1',
+  decisions: {
+    id: 'decisions',
+    title: 'Decisions written down',
+    paragraphs: [
+      'A design system is mostly decisions, and a decision that lives in my head is lost the day I forget why. So the ones that outlive a pull request are Architecture Decision Records in the repository: what was decided, why, and what follows. A decision that changes gets a new record, and the old one stays.',
+      'The rest of the process is written down too. A breaking change gets a `BREAKING CHANGE:` footer and a migration note, and the old API keeps working, marked `@deprecated`, for one minor version. Every pull request answers “Breaking?”, release-it turns the conventional commits into a version and a changelog, and a Contributing & Accessibility page in Storybook gives the order to build a new component in, from tokens to patterns.',
+    ],
+    records: [
+      {
+        title: 'Code is the source of truth',
+        text: 'Storybook is where design review happens. Figma holds the brand and exploration and is not expected to mirror every component, so a gap there is a choice, not drift.',
+      },
+      {
+        title: 'A combobox written by hand',
+        text: 'Radix has no combobox, and a headless library would bring a second interaction model. So `Combobox` follows the WAI-ARIA list autocomplete pattern, with `aria-activedescendant` and the result count announced.',
+      },
+      {
+        title: 'Migrate one component at a time',
+        text: 'One legacy component is replaced across the whole app per pull request, simplest first, and deleted in the same pull request. The app is never half on two versions of one thing.',
+      },
+      {
+        title: 'Check the journeys before migrating',
+        text: 'Before the first migration pull request, Playwright tests will cover search, filters, pagination and the not-found page, with selectors on roles and names so they survive the swap.',
+      },
+    ],
+  },
   tokens: {
     id: 'tokens',
     title: 'Three tiers of tokens',
     paragraphs: [
       'In the design system every visual decision lives in a token, and references only point one way. Primitives say which values exist, semantic tokens say what a value is for, and component tokens are the component’s own API: what the primary button uses when it is hovered, focused or disabled. I followed Brad Frost’s methodology for the split.',
-      'Style Dictionary turns the three tiers of JSON into 731 CSS custom properties. Because it keeps each reference as a `var()`, changing what “brand” means is a one-line change in tier 2, and every component follows.',
-      'It also writes every token, with its resolved value, to a JSON file that the Storybook foundation pages are built from: colour, spacing, size, radii, borders, shadow, motion, focus and typography. The documentation cannot fall behind the tokens, because it is the tokens.',
+      'Style Dictionary turns the three tiers of JSON into 1,434 CSS custom properties. Because it keeps each reference as a `var()`, changing what “brand” means is a one-line change in tier 2, and every component follows.',
+      'It also writes every token, with its resolved value, to a JSON file that the Storybook foundation pages are built from: colour, spacing, size, radii, borders, shadow, layers, motion, focus and typography. The documentation cannot fall behind the tokens, because it is the tokens.',
     ],
     steps: [
-      { tier: 'Tier 1 · Primitive', token: 'color.sage.700' },
+      { tier: 'Tier 1 · Primitive', token: 'colour.sage.700' },
       {
         tier: 'Tier 2 · Semantic',
-        token: 'semantic.color.background.brand.base',
+        token: 'semantic.colour.background.brand.base',
       },
       {
         tier: 'Tier 3 · Component',
@@ -49,9 +75,9 @@ export const fitMySpace: FitMySpaceCaseStudy = {
         'Tier 1 in Storybook: the Sage palette, with the 700 that brand points at.',
       image: {
         src: sagePalette,
-        alt: 'Storybook page for the Sage brand palette: ten swatches from Sage 50 to Sage 900, light to dark green, each labelled with its CSS variable, from var(--ds-color-sage-50) to var(--ds-color-sage-900).',
-        width: 640,
-        height: 352,
+        alt: 'Storybook page for the Sage brand palette: ten swatches from Sage 50 to Sage 900, light to dark green, each labelled with its hex value and its CSS variable, from var(--ds-colour-sage-50) to var(--ds-colour-sage-900), with a button to copy the variable.',
+        width: 920,
+        height: 618,
       },
     },
   },
@@ -119,7 +145,7 @@ export const fitMySpace: FitMySpaceCaseStudy = {
         id: 'contrast',
         rule: 'Every state meets WCAG 2.2 AA contrast',
         check:
-          'A test resolves the Button, Input and TextField tokens to hex and checks each colour pair in every interactive state: 4.5:1 for text, 3:1 for borders and focus rings. It needs no browser, so it covers the hover and active states axe never sees.',
+          'A test resolves the colour tokens of 25 components to hex and checks each pair in every interactive state: 4.5:1 for text, 3:1 for borders and focus rings. It needs no browser, so it covers the hover and active states axe never sees.',
       },
       {
         id: 'tokens',
@@ -128,31 +154,10 @@ export const fitMySpace: FitMySpaceCaseStudy = {
           'A misspelled `var(--ds-…)` fails silently in the browser. Stylelint checks the CSS, a test checks the TypeScript and MDX, and `tokens:check` fails if tokens.css drifts from the JSON.',
       },
       {
-        id: 'axe',
-        rule: 'Every story passes axe',
+        id: 'imports',
+        rule: 'The app goes through one door',
         check:
-          'CI runs each story’s interaction tests and accessibility checks in a real browser, with violations set to fail the run.',
-      },
-    ],
-  },
-  rendering: {
-    id: 'rendering',
-    title: 'Rendering chosen per page',
-    paragraphs: [
-      'Each route renders the way its content changes. API responses are validated at runtime with Zod, and TanStack Query handles caching and loading states.',
-    ],
-    modes: [
-      {
-        page: 'Product details',
-        how: 'Server-rendered on each request (SSR), with dynamic routes per product.',
-      },
-      {
-        page: 'Recent arrivals',
-        how: 'Static, regenerated at most every 60 seconds (ISR).',
-      },
-      {
-        page: 'About',
-        how: 'Fully static (SSG): it only changes when I edit it.',
+          'ESLint rejects any import from inside the design system folder, so components can move without breaking the app, and only the icon registry may import Lucide.',
       },
     ],
   },
@@ -160,13 +165,13 @@ export const fitMySpace: FitMySpaceCaseStudy = {
     id: 'quality',
     title: 'Tested like a product',
     paragraphs: [
-      'jest-axe checks cover the atoms, molecules and organisms, and the not-found and error pages, alongside unit and integration tests with MSW standing in for the API. GitHub Actions runs them on every pull request, with formatting, linting, types, the Storybook tests and a production build.',
+      'jest-axe checks cover the design system components, the app’s components and its not-found and error pages, alongside unit and integration tests with MSW standing in for the API. In Storybook, every story is checked with axe in a real browser, alongside its interaction tests. GitHub Actions runs them all on every pull request, with formatting, linting, types, the token checks and a production build.',
     ],
     stats: [
-      { value: '600', label: 'unit and integration tests' },
-      { value: '49', label: 'test suites' },
-      { value: '731', label: 'generated CSS tokens' },
-      { value: '3', label: 'token tiers' },
+      { value: '1,287', label: 'unit and integration tests' },
+      { value: '308', label: 'Storybook interaction and axe tests' },
+      { value: '1,434', label: 'generated CSS tokens' },
+      { value: '32', label: 'components, in 22 patterns' },
     ],
   },
 };
